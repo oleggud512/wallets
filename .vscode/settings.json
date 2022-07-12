@@ -1,0 +1,5 @@
+{
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+    "editor.bracketPairColorization.enabled": false,
+    "cmake.configureOnOpen": false
+}

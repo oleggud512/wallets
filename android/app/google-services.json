@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608480446369",
+    "project_id": "wallets-53896",
+    "storage_bucket": "wallets-53896.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608480446369:android:cf06d1e3392df2d3c46de0",
+        "android_client_info": {
+          "package_name": "com.example.ads_pay_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608480446369-10cftci65j84e5kbckhp64nubbid3o7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1G035t1biJDKNb2o_ga4ljgu-ccokakQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608480446369-10cftci65j84e5kbckhp64nubbid3o7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
