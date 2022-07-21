@@ -118,9 +118,6 @@ class _WalletWidgetState extends State<WalletWidget> {
                     overflow: widget.isSelected
                         ? TextOverflow.clip
                         : TextOverflow.ellipsis,
-                    style: TextStyle(
-                      // color: Theme.of(context).colorScheme.onPrimary,
-                    )
                   ),
                   if (widget.isSelected) ...[
                     hgh(4),

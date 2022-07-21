@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ads_pay_app/ad_options.dart';
 import 'package:ads_pay_app/constants.dart';
 import 'package:ads_pay_app/models/account.dart';
+import 'package:ads_pay_app/pages/history_page.dart';
 import 'package:ads_pay_app/pages/login_page.dart';
 import 'package:ads_pay_app/pages/settings_page.dart';
 import 'package:ads_pay_app/pages/transaction_page.dart';
@@ -80,6 +81,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           if (snapshot.hasData) {
             account = snapshot.data!;
             configureCurWallet(account);
+            print('something comes from Accounts Stream');
             return buildWallets();
           }
           return const Center(child: CircularProgressIndicator());
@@ -111,32 +113,40 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
             ...account.wallets.map(
               (w) => ResponsiveGridCol(
                 xs: 6, sm: 4, md: 2, lg: 1, xl: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: ThemeService.defaultPadding,
-                    right: ThemeService.defaultPadding
-                  ),
-                  child: WalletWidget(
-                    wallet: w,
-                    onDelete: () async {
-                      bool? delete = await showYesNoDialog(
-                        context: context,
-                        message: 'Are you sure to delete this wallet?'
-                      );
-                      if (delete == true) {
-                        dbServ.deleteWallet(w.wid);
-                      }
-                    },
-                    onTap: () {
-                      setState(() {
-                        curWallet = w;
-                        closeBottomSheet();
-                      });
-                    },
-                    onHistoryButton: () {
-                      if (!openBottomSheet()) closeBottomSheet();
-                    },
-                    isSelected: curWallet!.wid == w.wid,
+                child: Hero(
+                  tag: 'history',
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: ThemeService.defaultPadding,
+                      right: ThemeService.defaultPadding
+                    ),
+                    child: WalletWidget(
+                      wallet: w,
+                      onDelete: () async {
+                        bool? delete = await showYesNoDialog(
+                          context: context,
+                          message: 'Are you sure to delete this wallet?'
+                        );
+                        if (delete == true) {
+                          dbServ.deleteWallet(w.wid);
+                        }
+                      },
+                      onTap: () {
+                        setState(() {
+                          curWallet = w;
+                          // closeBottomSheet();
+                        });
+                      },
+                      onHistoryButton: () {
+                        // if (!openBottomSheet()) closeBottomSheet();
+                        Navigator.push(context, 
+                          MaterialPageRoute(
+                            builder: (_) => HistoryPage(walletId: w.wid)
+                          )
+                        );
+                      },
+                      isSelected: curWallet!.wid == w.wid,
+                    ),
                   ),
                 ),
               )
@@ -146,75 +156,6 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       ),
     );
   }
-
-  Widget buildBottomSheet(context) => Card(
-    margin: const EdgeInsets.all(0),
-    elevation: 3,
-    color: themeServ.curThemeMode == ThemeMode.dark 
-      ? Theme.of(context).colorScheme.surface
-      : Colors.white,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    child: SizedBox(
-      height: MediaQuery.of(context).size.height / 2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          GestureDetector(
-            onTap: () {
-              closeBottomSheet();
-            },
-            child: Container(
-              height: 20,
-              color: themeServ.curThemeMode == ThemeMode.dark 
-                ? Theme.of(context).colorScheme.surface
-                : Colors.white ,
-              child: const Center(
-                child: Icon(Icons.keyboard_arrow_down, size: 15)
-              )
-            )
-          ),
-          Expanded(
-            child: ListView(
-              children: (curWallet != null) 
-                ? curWallet!.history.map(
-                  (hn) => HistoryNodeWidget(
-                    historyNode: hn,
-                    tags: account.tags,
-                    wid: curWallet!.wid
-                  )
-                ).toList() 
-                : []
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-
-  /// returns true if bottom sheet was closed successfuly
-  bool closeBottomSheet() {
-    if (isBottomSheetOpened) {
-      Navigator.pop(context);
-      isBottomSheetOpened = false;
-      return true;
-    } 
-    return false;
-  }
-  /// returns true if bottom sheet was opened successfuly
-  bool openBottomSheet() {
-    if (!isBottomSheetOpened) {
-      scaffoldKey.currentState!.showBottomSheet(buildBottomSheet)
-        .closed
-        .then((v) => isBottomSheetOpened = false);
-      isBottomSheetOpened = true;
-      return true;
-    }
-    return false;
-  }
-
-
 
   void configureCurWallet(Account account) {
     if (curWallet == null && account.wallets.isNotEmpty) {

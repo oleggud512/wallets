@@ -17,13 +17,15 @@ class HistoryNodeWidget extends StatefulWidget {
     Key? key,
     required this.historyNode, 
     required this.tags,
-    required this.wid
+    required this.wid,
+    required this.weirdCallback,
   }) : super(key: key);
   
   /// wallet id
   String wid;
   HistoryNode historyNode;
   List<Tag> tags;
+  Function() weirdCallback;
 
   @override
   State<HistoryNodeWidget> createState() => _HistoryNodeWidgetState();

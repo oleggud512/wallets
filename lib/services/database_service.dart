@@ -8,6 +8,7 @@ import '../models/wallet.dart';
 
 class DatabaseService {
   FirebaseDatabase db = FirebaseDatabase.instance;
+
   String? get uid => FirebaseAuth.instance.currentUser?.uid;
   DatabaseReference get userRef => db.ref('accounts/$uid');
 
@@ -24,6 +25,13 @@ class DatabaseService {
       (event) => event.snapshot.children.map(Tag.fromDataSnapshot).toList()
     );
   }
+
+  // Stream<List<HistoryNode>> getHistoryStream(String wid) {
+  //   return userRef.child('wallets/$wid/history').onValue.map(
+  //     (event) => event.snapshot.children
+  //       .map(HistoryNode.fromDataSnapshot).toList()
+  //   );
+  // }
 
   Future<void> addWallet(Wallet wallet) async {
     var walletRef = userRef.child('wallets')
@@ -73,8 +81,8 @@ class DatabaseService {
     userRef.child('wallets/$wid').remove();
   }
 
-  void deleteHistoryNode(String wid, HistoryNode historyNode) {
-    userRef.child('wallets/$wid/history/${historyNode.hid}').remove();
+  Future<void> deleteHistoryNode(String wid, HistoryNode historyNode) async {
+    await userRef.child('wallets/$wid/history/${historyNode.hid}').remove();
   }
 
   Future<void> deleteAccount() async {
