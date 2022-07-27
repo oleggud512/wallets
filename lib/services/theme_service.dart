@@ -69,8 +69,9 @@ class ThemeService extends ChangeNotifier {
     var appBarTheme = const AppBarTheme(
       
     );
+    var font = 'myExo2';
     lightTheme = ThemeData(
-      fontFamily: 'myProxima',
+      fontFamily: font,
       elevatedButtonTheme: elevatedButtonThemeData,
       textButtonTheme: textButtonThemeData,
       cardTheme: cardThemeData,
@@ -84,7 +85,7 @@ class ThemeService extends ChangeNotifier {
       )
     ); 
     darkTheme = ThemeData(
-      fontFamily: 'myProxima',
+      fontFamily: font,
       elevatedButtonTheme: elevatedButtonThemeData,
       textButtonTheme: textButtonThemeData,
       cardTheme: cardThemeData,

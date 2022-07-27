@@ -113,6 +113,13 @@ flutter:
           weight: 400
         - asset: fonts/proxima/pr-bold.otf
           weight: 700
+    
+    - family: myExo2
+      fonts:
+        - asset: fonts/exo2/Exo2-Regular.ttf
+          weight: 400
+        - asset: fonts/exo2/Exo2-Bold.ttf
+          weight: 700
 
 
 flutter_icons:
