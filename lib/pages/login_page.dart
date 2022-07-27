@@ -51,88 +51,91 @@ class _LoginPageState extends State<LoginPage> {
             resizeToAvoidBottomInset: true,
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Spacer(),
-                  SvgPicture.asset('assets/wallet.svg',
-                    height: 100,
-                    width: 100,
-                  ),
-                  hgh(30),
-                  TextField(
-                    focusNode: focus1,
-                    controller: email,
-                    decoration: const InputDecoration(
-                      hintText: 'email',
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 400,),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const Spacer(),
+                    SvgPicture.asset('assets/wallet1.svg',
+                      height: 70,
+                      width: 70,
                     ),
-                  ),
-                  hgh(defaultPadding),
-                  TextField(
-                    focusNode: focus2,
-                    controller: password,
-                    obscureText: obscureText,
-                    decoration: InputDecoration(
-                      hintText: 'password',
-                      suffixIcon: IconButton(
-                        icon: Icon(obscureText
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            obscureText = !obscureText;
-                          });
-                        },
+                    hgh(30),
+                    TextField(
+                      focusNode: focus1,
+                      controller: email,
+                      decoration: const InputDecoration(
+                        labelText: 'email',
+                      ),
+                    ),
+                    hgh(defaultPadding),
+                    TextField(
+                      focusNode: focus2,
+                      controller: password,
+                      obscureText: obscureText,
+                      decoration: InputDecoration(
+                        labelText: 'password',
+                        suffixIcon: IconButton(
+                          icon: Icon(obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
+                          },
+                        )
+                      ),
+                    ),
+                    hgh(15),
+                    ElevatedButton(
+                      onPressed: onSignIn,
+                      style: ElevatedButton.styleFrom(
+                        fixedSize: const Size.fromHeight(56),
+                      ),
+                      child: Text(
+                        widget.action == LoginAction.deleteUser
+                          ? 'Delete User'
+                          : isSignIn
+                            ? 'Sign In'
+                            : 'Register',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24
+                        )
                       )
                     ),
-                  ),
-                  hgh(15),
-                  ElevatedButton(
-                    onPressed: onSignIn,
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size.fromHeight(56),
-                    ),
-                    child: Text(
-                      widget.action == LoginAction.deleteUser
-                        ? 'Delete User'
-                        : isSignIn
-                          ? 'Sign In'
-                          : 'Register',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24
-                      )
-                    )
-                  ),
-                  const Spacer(),
-                  if (widget.action == LoginAction.newUser) Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: isSignIn ? 'Don\'t have an account yet? ' : 'Have an account? ',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurface
-                        ),
-                        children: [
-                          TextSpan(
-                            text: isSignIn ? 'Register' : 'Sign In',
-                            recognizer: TapGestureRecognizer()..onTap = () {
-                              setState(() {
-                                isSignIn = !isSignIn;
-                              });
-                            },
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.primary
+                    const Spacer(),
+                    if (widget.action == LoginAction.newUser) Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          text: isSignIn ? 'Don\'t have an account yet? ' : 'Have an account? ',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface
+                          ),
+                          children: [
+                            TextSpan(
+                              text: isSignIn ? 'Register' : 'Sign In',
+                              recognizer: TapGestureRecognizer()..onTap = () {
+                                setState(() {
+                                  isSignIn = !isSignIn;
+                                });
+                              },
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary
+                              )
                             )
-                          )
-                        ]
-                      )
-                    ),
-                  )
-                ]
+                          ]
+                        )
+                      ),
+                    )
+                  ]
+                ),
               ),
             ),
           ),

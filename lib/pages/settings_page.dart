@@ -29,12 +29,18 @@ class _SettingsPageState extends State<SettingsPage> {
     themeServ.setCurThemeMode(newThemeMode!);
   }
   
-  Radio<ThemeMode> buildThemeRadio(ThemeMode themeMode) {
-    return Radio<ThemeMode>(
-      activeColor: Theme.of(context).colorScheme.secondary,
-      value: themeMode,
-      groupValue: themeServ.curThemeMode,
-      onChanged: onThemeChanged
+  Widget buildThemeRadio(ThemeMode themeMode) {
+    return ListTile(
+      onTap: () {
+        onThemeChanged(themeMode);
+      },
+      leading: Radio<ThemeMode>(
+        activeColor: Theme.of(context).colorScheme.secondary,
+        value: themeMode,
+        groupValue: themeServ.curThemeMode,
+        onChanged: onThemeChanged
+      ),
+      title: Text('${themeMode.name.replaceFirst(themeMode.name[0], themeMode.name[0].toUpperCase())} theme')
     );
   }
   
@@ -45,58 +51,58 @@ class _SettingsPageState extends State<SettingsPage> {
         title: Text(authServ.auth.currentUser!.email!),
         centerTitle: true,
       ),
-      body: ListView(
+      body: Column(
         children: [
+          buildThemeRadio(ThemeMode.light),
+          buildThemeRadio(ThemeMode.dark),
+          buildThemeRadio(ThemeMode.system),
+          const Divider(),
           ListTile(
-            leading: buildThemeRadio(ThemeMode.light),
-            title: const Text('Light theme')
-          ),
-          ListTile(
-            leading: buildThemeRadio(ThemeMode.dark),
-            title: const Text('Dark theme')
-          ),
-          ListTile(
-            leading: buildThemeRadio(ThemeMode.system),
-            title: const Text('System theme')
+            enabled: authServ.auth.currentUser != null,
+            onTap: () async {
+              bool? isSignOut = await showYesNoDialog(
+                context: context,
+                message: 'Sign out?',
+              );
+              if (isSignOut == true && mounted) {
+                authServ.signOut().then((v) => Navigator.pop(context));
+              }
+            },
+            textColor: Theme.of(context).colorScheme.primary,
+            iconColor: Theme.of(context).colorScheme.primary,
+            leading: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Icon(Icons.logout),
+            ),
+            title: const Text('Sign out')
           ),
           ListTile(
             enabled: authServ.auth.currentUser != null,
-            title: TextButton(
-              child: const Text('Sign out'),
-              onPressed: () async {
-                bool? isSignOut = await showYesNoDialog(
-                  context: context,
-                  message: 'Sign Out?',
-                );
-                if (isSignOut == true && mounted) {
-                  authServ.signOut().then((v) => Navigator.pop(context));
-                }
-              },
-            )
-          ),
-          ListTile(
-            enabled: authServ.auth.currentUser != null,
-            title: TextButton(
-              child: const Text('Delete account'),
-              onPressed: () async {
-                bool? isDelete = await showYesNoDialog(
-                  context: context, 
-                  message: 'Delete account?'
-                );
-                if (isDelete == true && mounted) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const LoginPage(
-                        action: LoginAction.deleteUser,
-                      )
+            onTap: () async {
+              bool? isDelete = await showYesNoDialog(
+                context: context, 
+                message: 'Delete account?'
+              );
+              if (isDelete == true && mounted) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const LoginPage(
+                      action: LoginAction.deleteUser,
                     )
-                  ).then(
-                    (v) => Navigator.pop(context)
-                  );
-                }
-              },
-            )
+                  )
+                ).then(
+                  (v) => Navigator.pop(context)
+                );
+              }
+            },
+            textColor: Colors.red,
+            iconColor: Colors.red,
+            leading: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Icon(Icons.delete),
+            ),
+            title: const Text('Delete account'),
           ),
         ]
       )

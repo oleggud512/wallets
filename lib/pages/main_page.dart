@@ -112,41 +112,38 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           children: [
             ...account.wallets.map(
               (w) => ResponsiveGridCol(
-                xs: 6, sm: 4, md: 2, lg: 1, xl: 1,
-                child: Hero(
-                  tag: 'history',
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: ThemeService.defaultPadding,
-                      right: ThemeService.defaultPadding
-                    ),
-                    child: WalletWidget(
-                      wallet: w,
-                      onDelete: () async {
-                        bool? delete = await showYesNoDialog(
-                          context: context,
-                          message: 'Are you sure to delete this wallet?'
-                        );
-                        if (delete == true) {
-                          dbServ.deleteWallet(w.wid);
-                        }
-                      },
-                      onTap: () {
-                        setState(() {
-                          curWallet = w;
-                          // closeBottomSheet();
-                        });
-                      },
-                      onHistoryButton: () {
-                        // if (!openBottomSheet()) closeBottomSheet();
-                        Navigator.push(context, 
-                          MaterialPageRoute(
-                            builder: (_) => HistoryPage(walletId: w.wid)
-                          )
-                        );
-                      },
-                      isSelected: curWallet!.wid == w.wid,
-                    ),
+                xs: 6, sm: 4, md: 4, lg: 2, xl: 2,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: ThemeService.defaultPadding,
+                    right: ThemeService.defaultPadding
+                  ),
+                  child: WalletWidget(
+                    wallet: w,
+                    onDelete: () async {
+                      bool? delete = await showYesNoDialog(
+                        context: context,
+                        message: 'Are you sure to delete this wallet?'
+                      );
+                      if (delete == true) {
+                        dbServ.deleteWallet(w.wid);
+                      }
+                    },
+                    onTap: () {
+                      setState(() {
+                        curWallet = w;
+                        // closeBottomSheet();
+                      });
+                    },
+                    onHistoryButton: () {
+                      // if (!openBottomSheet()) closeBottomSheet();
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (_) => HistoryPage(walletId: w.wid)
+                        )
+                      );
+                    },
+                    isSelected: curWallet!.wid == w.wid,
                   ),
                 ),
               )
