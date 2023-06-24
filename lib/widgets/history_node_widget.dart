@@ -13,7 +13,7 @@ import '../services/theme_service.dart';
 
 
 class HistoryNodeWidget extends StatefulWidget {
-  HistoryNodeWidget({
+  const HistoryNodeWidget({
     Key? key,
     required this.historyNode, 
     required this.tags,
@@ -22,10 +22,10 @@ class HistoryNodeWidget extends StatefulWidget {
   }) : super(key: key);
   
   /// wallet id
-  String wid;
-  HistoryNode historyNode;
-  List<Tag> tags;
-  Function() weirdCallback;
+  final String wid;
+  final HistoryNode historyNode;
+  final List<Tag> tags;
+  final Function() weirdCallback;
 
   @override
   State<HistoryNodeWidget> createState() => _HistoryNodeWidgetState();
@@ -114,7 +114,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                       Text('${widget.historyNode.action == WalletAction.add
                           ? '+'
                           : '-'}${widget.historyNode.amount}',
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           color: widget.historyNode.action == WalletAction.add
                             ? Colors.green
                             : Colors.red,
@@ -125,7 +125,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                       const Spacer(),
                       Text(DateFormat('dd.MM.yyyy, HH:mm').format(
                           widget.historyNode.date),
-                        style: Theme.of(context).textTheme.bodyText1
+                        style: Theme.of(context).textTheme.bodyLarge
                       )
                     ]
                   ),
@@ -143,7 +143,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                     hgh(4),
                     Text(widget.historyNode.description,
                       overflow: isShowAllDescription ? TextOverflow.clip : TextOverflow.ellipsis,
-                      style:Theme.of(context).textTheme.bodyText2
+                      style:Theme.of(context).textTheme.bodyMedium
                     )
                   ]
                 ]

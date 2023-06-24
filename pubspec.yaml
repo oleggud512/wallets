@@ -45,6 +45,7 @@ dependencies:
   
   # something
   intl:
+  file:
   # connectivity_plus:
   
   # ui

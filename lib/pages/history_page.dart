@@ -9,12 +9,12 @@ import '../widgets/history_node_widget.dart';
 
 
 class HistoryPage extends StatefulWidget {
-  HistoryPage({
+  const HistoryPage({
     Key? key,
     required this.walletId
   }) : super(key: key);
 
-  String walletId;
+  final String walletId;
 
   @override
   State<HistoryPage> createState() => _HistoryPageState();

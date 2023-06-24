@@ -34,7 +34,7 @@ class _SimpleConstrainedButtonState extends State<SimpleConstrainedButton> {
     return Theme(
       data: ThemeData(
         textTheme: TextTheme(
-          button: TextStyle(
+          labelLarge: TextStyle(
             color: t.colorScheme.onPrimary,
           )
         )

@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/models/history_node.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

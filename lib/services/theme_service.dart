@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum MainPageState { wallets, history, combined }
@@ -71,7 +70,7 @@ class ThemeService extends ChangeNotifier {
     );
     var font = 'myExo2';
     lightTheme = ThemeData(
-      fontFamily: font,
+      // fontFamily: font,
       elevatedButtonTheme: elevatedButtonThemeData,
       textButtonTheme: textButtonThemeData,
       cardTheme: cardThemeData,
@@ -85,7 +84,7 @@ class ThemeService extends ChangeNotifier {
       )
     ); 
     darkTheme = ThemeData(
-      fontFamily: font,
+      // fontFamily: font,
       elevatedButtonTheme: elevatedButtonThemeData,
       textButtonTheme: textButtonThemeData,
       cardTheme: cardThemeData,

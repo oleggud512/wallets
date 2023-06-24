@@ -1,6 +1,5 @@
 import 'package:ads_pay_app/functions.dart';
 import 'package:ads_pay_app/services/auth_service.dart';
-import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

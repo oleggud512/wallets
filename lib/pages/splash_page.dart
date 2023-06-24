@@ -31,9 +31,9 @@ class _SplashPageState extends State<SplashPage> {
         builder: (context, snapshot) {
           switch (snapshot.data) {
             case AuthState.emailVerification:
-              return EmailVerificationPage();
+              return const EmailVerificationPage();
             case AuthState.signedIn:
-              return MainPage();
+              return const MainPage();
             case AuthState.unsignedIn:
               return const LoginPage();
             case AuthState.loading:

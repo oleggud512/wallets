@@ -1,5 +1,3 @@
-import 'package:ads_pay_app/pages/splash_page.dart';
-import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:flutter/material.dart';
 
 Widget hgh(double height) {

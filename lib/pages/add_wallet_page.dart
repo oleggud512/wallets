@@ -1,11 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:ads_pay_app/constants.dart';
 import 'package:ads_pay_app/functions.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../models/currency.dart';
@@ -14,7 +11,7 @@ import '../services/currency_service.dart';
 
 
 class AddWalletPage extends StatefulWidget {
-  AddWalletPage({Key? key}) : super(key: key);
+  const AddWalletPage({Key? key}) : super(key: key);
 
   @override
   State<AddWalletPage> createState() => _AddWalletPageState();
@@ -37,7 +34,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Wallet')
+        title: const Text('Add Wallet')
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: defaultPadding),

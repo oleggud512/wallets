@@ -1,13 +1,5 @@
-import 'package:ads_pay_app/models/history_node.dart';
-import 'package:ads_pay_app/my_flutter_app_icons.dart';
-import 'package:ads_pay_app/pages/transaction_page.dart';
-import 'package:ads_pay_app/services/database_service.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
 
-import '../ad_options.dart';
 import '../constants.dart';
 import '../functions.dart';
 import '../models/account.dart';
@@ -41,13 +33,13 @@ class _CurrentWalletState extends State<CurrentWallet> {
               child: RichText(
                 text: TextSpan(
                   text: '${widget.curWallet?.amount.toStringAsFixed(2) ?? '00.00'} ',
-                  style: t.textTheme.headline2!.copyWith(
+                  style: t.textTheme.displayMedium!.copyWith(
                     fontWeight: FontWeight.bold
                   ),
                   children: [
                     TextSpan(
                       text: widget.curWallet?.currency ?? "",
-                      style: t.textTheme.headline3
+                      style: t.textTheme.displaySmall
                     )
                   ]
                 )

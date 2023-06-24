@@ -9,12 +9,12 @@ import '../widgets/tag_widget.dart';
 
 
 class TagsDialog extends StatefulWidget {
-  TagsDialog({
+  const TagsDialog({
     Key? key,
     required this.action
   }) : super(key: key);
 
-  WalletAction action;
+  final WalletAction action;
 
   @override
   State<TagsDialog> createState() => _TagsDialogState();

@@ -4,8 +4,6 @@ import 'package:ads_pay_app/services/auth_service.dart';
 import 'package:ads_pay_app/services/currency_service.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
-import 'package:ads_pay_app/test_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -38,12 +36,12 @@ void main() async {
       Provider(create: (_) => curServ),
       ChangeNotifierProvider(create: (_) => themeServ)
     ],
-    child: MyApp() 
+    child: const MyApp() 
   ));
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -59,7 +57,7 @@ class _MyAppState extends State<MyApp> {
       theme: theme.lightTheme,
       darkTheme: theme.darkTheme,
       // home: TestWidget(),
-      home: SplashPage(),
+      home: const SplashPage(),
     );
   }
 }

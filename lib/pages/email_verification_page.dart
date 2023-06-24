@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 
 class EmailVerificationPage extends StatefulWidget {
-  EmailVerificationPage({Key? key}) : super(key: key);
+  const EmailVerificationPage({Key? key}) : super(key: key);
 
   @override
   State<EmailVerificationPage> createState() => _EmailVerificationPageState();
@@ -53,7 +53,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           children: [
             Text('A verification email has been send to your email.',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline6
+              style: Theme.of(context).textTheme.titleLarge
             ),
             ElevatedButton.icon(
               icon: const Icon(Icons.email),

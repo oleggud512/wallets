@@ -1,7 +1,6 @@
 import 'package:ads_pay_app/functions.dart';
 import 'package:ads_pay_app/models/wallet.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
-import 'package:ads_pay_app/widgets/wallet_action_button.dart';
 import 'package:flutter/material.dart';
 
 import '../models/history_node.dart';
@@ -43,7 +42,6 @@ class _WalletWidgetState extends State<WalletWidget> {
 
   @override
   Widget build(BuildContext context) {
-    var t = Theme.of(context);
     return PopupMenuButton<int>(
       key: popupKey,
       tooltip: '',
@@ -101,7 +99,7 @@ class _WalletWidgetState extends State<WalletWidget> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('${widget.wallet.amount} ${widget.wallet.currency}',
-                        style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                           // color: Theme.of(context).colorScheme.onPrimary
                         )
