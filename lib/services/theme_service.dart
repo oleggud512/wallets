@@ -1,35 +1,36 @@
 import 'dart:async';
 
+import 'package:ads_pay_app/src/core/common/constants/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum MainPageState { wallets, history, combined }
+// enum MainPageState { wallets, history, combined }
 
 
 class ThemeService extends ChangeNotifier {
   late ThemeMode curThemeMode;
-  late MainPageState mainPageState;
+  // late MainPageState mainPageState;
 
   Future<void> load() async {
     var prefs = await SharedPreferences.getInstance();
-    String mode = prefs.getString('theme-mode') ?? 'system';
+    String mode = 
+      prefs.getString(PrefsStrings.themeMode) ?? ThemeMode.system.name;
     curThemeMode = ThemeMode.values.firstWhere((m) => m.name == mode);
-    String sMps = prefs.getString('main-page-state') ?? 'combined';
-    mainPageState = MainPageState.values.firstWhere((mps) => mps.name == sMps);
+    // String sMps = prefs.getString('main-page-state') ?? 'combined';
+    // mainPageState = MainPageState.values.firstWhere((mps) => mps.name == sMps);
   }
 
-  setMainPageState(MainPageState mps) async {
-    mainPageState = mps;
-    notifyListeners();
-
-  }
+  // setMainPageState(MainPageState mps) async {
+  //   mainPageState = mps;
+  //   notifyListeners();
+  // }
 
 
   Future<void> setCurThemeMode(ThemeMode newThemeMode) async {
     curThemeMode = newThemeMode;
     notifyListeners();
     await (await SharedPreferences.getInstance())
-      .setString('theme-mode', newThemeMode.name);
+      .setString(PrefsStrings.themeMode, newThemeMode.name);
   }
 
   late ThemeData lightTheme;

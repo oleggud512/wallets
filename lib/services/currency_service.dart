@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-import 'package:ads_pay_app/models/currency.dart';
+import 'package:ads_pay_app/src/features/wallets/domain/entities/currency.dart';
 
 
 class CurrencyService {

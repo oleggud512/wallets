@@ -1,18 +1,41 @@
-import 'package:ads_pay_app/models/account.dart';
-import 'package:ads_pay_app/models/history_node.dart';
+import 'package:ads_pay_app/src/core/application/errors/exceptions.dart';
+import 'package:ads_pay_app/src/core/common/constants/strings.dart';
+import 'package:ads_pay_app/src/features/history/domain/entities/account.dart';
+import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-import '../models/tag.dart';
-import '../models/wallet.dart';
+import '../src/features/tags/domain/entities/tag.dart';
+import '../src/features/wallets/domain/entities/wallet.dart';
+
+abstract interface class WalletsRepository {
+  Stream<Account> watchAccount();
+  Future<void> deleteAccount();
+  Future<void> deleteWallet(String wid);
+  Future<void> addWallet(Wallet wallet);
+  Future<void> updateWalletDescription(String wid, String newDescription);
+}
+
+abstract interface class HistoryRepository {
+  Future<void> makeTransaction(String walletId, HistoryNode transactionData);
+  Future<void> updateHistoryNodeDescription(
+    String wid, String hid, String newDescription);
+  Future<void> deleteHistoryNode(String wid, HistoryNode historyNode);
+}
+
+abstract interface class TagsRepository {
+  Stream<List<Tag>> watchUserTags();
+  Future<void> addTag(Tag tag);
+  Future<void> deleteTag(String name);
+}
 
 class DatabaseService {
   FirebaseDatabase db = FirebaseDatabase.instance;
 
   String? get uid => FirebaseAuth.instance.currentUser?.uid;
-  DatabaseReference get userRef => db.ref('accounts/$uid');
+  DatabaseReference get userRef => db.ref(FirebaseStrings.account(uid ?? ''));
 
-  Stream<Account> getAccountStream() {
+  Stream<Account> getAccountStream() { // 
     return userRef.onValue.map(
       (event) {
         return Account.fromDataSnapshot(event.snapshot);
@@ -20,72 +43,68 @@ class DatabaseService {
     );
   }
 
-  Stream<List<Tag>> getTagsStream() {
-    return userRef.child('tags').onValue.map(
+  Stream<List<Tag>> getTagsStream() { //
+    return userRef.child(FirebaseStrings.tags).onValue.map(
       (event) => event.snapshot.children.map(Tag.fromDataSnapshot).toList()
     );
   }
 
-  // Stream<List<HistoryNode>> getHistoryStream(String wid) {
-  //   return userRef.child('wallets/$wid/history').onValue.map(
-  //     (event) => event.snapshot.children
-  //       .map(HistoryNode.fromDataSnapshot).toList()
-  //   );
-  // }
-
-  Future<void> addWallet(Wallet wallet) async {
-    var walletRef = userRef.child('wallets')
-        .push();
-    await walletRef.update((wallet..wid = walletRef.key!).toJson());
+  Future<void> addWallet(Wallet wallet) async { //
+    var walletRef = userRef.child(FirebaseStrings.wallets).push();
+    wallet.wid = walletRef.key!;
+    await walletRef.update(wallet.toJson());
   }
 
-  Future<void> addTag(Tag tag) async {
-    userRef.child('tags/${tag.name}').update(tag.toJson());
+  Future<void> addTag(Tag tag) async { //
+    userRef.child(FirebaseStrings.tag(tag.name)).update(tag.toJson());
   }
 
-  Future<void> transaction(String walletId, HistoryNode historyNode) async {
-    await userRef.child('wallets/$walletId').runTransaction((Object? wallet) {
-      Map<String, dynamic> walMap = Map<String, dynamic>.from(wallet as Map);
+  Future<void> transaction(String walletId, HistoryNode historyNode) async { //
+    await userRef.child(FirebaseStrings.wallet(walletId)).runTransaction((Object? wallet) {
+      final walMap = Map<String, dynamic>.from(wallet as Map);
 
       if (historyNode.action == WalletAction.add) {
-        walMap['amount'] += historyNode.amount;
+        walMap[FirebaseStrings.amount] += historyNode.amount;
       } else {
-        if (double.parse(walMap['amount'].toString()) < historyNode.amount) {
-          throw Exception('too-much');
+        if (double.parse(walMap[FirebaseStrings.amount].toString()) < historyNode.amount) {
+          throw NotEnoughMoneyException();
         }
-        walMap['amount'] -= historyNode.amount;
+        walMap[FirebaseStrings.amount] -= historyNode.amount;
       }
 
-      walMap['last-updated'] = historyNode.date.millisecondsSinceEpoch;
+      walMap[FirebaseStrings.lastUpdated] = historyNode.date.millisecondsSinceEpoch;
       return Transaction.success(walMap);
     });
 
-    await userRef.child('wallets/$walletId/history').orderByChild('date').ref
-      .push().update(historyNode.toJson());
+    await userRef.child(FirebaseStrings.historyOf(walletId))
+      .orderByChild(FirebaseStrings.date)
+      .ref
+      .push()
+      .update(historyNode.toJson());
   }
 
-  void updateHistoryNodeDescription(
+  void updateHistoryNodeDescription( //
       String wid, String hid, String newDescription) {
-    userRef.child('wallets/$wid/history/$hid/description').set(newDescription);
+    userRef.child(FirebaseStrings.historyNodeDescription(wid, hid)).set(newDescription);
   }
 
   void updateWalletDescription(String wid, String newDescription) {
-    userRef.child('wallets/$wid/description').set(newDescription);
+    userRef.child(FirebaseStrings.walletDescription(wid)).set(newDescription);
   }
 
-  Future<void> deleteTag(Tag tag) async {
-    userRef.child('/tags/${tag.name}').remove();
+  Future<void> deleteTag(String name) async { //
+    userRef.child(FirebaseStrings.tag(name)).remove();
   }
 
-  void deleteWallet(String wid) {
-    userRef.child('wallets/$wid').remove();
+  void deleteWallet(String wid) { //
+    userRef.child(FirebaseStrings.wallet(wid)).remove();
   }
 
-  Future<void> deleteHistoryNode(String wid, HistoryNode historyNode) async {
-    await userRef.child('wallets/$wid/history/${historyNode.hid}').remove();
+  Future<void> deleteHistoryNode(String wid, HistoryNode historyNode) async { //
+    await userRef.child(FirebaseStrings.historyNode(wid, historyNode.hid)).remove();
   }
 
-  Future<void> deleteAccount() async {
+  Future<void> deleteAccount() async { // 
     userRef.remove();
   }
 

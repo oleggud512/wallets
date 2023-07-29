@@ -1,9 +1,10 @@
 import 'package:ads_pay_app/firebase_options.dart';
-import 'package:ads_pay_app/pages/splash_page.dart';
-import 'package:ads_pay_app/services/auth_service.dart';
+import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:ads_pay_app/services/currency_service.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
+import 'package:ads_pay_app/src/app.dart';
+import 'package:ads_pay_app/src/router.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -22,10 +23,12 @@ void main() async {
   // await MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
   //   testDeviceIds: ['24AD7E1CAC35B81422A086FE47D7C83C'] // oppo cph2239
   // ));
-  var dbServ = DatabaseService();
-  var authServ = AuthService(dbServ);
-  var curServ = CurrencyService();
-  var themeServ = ThemeService();
+  final dbServ = DatabaseService();
+  final authServ = FirebaseAuthRepositoryImpl();
+  final curServ = CurrencyService();
+  final themeServ = ThemeService();
+  final router = AppRouter(authServ);
+  
   await themeServ.load();
 
   FlutterNativeSplash.remove();
@@ -34,30 +37,9 @@ void main() async {
       Provider(create: (_) => dbServ),
       Provider(create: (_) => authServ),
       Provider(create: (_) => curServ),
+      ChangeNotifierProvider(create: (_) => router),
       ChangeNotifierProvider(create: (_) => themeServ)
     ],
     child: const MyApp() 
   ));
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    var theme = context.read<ThemeService>();
-    return MaterialApp(
-      themeMode: Provider.of<ThemeService>(context).curThemeMode,
-      debugShowCheckedModeBanner: false,
-      theme: theme.lightTheme,
-      darkTheme: theme.darkTheme,
-      // home: TestWidget(),
-      home: const SplashPage(),
-    );
-  }
 }
