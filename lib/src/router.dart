@@ -43,6 +43,10 @@ class AppRouter extends _$AppRouter {
       }
     ),
     AutoRoute(
+      page: HistoryRoute.page,
+      path: '/history'
+    ),
+    AutoRoute(
       page: LoginRoute.page,
       path: '/login',
     ),

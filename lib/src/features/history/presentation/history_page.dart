@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:auto_route/auto_route.dart';
@@ -83,7 +82,7 @@ class _HistoryPageState extends State<HistoryPage> {
   void initState() {
     super.initState();
     dbServ = context.read<DatabaseService>();
-    accountStream = dbServ.getAccountStream();
+    accountStream = dbServ.watchAccount();
   }
   
   @override

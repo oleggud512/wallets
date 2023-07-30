@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/firebase_ext.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/auth_repository.dart';
 
+@Singleton(as: AuthRepository)
 class FirebaseAuthRepositoryImpl implements AuthRepository {
   final auth = FirebaseAuth.instance;
 
@@ -53,5 +55,8 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
   Future<void> sendVerificationEmail() async {
     await auth.currentUser!.sendEmailVerification();
   }
+  
+  @override
+  String? get curUserId => auth.currentUser?.uid;
 
 }

@@ -23,45 +23,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # firebase
+
   cloud_firestore:
   firebase_auth:
   # firebase_storage:
   firebase_database:
   google_mobile_ads:
-  # firebase_app_check:
 
-  # local storage
-  # localstore:
   shared_preferences:
-  # sqflite:
   
-  # state management
-  provider:
-  # bloc:
+  provider: ^6.0.5
   rxdart:
-  # equatable:
-  # dio:
   
-  # something
   intl:
   file:
-  # connectivity_plus:
-  
-  # ui
+
   google_fonts:
   responsive_grid:
-  # flutter_staggered_grid_view:
-  # photo_view:
   flutter_svg:
-  
-  # native
-  # flutter_vibrate:
-  # image_picker:
-  # file_picker:
-  # path_provider:
-  # fluttertoast:
-  
 
   flutter_launcher_icons:
   flutter_native_splash:
@@ -71,6 +50,9 @@ dependencies:
   auto_route: ^7.7.1
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
+  get_it:
+  injectable:
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +60,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   auto_route_generator: ^7.2.0
+  injectable_generator:
   build_runner: ^2.4.6
 
 # For information on the generic Dart part of this file, see the

@@ -19,12 +19,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       routerConfig: router.config(),
       
-      themeMode: Provider.of<ThemeService>(context).curThemeMode,
+      themeMode: context.watch<ThemeService>().curThemeMode,
       debugShowCheckedModeBanner: false,
       theme: theme.lightTheme,
       darkTheme: theme.darkTheme,
-      // home: TestWidget(),
-      // home: const SplashPage(),
     );
   }
 }

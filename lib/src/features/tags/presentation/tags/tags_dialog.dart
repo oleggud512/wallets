@@ -36,7 +36,7 @@ class _TagsDialogState extends State<TagsDialog> {
   void initState() {
     super.initState();
     dbServ = context.read<DatabaseService>();
-    tagsStream = dbServ.getTagsStream();
+    tagsStream = dbServ.watchTags();
     tagToAdd = Tag.initial(widget.action);
     colors.addAll(Colors.accents);
     colors.add(Colors.grey);

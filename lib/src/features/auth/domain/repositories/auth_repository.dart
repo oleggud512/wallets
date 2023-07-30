@@ -4,4 +4,5 @@ abstract interface class AuthRepository {
   Future<void> signOut();
   Future<void> deleteAccount(String email, String password);
   Future<void> sendVerificationEmail();
+  String? get curUserId;
 }

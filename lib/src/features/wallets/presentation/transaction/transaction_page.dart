@@ -46,7 +46,7 @@ class _TransactionPageState extends State<TransactionPage> {
     super.initState();
     dbServ = context.read<DatabaseService>();
     historyNode = HistoryNode.empty(widget.action);
-    curTag = Tag.initial(widget.action)..name = 'Choose category';
+    curTag = Tag.initial(widget.action)..name = 'Choose category'.hardcoded;
     loadIntAd();
     loadBanAd();
   }
@@ -183,8 +183,8 @@ class _TransactionPageState extends State<TransactionPage> {
                 child: Text(widget.action.name.toUpperCase()),
                 onPressed: () async {
                   if (amountKey.currentState!.validate()) {
-                    await dbServ.transaction(walletId, historyNode);
-                    if (mounted) Navigator.pop(context);
+                    await dbServ.makeTransaction(walletId, historyNode);
+                    if (mounted) context.popRoute();
                     intAd?.show().then((v) => intAd?.dispose());
                   }
                 },

@@ -2,11 +2,12 @@ import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/router.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../history/domain/entities/history_node.dart';
 import '../../../core/presentation/edit_description_dialog.dart';
-import 'transaction/transaction_page.dart';
 
 
 class WalletWidget extends StatefulWidget {
@@ -35,6 +36,7 @@ class _WalletWidgetState extends State<WalletWidget> {
 
   double? curHeight;
   GlobalKey contKey = GlobalKey();
+  Wallet get wallet => widget.wallet;
 
   @override
   void initState() {
@@ -66,8 +68,8 @@ class _WalletWidgetState extends State<WalletWidget> {
             context: context,
             builder: (context) {
               return EditDescriptionDialog(
-                description: widget.wallet.description,
-                wid: widget.wallet.wid,
+                description: wallet.description,
+                wid: wallet.wid,
                 editDescription: EditDescription.wallet,
               );
             }
@@ -99,21 +101,21 @@ class _WalletWidgetState extends State<WalletWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('${widget.wallet.amount} ${widget.wallet.currency}',
+                      Text('${wallet.amount} ${wallet.currency}',
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                           // color: Theme.of(context).colorScheme.onPrimary
                         )
                       ),
-                      if (widget.isSelected && widget.wallet.history.isNotEmpty) InkWell(
+                      if (widget.isSelected && wallet.history.isNotEmpty) InkWell(
                         onTap: widget.onHistoryButton, 
                         borderRadius: BorderRadius.circular(10),
                         child: const Icon(Icons.history)
                       )
                     ],
                   ),
-                  if (widget.wallet.description.isNotEmpty) Text(
-                    widget.wallet.description,
+                  if (wallet.description.isNotEmpty) Text(
+                    wallet.description,
                     overflow: widget.isSelected
                         ? TextOverflow.clip
                         : TextOverflow.ellipsis,
@@ -125,30 +127,22 @@ class _WalletWidgetState extends State<WalletWidget> {
                       children: [
                         buildWalletActionButton(context, 
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => TransactionPage(
-                                  action: WalletAction.add,
-                                  wallet: widget.wallet
-                                )
-                              )
-                            );
+                            if (!mounted) return;
+                            await context.pushRoute(TransactionRoute(
+                              action: WalletAction.add, 
+                              wallet: widget.wallet
+                            ));
                           }, 
                           text: 'ADD'.hardcoded
                         ),
                         w16gap,
                         buildWalletActionButton(context, 
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => TransactionPage(
-                                  action: WalletAction.take,
-                                  wallet: widget.wallet
-                                )
-                              )
-                            );
+                            if (!mounted) return;
+                            await context.pushRoute(TransactionRoute(
+                              action: WalletAction.take, 
+                              wallet: widget.wallet
+                            ));
                           }, 
                           text: 'TAKE'.hardcoded
                         ),
