@@ -1,7 +1,9 @@
+import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
 import 'features/auth/presentation/email_verification_page.dart';
 import 'features/auth/presentation/login_page.dart';
@@ -17,11 +19,12 @@ import 'features/wallets/presentation/wallets/wallets_page.dart';
 part 'router.gr.dart';
 // part 'router.g.dart';
 
+@Singleton()
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
-  final FirebaseAuthRepositoryImpl authServ;
+  final AuthRepository authRepo;
 
-  AppRouter(this.authServ);
+  AppRouter(this.authRepo);
 
   @override
   List<AutoRoute> get routes => [
@@ -32,9 +35,9 @@ class AppRouter extends _$AppRouter {
       onNavigation: (NavigationResolver resolver, StackRouter router) async {
         await FirebaseAuth.instance.currentUser?.reload();
         print(FirebaseAuth.instance.currentUser);
-        if (FirebaseAuth.instance.currentUser?.emailVerified == true) {
+        if (authRepo.isEmailVerified) {
           resolver.next(true);
-        } else if (FirebaseAuth.instance.currentUser != null) {
+        } else if (authRepo.isSignedIn) {
           print('to verification');
           resolver.redirect(const EmailVerificationRoute()); // это значит, что чтобы перейти на WalletsRoute теперь понадобится сделать router.push(WalletsRoute)
         } else {
@@ -57,7 +60,7 @@ class AppRouter extends _$AppRouter {
         await FirebaseAuth.instance.currentUser?.reload();
         print('verification verification verification');
         print('email verification ${FirebaseAuth.instance.currentUser}');
-        if (FirebaseAuth.instance.currentUser != null) {
+        if (authRepo.isEmailVerified) {
           resolver.next(true);
         } else {
           resolver.redirect(LoginRoute(action: LoginAction.newUser));

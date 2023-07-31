@@ -6,8 +6,8 @@ import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../history/domain/entities/history_node.dart';
-import '../../../core/presentation/edit_description_dialog.dart';
+import '../../../history/domain/entities/history_node.dart';
+import '../../../../core/presentation/edit_description_dialog.dart';
 
 
 class WalletWidget extends StatefulWidget {
@@ -43,6 +43,23 @@ class _WalletWidgetState extends State<WalletWidget> {
     super.initState();
   }
 
+  void onEditWallet() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return EditDescriptionDialog(
+          description: wallet.description,
+          wid: wallet.wid,
+          editDescription: EditDescription.wallet,
+        );
+      }
+    );
+  }
+
+  void onDeleteWallet() {
+    if (widget.onDelete != null) widget.onDelete!();
+  }
+
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<int>(
@@ -54,29 +71,15 @@ class _WalletWidgetState extends State<WalletWidget> {
         return [
           PopupMenuItem(
             value: 0,
-            child: Text('edit'.hardcoded)
+            onTap: onEditWallet,
+            child: Text('edit'.hardcoded),
           ),
           PopupMenuItem(
             value: 1,
-            child: Text('delete'.hardcoded)
+            onTap: onDeleteWallet,
+            child: Text('delete'.hardcoded),
           )
         ];
-      },
-      onSelected: (val) {
-        if (val == 0) {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return EditDescriptionDialog(
-                description: wallet.description,
-                wid: wallet.wid,
-                editDescription: EditDescription.wallet,
-              );
-            }
-          );
-        } else if (val == 1) {
-          if (widget.onDelete != null) widget.onDelete!();
-        }
       },
       child: Card(
         margin: const EdgeInsets.all(0),

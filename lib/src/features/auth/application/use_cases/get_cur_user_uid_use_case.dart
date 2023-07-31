@@ -8,6 +8,6 @@ class GetCurUserUidUseCase {
   GetCurUserUidUseCase(this.repo);
 
   String? call() {
-    return repo.curUserId;
+    return repo.currentUser?.uid;
   }
 }

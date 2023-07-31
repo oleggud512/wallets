@@ -13,4 +13,12 @@ class Currency {
   String toString() {
     return '$name ($code${symbol != code ? '/$symbol' : ''})';
   }
+
+  factory Currency.fromJson(Map<String, dynamic> json) {
+    return Currency(
+      name: json['name'],
+      code: json['code'],
+      symbol: json['symbol']
+    );
+  }
 }

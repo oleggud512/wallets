@@ -1,3 +1,4 @@
+import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/presentation/yes_no_dialog.dart';
+import '../../../get_it.dart';
 import '../../auth/presentation/login_page.dart';
 
 
@@ -19,13 +21,12 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  late FirebaseAuthRepositoryImpl authServ;
+  AuthRepository authRepo = getIt();
   late ThemeService themeServ;
   
   @override
   void initState() {
     super.initState();
-    authServ = context.read<FirebaseAuthRepositoryImpl>();
     themeServ = context.read<ThemeService>();
   }
 
@@ -52,7 +53,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(authServ.auth.currentUser!.email!),
+        title: Text(authRepo.currentUser!.email),
         centerTitle: true,
       ),
       body: Column(
@@ -62,13 +63,13 @@ class _SettingsPageState extends State<SettingsPage> {
           buildThemeRadio(ThemeMode.system),
           const Divider(),
           ListTile(
-            enabled: authServ.auth.currentUser != null,
+            enabled: authRepo.isSignedIn,
             onTap: () async {
               bool? isSignOut = await YesNoDialog(
                 message: 'Sign out?'.hardcoded
               ).show(context);
               if (mounted && isSignOut == true ) {
-                await authServ.signOut();
+                await authRepo.signOut();
                 // ignore: use_build_context_synchronously
                 AutoRouter.of(context).pushAndPopUntil(
                   LoginRoute(), predicate: (route) => true);
@@ -83,7 +84,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: const Text('Sign out')
           ),
           ListTile(
-            enabled: authServ.auth.currentUser != null,
+            enabled: authRepo.isSignedIn,
             onTap: () async {
               bool? isDelete = await YesNoDialog(
                 message: 'Delete account?'.hardcoded

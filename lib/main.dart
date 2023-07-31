@@ -1,6 +1,5 @@
 import 'package:ads_pay_app/firebase_options.dart';
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
-import 'package:ads_pay_app/services/currency_service.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/app.dart';
@@ -9,6 +8,7 @@ import 'package:ads_pay_app/src/features/wallets/application/use_cases/watch_wal
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
 import 'package:ads_pay_app/src/router.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,26 +35,21 @@ void main() async {
   // ));
   
   final dbServ = DatabaseService();
-  final authServ = FirebaseAuthRepositoryImpl();
-  final curServ = CurrencyService();
   final themeServ = ThemeService();
-  final router = AppRouter(authServ);
-  
+
   await themeServ.load();
 
   FlutterNativeSplash.remove();
   runApp(MultiProvider(
     providers: [
       Provider(create: (_) => dbServ),
-      Provider(create: (_) => authServ),
-      Provider(create: (_) => curServ),
       BlocProvider(
         create: (_) => WalletsPageBloc(
           getIt<DeleteWalletUseCase>(),
           getIt<WatchWalletsUseCase>()
         )..add(WalletsPageStartEvent())
       ),
-      ChangeNotifierProvider(create: (_) => router),
+      ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
       ChangeNotifierProvider(create: (_) => themeServ)
     ],
     child: const MyApp() 

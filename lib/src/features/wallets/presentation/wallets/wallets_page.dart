@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
 import '../../domain/entities/wallet.dart';
-import '../wallet_widget.dart';
+import '../wallet/wallet_widget.dart';
 
 @RoutePage()
 class WalletsPage extends StatefulWidget {

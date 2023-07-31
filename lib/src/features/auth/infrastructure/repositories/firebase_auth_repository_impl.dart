@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/firebase_ext.dart';
+import 'package:ads_pay_app/src/features/auth/domain/repositories/entities/app_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,7 +13,7 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<String?> signInWithEmailAndPassword(
-                String email, String password) async {
+        String email, String password) async {
     // authStateCont.sink.add(AuthState.loading);
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
@@ -41,7 +42,6 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<void> signOut() async {
-    print('AuthService.signOut()');
     await auth.signOut();
   }
 
@@ -57,6 +57,14 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
   }
   
   @override
-  String? get curUserId => auth.currentUser?.uid;
+  bool get isEmailVerified => auth.currentUser?.emailVerified ?? false;
+  
+  @override
+  bool get isSignedIn => auth.currentUser != null;
+
+  @override
+  AppUser? get currentUser => auth.currentUser != null 
+    ? AppUser(uid: auth.currentUser!.uid, email: auth.currentUser!.email!) 
+    : null;
 
 }

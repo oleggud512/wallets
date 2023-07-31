@@ -156,7 +156,6 @@ class _TransactionPageState extends State<TransactionPage> {
                   return null;
                 },
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
                   labelText: 'Amount'.hardcoded
                 ),
               ),
@@ -170,7 +169,6 @@ class _TransactionPageState extends State<TransactionPage> {
                   maxLines: null,
                   minLines: null,
                   decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
                     labelText: 'Description'.hardcoded,
                     alignLabelWithHint: true,
                   ),

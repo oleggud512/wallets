@@ -1,13 +1,15 @@
 
 import 'package:ads_pay_app/src/core/common/constants/constants.dart';
 import 'package:ads_pay_app/services/database_service.dart';
+import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../get_it.dart';
 import '../../domain/entities/currency.dart';
 import '../../domain/entities/wallet.dart';
-import '../../../../../services/currency_service.dart';
 
 
 @RoutePage()
@@ -20,7 +22,6 @@ class AddWalletPage extends StatefulWidget {
 
 class _AddWalletPageState extends State<AddWalletPage> {
   late DatabaseService dbServ;  
-  late CurrencyService curServ;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Wallet newWallet = Wallet.empty();
 
@@ -28,14 +29,13 @@ class _AddWalletPageState extends State<AddWalletPage> {
   void initState() {
     super.initState();
     dbServ = context.read<DatabaseService>();
-    curServ = context.read<CurrencyService>();
   }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Wallet')
+        title: Text('Add Wallet'.hardcoded),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -46,31 +46,23 @@ class _AddWalletPageState extends State<AddWalletPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 h16gap,
-                FutureBuilder<List<Currency>>(
-                  future: curServ.currenciesFuture,
-                  builder: (context, snapshot) {
-                    return DropdownButtonFormField<Currency>(
-                      onChanged: snapshot.hasData ? (cur) {
-                        newWallet.currency = cur?.symbol ?? '';
-                      } : null,
-                      validator: (cur) {
-                        return newWallet.currency.isEmpty
-                          ? 'Choose currency'
-                          : null;
-                      },
-                      items: snapshot.hasData ? [
-                        for (Currency cur in snapshot.data!) DropdownMenuItem(
-                          value: cur,
-                          child: Text(cur.toString())
-                        )
-                      ] : [],
-                      hint: const Text('Currency'),
-                      isExpanded: true,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                      ),
-                    );
-                  }
+                DropdownButtonFormField<Currency>(
+                  onChanged: (cur) {
+                    newWallet.currency = cur?.symbol ?? '';
+                  },
+                  validator: (cur) {
+                    return newWallet.currency.isEmpty
+                      ? 'Choose currency'.hardcoded
+                      : null;
+                  },
+                  items: getIt<CurrencyProvider>().currencies.map(
+                    (c) => DropdownMenuItem(
+                      value: c, 
+                      child: Text(c.toString())
+                    )
+                  ).toList(),
+                  hint: Text('Currency'.hardcoded),
+                  isExpanded: true,
                 ),
                 h16gap,
                 TextFormField(
@@ -78,9 +70,8 @@ class _AddWalletPageState extends State<AddWalletPage> {
                   onChanged: (v) {
                     newWallet.amount = double.parse(v.replaceAll(',', '.'));
                   },
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Amount'
+                  decoration: InputDecoration(
+                    labelText: 'Amount'.hardcoded
                   ),
                 ),
                 h16gap,
@@ -92,9 +83,8 @@ class _AddWalletPageState extends State<AddWalletPage> {
                     expands: true,
                     maxLines: null,
                     minLines: null,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Description',
+                    decoration: InputDecoration(
+                      labelText: 'Description'.hardcoded,
                       alignLabelWithHint: true,
                     ),
                     onChanged: (v) {
@@ -104,7 +94,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                 ),
                 h16gap,
                 ElevatedButton(
-                  child: const Text('Add wallet'),
+                  child: Text('Add wallet'.hardcoded),
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       await dbServ.addWallet(newWallet);
