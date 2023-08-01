@@ -7,6 +7,7 @@ import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tag_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -43,6 +44,29 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
     dbServ = context.read<DatabaseService>();
   }
 
+  onEditHistoryNode() async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return EditDescriptionDialog(
+          hid: widget.historyNode.hid,
+          description: widget.historyNode.description,
+          wid: widget.wid,
+          editDescription: EditDescription.historyNode,
+        );
+      }
+    );
+  }
+
+  onDeleteHistoryNode() async {
+    bool? delete = await YesNoDialog(
+      message: 'Are you sure to delete this record?'.hardcoded
+    ).show(context);
+    if (delete == true) {
+      dbServ.deleteHistoryNode(widget.wid, widget.historyNode);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -64,43 +88,25 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
               isShowAllDescription = !isShowAllDescription;
             });
           },
-          child: PopupMenuButton<int>(
+          child: PopupMenuButton<Symbol>(
             key: popupKey,
+            enabled: false,
+            tooltip: '',
             itemBuilder: (context) {
               return [
-                const PopupMenuItem<int>(
-                  value: 0,
-                  child: Text('edit')
+                PopupMenuItem(
+                  value: #edit,
+                  child: Text('edit'.hardcoded)
                 ),
-                const PopupMenuItem<int>(
-                  value: 1,
-                  child: Text('delete')
+                PopupMenuItem(
+                  value: #delete,
+                  child: Text('delete'.hardcoded)
                 )
               ];
             },
-            enabled: false,
-            tooltip: '',
-            onSelected: (val) async {
-              if (val == 0) {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return EditDescriptionDialog(
-                      hid: widget.historyNode.hid,
-                      description: widget.historyNode.description,
-                      wid: widget.wid,
-                      editDescription: EditDescription.historyNode,
-                    );
-                  }
-                );
-              } else if (val == 1) {
-                bool? delete = await YesNoDialog(
-                  message: 'Are you sure to delete this note?'.hardcoded
-                ).show(context);
-                if (delete == true) {
-                  dbServ.deleteHistoryNode(widget.wid, widget.historyNode);
-                }
-              }
+            onSelected: (i) async {
+              if (i == #edit) onEditHistoryNode();
+              if (i == #delete) onDeleteHistoryNode();
             },
             child: Padding(
               padding: const EdgeInsets.all(6.0),
@@ -133,7 +139,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                     TagWidget(
                       tag: widget.tags.firstWhere(
                         (e) => e.name == widget.historyNode.tagName,
-                        orElse: () => Tag.initial(widget.historyNode.action)
+                        orElse: () => Tag(action: widget.historyNode.action)
                           ..name = widget.historyNode.tagName
                       ),
                     ),

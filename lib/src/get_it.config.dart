@@ -17,18 +17,24 @@ import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repositor
     as _i3;
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart'
     as _i4;
-import 'package:ads_pay_app/src/features/wallets/application/use_cases/delete_wallet_use_case.dart'
-    as _i13;
-import 'package:ads_pay_app/src/features/wallets/application/use_cases/watch_wallets_use_case.dart'
+import 'package:ads_pay_app/src/features/history/application/use_cases/make_transaction_use_case.dart'
     as _i12;
-import 'package:ads_pay_app/src/features/wallets/domain/repositories/wallets_repository.dart'
+import 'package:ads_pay_app/src/features/history/domain/repositories/history_repository.dart'
     as _i10;
+import 'package:ads_pay_app/src/features/history/infrastructure/firebase_history_repository_impl.dart'
+    as _i11;
+import 'package:ads_pay_app/src/features/wallets/application/use_cases/delete_wallet_use_case.dart'
+    as _i16;
+import 'package:ads_pay_app/src/features/wallets/application/use_cases/watch_wallets_use_case.dart'
+    as _i15;
+import 'package:ads_pay_app/src/features/wallets/domain/repositories/wallets_repository.dart'
+    as _i13;
 import 'package:ads_pay_app/src/features/wallets/external/data_sources/currency_provider_impl.dart'
     as _i6;
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart'
     as _i5;
 import 'package:ads_pay_app/src/features/wallets/infrastructure/repositories/firebase_wallets_repository_impl.dart'
-    as _i11;
+    as _i14;
 import 'package:ads_pay_app/src/router.dart' as _i8;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
@@ -54,12 +60,16 @@ extension GetItInjectableX on _i1.GetIt {
     gh.singleton<_i8.AppRouter>(_i8.AppRouter(gh<_i3.AuthRepository>()));
     gh.singleton<_i9.FirebaseUserDataSource>(
         _i9.FirebaseUserDataSource(gh<_i7.GetCurUserUidUseCase>()));
-    gh.singleton<_i10.WalletsRepository>(
-        _i11.FirebaseWalletsRepositoryImpl(gh<_i9.FirebaseUserDataSource>()));
-    gh.factory<_i12.WatchWalletsUseCase>(
-        () => _i12.WatchWalletsUseCase(gh<_i10.WalletsRepository>()));
-    gh.factory<_i13.DeleteWalletUseCase>(
-        () => _i13.DeleteWalletUseCase(gh<_i10.WalletsRepository>()));
+    gh.singleton<_i10.HistoryRepository>(
+        _i11.FirebaseHistoryRepositoryImpl(gh<_i9.FirebaseUserDataSource>()));
+    gh.factory<_i12.MakeTransactionUseCase>(
+        () => _i12.MakeTransactionUseCase(gh<_i10.HistoryRepository>()));
+    gh.singleton<_i13.WalletsRepository>(
+        _i14.FirebaseWalletsRepositoryImpl(gh<_i9.FirebaseUserDataSource>()));
+    gh.factory<_i15.WatchWalletsUseCase>(
+        () => _i15.WatchWalletsUseCase(gh<_i13.WalletsRepository>()));
+    gh.factory<_i16.DeleteWalletUseCase>(
+        () => _i16.DeleteWalletUseCase(gh<_i13.WalletsRepository>()));
     return this;
   }
 }

@@ -2,9 +2,11 @@ import 'package:ads_pay_app/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'dialog_widget.dart';
+
 enum EditDescription { historyNode, wallet }
 
-class EditDescriptionDialog extends StatefulWidget {
+class EditDescriptionDialog extends StatefulWidget with DialogWidget {
   const EditDescriptionDialog({
     Key? key,
     this.wid, // wallet id
@@ -55,6 +57,7 @@ class _EditDescriptionDialogState extends State<EditDescriptionDialog> {
             SizedBox(
               height: 200,
               child: TextFormField(
+                autofocus: true,
                 controller: descrCont,
                 textAlignVertical: TextAlignVertical.top,
                 maxLength: 255,

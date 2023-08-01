@@ -1,5 +1,5 @@
+import 'package:ads_pay_app/src/core/common/string_ext.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
-import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/router.dart';
@@ -45,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
         groupValue: themeServ.curThemeMode,
         onChanged: onThemeChanged
       ),
-      title: Text('${themeMode.name.replaceFirst(themeMode.name[0], themeMode.name[0].toUpperCase())} theme')
+      title: Text('${themeMode.name.capitalize()} theme')
     );
   }
   

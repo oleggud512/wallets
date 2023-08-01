@@ -1,5 +1,4 @@
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
-import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

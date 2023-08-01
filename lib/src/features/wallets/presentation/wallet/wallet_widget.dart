@@ -1,4 +1,5 @@
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
 import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/constants.dart';
@@ -43,26 +44,35 @@ class _WalletWidgetState extends State<WalletWidget> {
     super.initState();
   }
 
-  void onEditWallet() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return EditDescriptionDialog(
-          description: wallet.description,
-          wid: wallet.wid,
-          editDescription: EditDescription.wallet,
-        );
-      }
-    );
+  Future<void> onEditWallet() {
+    return EditDescriptionDialog(
+      description: wallet.description,
+      wid: wallet.wid,
+      editDescription: EditDescription.wallet,
+    ).show(context);
   }
 
   void onDeleteWallet() {
     if (widget.onDelete != null) widget.onDelete!();
   }
 
+  void onAddFunds() async {
+    await context.pushRoute(TransactionRoute(
+      action: WalletAction.add, 
+      wallet: widget.wallet
+    ));
+  }
+
+  void onTakeFunds() async {
+    await context.pushRoute(TransactionRoute(
+      action: WalletAction.take, 
+      wallet: widget.wallet
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return PopupMenuButton<int>(
+    return PopupMenuButton<Symbol>(
       key: popupKey,
       tooltip: '',
       enabled: false,
@@ -70,16 +80,18 @@ class _WalletWidgetState extends State<WalletWidget> {
       itemBuilder: (context) {
         return [
           PopupMenuItem(
-            value: 0,
-            onTap: onEditWallet,
+            value: #edit,
             child: Text('edit'.hardcoded),
           ),
           PopupMenuItem(
-            value: 1,
-            onTap: onDeleteWallet,
+            value: #delete,
             child: Text('delete'.hardcoded),
           )
         ];
+      },
+      onSelected: (i) {
+        if (i == #edit) onEditWallet();
+        if (i == #delete) onDeleteWallet();
       },
       child: Card(
         margin: const EdgeInsets.all(0),
@@ -120,8 +132,8 @@ class _WalletWidgetState extends State<WalletWidget> {
                   if (wallet.description.isNotEmpty) Text(
                     wallet.description,
                     overflow: widget.isSelected
-                        ? TextOverflow.clip
-                        : TextOverflow.ellipsis,
+                      ? TextOverflow.clip
+                      : TextOverflow.ellipsis,
                   ),
                   if (widget.isSelected) ...[
                     h16gap,
@@ -129,24 +141,12 @@ class _WalletWidgetState extends State<WalletWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         buildWalletActionButton(context, 
-                          onPressed: () async {
-                            if (!mounted) return;
-                            await context.pushRoute(TransactionRoute(
-                              action: WalletAction.add, 
-                              wallet: widget.wallet
-                            ));
-                          }, 
+                          onPressed: onAddFunds, 
                           text: 'ADD'.hardcoded
                         ),
                         w16gap,
                         buildWalletActionButton(context, 
-                          onPressed: () async {
-                            if (!mounted) return;
-                            await context.pushRoute(TransactionRoute(
-                              action: WalletAction.take, 
-                              wallet: widget.wallet
-                            ));
-                          }, 
+                          onPressed: onTakeFunds, 
                           text: 'TAKE'.hardcoded
                         ),
                       ],

@@ -77,6 +77,7 @@ class ThemeService extends ChangeNotifier {
       cardTheme: cardThemeData,
       inputDecorationTheme: inputThemeData,
       appBarTheme: appBarTheme,
+      
       colorScheme: const ColorScheme.light(
         primary: Colors.indigo,
         onPrimary: Colors.white,
@@ -91,6 +92,7 @@ class ThemeService extends ChangeNotifier {
       cardTheme: cardThemeData,
       inputDecorationTheme: inputThemeData,
       appBarTheme: appBarTheme,
+
       colorScheme: ColorScheme.dark(
         brightness: Brightness.dark,
         primary: Colors.indigo.shade200,

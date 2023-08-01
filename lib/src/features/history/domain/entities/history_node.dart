@@ -14,13 +14,13 @@ class HistoryNode {
   String tagName;
 
   HistoryNode({
-    required this.hid,
-    required this.date,
-    required this.amount,
+    this.hid = '',
     required this.action,
-    required this.description,
-    required this.tagName
-  });
+    DateTime? date,
+    this.amount = 0,
+    this.description = '',
+    this.tagName = '',
+  }) : date = date ?? DateTime.now();
 
   factory HistoryNode.fromDataSnapshot(DataSnapshot snapshot) {
     return HistoryNode(
@@ -33,17 +33,6 @@ class HistoryNode {
         : WalletAction.add,
       description: snapshot.child('description').value as String,
       tagName: snapshot.child('tag-name').value as String
-    );
-  }
-
-  factory HistoryNode.empty(WalletAction action) {
-    return HistoryNode(
-      hid: '',
-      date: DateTime.now(),
-      amount: 0,
-      action: action,
-      description: '',
-      tagName: ''
     );
   }
 

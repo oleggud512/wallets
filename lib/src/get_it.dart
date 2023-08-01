@@ -7,4 +7,4 @@ final getIt = GetIt.instance;
 @InjectableInit(
   initializerName: 'initialize',
 )
-void configureDependencies() => getIt.initialize();
+Future<void> configureDependencies() => getIt.initialize();

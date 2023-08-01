@@ -13,13 +13,6 @@ abstract interface class AccountRepository {
   Future<void> deleteAccount();
 }
 
-abstract interface class HistoryRepository {
-  Future<void> makeTransaction(String walletId, HistoryNode transactionData);
-  Future<void> updateHistoryNodeDescription(
-    String wid, String hid, String newDescription);
-  Future<void> deleteHistoryNode(String wid, HistoryNode historyNode);
-}
-
 abstract interface class TagsRepository {
   Stream<List<Tag>> watchTags();
   Future<void> addTag(Tag tag);
@@ -79,20 +72,20 @@ class DatabaseService {
     userRef.child(FirebaseStrings.tag(name)).remove();
   }
 
-  Future<void> makeTransaction(String walletId, HistoryNode historyNode) async { //
+  Future<void> makeTransaction(String walletId, HistoryNode transactionData) async { //
     await userRef.child(FirebaseStrings.wallet(walletId)).runTransaction((Object? wallet) {
       final walMap = Map<String, dynamic>.from(wallet as Map);
 
-      if (historyNode.action == WalletAction.add) {
-        walMap[FirebaseStrings.amount] += historyNode.amount;
+      if (transactionData.action == WalletAction.add) {
+        walMap[FirebaseStrings.amount] += transactionData.amount;
       } else {
-        if (double.parse(walMap[FirebaseStrings.amount].toString()) < historyNode.amount) {
+        if (double.parse(walMap[FirebaseStrings.amount].toString()) < transactionData.amount) {
           throw NotEnoughMoneyException();
         }
-        walMap[FirebaseStrings.amount] -= historyNode.amount;
+        walMap[FirebaseStrings.amount] -= transactionData.amount;
       }
 
-      walMap[FirebaseStrings.lastUpdated] = historyNode.date.millisecondsSinceEpoch;
+      walMap[FirebaseStrings.lastUpdated] = transactionData.date.millisecondsSinceEpoch;
       return Transaction.success(walMap);
     });
 
@@ -100,7 +93,7 @@ class DatabaseService {
       .orderByChild(FirebaseStrings.date)
       .ref
       .push()
-      .update(historyNode.toJson());
+      .update(transactionData.toJson());
   }
 
   void updateHistoryNodeDescription( //

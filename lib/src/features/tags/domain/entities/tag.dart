@@ -9,18 +9,18 @@ class Tag {
   Color color;
 
   Tag({
-    required this.name,
+    this.name = '',
     required this.action,
     this.color = Colors.grey
   });
 
-  factory Tag.initial(WalletAction action) {
-    return Tag(
-      action: action,
-      name: '',
-      color: Colors.grey
-    );
-  }
+  // factory Tag.initial(WalletAction action) {
+  //   return Tag(
+  //     action: action,
+  //     name: '',
+  //     color: Colors.grey
+  //   );
+  // }
 
   factory Tag.fromDataSnapshot(DataSnapshot snapshot) {
     return Tag(
