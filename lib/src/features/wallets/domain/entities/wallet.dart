@@ -22,14 +22,16 @@ class Wallet {
   List<HistoryNode> history;
 
   Wallet({
-    required this.wid,
-    required this.creationDate,
-    required this.lastUpdated,
-    required this.amount,
-    required this.currency,
-    required this.description,
-    required this.history
-  });
+    this.wid = '',
+    this.amount = 0,
+    this.currency = '',
+    this.description = '',
+    List<HistoryNode>? history,
+    DateTime? creationDate,
+    DateTime? lastUpdated,
+  }) : history = history ?? [],
+    creationDate = creationDate ?? DateTime.now(),
+    lastUpdated = lastUpdated ?? DateTime.now();
   
   factory Wallet.fromDataSnapshot(DataSnapshot snapshot) {
     var resWal = Wallet(
@@ -73,18 +75,6 @@ class Wallet {
       'description': description.trim(),
       'history': historyNodeListToJson(history)
     };
-  }
-
-  factory Wallet.empty() {
-    return Wallet(
-      wid: '',
-      creationDate: DateTime.now(),
-      lastUpdated: DateTime.now(),
-      amount: 0,
-      currency: '',
-      description: '',
-      history: []
-    );
   }
 
 }
