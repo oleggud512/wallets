@@ -112,7 +112,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.all(12.0),
                   child: Icon(Icons.delete),
                 ),
-                title: const Text('Delete account'),
+                title: Text('Delete account'.hardcoded),
               ),
             ]
           );

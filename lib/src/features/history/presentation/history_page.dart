@@ -103,11 +103,14 @@ class _HistoryPageState extends State<HistoryPage> {
               padding: const EdgeInsets.all(p8),
               
               children: [
-                for (final hn in curWallet.history) ...[h8gap, HistoryNodeWidget(
-                  historyNode: hn,
-                  tags: account.tags,
-                  wid: curWallet.wid
-                )]
+                for (final hn in curWallet.history) ...[
+                  h8gap, 
+                  HistoryNodeWidget(
+                    historyNode: hn,
+                    tags: account.tags,
+                    wid: curWallet.wid
+                  )
+                ]
               ]
             ),
           );

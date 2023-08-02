@@ -4,6 +4,10 @@ import 'get_it.config.dart';
 
 final getIt = GetIt.instance;
 
+extension HardcodedGetIt on GetIt {
+  GetIt get hardcoded => this;
+}
+
 @InjectableInit(
   initializerName: 'initialize',
 )

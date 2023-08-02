@@ -1,44 +1,27 @@
-import 'package:ads_pay_app/services/database_service.dart';
+import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'dialog_widget.dart';
 
-enum EditDescription { historyNode, wallet }
 
-class EditDescriptionDialog extends StatefulWidget with DialogWidget {
+class EditDescriptionDialog extends StatefulWidget with DialogWidget<String> {
   const EditDescriptionDialog({
-    Key? key,
-    this.wid, // wallet id
-    this.hid, // history node id
+    super.key,
     required this.description,
-    required this.editDescription,
-  })  : assert(
-            wid != null &&
-                (editDescription == EditDescription.historyNode &&
-                        hid != null ||
-                    editDescription == EditDescription.wallet),
-            'pass wallet id and history node id when editing historyNode\'s description'),
-        super(key: key);
+  });
 
-  /// wallet id
-  final String? wid;
-  final String? hid;
   final String description;
-  final EditDescription editDescription;
 
   @override
   State<EditDescriptionDialog> createState() => _EditDescriptionDialogState();
 }
 
 class _EditDescriptionDialogState extends State<EditDescriptionDialog> {
-  late DatabaseService dbServ;
   TextEditingController descrCont = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    dbServ = context.read<DatabaseService>();
     descrCont.text = widget.description;
   }
 
@@ -64,22 +47,16 @@ class _EditDescriptionDialogState extends State<EditDescriptionDialog> {
                 expands: true,
                 maxLines: null,
                 minLines: null,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Description',
+                decoration: InputDecoration(
+                  labelText: 'Description'.hardcoded,
                   alignLabelWithHint: true,
                 ),
               ),
             ),
             ElevatedButton(
-              child: const Text('save'),
+              child: Text('Save'.hardcoded),
               onPressed: () {
-                if (widget.editDescription == EditDescription.historyNode) {
-                  dbServ.updateHistoryNodeDescription(widget.wid!, widget.hid!, descrCont.text);
-                } else {
-                  dbServ.updateWalletDescription(widget.wid!, descrCont.text);
-                }
-                Navigator.pop(context);
+                Navigator.pop(context, descrCont.text);
               },
             )
           ]

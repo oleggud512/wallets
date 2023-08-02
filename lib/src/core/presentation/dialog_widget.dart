@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-mixin DialogWidget on Widget {
-  Future<dynamic> show(BuildContext context) {
-    return showDialog(context: context, builder: (context) => this);
+mixin DialogWidget<T> on Widget {
+  Future<T?> show(BuildContext context) {
+    return showDialog<T>(context: context, builder: (context) => this);
   }
 }
