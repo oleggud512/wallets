@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/common/constants/constants.dart';
 import '../domain/entities/account.dart';
 import 'history_node_widget.dart';
 
@@ -99,12 +100,14 @@ class _HistoryPageState extends State<HistoryPage> {
               title: Text(curWallet.description.replaceAll('\n', ' '))
             ),
             body: ListView(
+              padding: const EdgeInsets.all(p8),
+              
               children: [
-                for (final hn in curWallet.history) HistoryNodeWidget(
+                for (final hn in curWallet.history) ...[h8gap, HistoryNodeWidget(
                   historyNode: hn,
                   tags: account.tags,
                   wid: curWallet.wid
-                )
+                )]
               ]
             ),
           );

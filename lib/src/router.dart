@@ -32,8 +32,6 @@ class AppRouter extends _$AppRouter {
       path: '/', 
       initial: true, 
       onNavigation: (NavigationResolver resolver, StackRouter router) async {
-        await FirebaseAuth.instance.currentUser?.reload();
-        print(FirebaseAuth.instance.currentUser);
         if (authRepo.isEmailVerified) {
           resolver.next(true);
         } else if (authRepo.isSignedIn) {
@@ -56,9 +54,8 @@ class AppRouter extends _$AppRouter {
       page: EmailVerificationRoute.page, 
       path: '/login/email-verification',
       onNavigation: (NavigationResolver resolver, StackRouter router) async {
-        await FirebaseAuth.instance.currentUser?.reload();
-        print('verification verification verification');
-        print('email verification ${FirebaseAuth.instance.currentUser}');
+        // print('verification verification verification');
+        // print('email verification ${FirebaseAuth.instance.currentUser}');
         if (authRepo.isEmailVerified) {
           resolver.next(true);
         } else {

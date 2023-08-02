@@ -102,7 +102,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                         ),
                       ),
                       h16gap,
-                      ElevatedButton(
+                      FilledButton(
                         child: Text('Add wallet'.hardcoded),
                         onPressed: () async {
                           if (!formKey.currentState!.validate()) return;

@@ -177,7 +177,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         },
                       ),
                     ),
-                    ElevatedButton(
+                    FilledButton(
                       onPressed: () => makeTransaction(context),
                       child: Text(widget.action.name.toUpperCase()),
                     ),
@@ -198,7 +198,7 @@ class _TransactionPageState extends State<TransactionPage> {
       child: Container(
         height: p56,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.grey.shade600),
           borderRadius: BorderRadius.circular(p8)
         ),
         padding: const EdgeInsets.symmetric(horizontal: 12),

@@ -1,7 +1,5 @@
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
-import 'package:ads_pay_app/services/theme_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/constants.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
@@ -94,10 +92,9 @@ class _WalletWidgetState extends State<WalletWidget> {
         if (i == #delete) onDeleteWallet();
       },
       child: Card(
-        margin: const EdgeInsets.all(0),
-        // color: t.colorScheme.primary,
+        margin: EdgeInsets.zero,
         child: InkWell(
-          borderRadius: BorderRadius.circular(ThemeService.defaultPadding),
+          borderRadius: BorderRadius.circular(p8),
           onTap: () {
             widget.onTap();
           },
@@ -105,7 +102,7 @@ class _WalletWidgetState extends State<WalletWidget> {
             popupKey.currentState!.showButtonMenu();
           },
           child: Padding(
-            padding: const EdgeInsets.all(ThemeService.defaultPadding),
+            padding: const EdgeInsets.all(p8),
             child: AnimatedSize(
               curve: Curves.fastOutSlowIn,
               alignment: Alignment.topCenter,
@@ -174,10 +171,10 @@ class _WalletWidgetState extends State<WalletWidget> {
         ),
         child: Material(
           elevation: 2,
-          borderRadius: BorderRadius.circular(ThemeService.defaultPadding),
+          borderRadius: BorderRadius.circular(p8),
           color: t.colorScheme.primary,
           child: InkWell(
-            borderRadius: BorderRadius.circular(ThemeService.defaultPadding),
+            borderRadius: BorderRadius.circular(p8),
             onTap: onPressed,
             child: Center(
               child: Text(text,

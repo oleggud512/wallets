@@ -1,11 +1,8 @@
 import 'package:ads_pay_app/firebase_options.dart';
 import 'package:ads_pay_app/services/database_service.dart';
-import 'package:ads_pay_app/services/theme_service.dart';
+import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
 import 'package:ads_pay_app/src/app.dart';
-import 'package:ads_pay_app/src/features/wallets/application/use_cases/delete_wallet_use_case.dart';
-import 'package:ads_pay_app/src/features/wallets/application/use_cases/watch_wallets_use_case.dart';
-import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
-import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
+import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -36,22 +33,16 @@ void main() async {
   ));
   
   final dbServ = DatabaseService();
-  final themeServ = ThemeService();
-
-  await themeServ.load();
 
   FlutterNativeSplash.remove();
+  
   runApp(MultiProvider(
     providers: [
       Provider(create: (_) => dbServ),
-      BlocProvider(
-        create: (_) => WalletsPageBloc(
-          getIt<DeleteWalletUseCase>(),
-          getIt<WatchWalletsUseCase>()
-        )..add(WalletsPageStartEvent())
-      ),
+
+      BlocProvider(create: (_) => ThemeBloc()..add(ThemeLoadEvent())),
+
       ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
-      ChangeNotifierProvider(create: (_) => themeServ)
     ],
     child: const MyApp() 
   ));

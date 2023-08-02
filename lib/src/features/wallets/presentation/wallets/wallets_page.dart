@@ -1,6 +1,7 @@
 
 import 'package:ads_pay_app/services/database_service.dart';
-import 'package:ads_pay_app/services/theme_service.dart';
+import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
@@ -12,6 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
+import '../../../../get_it.dart';
+import '../../application/use_cases/delete_wallet_use_case.dart';
+import '../../application/use_cases/watch_wallets_use_case.dart';
 import '../../domain/entities/wallet.dart';
 import '../wallet/wallet_widget.dart';
 
@@ -95,16 +99,22 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
           )
         ]
       ),
-      body: BlocBuilder<WalletsPageBloc, WalletsPageState>(
-        builder: (context, state) {
-          switch (state) {
-            case WalletsPageDefaultState():
-              configureCurWallet(state.wallets);
-              return buildWallets(state.wallets);
-            default: 
-              return const Center(child: CircularProgressIndicator());
+      body: BlocProvider(
+        create: (_) => WalletsPageBloc(
+          getIt<DeleteWalletUseCase>(),
+          getIt<WatchWalletsUseCase>()
+        )..add(WalletsPageStartEvent()),
+        child: BlocBuilder<WalletsPageBloc, WalletsPageState>(
+          builder: (context, state) {
+            switch (state) {
+              case WalletsPageDefaultState():
+                configureCurWallet(state.wallets);
+                return buildWallets(state.wallets);
+              default: 
+                return const Center(child: CircularProgressIndicator());
+            }
           }
-        }
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Wallet'.hardcoded,
@@ -117,7 +127,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
   Widget buildWallets(List<Wallet> wallets) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: ThemeService.defaultPadding,
+        left: p8,
       ),
       child: SingleChildScrollView(
         child: ResponsiveGridRow(
@@ -126,8 +136,8 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
               xs: 6, sm: 4, md: 4, lg: 2, xl: 2,
               child: Padding(
                 padding: const EdgeInsets.only(
-                  top: ThemeService.defaultPadding,
-                  right: ThemeService.defaultPadding
+                  top: p8,
+                  right: p8
                 ),
                 child: WalletWidget(
                   wallet: w,

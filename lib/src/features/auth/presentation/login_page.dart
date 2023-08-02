@@ -94,10 +94,13 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     h16gap,
-                    ElevatedButton(
+                    FilledButton(
                       onPressed: onSignIn,
-                      style: ElevatedButton.styleFrom(
+                      style: FilledButton.styleFrom(
                         fixedSize: const Size.fromHeight(56),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(p8)
+                        )
                       ),
                       child: Text(
                         widget.action == LoginAction.deleteUser

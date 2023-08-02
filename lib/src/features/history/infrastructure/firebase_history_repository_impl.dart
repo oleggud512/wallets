@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/infrastructure/data_sources/firebase_user_data_source.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:firebase_database/firebase_database.dart';

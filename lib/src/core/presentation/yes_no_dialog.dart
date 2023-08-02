@@ -24,7 +24,7 @@ class YesNoDialog extends StatelessWidget {
               Navigator.pop(context, false);
             },
           ),
-          ElevatedButton(
+          FilledButton(
             child: Text('YES'.hardcoded),
             onPressed: () {
               Navigator.pop(context, true);

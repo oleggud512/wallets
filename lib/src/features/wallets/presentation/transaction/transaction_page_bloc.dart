@@ -3,7 +3,6 @@ import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transa
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/common/logger.dart';
 import '../../../history/domain/entities/history_node.dart';
 
 class TransactionPageBloc extends Bloc<TransactionPageEvent, TransactionPageState> {

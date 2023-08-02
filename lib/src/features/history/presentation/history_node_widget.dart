@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../services/theme_service.dart';
+import '../../../core/presentation/theme/theme_bloc.dart';
 
 
 
@@ -70,16 +70,13 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(
-        horizontal: ThemeService.defaultPadding,
-        vertical: ThemeService.defaultPadding / 2,
-      ),
+      margin: EdgeInsets.zero,
       child: ConstrainedBox(
         constraints: const BoxConstraints(
           // minHeight: 48,
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(ThemeService.defaultPadding),
+          borderRadius: BorderRadius.circular(p8),
           onLongPress: () {
             popupKey.currentState!.showButtonMenu();
           },
@@ -109,7 +106,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
               if (i == #delete) onDeleteHistoryNode();
             },
             child: Padding(
-              padding: const EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(p8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

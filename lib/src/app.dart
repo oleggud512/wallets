@@ -2,7 +2,8 @@ import 'package:ads_pay_app/src/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/theme_service.dart';
+import 'core/common/logger.dart';
+import 'core/presentation/theme/theme_bloc.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -14,15 +15,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    final theme = context.read<ThemeService>();
     final router = context.read<AppRouter>();
+    final themeBloc = context.watch<ThemeBloc>();
+
     return MaterialApp.router(
       routerConfig: router.config(),
       
-      themeMode: context.watch<ThemeService>().curThemeMode,
+      themeMode: themeBloc.state,
       debugShowCheckedModeBanner: false,
-      theme: theme.lightTheme,
-      darkTheme: theme.darkTheme,
+      theme: themeBloc.lightTheme,
+      darkTheme: themeBloc.darkTheme,
     );
   }
 }
