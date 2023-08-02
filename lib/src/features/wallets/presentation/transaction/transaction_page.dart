@@ -15,7 +15,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../../../get_it.dart';
 import '../../domain/entities/wallet.dart';
-import '../../../tags/presentation/tag_widget.dart';
+import '../../../tags/presentation/tag/tag_widget.dart';
 
 
 @RoutePage()

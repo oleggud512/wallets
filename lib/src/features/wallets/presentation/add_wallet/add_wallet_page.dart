@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 
 import '../../../../get_it.dart';
 import '../../domain/entities/currency.dart';
-import '../../domain/entities/wallet.dart';
 
 
 @RoutePage()

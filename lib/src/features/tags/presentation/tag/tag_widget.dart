@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../domain/entities/tag.dart';
+import '../../domain/entities/tag.dart';
 
 
 class TagWidget extends StatelessWidget {

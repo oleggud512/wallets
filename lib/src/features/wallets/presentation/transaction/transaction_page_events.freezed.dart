@@ -369,6 +369,8 @@ abstract class _$$TransactionPageTagChangedEventCopyWith<$Res> {
       __$$TransactionPageTagChangedEventCopyWithImpl<$Res>;
   @useResult
   $Res call({Tag tag});
+
+  $TagCopyWith<$Res> get tag;
 }
 
 /// @nodoc
@@ -392,6 +394,14 @@ class __$$TransactionPageTagChangedEventCopyWithImpl<$Res>
           : tag // ignore: cast_nullable_to_non_nullable
               as Tag,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TagCopyWith<$Res> get tag {
+    return $TagCopyWith<$Res>(_value.tag, (value) {
+      return _then(_value.copyWith(tag: value));
+    });
   }
 }
 

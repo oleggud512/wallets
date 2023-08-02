@@ -13,12 +13,6 @@ abstract interface class AccountRepository {
   Future<void> deleteAccount();
 }
 
-abstract interface class TagsRepository {
-  Stream<List<Tag>> watchTags();
-  Future<void> addTag(Tag tag);
-  Future<void> deleteTag(String name);
-}
-
 class DatabaseService {
   FirebaseDatabase db = FirebaseDatabase.instance;
 

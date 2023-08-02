@@ -5,7 +5,7 @@ import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/constants.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
-import 'package:ads_pay_app/src/features/tags/presentation/tag_widget.dart';
+import 'package:ads_pay_app/src/features/tags/presentation/tag/tag_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -139,8 +139,10 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                     TagWidget(
                       tag: widget.tags.firstWhere(
                         (e) => e.name == widget.historyNode.tagName,
-                        orElse: () => Tag(action: widget.historyNode.action)
-                          ..name = widget.historyNode.tagName
+                        orElse: () => Tag(
+                          action: widget.historyNode.action,
+                          name: widget.historyNode.tagName
+                        )
                       ),
                     ),
                   ],

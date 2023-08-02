@@ -32,6 +32,8 @@ abstract class $TransactionPageStateCopyWith<$Res> {
       _$TransactionPageStateCopyWithImpl<$Res, TransactionPageState>;
   @useResult
   $Res call({Tag? tag, double amount, String description});
+
+  $TagCopyWith<$Res>? get tag;
 }
 
 /// @nodoc
@@ -67,6 +69,18 @@ class _$TransactionPageStateCopyWithImpl<$Res,
               as String,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TagCopyWith<$Res>? get tag {
+    if (_value.tag == null) {
+      return null;
+    }
+
+    return $TagCopyWith<$Res>(_value.tag!, (value) {
+      return _then(_value.copyWith(tag: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -78,6 +92,9 @@ abstract class _$$_TransactionPageStateCopyWith<$Res>
   @override
   @useResult
   $Res call({Tag? tag, double amount, String description});
+
+  @override
+  $TagCopyWith<$Res>? get tag;
 }
 
 /// @nodoc
