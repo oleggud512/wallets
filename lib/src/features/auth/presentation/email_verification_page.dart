@@ -1,6 +1,9 @@
 import 'dart:async';
 
+import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
+import 'package:ads_pay_app/src/get_it.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,40 +20,32 @@ class EmailVerificationPage extends StatefulWidget {
 }
 
 class _EmailVerificationPageState extends State<EmailVerificationPage> {
-  late FirebaseAuthRepositoryImpl authServ;
+  late AuthRepository authServ = getIt();
 
   @override
   void initState() {
     super.initState();
-    authServ = context.read<FirebaseAuthRepositoryImpl>();
     authServ.sendVerificationEmail();
 
     Timer.periodic(const Duration(seconds: 3), (timer) async { 
-      await authServ.auth.currentUser!.reload();
-      print('RELOADED\nRELOADED\nRELOADED  ${timer.tick}  ${authServ.auth.currentUser?.emailVerified}\n\n');
-      if (authServ.auth.currentUser?.emailVerified == true) {
+      await authServ.refreshUser();
+      if (authServ.isEmailVerified) {
         timer.cancel();
-        print('IT WAS LAST TICK');
         if (mounted) AutoRouter.of(context).replaceAll([const WalletsRoute()]); // тогда, ничего не произойдет если ничего не произойдет и тебя оставит на WalletsPage, если все ок. 
       }
     });
   }
 
-  @override
-  void dispose() {
-    print('EMAIL VERIFICATION PAGE DISPOSED');
-    super.dispose();
-  }
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(authServ.auth.currentUser!.email!),
+        title: Text(authServ.currentUser!.email),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(p16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -59,7 +54,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge
             ),
-            ElevatedButton.icon(
+            FilledButton.icon(
               icon: const Icon(Icons.email),
               label: const Text('Resent Email'),
               onPressed: () async {

@@ -66,5 +66,10 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
   AppUser? get currentUser => auth.currentUser != null 
     ? AppUser(uid: auth.currentUser!.uid, email: auth.currentUser!.email!) 
     : null;
+    
+  @override
+  Future<void> refreshUser() async {
+    await auth.currentUser?.reload();
+  }
 
 }

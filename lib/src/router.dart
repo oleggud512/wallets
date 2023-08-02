@@ -1,6 +1,5 @@
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -16,7 +15,35 @@ import 'features/wallets/presentation/transaction/transaction_page.dart';
 import 'features/wallets/presentation/wallets/wallets_page.dart';
 
 part 'router.gr.dart';
-// part 'router.g.dart';
+
+/// Checks if an email is verified. 
+/// If it's not verified redirects to the verification page. 
+/// Should not be used without [SignedInGuard]
+class EmailVerifiedGuard extends AutoRouteGuard {
+  final AuthRepository repo;
+
+  EmailVerifiedGuard(this.repo);
+
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) {
+    if (repo.isEmailVerified) return resolver.next(true);
+    resolver.redirect(const EmailVerificationRoute());
+  }
+}
+
+/// Checks if the user is signed in.
+/// Redirects to the login page if he isn't. 
+class SignedInGuard extends AutoRouteGuard {
+  final AuthRepository repo;
+
+  SignedInGuard(this.repo);
+
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) {
+    if (repo.isSignedIn) return resolver.next(true);
+    resolver.redirect(LoginRoute(action: LoginAction.newUser));
+  }
+}
 
 @Singleton()
 @AutoRouterConfig()
@@ -27,21 +54,45 @@ class AppRouter extends _$AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-    AutoRoute.guarded(
+    AutoRoute(
       page: WalletsRoute.page, 
       path: '/', 
       initial: true, 
-      onNavigation: (NavigationResolver resolver, StackRouter router) async {
-        if (authRepo.isEmailVerified) {
-          resolver.next(true);
-        } else if (authRepo.isSignedIn) {
-          print('to verification');
-          resolver.redirect(const EmailVerificationRoute()); // это значит, что чтобы перейти на WalletsRoute теперь понадобится сделать router.push(WalletsRoute)
-        } else {
-          resolver.redirect(LoginRoute(action: LoginAction.newUser));
-        }
-      }
+      guards: [SignedInGuard(authRepo), EmailVerifiedGuard(authRepo)]
     ),
+    AutoRoute(
+      page: EmailVerificationRoute.page,
+      path: '/login/email-verification',
+      guards: [SignedInGuard(authRepo)]
+    ),
+    // AutoRoute.guarded(
+    //   page: WalletsRoute.page, 
+    //   path: '/', 
+    //   initial: true, 
+    //   onNavigation: (NavigationResolver resolver, StackRouter router) async {
+    //     if (authRepo.isEmailVerified) {
+    //       resolver.next(true);
+    //     } else if (authRepo.isSignedIn) {
+    //       print('to verification');
+    //       resolver.redirect(const EmailVerificationRoute()); // это значит, что чтобы перейти на WalletsRoute теперь понадобится сделать router.push(WalletsRoute)
+    //     } else {
+    //       resolver.redirect(LoginRoute(action: LoginAction.newUser));
+    //     }
+    //   }
+    // ),
+    // AutoRoute.guarded(
+    //   page: EmailVerificationRoute.page, 
+    //   path: '/login/email-verification',
+    //   onNavigation: (NavigationResolver resolver, StackRouter router) async {
+    //     // print('verification verification verification');
+    //     // print('email verification ${FirebaseAuth.instance.currentUser}');
+    //     if (authRepo.isEmailVerified) {
+    //       resolver.next(true);
+    //     } else {
+    //       resolver.redirect(LoginRoute(action: LoginAction.newUser));
+    //     }
+    //   }
+    // ),
     AutoRoute(
       page: HistoryRoute.page,
       path: '/history'
@@ -49,19 +100,6 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       page: LoginRoute.page,
       path: '/login',
-    ),
-    AutoRoute.guarded(
-      page: EmailVerificationRoute.page, 
-      path: '/login/email-verification',
-      onNavigation: (NavigationResolver resolver, StackRouter router) async {
-        // print('verification verification verification');
-        // print('email verification ${FirebaseAuth.instance.currentUser}');
-        if (authRepo.isEmailVerified) {
-          resolver.next(true);
-        } else {
-          resolver.redirect(LoginRoute(action: LoginAction.newUser));
-        }
-      }
     ),
     AutoRoute(
       page: SettingsRoute.page,

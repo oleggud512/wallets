@@ -109,7 +109,9 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
             switch (state) {
               case WalletsPageDefaultState():
                 configureCurWallet(state.wallets);
-                return buildWallets(state.wallets);
+                return state.wallets.isEmpty 
+                  ? buildPlaceholder()
+                  : buildWallets(state.wallets);
               default: 
                 return const Center(child: CircularProgressIndicator());
             }
@@ -151,6 +153,35 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
           ).toList(),
         ),
       ),
+    );
+  }
+
+  Widget buildPlaceholder() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: p16),
+          child: Text('Click this button to add your first wallet!'.hardcoded, 
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              color: Colors.grey.shade600
+            )
+          ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(Icons.south_east_rounded, 
+              size: p64, 
+              color: Colors.grey.shade600
+            ),
+            const SizedBox(width: p72)
+          ],
+        ),
+        const SizedBox(height: p72)
+      ],
     );
   }
 }

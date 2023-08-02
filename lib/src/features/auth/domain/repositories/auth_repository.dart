@@ -9,4 +9,5 @@ abstract interface class AuthRepository {
   AppUser? get currentUser;
   bool get isSignedIn;
   bool get isEmailVerified;
+  Future<void> refreshUser();
 }
