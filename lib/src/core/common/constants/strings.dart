@@ -1,5 +1,6 @@
 class PrefsStrings {
   static const String themeMode = 'theme-mode';
+  static const String currentLocale = 'current-locale';
 } 
 
 class FirebaseStrings {
@@ -40,4 +41,9 @@ class FirebaseStrings {
   static String wallet(String id) {
     return '$wallets/$id';
   }
+}
+
+class LocalizationStrings {
+  static const String enLocaleCode = 'en';
+  static const String ruLocaleCode = 'ru';
 }

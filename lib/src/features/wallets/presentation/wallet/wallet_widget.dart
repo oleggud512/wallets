@@ -1,7 +1,7 @@
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/features/wallets/application/use_cases/update_wallet_description.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';

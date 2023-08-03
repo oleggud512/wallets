@@ -1,5 +1,5 @@
 
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';

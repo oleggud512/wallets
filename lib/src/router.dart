@@ -3,8 +3,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
-import 'features/auth/presentation/email_verification_page.dart';
-import 'features/auth/presentation/login_page.dart';
+import 'features/auth/application/guards/email_verified_guard.dart';
+import 'features/auth/application/guards/signed_in_guard.dart';
+import 'features/auth/presentation/email_verification/email_verification_page.dart';
+import 'features/auth/presentation/login/login_page.dart';
 import 'features/history/domain/entities/history_node.dart';
 import 'features/history/presentation/history_page.dart';
 import 'features/settings/presentation/settings_page.dart';
@@ -16,34 +18,6 @@ import 'features/wallets/presentation/wallets/wallets_page.dart';
 
 part 'router.gr.dart';
 
-/// Checks if an email is verified. 
-/// If it's not verified redirects to the verification page. 
-/// Should not be used without [SignedInGuard]
-class EmailVerifiedGuard extends AutoRouteGuard {
-  final AuthRepository repo;
-
-  EmailVerifiedGuard(this.repo);
-
-  @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (repo.isEmailVerified) return resolver.next(true);
-    resolver.redirect(const EmailVerificationRoute());
-  }
-}
-
-/// Checks if the user is signed in.
-/// Redirects to the login page if he isn't. 
-class SignedInGuard extends AutoRouteGuard {
-  final AuthRepository repo;
-
-  SignedInGuard(this.repo);
-
-  @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (repo.isSignedIn) return resolver.next(true);
-    resolver.redirect(LoginRoute(action: LoginAction.newUser));
-  }
-}
 
 @Singleton()
 @AutoRouterConfig()

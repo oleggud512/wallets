@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/common/constants/constants.dart';
+import '../../../core/common/constants/sizes.dart';
 import '../domain/entities/account.dart';
 import 'history_node_widget.dart';
 

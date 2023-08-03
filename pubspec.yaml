@@ -35,7 +35,9 @@ dependencies:
   provider: ^6.0.5
   rxdart:
   
-  intl:
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0
   file:
 
   google_fonts:
@@ -54,6 +56,8 @@ dependencies:
   injectable:
   equatable: ^2.0.5
   logger: ^2.0.1
+  formz: ^0.6.0
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +75,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -81,6 +85,7 @@ flutter:
   assets:
     - assets/wallet1.svg
     - assets/curs.json
+    - assets/translations/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

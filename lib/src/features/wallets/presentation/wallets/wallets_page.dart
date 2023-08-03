@@ -1,7 +1,6 @@
 
 import 'package:ads_pay_app/services/database_service.dart';
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
-import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
@@ -13,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 
+import '../../../../core/presentation/localizations/app_localizations.dart';
 import '../../../../get_it.dart';
 import '../../application/use_cases/delete_wallet_use_case.dart';
 import '../../application/use_cases/watch_wallets_use_case.dart';
@@ -161,6 +161,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
       children: [
+        Text(Ll.of(context)!.save),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: p16),
           child: Text('Click this button to add your first wallet!'.hardcoded, 

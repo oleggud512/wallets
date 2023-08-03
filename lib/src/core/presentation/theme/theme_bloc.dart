@@ -1,4 +1,4 @@
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/common/constants/strings.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:flutter/material.dart';

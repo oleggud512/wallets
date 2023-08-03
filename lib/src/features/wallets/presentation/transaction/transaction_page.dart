@@ -4,7 +4,7 @@ import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tags/tags_dialog.dart';
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_events.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_states.dart';

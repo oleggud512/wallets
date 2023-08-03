@@ -3,7 +3,7 @@ import 'package:ads_pay_app/src/features/history/domain/entities/history_node.da
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';
 import 'package:ads_pay_app/src/core/presentation/edit_description_dialog.dart';
 import 'package:ads_pay_app/services/database_service.dart';
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tag/tag_widget.dart';

@@ -1,14 +1,18 @@
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
+import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_widget.dart';
+import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:formz/formz.dart';
 
-import '../../../core/common/constants/constants.dart';
-import '../../../core/presentation/loading_dialog.dart';
+import '../../../../core/common/constants/sizes.dart';
+import '../../../../core/presentation/loading_dialog.dart';
 
 enum LoginAction { newUser, deleteUser }
 
@@ -30,6 +34,9 @@ class _LoginPageState extends State<LoginPage> {
   final password = TextEditingController();
   final focus1 = FocusNode();
   final focus2 = FocusNode();
+
+  final loginFormWidgetKey = GlobalKey<LoginFormWidgetState>();
+
   AuthRepository authRepo = getIt<AuthRepository>();
 
   bool isSignIn = true;
@@ -93,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                         )
                       ),
                     ),
+                    // LoginFormWidget(key: loginFormWidgetKey),
                     h16gap,
                     FilledButton(
                       onPressed: onSignIn,
@@ -175,6 +183,7 @@ class _LoginPageState extends State<LoginPage> {
         task: authRepo.registerWithEmailAndPassword(email.text, password.text)
       ).show(context);
     }
+
     if (mounted && message != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

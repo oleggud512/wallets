@@ -1,4 +1,7 @@
+import 'package:ads_pay_app/src/core/common/context_ext.dart';
 import 'package:ads_pay_app/src/core/common/string_ext.dart';
+import 'package:ads_pay_app/src/core/presentation/localizations/app_localizations.dart';
+import 'package:ads_pay_app/src/core/presentation/localizations/localization_cubit.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
@@ -7,11 +10,11 @@ import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
+import '../../../core/common/constants/sizes.dart';
 import '../../../core/presentation/yes_no_dialog.dart';
 import '../../../get_it.dart';
-import '../../auth/presentation/login_page.dart';
+import '../../auth/presentation/login/login_page.dart';
 
 
 @RoutePage()
@@ -35,6 +38,27 @@ class _SettingsPageState extends State<SettingsPage> {
   onThemeChanged(ThemeMode? newThemeMode) {
     themeBloc.add(ThemeChangeThemeEvent(newThemeMode!));
   }
+
+  onSignOut() async {
+    bool? isSignOut = await YesNoDialog(
+      message: 'Sign out?'.hardcoded
+    ).show(context);
+    if (mounted && isSignOut == true ) {
+      await authRepo.signOut();
+      // ignore: use_build_context_synchronously
+      AutoRouter.of(context).pushAndPopUntil(
+        LoginRoute(), predicate: (route) => true);
+    }
+  }
+
+  onDeleteAccount() async {
+    bool? delete = await YesNoDialog(
+      message: 'Delete account?'.hardcoded
+    ).show(context);
+    if (delete == true && mounted) {
+      context.pushRoute(LoginRoute(action: LoginAction.deleteUser));
+    }
+  }
   
   Widget buildThemeRadio(ThemeMode themeMode) {
     return ListTile(
@@ -53,6 +77,7 @@ class _SettingsPageState extends State<SettingsPage> {
   
   @override
   Widget build(BuildContext context) {
+    final localeCubit = context.watch<LocaleCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text(authRepo.currentUser!.email),
@@ -67,45 +92,39 @@ class _SettingsPageState extends State<SettingsPage> {
               buildThemeRadio(ThemeMode.system),
               const Divider(),
               ListTile(
+                title: DropdownButtonFormField(
+                  decoration: const InputDecoration(border: InputBorder.none),
+                  value: localeCubit.state,
+                  items: [
+                    DropdownMenuItem(
+                      value: AppLocale.en,
+                      child: Text(context.ll!.english),
+                    ),
+                    DropdownMenuItem(
+                      value: AppLocale.ru,
+                      child: Text(context.ll!.russian),
+                    ),
+                  ],
+                  onChanged: (v) {
+                    localeCubit.changeLocale(v!);
+                  },
+                ),
+              ),
+              const Divider(),
+              ListTile(
                 enabled: authRepo.isSignedIn,
-                onTap: () async {
-                  bool? isSignOut = await YesNoDialog(
-                    message: 'Sign out?'.hardcoded
-                  ).show(context);
-                  if (mounted && isSignOut == true ) {
-                    await authRepo.signOut();
-                    // ignore: use_build_context_synchronously
-                    AutoRouter.of(context).pushAndPopUntil(
-                      LoginRoute(), predicate: (route) => true);
-                  }
-                },
+                onTap: onSignOut,
                 textColor: Theme.of(context).colorScheme.primary,
                 iconColor: Theme.of(context).colorScheme.primary,
                 leading: const Padding(
                   padding: EdgeInsets.all(12.0),
                   child: Icon(Icons.logout),
                 ),
-                title: const Text('Sign out')
+                title: Text('Sign out'.hardcoded)
               ),
               ListTile(
                 enabled: authRepo.isSignedIn,
-                onTap: () async {
-                  bool? isDelete = await YesNoDialog(
-                    message: 'Delete account?'.hardcoded
-                  ).show(context);
-                  if (isDelete == true && mounted) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const LoginPage(
-                          action: LoginAction.deleteUser,
-                        )
-                      )
-                    ).then(
-                      (v) => Navigator.pop(context)
-                    );
-                  }
-                },
+                onTap: onDeleteAccount,
                 textColor: Colors.red,
                 iconColor: Colors.red,
                 leading: const Padding(

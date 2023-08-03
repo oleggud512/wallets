@@ -2,15 +2,6 @@ import 'package:flutter/material.dart';
 
 const shrink = SizedBox.shrink();
 
-const h4gap = SizedBox(height: 4);
-const w4gap = SizedBox(width: 4);
-const h8gap = SizedBox(height: 8);
-const w8gap = SizedBox(width: 8);
-const h16gap = SizedBox(height: 16);
-const w16gap = SizedBox(width: 16);
-const h32gap = SizedBox(height: 32);
-const w32gap = SizedBox(width: 32);
-
 const double p4 = 4.0;
 const double p8 = 8.0;
 const double p16 = 16.0;
@@ -68,5 +59,14 @@ const double p424 = 424.0;
 const double p432 = 432.0;
 const double p440 = 440.0;
 const double p448 = 448.0;
+
+const h4gap = SizedBox(height: p4);
+const w4gap = SizedBox(width: p4);
+const h8gap = SizedBox(height: p8);
+const w8gap = SizedBox(width: p8);
+const h16gap = SizedBox(height: p16);
+const w16gap = SizedBox(width: p16);
+const h32gap = SizedBox(height: p32);
+const w32gap = SizedBox(width: p32);
 
 const double defaultPadding = 16;

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:ads_pay_app/src/core/common/constants/constants.dart';
+import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
+import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:ads_pay_app/src/get_it.dart';
@@ -8,7 +9,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../router.dart';
+import '../../../../router.dart';
 
 
 @RoutePage()
@@ -50,19 +51,19 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('A verification email has been send to your email.',
+            Text('A verification email has been send to your email.'.hardcoded,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge
             ),
             FilledButton.icon(
               icon: const Icon(Icons.email),
-              label: const Text('Resent Email'),
+              label: Text('Resent Email'.hardcoded),
               onPressed: () async {
                 authServ.sendVerificationEmail();
               }
             ),
             TextButton(
-              child: const Text('Cancel'),
+              child: Text('Cancel'.hardcoded),
               onPressed: () async {
                 // authServ.signOut();
                 print('NOTHING IS HAPPENING');

@@ -1,5 +1,6 @@
 import 'package:ads_pay_app/firebase_options.dart';
 import 'package:ads_pay_app/services/database_service.dart';
+import 'package:ads_pay_app/src/core/presentation/localizations/localization_cubit.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
 import 'package:ads_pay_app/src/app.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
@@ -24,7 +25,7 @@ void main() async {
   await MobileAds.instance.initialize();
   
   await configureDependencies();
-  
+
   // await MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
   //   testDeviceIds: ['24AD7E1CAC35B81422A086FE47D7C83C'] // oppo cph2239
   // ));
@@ -33,6 +34,9 @@ void main() async {
   ));
   
   final dbServ = DatabaseService();
+  
+  final localeCubit = LocaleCubit();
+  await localeCubit.load();
 
   FlutterNativeSplash.remove();
   
@@ -41,6 +45,7 @@ void main() async {
       Provider(create: (_) => dbServ),
 
       BlocProvider(create: (_) => ThemeBloc()..add(ThemeLoadEvent())),
+      BlocProvider.value(value: localeCubit),
 
       ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
     ],
