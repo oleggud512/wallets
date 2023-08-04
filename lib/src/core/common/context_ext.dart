@@ -95,24 +95,19 @@ extension BuildContextExtensions<T> on BuildContext {
     );
   }
 
-  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(String message) {
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(
+    String message, 
+    [
+      SnackBarAction? action
+    ]
+  ) {
     return ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         content: Text(message),
         behavior: SnackBarBehavior.floating,
+        action: action
         // backgroundColor: primary,
       ),
     );
   }
-
-  // Future<bool?> showToast(String message) {
-  //   return Fluttertoast.showToast(
-  //     msg: message,
-  //     toastLength: Toast.LENGTH_SHORT,
-  //     gravity: ToastGravity.BOTTOM,
-  //     timeInSecForIosWeb: 1,
-  //     backgroundColor: primary,
-  //     textColor: onPrimary,
-  //   );
-  // }
 }

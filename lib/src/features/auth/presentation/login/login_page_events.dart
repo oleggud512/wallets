@@ -1,4 +1,5 @@
 import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_states.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_page_events.freezed.dart';
@@ -7,7 +8,7 @@ part 'login_page_events.freezed.dart';
 class LoginPageEvent with _$LoginPageEvent {
   factory LoginPageEvent() = _LoginPageEvent;
 
-  factory LoginPageEvent.submit() = LoginPageSubmitEvent;
+  factory LoginPageEvent.submit(VoidCallback onSuccess) = LoginPageSubmitEvent;
   factory LoginPageEvent.togglePageMode() = LoginPageTogglePageModeEvent;
   factory LoginPageEvent.exceptionHandled() = LoginPageExceptionHandledEvent;
 }

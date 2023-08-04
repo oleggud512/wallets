@@ -24,7 +24,6 @@ mixin _$LoginFormEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +35,6 @@ mixin _$LoginFormEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) =>
       throw _privateConstructorUsedError;
@@ -48,7 +46,6 @@ mixin _$LoginFormEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) =>
@@ -64,7 +61,6 @@ mixin _$LoginFormEvent {
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) =>
@@ -78,7 +74,6 @@ mixin _$LoginFormEvent {
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) =>
@@ -92,7 +87,6 @@ mixin _$LoginFormEvent {
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -162,7 +156,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return $default();
@@ -177,7 +170,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return $default?.call();
@@ -192,7 +184,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -214,7 +205,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -231,7 +221,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -248,7 +237,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -338,7 +326,6 @@ class _$LoginFormAddPasswordErrorEvent
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return addPasswordError(error);
@@ -353,7 +340,6 @@ class _$LoginFormAddPasswordErrorEvent
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return addPasswordError?.call(error);
@@ -368,7 +354,6 @@ class _$LoginFormAddPasswordErrorEvent
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -390,7 +375,6 @@ class _$LoginFormAddPasswordErrorEvent
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -407,7 +391,6 @@ class _$LoginFormAddPasswordErrorEvent
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -424,7 +407,6 @@ class _$LoginFormAddPasswordErrorEvent
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -519,7 +501,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return addEmailError(error);
@@ -534,7 +515,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return addEmailError?.call(error);
@@ -549,7 +529,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -571,7 +550,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -588,7 +566,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -605,7 +582,6 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -700,7 +676,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return emailChanged(email);
@@ -715,7 +690,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return emailChanged?.call(email);
@@ -730,7 +704,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -752,7 +725,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -769,7 +741,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -786,7 +757,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -882,7 +852,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return passwordChanged(password);
@@ -897,7 +866,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return passwordChanged?.call(password);
@@ -912,7 +880,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -934,7 +901,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -951,7 +917,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -968,7 +933,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -1067,7 +1031,6 @@ class _$LoginFormConfirmPasswordChangedEvent
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return confirmPasswordChanged(confirmPassword);
@@ -1082,7 +1045,6 @@ class _$LoginFormConfirmPasswordChangedEvent
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return confirmPasswordChanged?.call(confirmPassword);
@@ -1097,7 +1059,6 @@ class _$LoginFormConfirmPasswordChangedEvent
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -1119,7 +1080,6 @@ class _$LoginFormConfirmPasswordChangedEvent
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -1136,7 +1096,6 @@ class _$LoginFormConfirmPasswordChangedEvent
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -1153,7 +1112,6 @@ class _$LoginFormConfirmPasswordChangedEvent
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),
@@ -1174,152 +1132,6 @@ abstract class LoginFormConfirmPasswordChangedEvent implements LoginFormEvent {
   _$$LoginFormConfirmPasswordChangedEventCopyWith<
           _$LoginFormConfirmPasswordChangedEvent>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoginFormResetEventCopyWith<$Res> {
-  factory _$$LoginFormResetEventCopyWith(_$LoginFormResetEvent value,
-          $Res Function(_$LoginFormResetEvent) then) =
-      __$$LoginFormResetEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoginFormResetEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormResetEvent>
-    implements _$$LoginFormResetEventCopyWith<$Res> {
-  __$$LoginFormResetEventCopyWithImpl(
-      _$LoginFormResetEvent _value, $Res Function(_$LoginFormResetEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$LoginFormResetEvent implements LoginFormResetEvent {
-  _$LoginFormResetEvent();
-
-  @override
-  String toString() {
-    return 'LoginFormEvent.reset()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginFormResetEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
-    required TResult Function(bool isConfirmPassword) setConfirmPassword,
-  }) {
-    return reset();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
-    TResult? Function(bool isConfirmPassword)? setConfirmPassword,
-  }) {
-    return reset?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
-    TResult Function(bool isConfirmPassword)? setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
-    required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
-    required TResult Function(LoginFormPasswordChangedEvent value)
-        passwordChanged,
-    required TResult Function(LoginFormConfirmPasswordChangedEvent value)
-        confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
-    required TResult Function(LoginFormSetConfirmPasswordEvent value)
-        setConfirmPassword,
-  }) {
-    return reset(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
-    TResult? Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-  }) {
-    return reset?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
-    TResult Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginFormResetEvent implements LoginFormEvent {
-  factory LoginFormResetEvent() = _$LoginFormResetEvent;
 }
 
 /// @nodoc
@@ -1399,7 +1211,6 @@ class _$LoginFormSetConfirmPasswordEvent
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function() reset,
     required TResult Function(bool isConfirmPassword) setConfirmPassword,
   }) {
     return setConfirmPassword(isConfirmPassword);
@@ -1414,7 +1225,6 @@ class _$LoginFormSetConfirmPasswordEvent
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function()? reset,
     TResult? Function(bool isConfirmPassword)? setConfirmPassword,
   }) {
     return setConfirmPassword?.call(isConfirmPassword);
@@ -1429,7 +1239,6 @@ class _$LoginFormSetConfirmPasswordEvent
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function()? reset,
     TResult Function(bool isConfirmPassword)? setConfirmPassword,
     required TResult orElse(),
   }) {
@@ -1451,7 +1260,6 @@ class _$LoginFormSetConfirmPasswordEvent
         passwordChanged,
     required TResult Function(LoginFormConfirmPasswordChangedEvent value)
         confirmPasswordChanged,
-    required TResult Function(LoginFormResetEvent value) reset,
     required TResult Function(LoginFormSetConfirmPasswordEvent value)
         setConfirmPassword,
   }) {
@@ -1468,7 +1276,6 @@ class _$LoginFormSetConfirmPasswordEvent
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult? Function(LoginFormResetEvent value)? reset,
     TResult? Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
   }) {
@@ -1485,7 +1292,6 @@ class _$LoginFormSetConfirmPasswordEvent
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
         confirmPasswordChanged,
-    TResult Function(LoginFormResetEvent value)? reset,
     TResult Function(LoginFormSetConfirmPasswordEvent value)?
         setConfirmPassword,
     required TResult orElse(),

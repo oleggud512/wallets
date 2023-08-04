@@ -6,9 +6,11 @@ import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repositor
 import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/presentation/localization/locale_keys.g.dart';
 import '../../../../router.dart';
 
 
@@ -51,7 +53,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('A verification email has been send to your email.'.hardcoded,
+            Text(context.tr(LocaleKeys.verificationMailMessage),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge
             ),

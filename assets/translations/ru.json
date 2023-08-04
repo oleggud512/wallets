@@ -21,5 +21,13 @@
     "email": "Email",
     "password": "Пароль",
     "confirmPassword": "Подтвердите пароль",
-    "wallets": "Wallets"
+    "wallets": "Wallets",
+    "verificationMailMessage": "На вашу электронную почту было отправлено письмо для подтверждения.",
+    "resedEmail": "Отправить снова", 
+    "cancel": "Отменить",
+    "firebaseExceptions": {
+        "tooManyRequests": "Слишком много запросов, пожалуйста подождите",
+        "networkRequestFailed": "Нет сети",
+        "wrongPassword": "Неверный пароль"
+    }
 }

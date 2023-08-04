@@ -37,7 +37,15 @@ class CodegenLoader extends AssetLoader{
   "email": "Email",
   "password": "Пароль",
   "confirmPassword": "Подтвердите пароль",
-  "wallets": "Wallets"
+  "wallets": "Wallets",
+  "verificationMailMessage": "На вашу электронную почту было отправлено письмо для подтверждения.",
+  "resedEmail": "Отправить снова",
+  "cancel": "Отменить",
+  "firebaseExceptions": {
+    "tooManyRequests": "Слишком много запросов, пожалуйста подождите",
+    "networkRequestFailed": "Нет сети",
+    "wrongPassword": "Неверный пароль"
+  }
 };
 static const Map<String,dynamic> en = {
   "save": "Save",
@@ -62,7 +70,15 @@ static const Map<String,dynamic> en = {
   "email": "Email",
   "password": "Password",
   "confirmPassword": "Confirm password",
-  "wallets": "Wallets"
+  "wallets": "Wallets",
+  "verificationMailMessage": "A verification email has been send to your email",
+  "resend_email": "Resent Email",
+  "cancel": "Cancel",
+  "firebaseExceptions": {
+    "tooManyRequests": "Too many requests",
+    "networkRequestFailed": "No Internet",
+    "wrongPassword": "Wrong password"
+  }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "en": en};
 }

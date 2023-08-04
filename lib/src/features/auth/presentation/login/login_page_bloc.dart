@@ -20,31 +20,30 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   ) : _loginFormBloc = loginFormBloc, super(LoginPageState()) {
 
     on<LoginPageTogglePageModeEvent>((event, emit) {
-      // _loginFormBloc.add(LoginFormResetEvent()); // TODO: reset doesn't work...
-
       emit(state.copyWith(pageMode: state.pageMode == LoginPageMode.signIn 
         ? LoginPageMode.singUp 
         : LoginPageMode.signIn
       ));
-
-      glogger.w('toggle mode ${state.isSignUp} ${_loginFormBloc.state.password.confirmationPassword}');
 
       _loginFormBloc.add(LoginFormSetConfirmPasswordEvent(state.isSignUp));
     });
 
     on<LoginPageSubmitEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-      if (!_loginFormBloc.state.isValid) {
-        glogger.w('invalidos');
-      }
-      // final res = state.isSignIn
-      //   ? await signIn(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value)
-      //   : await signUp(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value);
-      // res.fold(
-      //   (left) => emit(state.copyWith(isLoading: false, authException: left)), 
-      //   (right) => emit(state.copyWith(isLoading: false))
-      // );
-      glogger.i('validate!');
+      
+      if (!_loginFormBloc.state.isValid) return;
+      
+      final res = state.isSignIn
+        ? await signIn(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value)
+        : await signUp(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value);
+      
+      res.fold(
+        (left) => emit(state.copyWith(isLoading: false, authException: left)), 
+        (right) {
+          event.onSuccess();
+          emit(state.copyWith(isLoading: false));
+        }
+      );
     });
 
     on<LoginPageExceptionHandledEvent>((event, emit) {

@@ -19,7 +19,7 @@ mixin _$LoginPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function() submit,
+    required TResult Function(VoidCallback onSuccess) submit,
     required TResult Function() togglePageMode,
     required TResult Function() exceptionHandled,
   }) =>
@@ -27,7 +27,7 @@ mixin _$LoginPageEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function()? submit,
+    TResult? Function(VoidCallback onSuccess)? submit,
     TResult? Function()? togglePageMode,
     TResult? Function()? exceptionHandled,
   }) =>
@@ -35,7 +35,7 @@ mixin _$LoginPageEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function()? submit,
+    TResult Function(VoidCallback onSuccess)? submit,
     TResult Function()? togglePageMode,
     TResult Function()? exceptionHandled,
     required TResult orElse(),
@@ -127,7 +127,7 @@ class _$_LoginPageEvent implements _LoginPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function() submit,
+    required TResult Function(VoidCallback onSuccess) submit,
     required TResult Function() togglePageMode,
     required TResult Function() exceptionHandled,
   }) {
@@ -138,7 +138,7 @@ class _$_LoginPageEvent implements _LoginPageEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function()? submit,
+    TResult? Function(VoidCallback onSuccess)? submit,
     TResult? Function()? togglePageMode,
     TResult? Function()? exceptionHandled,
   }) {
@@ -149,7 +149,7 @@ class _$_LoginPageEvent implements _LoginPageEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function()? submit,
+    TResult Function(VoidCallback onSuccess)? submit,
     TResult Function()? togglePageMode,
     TResult Function()? exceptionHandled,
     required TResult orElse(),
@@ -209,6 +209,8 @@ abstract class _$$LoginPageSubmitEventCopyWith<$Res> {
   factory _$$LoginPageSubmitEventCopyWith(_$LoginPageSubmitEvent value,
           $Res Function(_$LoginPageSubmitEvent) then) =
       __$$LoginPageSubmitEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({VoidCallback onSuccess});
 }
 
 /// @nodoc
@@ -218,60 +220,86 @@ class __$$LoginPageSubmitEventCopyWithImpl<$Res>
   __$$LoginPageSubmitEventCopyWithImpl(_$LoginPageSubmitEvent _value,
       $Res Function(_$LoginPageSubmitEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? onSuccess = null,
+  }) {
+    return _then(_$LoginPageSubmitEvent(
+      null == onSuccess
+          ? _value.onSuccess
+          : onSuccess // ignore: cast_nullable_to_non_nullable
+              as VoidCallback,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
-  _$LoginPageSubmitEvent();
+  _$LoginPageSubmitEvent(this.onSuccess);
+
+  @override
+  final VoidCallback onSuccess;
 
   @override
   String toString() {
-    return 'LoginPageEvent.submit()';
+    return 'LoginPageEvent.submit(onSuccess: $onSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginPageSubmitEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$LoginPageSubmitEvent &&
+            (identical(other.onSuccess, onSuccess) ||
+                other.onSuccess == onSuccess));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, onSuccess);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoginPageSubmitEventCopyWith<_$LoginPageSubmitEvent> get copyWith =>
+      __$$LoginPageSubmitEventCopyWithImpl<_$LoginPageSubmitEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function() submit,
+    required TResult Function(VoidCallback onSuccess) submit,
     required TResult Function() togglePageMode,
     required TResult Function() exceptionHandled,
   }) {
-    return submit();
+    return submit(onSuccess);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function()? submit,
+    TResult? Function(VoidCallback onSuccess)? submit,
     TResult? Function()? togglePageMode,
     TResult? Function()? exceptionHandled,
   }) {
-    return submit?.call();
+    return submit?.call(onSuccess);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function()? submit,
+    TResult Function(VoidCallback onSuccess)? submit,
     TResult Function()? togglePageMode,
     TResult Function()? exceptionHandled,
     required TResult orElse(),
   }) {
     if (submit != null) {
-      return submit();
+      return submit(onSuccess);
     }
     return orElse();
   }
@@ -317,7 +345,13 @@ class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
 }
 
 abstract class LoginPageSubmitEvent implements LoginPageEvent {
-  factory LoginPageSubmitEvent() = _$LoginPageSubmitEvent;
+  factory LoginPageSubmitEvent(final VoidCallback onSuccess) =
+      _$LoginPageSubmitEvent;
+
+  VoidCallback get onSuccess;
+  @JsonKey(ignore: true)
+  _$$LoginPageSubmitEventCopyWith<_$LoginPageSubmitEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -362,7 +396,7 @@ class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function() submit,
+    required TResult Function(VoidCallback onSuccess) submit,
     required TResult Function() togglePageMode,
     required TResult Function() exceptionHandled,
   }) {
@@ -373,7 +407,7 @@ class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function()? submit,
+    TResult? Function(VoidCallback onSuccess)? submit,
     TResult? Function()? togglePageMode,
     TResult? Function()? exceptionHandled,
   }) {
@@ -384,7 +418,7 @@ class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function()? submit,
+    TResult Function(VoidCallback onSuccess)? submit,
     TResult Function()? togglePageMode,
     TResult Function()? exceptionHandled,
     required TResult orElse(),
@@ -482,7 +516,7 @@ class _$LoginPageExceptionHandledEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function() submit,
+    required TResult Function(VoidCallback onSuccess) submit,
     required TResult Function() togglePageMode,
     required TResult Function() exceptionHandled,
   }) {
@@ -493,7 +527,7 @@ class _$LoginPageExceptionHandledEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function()? submit,
+    TResult? Function(VoidCallback onSuccess)? submit,
     TResult? Function()? togglePageMode,
     TResult? Function()? exceptionHandled,
   }) {
@@ -504,7 +538,7 @@ class _$LoginPageExceptionHandledEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function()? submit,
+    TResult Function(VoidCallback onSuccess)? submit,
     TResult Function()? togglePageMode,
     TResult Function()? exceptionHandled,
     required TResult orElse(),

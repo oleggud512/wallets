@@ -1,4 +1,5 @@
 import 'package:ads_pay_app/src/core/common/context_ext.dart';
+import 'package:ads_pay_app/src/core/common/firebase_ext.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
@@ -10,6 +11,7 @@ import 'package:ads_pay_app/src/get_it.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             child: BlocConsumer<LoginPageBloc, LoginPageState>(
               listener: (context, state) {
                 if (state.authException == null) return;
-                // show exception
+                context.showSnackBar(context.tr('${LocaleKeys.firebaseExceptions}.${state.authException!.localeKey}'));
                 context.read<LoginPageBloc>().add(LoginPageExceptionHandledEvent());
               },
               builder: (context, state) {
@@ -101,7 +103,9 @@ class _LoginPageState extends State<LoginPage> {
                               h16gap,
                               FilledButton(
                                 onPressed: () {
-                                  bloc.add(LoginPageSubmitEvent());
+                                  bloc.add(LoginPageSubmitEvent(() {
+                                    context.pushRoute(const WalletsRoute());
+                                  }));
                                 },
                                 style: FilledButton.styleFrom(
                                   fixedSize: const Size.fromHeight(56),

@@ -21,5 +21,13 @@
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm password",
-    "wallets": "Wallets"
+    "wallets": "Wallets",
+    "verificationMailMessage": "A verification email has been send to your email",
+    "resend_email": "Resent Email",
+    "cancel": "Cancel",
+    "firebaseExceptions": {
+        "tooManyRequests": "Too many requests",
+        "networkRequestFailed": "No Internet",
+        "wrongPassword": "Wrong password"
+    }
 }

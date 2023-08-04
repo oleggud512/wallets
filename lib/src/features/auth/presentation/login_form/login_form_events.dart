@@ -12,6 +12,5 @@ class LoginFormEvent with _$LoginFormEvent {
   factory LoginFormEvent.emailChanged(String email) = LoginFormEmailChangedEvent;
   factory LoginFormEvent.passwordChanged(String password) = LoginFormPasswordChangedEvent;
   factory LoginFormEvent.confirmPasswordChanged(String confirmPassword) = LoginFormConfirmPasswordChangedEvent;
-  factory LoginFormEvent.reset() = LoginFormResetEvent;
   factory LoginFormEvent.setConfirmPassword(bool isConfirmPassword) = LoginFormSetConfirmPasswordEvent;
 }
