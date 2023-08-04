@@ -1,2 +1,2 @@
-final emailRegex = RegExp(r'^(?=\S+)@(?=\S+).(?=\S{2:})$');
-final passwordRegex = RegExp(r'^.{6:}$');
+final emailRegex = RegExp(r'^\S+\@\S+\.\S{2,}$');
+final passwordRegex = RegExp(r'^.{6,}$');

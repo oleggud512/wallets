@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import 'features/auth/application/guards/email_verified_guard.dart';
 import 'features/auth/application/guards/signed_in_guard.dart';
+import 'features/auth/presentation/delete_account/delete_account_page.dart';
 import 'features/auth/presentation/email_verification/email_verification_page.dart';
 import 'features/auth/presentation/login/login_page.dart';
 import 'features/history/domain/entities/history_node.dart';
@@ -39,34 +40,6 @@ class AppRouter extends _$AppRouter {
       path: '/login/email-verification',
       guards: [SignedInGuard(authRepo)]
     ),
-    // AutoRoute.guarded(
-    //   page: WalletsRoute.page, 
-    //   path: '/', 
-    //   initial: true, 
-    //   onNavigation: (NavigationResolver resolver, StackRouter router) async {
-    //     if (authRepo.isEmailVerified) {
-    //       resolver.next(true);
-    //     } else if (authRepo.isSignedIn) {
-    //       print('to verification');
-    //       resolver.redirect(const EmailVerificationRoute()); // это значит, что чтобы перейти на WalletsRoute теперь понадобится сделать router.push(WalletsRoute)
-    //     } else {
-    //       resolver.redirect(LoginRoute(action: LoginAction.newUser));
-    //     }
-    //   }
-    // ),
-    // AutoRoute.guarded(
-    //   page: EmailVerificationRoute.page, 
-    //   path: '/login/email-verification',
-    //   onNavigation: (NavigationResolver resolver, StackRouter router) async {
-    //     // print('verification verification verification');
-    //     // print('email verification ${FirebaseAuth.instance.currentUser}');
-    //     if (authRepo.isEmailVerified) {
-    //       resolver.next(true);
-    //     } else {
-    //       resolver.redirect(LoginRoute(action: LoginAction.newUser));
-    //     }
-    //   }
-    // ),
     AutoRoute(
       page: HistoryRoute.page,
       path: '/history'
@@ -78,6 +51,10 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       page: SettingsRoute.page,
       path: '/settings',
+    ),
+    AutoRoute(
+      page: DeleteAccountRoute.page,
+      path: '/settings/delete-account',
     ),
     AutoRoute(
       page: AddWalletRoute.page,

@@ -1,8 +1,10 @@
 import 'package:ads_pay_app/src/features/auth/domain/repositories/entities/app_user.dart';
+import 'package:either_dart/either.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract interface class AuthRepository {
-  Future<String?> signInWithEmailAndPassword(String email, String password);
-  Future<String?> registerWithEmailAndPassword(String email, String password);
+  Future<Either<FirebaseAuthException, void>> signInWithEmailAndPassword(String email, String password);
+  Future<Either<FirebaseAuthException, void>> registerWithEmailAndPassword(String email, String password);
   Future<void> signOut();
   Future<void> deleteAccount(String email, String password);
   Future<void> sendVerificationEmail();

@@ -21,6 +21,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    DeleteAccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DeleteAccountPage(),
+      );
+    },
+    EmailVerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmailVerificationPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
+    },
     TagsDialogRoute.name: (routeData) {
       final args = routeData.argsAs<TagsDialogRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -64,23 +82,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AddWalletPage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: LoginPage(
-          key: args.key,
-          action: args.action,
-        ),
-      );
-    },
-    EmailVerificationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const EmailVerificationPage(),
-      );
-    },
   };
 }
 
@@ -94,6 +95,48 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DeleteAccountPage]
+class DeleteAccountRoute extends PageRouteInfo<void> {
+  const DeleteAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          DeleteAccountRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DeleteAccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EmailVerificationPage]
+class EmailVerificationRoute extends PageRouteInfo<void> {
+  const EmailVerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          EmailVerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmailVerificationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -241,57 +284,6 @@ class AddWalletRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AddWalletRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    Key? key,
-    LoginAction action = LoginAction.newUser,
-    List<PageRouteInfo>? children,
-  }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
-            key: key,
-            action: action,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'LoginRoute';
-
-  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
-}
-
-class LoginRouteArgs {
-  const LoginRouteArgs({
-    this.key,
-    this.action = LoginAction.newUser,
-  });
-
-  final Key? key;
-
-  final LoginAction action;
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key, action: $action}';
-  }
-}
-
-/// generated route for
-/// [EmailVerificationPage]
-class EmailVerificationRoute extends PageRouteInfo<void> {
-  const EmailVerificationRoute({List<PageRouteInfo>? children})
-      : super(
-          EmailVerificationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EmailVerificationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

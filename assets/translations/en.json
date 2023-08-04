@@ -1,0 +1,25 @@
+{
+    "save": "Save",
+    "english": "English",
+    "russian": "Russian",
+    "signOut": "Sign Out",
+    "deleteAccount": "Delete Account",
+    "themeMode": {
+        "light": "Light",
+        "dark": "Dark"
+    },
+    "theme": "Theme",
+    "emailErrors": {
+        "notFound": "Email not found",
+        "invalid": "Invalid email"
+    },
+    "passwordErrors": {
+        "incorrect": "Password is incorrect",
+        "dontMatch": "Passwords don't match",
+        "invalid": "Password is invalid (should be longer than 6 characters)"
+    },
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "wallets": "Wallets"
+}

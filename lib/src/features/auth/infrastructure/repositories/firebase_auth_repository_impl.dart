@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/firebase_ext.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/entities/app_user.dart';
+import 'package:either_dart/either.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
@@ -12,20 +13,18 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
   final auth = FirebaseAuth.instance;
 
   @override
-  Future<String?> signInWithEmailAndPassword(
+  Future<Either<FirebaseAuthException, void>> signInWithEmailAndPassword(
         String email, String password) async {
-    // authStateCont.sink.add(AuthState.loading);
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
+      return const Right(null);
     } on FirebaseAuthException catch (e) {
-      // authStateCont.sink.add(AuthState.unsignedIn);
-      return e.formattedCode;
+      return Left(e);
     }
-    return null;
   }
 
   @override
-  Future<String?> registerWithEmailAndPassword(
+  Future<Either<FirebaseAuthException, void>> registerWithEmailAndPassword(
     String email, 
     String password
   ) async {
@@ -34,10 +33,10 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
         email: email,
         password: password
       );
+      return const Right(null);
     } on FirebaseAuthException catch (e) {
-      return e.formattedCode;
+      return Left(e);
     }
-    return null;
   }
 
   @override

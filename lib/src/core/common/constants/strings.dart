@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class PrefsStrings {
   static const String themeMode = 'theme-mode';
   static const String currentLocale = 'current-locale';
@@ -46,4 +48,12 @@ class FirebaseStrings {
 class LocalizationStrings {
   static const String enLocaleCode = 'en';
   static const String ruLocaleCode = 'ru';
+}
+
+enum AppLocale {
+  en(Locale(LocalizationStrings.enLocaleCode)),
+  ru(Locale(LocalizationStrings.ruLocaleCode));
+
+  final Locale l;
+  const AppLocale(this.l);
 }

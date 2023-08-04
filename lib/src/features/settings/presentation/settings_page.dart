@@ -1,17 +1,15 @@
-import 'package:ads_pay_app/src/core/common/context_ext.dart';
-import 'package:ads_pay_app/src/core/common/string_ext.dart';
-import 'package:ads_pay_app/src/core/presentation/localizations/app_localizations.dart';
-import 'package:ads_pay_app/src/core/presentation/localizations/localization_cubit.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
 import 'package:ads_pay_app/src/core/common/hardcoded.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/common/constants/sizes.dart';
+import '../../../core/common/constants/strings.dart';
 import '../../../core/presentation/yes_no_dialog.dart';
 import '../../../get_it.dart';
 import '../../auth/presentation/login/login_page.dart';
@@ -56,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
       message: 'Delete account?'.hardcoded
     ).show(context);
     if (delete == true && mounted) {
-      context.pushRoute(LoginRoute(action: LoginAction.deleteUser));
+      context.pushRoute(const DeleteAccountRoute());
     }
   }
   
@@ -71,13 +69,13 @@ class _SettingsPageState extends State<SettingsPage> {
         groupValue: themeBloc.state,
         onChanged: onThemeChanged
       ),
-      title: Text('${themeMode.name.capitalize()} theme')
+      title: Text(context.tr('${LocaleKeys.themeMode}.${themeMode.name}'))
     );
   }
   
   @override
   Widget build(BuildContext context) {
-    final localeCubit = context.watch<LocaleCubit>();
+    final easyLl = EasyLocalization.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(authRepo.currentUser!.email),
@@ -86,27 +84,28 @@ class _SettingsPageState extends State<SettingsPage> {
       body: BlocBuilder<ThemeBloc, ThemeMode>(
         builder: (context, state) {
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               buildThemeRadio(ThemeMode.light),
               buildThemeRadio(ThemeMode.dark),
               buildThemeRadio(ThemeMode.system),
               const Divider(),
               ListTile(
-                title: DropdownButtonFormField(
+                title: DropdownButtonFormField<Locale>(
                   decoration: const InputDecoration(border: InputBorder.none),
-                  value: localeCubit.state,
+                  value: easyLl!.currentLocale,
                   items: [
                     DropdownMenuItem(
-                      value: AppLocale.en,
-                      child: Text(context.ll!.english),
+                      value: AppLocale.en.l,
+                      child: Text(context.tr(LocaleKeys.english)),
                     ),
                     DropdownMenuItem(
-                      value: AppLocale.ru,
-                      child: Text(context.ll!.russian),
+                      value: AppLocale.ru.l,
+                      child: Text(context.tr(LocaleKeys.english)),
                     ),
                   ],
                   onChanged: (v) {
-                    localeCubit.changeLocale(v!);
+                    easyLl.setLocale(v!);
                   },
                 ),
               ),
@@ -120,7 +119,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.all(12.0),
                   child: Icon(Icons.logout),
                 ),
-                title: Text('Sign out'.hardcoded)
+                title: Text(context.tr(LocaleKeys.signOut))
               ),
               ListTile(
                 enabled: authRepo.isSignedIn,
@@ -131,7 +130,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.all(12.0),
                   child: Icon(Icons.delete),
                 ),
-                title: Text('Delete account'.hardcoded),
+                title: Text(context.tr(LocaleKeys.deleteAccount)),
               ),
             ]
           );

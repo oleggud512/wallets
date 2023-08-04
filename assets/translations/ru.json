@@ -1,0 +1,25 @@
+{
+    "save": "Сохранить",
+    "english": "Английский",
+    "russian": "Русский",
+    "signOut": "Выйти из аккаунта",
+    "deleteAccount": "Удалить аккаунт",
+    "themeMode": {
+        "light": "Светлая",
+        "dark": "Темная"
+    },
+    "theme": "Тема",
+    "emailErrors": {
+        "notFound": "Email не найден",
+        "invalid": "Неправильная форма email"
+    },
+    "passwordErrors": {
+        "incorrect": "Неверный пароль",
+        "dontMatch": "Пароли не совпадают",
+        "invalid": "Пароль должен быть длиннее шести символов"
+    },
+    "email": "Email",
+    "password": "Пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "wallets": "Wallets"
+}

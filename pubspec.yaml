@@ -58,6 +58,8 @@ dependencies:
   logger: ^2.0.1
   formz: ^0.6.0
   easy_localization: ^3.0.2
+  freezed_annotation: ^2.4.1
+  either_dart: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -69,13 +71,16 @@ dev_dependencies:
   build_runner: ^2.4.6
   freezed: ^2.4.1
   json_serializable: ^6.7.1
+  watcher: ^1.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-  generate: true
+  # flutter_localizations
+  # generate: true
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -124,3 +129,13 @@ flutter_icons:
   android: true
   ios: true
   image_path: assets/wallet_white1.png
+
+# rps run
+scripts: 
+  # gen:
+  #   keys: dart run easy_localization:generate --source-dir assets/translations --output-dir lib/src/core/presentation/localization -f keys -o locale_keys.g.dart
+  #   loader: dart run easy_localization:generate --source-dir assets/translations --output-dir lib/src/core/presentation/localization
+  #   ll: rps run gen keys && rps run gen loader
+  #   ll10: flutter gen-l10n
+  w: dart run build_runner watch --delete-conflicting-outputs
+  wl: dart run scripts/watch_localization.dart # watch localization

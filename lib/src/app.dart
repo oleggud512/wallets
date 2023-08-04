@@ -1,9 +1,8 @@
-import 'package:ads_pay_app/src/core/presentation/localizations/localization_cubit.dart';
 import 'package:ads_pay_app/src/router.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'core/presentation/localizations/app_localizations.dart';
 import 'core/presentation/theme/theme_bloc.dart';
 
 class MyApp extends StatefulWidget {
@@ -18,14 +17,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final router = context.read<AppRouter>();
     final themeBloc = context.watch<ThemeBloc>();
-    final localeCubit = context.watch<LocaleCubit>();
 
     return MaterialApp.router(
       routerConfig: router.config(),
       
-      localizationsDelegates: Ll.localizationsDelegates,
-      supportedLocales: Ll.supportedLocales,
-      locale: localeCubit.state.l,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
 
       themeMode: themeBloc.state,
       debugShowCheckedModeBanner: false,

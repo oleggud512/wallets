@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/wallets/application/use_cases/delete_wallet_use_case.dart';
 import 'package:ads_pay_app/src/features/wallets/application/use_cases/watch_wallets_use_case.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
