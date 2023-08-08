@@ -1,12 +1,14 @@
 {
     "save": "Сохранить",
+    "description": "Описание",
     "english": "Английский",
     "russian": "Русский",
     "signOut": "Выйти из аккаунта",
     "deleteAccount": "Удалить аккаунт",
     "themeMode": {
         "light": "Светлая",
-        "dark": "Темная"
+        "dark": "Темная",
+        "system": "Как в системе"
     },
     "theme": "Тема",
     "emailErrors": {
@@ -16,18 +18,24 @@
     "passwordErrors": {
         "incorrect": "Неверный пароль",
         "dontMatch": "Пароли не совпадают",
-        "invalid": "Пароль должен быть длиннее шести символов"
+        "invalid": "Пароль должен быть длиннее шести символов",
+        "userNotFound": "Пользователь не найден"
     },
     "email": "Email",
     "password": "Пароль",
     "confirmPassword": "Подтвердите пароль",
     "wallets": "Wallets",
     "verificationMailMessage": "На вашу электронную почту было отправлено письмо для подтверждения.",
-    "resedEmail": "Отправить снова", 
+    "resendEmail": "Отправить снова", 
     "cancel": "Отменить",
     "firebaseExceptions": {
         "tooManyRequests": "Слишком много запросов, пожалуйста подождите",
         "networkRequestFailed": "Нет сети",
         "wrongPassword": "Неверный пароль"
-    }
+    },
+    "confirmDeleteHistoryNode": "Вы уверенны, что хотите удалить эту запись?",
+    "confirmSignOut": "Вы уверенны что хотите выйти из аккаунта?",
+    "confirmDeleteAccount": "Вы уверенны что хотите удалить аккаунт?", 
+    "edit": "Редактировать",
+    "delete": "Удалить"
 }

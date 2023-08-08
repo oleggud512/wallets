@@ -1,4 +1,4 @@
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:flutter/material.dart';
 
 class YesNoDialog extends StatelessWidget {

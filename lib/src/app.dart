@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
       
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
+      locale: context.locale,
 
       themeMode: themeBloc.state,
       debugShowCheckedModeBanner: false,

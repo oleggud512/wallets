@@ -1,4 +1,4 @@
-import 'package:ads_pay_app/src/core/common/string_ext.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 extension FormatFirebaseAuthExceptionCode on FirebaseAuthException {

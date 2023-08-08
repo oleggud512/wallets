@@ -1,4 +1,6 @@
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'dialog_widget.dart';
@@ -48,13 +50,13 @@ class _EditDescriptionDialogState extends State<EditDescriptionDialog> {
                 maxLines: null,
                 minLines: null,
                 decoration: InputDecoration(
-                  labelText: 'Description'.hardcoded,
+                  labelText: context.tr(LocaleKeys.description),
                   alignLabelWithHint: true,
                 ),
               ),
             ),
-            ElevatedButton(
-              child: Text('Save'.hardcoded),
+            FilledButton(
+              child: Text(context.tr(LocaleKeys.save)),
               onPressed: () {
                 Navigator.pop(context, descrCont.text);
               },

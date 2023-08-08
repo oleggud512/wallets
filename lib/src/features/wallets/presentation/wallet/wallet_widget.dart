@@ -1,4 +1,4 @@
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/wallets/application/use_cases/update_wallet_description.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:watcher/watcher.dart' as w;
 
 import 'utils/log.dart';
@@ -59,3 +58,4 @@ printInfo('Generating keys...');
     }
   });
 }
+

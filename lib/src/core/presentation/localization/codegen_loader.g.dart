@@ -16,13 +16,15 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> ru = {
   "save": "Сохранить",
+  "description": "Описание",
   "english": "Английский",
   "russian": "Русский",
   "signOut": "Выйти из аккаунта",
   "deleteAccount": "Удалить аккаунт",
   "themeMode": {
     "light": "Светлая",
-    "dark": "Темная"
+    "dark": "Темная",
+    "system": "Как в системе"
   },
   "theme": "Тема",
   "emailErrors": {
@@ -32,30 +34,38 @@ class CodegenLoader extends AssetLoader{
   "passwordErrors": {
     "incorrect": "Неверный пароль",
     "dontMatch": "Пароли не совпадают",
-    "invalid": "Пароль должен быть длиннее шести символов"
+    "invalid": "Пароль должен быть длиннее шести символов",
+    "userNotFound": "Пользователь не найден"
   },
   "email": "Email",
   "password": "Пароль",
   "confirmPassword": "Подтвердите пароль",
   "wallets": "Wallets",
   "verificationMailMessage": "На вашу электронную почту было отправлено письмо для подтверждения.",
-  "resedEmail": "Отправить снова",
+  "resendEmail": "Отправить снова",
   "cancel": "Отменить",
   "firebaseExceptions": {
     "tooManyRequests": "Слишком много запросов, пожалуйста подождите",
     "networkRequestFailed": "Нет сети",
     "wrongPassword": "Неверный пароль"
-  }
+  },
+  "confirmDeleteHistoryNode": "Вы уверенны, что хотите удалить эту запись?",
+  "confirmSignOut": "Вы уверенны что хотите выйти из аккаунта?",
+  "confirmDeleteAccount": "Вы уверенны что хотите удалить аккаунт?",
+  "edit": "Редактировать",
+  "delete": "Удалить"
 };
 static const Map<String,dynamic> en = {
   "save": "Save",
+  "description": "Description",
   "english": "English",
   "russian": "Russian",
   "signOut": "Sign Out",
   "deleteAccount": "Delete Account",
   "themeMode": {
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "system": "System"
   },
   "theme": "Theme",
   "emailErrors": {
@@ -72,13 +82,19 @@ static const Map<String,dynamic> en = {
   "confirmPassword": "Confirm password",
   "wallets": "Wallets",
   "verificationMailMessage": "A verification email has been send to your email",
-  "resend_email": "Resent Email",
+  "resendEmail": "Resent Email",
   "cancel": "Cancel",
   "firebaseExceptions": {
     "tooManyRequests": "Too many requests",
     "networkRequestFailed": "No Internet",
-    "wrongPassword": "Wrong password"
-  }
+    "wrongPassword": "Wrong password",
+    "userNotFound": "User not found"
+  },
+  "confirmDeleteHistoryNode": "Are you sure to delete this record?",
+  "confirmSignOut": "Are you sure you want to sign out?",
+  "confirmDeleteAccount": "Are you sure you want to delete account?",
+  "edit": "Edit",
+  "delete": "Delete"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "en": en};
 }

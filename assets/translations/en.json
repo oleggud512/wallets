@@ -1,12 +1,14 @@
 {
     "save": "Save",
+    "description": "Description",
     "english": "English",
     "russian": "Russian",
     "signOut": "Sign Out",
     "deleteAccount": "Delete Account",
     "themeMode": {
         "light": "Light",
-        "dark": "Dark"
+        "dark": "Dark",
+        "system": "System"
     },
     "theme": "Theme",
     "emailErrors": {
@@ -23,11 +25,17 @@
     "confirmPassword": "Confirm password",
     "wallets": "Wallets",
     "verificationMailMessage": "A verification email has been send to your email",
-    "resend_email": "Resent Email",
+    "resendEmail": "Resent Email",
     "cancel": "Cancel",
     "firebaseExceptions": {
         "tooManyRequests": "Too many requests",
         "networkRequestFailed": "No Internet",
-        "wrongPassword": "Wrong password"
-    }
+        "wrongPassword": "Wrong password",
+        "userNotFound": "User not found"
+    },
+    "confirmDeleteHistoryNode": "Are you sure to delete this record?",
+    "confirmSignOut": "Are you sure you want to sign out?",
+    "confirmDeleteAccount": "Are you sure you want to delete account?", 
+    "edit": "Edit",
+    "delete": "Delete"
 }

@@ -1,17 +1,22 @@
+
 import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
-import 'package:ads_pay_app/src/features/auth/infrastructure/repositories/firebase_auth_repository_impl.dart';
+import 'package:ads_pay_app/src/features/auth/presentation/email_verification/email_verification_events.dart';
+import 'package:ads_pay_app/src/features/auth/presentation/email_verification/email_verification_page_bloc.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/presentation/localization/locale_keys.g.dart';
 import '../../../../router.dart';
+import 'email_verification_page_state.dart';
 
 
 @RoutePage()
@@ -23,57 +28,72 @@ class EmailVerificationPage extends StatefulWidget {
 }
 
 class _EmailVerificationPageState extends State<EmailVerificationPage> {
-  late AuthRepository authServ = getIt();
+  EmailVerificationPageBloc? bloc;
 
   @override
   void initState() {
-    super.initState();
-    authServ.sendVerificationEmail();
-
-    Timer.periodic(const Duration(seconds: 3), (timer) async { 
-      await authServ.refreshUser();
-      if (authServ.isEmailVerified) {
-        timer.cancel();
-        if (mounted) AutoRouter.of(context).replaceAll([const WalletsRoute()]); // тогда, ничего не произойдет если ничего не произойдет и тебя оставит на WalletsPage, если все ок. 
-      }
+    Timer.periodic(const Duration(seconds: 3), (timer) { 
+      bloc?.add(EmailVerificationPageCheckVerifiedEvent());
     });
+    super.initState();
+  }
+  void onResend() async { // TODO: or better `onResend(BuildContext context)`, as I did before?
+    bloc!.add(EmailVerificationPageSendEmailEvent());
   }
 
-  
+  void onCancel() async {
+    bloc!.add(EmailVerificationPageCancelVerificationEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(authServ.currentUser!.email),
-        centerTitle: true,
+    return BlocProvider(
+      create: (_) => EmailVerificationPageBloc(getIt(), getIt(), getIt(), getIt())
+        ..add(EmailVerificationPageSendEmailEvent()),
+      child: BlocConsumer<EmailVerificationPageBloc, EmailVerificationPageState>(
+        listener: (context, state) {
+          switch (state) {
+            case EmailVerificationPageState.success: 
+              context.autoRotuer.replaceAll([const WalletsRoute()]);
+              break;
+            case EmailVerificationPageState.cancelled:
+              context.autoRotuer.replaceAll([const LoginRoute()]);
+              break;
+            default: break;
+          }
+        },
+        builder: (context, state) {
+          bloc ??= context.read<EmailVerificationPageBloc>();
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(getIt<AuthRepository>().currentUser?.email ?? 'no email...'.hardcoded),
+              centerTitle: true,
+            ),
+            body: Padding(
+              padding: const EdgeInsets.all(p16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(context.tr(LocaleKeys.verificationMailMessage),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  FilledButton.icon(
+                    icon: const Icon(Icons.email),
+                    label: Text(context.tr(LocaleKeys.resendEmail)),
+                    onPressed: onResend,
+                  ),
+                  TextButton(
+                    onPressed: onCancel,
+                    child: Text(context.tr(LocaleKeys.cancel)),
+                  ),
+                ]
+              ),
+            )
+          );
+        }
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(p16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(context.tr(LocaleKeys.verificationMailMessage),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge
-            ),
-            FilledButton.icon(
-              icon: const Icon(Icons.email),
-              label: Text('Resent Email'.hardcoded),
-              onPressed: () async {
-                authServ.sendVerificationEmail();
-              }
-            ),
-            TextButton(
-              child: Text('Cancel'.hardcoded),
-              onPressed: () async {
-                // authServ.signOut();
-                print('NOTHING IS HAPPENING');
-              }
-            ),
-          ]
-        ),
-      )
     );
   }
 }

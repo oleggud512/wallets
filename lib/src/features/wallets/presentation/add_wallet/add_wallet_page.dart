@@ -1,7 +1,7 @@
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/services/database_service.dart';
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_events.dart';
@@ -45,7 +45,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
               title: Text('Add Wallet'.hardcoded),
             ),
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              padding: const EdgeInsets.symmetric(horizontal: p8),
               child: SingleChildScrollView(
                 child: Form(
                   key: formKey,

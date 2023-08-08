@@ -1,6 +1,6 @@
-import 'package:ads_pay_app/src/core/common/context_ext.dart';
-import 'package:ads_pay_app/src/core/common/firebase_ext.dart';
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
+import 'package:ads_pay_app/src/core/common/extensions/firebase.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_events.dart';
@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (state.isLoading) const LinearProgressIndicator(),
                       Container(
                         alignment: Alignment.center,
-                        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+                        padding: const EdgeInsets.symmetric(horizontal: p8),
                         child: ConstrainedBox(
                           constraints: const BoxConstraints(
                             maxWidth: p400,
@@ -104,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                               FilledButton(
                                 onPressed: () {
                                   bloc.add(LoginPageSubmitEvent(() {
-                                    context.pushRoute(const WalletsRoute());
+                                    AutoRouter.of(context).replaceAll([const WalletsRoute()]);
                                   }));
                                 },
                                 style: FilledButton.styleFrom(

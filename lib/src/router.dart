@@ -9,7 +9,7 @@ import 'features/auth/presentation/delete_account/delete_account_page.dart';
 import 'features/auth/presentation/email_verification/email_verification_page.dart';
 import 'features/auth/presentation/login/login_page.dart';
 import 'features/history/domain/entities/history_node.dart';
-import 'features/history/presentation/history_page.dart';
+import 'features/history/presentation/history/history_page.dart';
 import 'features/settings/presentation/settings_page.dart';
 import 'features/tags/presentation/tags/tags_dialog.dart';
 import 'features/wallets/domain/entities/wallet.dart';

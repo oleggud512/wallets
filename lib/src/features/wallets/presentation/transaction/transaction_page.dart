@@ -1,5 +1,5 @@
 import 'package:ads_pay_app/ad_options.dart';
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';

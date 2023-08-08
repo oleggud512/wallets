@@ -1,5 +1,9 @@
 import 'package:flutter/services.dart' as s;
 
+extension Hardcoded on String {
+  String get hardcoded => this;
+}
+
 extension CapitalizeExt on String {
 
   /// "first string" to "First string"
@@ -7,6 +11,7 @@ extension CapitalizeExt on String {
     return replaceFirst(this[0], this[0].toUpperCase());
   }
 
+  /// "first string" to "First String"
   String capitalizeAll() {
     String res = '';
 

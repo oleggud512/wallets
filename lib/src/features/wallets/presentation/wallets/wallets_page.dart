@@ -1,10 +1,7 @@
 
-import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/hardcoded.dart';
+import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
-import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
-import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_widget.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_states.dart';
@@ -29,7 +26,6 @@ class WalletsPage extends StatefulWidget {
 }
 
 class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin {
-  late DatabaseService dbServ;
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   Wallet? curWallet;
@@ -38,7 +34,6 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    dbServ = context.read<DatabaseService>();
   }
 
   void onDeleteWallet(String walletId) async {

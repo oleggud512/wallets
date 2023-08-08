@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 // import '../presentation/localizations/app_localizations.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 extension BuildContextExtensions<T> on BuildContext {
   ///// flutter localizations
   // Ll? get ll => Ll.of(this);
+  StackRouter get autoRotuer => AutoRouter.of(this);
 
   bool get isMobile => MediaQuery.of(this).size.width <= 500.0;
   bool get isSmallTablet => MediaQuery.of(this).size.width > 500.0 && MediaQuery.of(this).size.width < 650.0;

@@ -1,8 +1,10 @@
 import 'package:ads_pay_app/src/core/infrastructure/data_sources/firebase_user_data_source.dart';
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';
 import 'package:ads_pay_app/src/features/tags/domain/repositories/tags_repository.dart';
+import 'package:either_dart/src/either.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/application/errors/exceptions.dart';
 import '../../../../core/common/constants/strings.dart';
 
 @Singleton(as: TagsRepository)
@@ -28,6 +30,21 @@ class FirebaseTagsRepositoryImpl implements TagsRepository {
     return source.userRef.child(FirebaseStrings.tags).onValue.map(
       (event) => event.snapshot.children.map(Tag.fromDataSnapshot).toList()
     );
+  }
+
+  @override
+  Future<Either<AppException, Tag>> fetchTag(String name) async {
+    try {
+      final tagSnapshot = await source.userRef
+        .child(FirebaseStrings.tags)
+        .child(name)
+        .get();
+      
+      final tag = Tag.fromDataSnapshot(tagSnapshot);
+      return Right(tag);
+    } catch (e) {
+      return Left(AppException(error: e));
+    }
   }
   
 }
