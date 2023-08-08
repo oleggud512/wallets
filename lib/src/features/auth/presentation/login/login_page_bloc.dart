@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/sign_in_with_email_and_password_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/sign_up_with_email_and_password_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_events.dart';
@@ -6,7 +5,6 @@ import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_stat
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_events.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:formz/formz.dart';
 
 class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   final LoginFormBloc _loginFormBloc;

@@ -1,6 +1,5 @@
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_bloc.dart';
@@ -9,7 +8,6 @@ import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wal
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../get_it.dart';
 import '../../domain/entities/currency.dart';
@@ -24,13 +22,11 @@ class AddWalletPage extends StatefulWidget {
 }
 
 class _AddWalletPageState extends State<AddWalletPage> {
-  late DatabaseService dbServ;  
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    dbServ = context.read<DatabaseService>();
   }
   
   @override

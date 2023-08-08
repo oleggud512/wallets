@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:ads_pay_app/src/core/common/extensions/firebase.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/entities/app_user.dart';
 import 'package:either_dart/either.dart';
 import 'package:firebase_auth/firebase_auth.dart';

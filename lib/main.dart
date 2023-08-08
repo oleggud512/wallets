@@ -1,5 +1,4 @@
 import 'package:ads_pay_app/firebase_options.dart';
-import 'package:ads_pay_app/services/database_service.dart';
 import 'package:ads_pay_app/src/core/common/constants/strings.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/codegen_loader.g.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
@@ -33,9 +32,7 @@ void main() async {
   await MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
     testDeviceIds: ['0ACF006A19621246E5906F26E08A3DE9'] // emulator-5553
   ));
-  
-  final dbServ = DatabaseService();
-  
+    
   await EasyLocalization.ensureInitialized();
 
   FlutterNativeSplash.remove();
@@ -47,10 +44,7 @@ void main() async {
     assetLoader: const CodegenLoader(),
     child: MultiProvider(
       providers: [
-        Provider(create: (_) => dbServ),
-  
         BlocProvider(create: (_) => ThemeBloc()..add(ThemeLoadEvent())),
-  
         ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
       ],
       child: const MyApp() 

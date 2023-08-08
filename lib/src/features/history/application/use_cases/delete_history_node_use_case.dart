@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/history/domain/repositories/history_repository.dart';
 import 'package:injectable/injectable.dart';
 

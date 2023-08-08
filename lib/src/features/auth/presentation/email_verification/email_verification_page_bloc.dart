@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/refresh_user_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/send_verification_mail_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/sign_out_use_case.dart';

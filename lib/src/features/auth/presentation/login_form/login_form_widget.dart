@@ -1,5 +1,4 @@
 
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_events.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/common/constants/sizes.dart';
 import '../../../../core/presentation/password_text_field.dart';
-import 'login_form_states.dart';
 
 
 class LoginFormWidget extends StatefulWidget {

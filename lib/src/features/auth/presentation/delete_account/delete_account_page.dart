@@ -1,5 +1,4 @@
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
 import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/delete_account_use_case.dart';

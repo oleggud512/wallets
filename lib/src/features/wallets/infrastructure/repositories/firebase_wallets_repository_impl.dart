@@ -36,6 +36,7 @@ class FirebaseWalletsRepositoryImpl implements WalletsRepository {
     );
   }
 
+  @override
   Stream<Wallet> watchWallet(String id) {
     return source.userRef.child(FirebaseStrings.wallets).child(id).onValue
       .map((event) => Wallet.fromDataSnapshot(event.snapshot));

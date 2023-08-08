@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 

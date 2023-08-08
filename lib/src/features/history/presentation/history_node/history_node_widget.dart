@@ -1,8 +1,6 @@
-import 'dart:ui';
 
 import 'package:ads_pay_app/src/core/common/constants/other.dart';
 import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/history/application/use_cases/update_history_node_description.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';

@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/get_current_user_use_case.dart';

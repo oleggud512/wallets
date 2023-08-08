@@ -1,25 +1,20 @@
 import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
 import 'package:ads_pay_app/src/core/common/extensions/firebase.dart';
 import 'package:ads_pay_app/src/core/common/extensions/string.dart';
-import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_events.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_widget.dart';
-import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:formz/formz.dart';
 
 import '../../../../core/common/constants/sizes.dart';
-import '../../../../core/presentation/loading_dialog.dart';
 import '../../../../core/presentation/localization/locale_keys.g.dart';
 import 'login_page_bloc.dart';
 import 'login_page_states.dart';

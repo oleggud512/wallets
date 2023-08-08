@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../../../router.dart';
 import '../../domain/repositories/auth_repository.dart';
-import '../../presentation/login/login_page.dart';
 
 /// Checks if the user is signed in.
 /// Redirects to the login page if he isn't. 
