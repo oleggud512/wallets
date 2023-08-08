@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
