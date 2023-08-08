@@ -1,6 +1,6 @@
 import 'package:ads_pay_app/ad_options.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/common/logger.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tags/tags_dialog.dart';
@@ -9,6 +9,7 @@ import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transa
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_events.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/transaction/transaction_page_states.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -118,7 +119,6 @@ class _TransactionPageState extends State<TransactionPage> {
       child: BlocBuilder<TransactionPageBloc, TransactionPageState>(
         builder: (context, state) {
           final bloc = context.read<TransactionPageBloc>();
-          glogger.d('build ${state.tag?.name}');
           return Scaffold(
             resizeToAvoidBottomInset: true,
             appBar: AppBar(
@@ -147,16 +147,18 @@ class _TransactionPageState extends State<TransactionPage> {
                       },
                       validator: (v) {
                         double val = double.parse(v!.isEmpty ? '0' : v);
-                        if (val <= 0) {
-                          return 'Enter another value'.hardcoded; 
+                        if (val < 0) {
+                          return context.tr(LocaleKeys.greaterThenZeroWarning); 
                         } else if (widget.action == WalletAction.take 
                             && val > wallet.amount) {
-                          return 'Too much. Available: ${wallet.amount} ${wallet.currency}.';
+                          return context.tr(LocaleKeys.notEnoughMoneyWarning, 
+                            args: [wallet.amount.toString(), wallet.currency]
+                          );
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        labelText: 'Amount'.hardcoded
+                        labelText: context.tr(LocaleKeys.amount)
                       ),
                     ),
                     h8gap,
@@ -169,7 +171,7 @@ class _TransactionPageState extends State<TransactionPage> {
                         maxLines: null,
                         minLines: null,
                         decoration: InputDecoration(
-                          labelText: 'Description'.hardcoded,
+                          labelText: context.tr(LocaleKeys.description),
                           alignLabelWithHint: true,
                         ),
                         onChanged: (v) {
@@ -179,7 +181,7 @@ class _TransactionPageState extends State<TransactionPage> {
                     ),
                     FilledButton(
                       onPressed: () => makeTransaction(context),
-                      child: Text(widget.action.name.toUpperCase()),
+                      child: Text(context.tr(widget.action.name)),
                     ),
                   ]
                 ),
@@ -206,7 +208,7 @@ class _TransactionPageState extends State<TransactionPage> {
         child: TagWidget(
           tag: tag ?? Tag(
             action: widget.action, 
-            name: 'Choose category'.hardcoded
+            name: context.tr(LocaleKeys.chooseCategory)
           )
         )
       ),

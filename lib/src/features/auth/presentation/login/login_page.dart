@@ -1,6 +1,6 @@
+import 'package:ads_pay_app/src/core/common/constants/assets.dart';
 import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
 import 'package:ads_pay_app/src/core/common/extensions/firebase.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login/login_page_events.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                               h32gap,
                               Padding(
                                 padding: const EdgeInsets.only(left: 10), // TODO: make wallet1.svg symmetric
-                                child: SvgPicture.asset('assets/wallet1.svg'.hardcoded,
+                                child: SvgPicture.asset(AppAssets.wallets1,
                                   height: p72,
                                   width: p72,
                                 ),
@@ -110,8 +110,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 child: Text(
                                   state.isSignIn
-                                    ? 'Sign In'.hardcoded
-                                    : 'Register'.hardcoded,
+                                    ? context.tr(LocaleKeys.signIn)
+                                    : context.tr(LocaleKeys.register),
                                   style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24
@@ -124,16 +124,16 @@ class _LoginPageState extends State<LoginPage> {
                                   textAlign: TextAlign.center,
                                   text: TextSpan(
                                     text: state.isSignIn 
-                                      ? 'Don\'t have an account yet? '.hardcoded 
-                                      : 'Have an account? '.hardcoded,
+                                      ? context.tr(LocaleKeys.switchToRegisterMessage) 
+                                      : context.tr(LocaleKeys.switchToSignInMessage),
                                     style: TextStyle(
                                       color: Theme.of(context).colorScheme.onSurface
                                     ),
                                     children: [
                                       TextSpan(
                                         text: state.isSignIn 
-                                          ? 'Register'.hardcoded 
-                                          : 'Sign In'.hardcoded,
+                                          ? context.tr(LocaleKeys.register) 
+                                          : context.tr(LocaleKeys.signIn),
                                         recognizer: TapGestureRecognizer()..onTap = () {
                                           bloc.add(LoginPageTogglePageModeEvent());
                                         },
@@ -159,36 +159,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
-
-  Future<void> onSubmit() async {
-    // String? message;
-    // if (widget.action == LoginAction.deleteUser) {
-    //   await authRepo.deleteAccount(email.text, password.text);
-    //   if (mounted) {
-    //     // Navigator.pop(context); // потому что если срабатывает этот блок то только после того как его запушили,
-    //     //                         // поэтому мы должны вернуться к главному рауту.
-    //     message = 'Account successfully deleted'.hardcoded;
-    //   }
-    // }
-    // else if (isSignIn) {
-    //   message = await LoadingDialog(
-    //     task: authRepo.signInWithEmailAndPassword(email.text, password.text)
-    //   ).show(context);
-
-    // } else {
-    //   message = await LoadingDialog(
-    //     task: authRepo.registerWithEmailAndPassword(email.text, password.text)
-    //   ).show(context);
-    // }
-
-    // if (mounted && message != null) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: Text(message),
-    //     )
-    //   );
-    // }
-    // if (mounted) AutoRouter.of(context).replaceAll([const WalletsRoute()]); // тогда, если просто входишь, то тебя оставит на WalletsPage, а если регистрируешься, то перекинет на верификацию.
   }
 }

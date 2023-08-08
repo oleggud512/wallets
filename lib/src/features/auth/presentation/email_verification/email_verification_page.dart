@@ -3,7 +3,6 @@ import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/email_verification/email_verification_events.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/email_verification/email_verification_page_bloc.dart';
@@ -65,7 +64,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
           bloc ??= context.read<EmailVerificationPageBloc>();
           return Scaffold(
             appBar: AppBar(
-              title: Text(getIt<AuthRepository>().currentUser?.email ?? 'no email...'.hardcoded),
+              title: Text(getIt<AuthRepository>().currentUser?.email ?? 
+                context.tr(LocaleKeys.noEmail)),
               centerTitle: true,
             ),
             body: Padding(

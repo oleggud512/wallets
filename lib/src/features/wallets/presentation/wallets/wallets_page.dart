@@ -1,12 +1,13 @@
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_states.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
@@ -38,12 +39,11 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
 
   void onDeleteWallet(String walletId) async {
     bool? delete = await YesNoDialog(
-      message: 'Are you sure to delete this wallet?'.hardcoded
+      message: context.tr(LocaleKeys.confirmDeleteWallet)
     ).show(context);
 
     if (delete == true && mounted) {
       context.read<WalletsPageBloc>().add(WalletsPageDeleteWalletEvent(walletId));
-      // dbServ.deleteWallet(walletId);
     }
   }
 
@@ -86,7 +86,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Wallets'.hardcoded),
+        title: Text(context.tr(LocaleKeys.wallets)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -115,7 +115,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        tooltip: 'Add Wallet'.hardcoded,
+        tooltip: context.tr(LocaleKeys.addWallet),
         onPressed: onAddWallet,
         child: const Icon(Icons.add),
       ),
@@ -159,7 +159,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: p16),
-          child: Text('Click this button to add your first wallet!'.hardcoded, 
+          child: Text(context.tr(LocaleKeys.addFirstWalletHelperText), 
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
               color: Colors.grey.shade600
             )

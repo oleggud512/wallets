@@ -1,5 +1,4 @@
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/delete_account_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
@@ -37,7 +36,7 @@ class DeleteAccountPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ListView(
                 children: [
-                  Text('Enter your credentials to confirm account deletion'.hardcoded),
+                  Text(context.tr(LocaleKeys.deleteAccountMessage)),
                   h8gap,
                   const LoginFormWidget(),
                   FilledButton(

@@ -1,11 +1,12 @@
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_events.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/add_wallet/add_wallet_page_states.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,12 +23,7 @@ class AddWalletPage extends StatefulWidget {
 }
 
 class _AddWalletPageState extends State<AddWalletPage> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  final formKey = GlobalKey<FormState>();
   
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
           final bloc = context.read<AddWalletPageBloc>();
           return Scaffold(
             appBar: AppBar(
-              title: Text('Add Wallet'.hardcoded),
+              title: Text(context.tr(LocaleKeys.addWallet)),
             ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: p8),
@@ -56,7 +52,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                         },
                         validator: (cur) {
                           return state.currency.isEmpty
-                            ? 'Choose currency'.hardcoded
+                            ? context.tr(LocaleKeys.chooseCurrency)
                             : null;
                         },
                         items: getIt<CurrencyProvider>().currencies.map(
@@ -65,7 +61,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                             child: Text(c.toString())
                           )
                         ).toList(),
-                        hint: Text('Currency'.hardcoded),
+                        hint: Text(context.tr(LocaleKeys.currency)),
                         isExpanded: true,
                       ),
                       h16gap,
@@ -76,7 +72,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                           bloc.add(AddWalletPageAmountChangedEvent(double.parse(v.replaceAll(',', '.'))));
                         },
                         decoration: InputDecoration(
-                          labelText: 'Amount'.hardcoded
+                          labelText: context.tr(LocaleKeys.amount)
                         ),
                       ),
                       h16gap,
@@ -89,7 +85,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                           maxLines: null,
                           minLines: null,
                           decoration: InputDecoration(
-                            labelText: 'Description'.hardcoded,
+                            labelText: context.tr(LocaleKeys.description),
                             alignLabelWithHint: true,
                           ),
                           onChanged: (v) {
@@ -99,7 +95,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                       ),
                       h16gap,
                       FilledButton(
-                        child: Text('Add wallet'.hardcoded),
+                        child: Text(context.tr(LocaleKeys.addWallet)),
                         onPressed: () async {
                           if (!formKey.currentState!.validate()) return;
     

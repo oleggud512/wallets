@@ -1,4 +1,5 @@
 import 'package:ads_pay_app/firebase_options.dart';
+import 'package:ads_pay_app/src/core/common/constants/assets.dart';
 import 'package:ads_pay_app/src/core/common/constants/strings.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/codegen_loader.g.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
@@ -39,7 +40,7 @@ void main() async {
   
   runApp(EasyLocalization(
     supportedLocales: AppLocale.values.map((l) => l.l).toList(),
-    path: 'assets/translations',
+    path: AppAssets.transaltions,
     fallbackLocale: AppLocale.en.l,
     assetLoader: const CodegenLoader(),
     child: MultiProvider(

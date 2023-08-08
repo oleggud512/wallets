@@ -1,11 +1,12 @@
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tags/tag_list_bloc.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tags/tag_list_events.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tags/tag_list_states.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -73,14 +74,17 @@ class TagsDialog extends StatelessWidget {
                       },
                       validator: (val) {
                         if (val!.isEmpty) {
-                          return 'Enter category name'.hardcoded;
+                          return context.tr(LocaleKeys.promptCategory);
                         } else if (state.tags.map((e) => e.name).contains(val)) {
-                          return 'Category "$val" already exists'.hardcoded;
+                          return context.tr(
+                            LocaleKeys.categoryAlreadyExistsMessage, 
+                            args: [val]
+                          );
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: 'Type to create a new category'.hardcoded
+                        hintText: context.tr(LocaleKeys.newCategoryInputHint)
                       ),
                     ),
                   ),
@@ -122,7 +126,7 @@ class TagsDialog extends StatelessWidget {
                       icon: const Icon(Icons.delete),
                       onPressed: () async {
                         bool? delete = await YesNoDialog(
-                          message: 'Are you sure to delete "${tag.name}" category?'.hardcoded
+                          message: context.tr(LocaleKeys.confirmDeleteCategory, args: [tag.name])
                         ).show(context);
                         if (delete == true) {
                           bloc.add(TagListDeleteTagEvent(tag.name));

@@ -36,5 +36,28 @@ abstract class  LocaleKeys {
   static const confirmDeleteAccount = 'confirmDeleteAccount';
   static const edit = 'edit';
   static const delete = 'delete';
+  static const currency = 'currency';
+  static const addWallet = 'addWallet';
+  static const chooseCategory = 'chooseCategory';
+  static const chooseCurrency = 'chooseCurrency';
+  static const amount = 'amount';
+  static const yes = 'yes';
+  static const no = 'no';
+  static const deleteAccountMessage = 'deleteAccountMessage';
+  static const noEmail = 'noEmail';
+  static const signIn = 'signIn';
+  static const register = 'register';
+  static const switchToSignInMessage = 'switchToSignInMessage';
+  static const switchToRegisterMessage = 'switchToRegisterMessage';
+  static const promptCategory = 'promptCategory';
+  static const categoryAlreadyExistsMessage = 'categoryAlreadyExistsMessage';
+  static const newCategoryInputHint = 'newCategoryInputHint';
+  static const confirmDeleteCategory = 'confirmDeleteCategory';
+  static const greaterThenZeroWarning = 'greaterThenZeroWarning';
+  static const notEnoughMoneyWarning = 'notEnoughMoneyWarning';
+  static const add = 'add';
+  static const take = 'take';
+  static const confirmDeleteWallet = 'confirmDeleteWallet';
+  static const addFirstWalletHelperText = 'addFirstWalletHelperText';
 
 }

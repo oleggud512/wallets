@@ -1,10 +1,11 @@
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/wallets/application/use_cases/update_wallet_description.dart';
 import 'package:ads_pay_app/src/features/wallets/domain/entities/wallet.dart';
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/get_it.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../history/domain/entities/history_node.dart';
@@ -81,11 +82,11 @@ class _WalletWidgetState extends State<WalletWidget> {
         return [
           PopupMenuItem(
             value: #edit,
-            child: Text('edit'.hardcoded),
+            child: Text(context.tr(LocaleKeys.edit)),
           ),
           PopupMenuItem(
             value: #delete,
-            child: Text('delete'.hardcoded),
+            child: Text(context.tr(LocaleKeys.delete)),
           )
         ];
       },
@@ -141,12 +142,12 @@ class _WalletWidgetState extends State<WalletWidget> {
                       children: [
                         buildWalletActionButton(context, 
                           onPressed: onAddFunds, 
-                          text: 'ADD'.hardcoded
+                          text: context.tr(LocaleKeys.add)
                         ),
                         w16gap,
                         buildWalletActionButton(context, 
                           onPressed: onTakeFunds, 
-                          text: 'TAKE'.hardcoded
+                          text: context.tr(LocaleKeys.take)
                         ),
                       ],
                     )

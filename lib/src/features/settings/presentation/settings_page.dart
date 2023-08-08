@@ -3,7 +3,6 @@ import 'package:ads_pay_app/src/core/presentation/theme/theme_events.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/get_current_user_use_case.dart';
 import 'package:ads_pay_app/src/features/auth/application/use_cases/sign_out_use_case.dart';
 import 'package:ads_pay_app/src/core/presentation/theme/theme_bloc.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -56,7 +55,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(getIt<GetCurrentUserUseCase>()()?.email ?? '...'.hardcoded),
+        title: Text(getIt<GetCurrentUserUseCase>()()?.email ?? context.tr(LocaleKeys.noEmail)),
         centerTitle: true,
       ),
       body: BlocBuilder<ThemeBloc, ThemeMode>(
