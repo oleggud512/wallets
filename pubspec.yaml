@@ -131,6 +131,7 @@ flutter_icons:
   ios: true
   image_path: assets/wallet_white1.png
 
+# dart pub global activate rps
 # rps run
 scripts: 
   # gen:
@@ -138,5 +139,5 @@ scripts:
   #   loader: dart run easy_localization:generate --source-dir assets/translations --output-dir lib/src/core/presentation/localization
   #   ll: rps run gen keys && rps run gen loader
   #   ll10: flutter gen-l10n
-  w: dart run build_runner watch --delete-conflicting-outputs
+  w: dart run build_runner watch --delete-conflicting-outputs # watch
   wl: dart run scripts/watch_localization.dart # watch localization

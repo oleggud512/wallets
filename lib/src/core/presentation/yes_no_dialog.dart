@@ -20,13 +20,13 @@ class YesNoDialog extends StatelessWidget {
         title: Text(message),
         actions: [
           TextButton(
-            child: Text(context.tr(LocaleKeys.yes)),
+            child: Text(context.tr(LocaleKeys.no)),
             onPressed: () {
               Navigator.pop(context, false);
             },
           ),
           FilledButton(
-            child: Text(context.tr(LocaleKeys.no)),
+            child: Text(context.tr(LocaleKeys.yes)),
             onPressed: () {
               Navigator.pop(context, true);
             },

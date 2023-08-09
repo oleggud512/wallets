@@ -1,3 +1,4 @@
+import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
@@ -15,6 +16,13 @@ import '../../domain/entities/tag.dart';
 import '../tag/tag_widget.dart';
 
 const allTagColors = [
+  Colors.redAccent,
+  Colors.pinkAccent,
+  Colors.purpleAccent,
+  Colors.deepPurpleAccent,
+  Colors.indigoAccent,
+  Colors.blueAccent,
+  Colors.lightBlueAccent,
   Colors.cyanAccent,
   Colors.tealAccent,
   Colors.greenAccent,
@@ -24,13 +32,6 @@ const allTagColors = [
   Colors.amberAccent,
   Colors.orangeAccent,
   Colors.deepOrangeAccent,
-  Colors.redAccent,
-  Colors.pinkAccent,
-  Colors.purpleAccent,
-  Colors.deepPurpleAccent,
-  Colors.indigoAccent,
-  Colors.blueAccent,
-  Colors.lightBlueAccent,
   Colors.grey,
 ];
 
@@ -45,10 +46,23 @@ class TagsDialog extends StatelessWidget {
 
   final TextEditingController cont = TextEditingController();
   final GlobalKey<FormFieldState> fieldKey = GlobalKey<FormFieldState>();
+
+  Future<void> onDeleteTag(BuildContext context, Tag tag) async {
+    bool? delete = await YesNoDialog(
+      message: context.tr(
+        LocaleKeys.confirmDeleteCategory, 
+        args: [tag.name]
+      )
+    ).show(context);
+    if (delete == true) {
+      context.read<TagListBloc>().add(TagListDeleteTagEvent(tag.name));
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(p8)
       ),
@@ -121,17 +135,15 @@ class TagsDialog extends StatelessWidget {
                   ),
                   for (Tag tag in state.tags
                       .where((tag) => tag.action == action)) ListTile(
-                    title: TagWidget(tag: tag),
+                    title: Row(
+                      children: [
+                        TagWidget(tag: tag),
+                        const Spacer()
+                      ],
+                    ),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
-                      onPressed: () async {
-                        bool? delete = await YesNoDialog(
-                          message: context.tr(LocaleKeys.confirmDeleteCategory, args: [tag.name])
-                        ).show(context);
-                        if (delete == true) {
-                          bloc.add(TagListDeleteTagEvent(tag.name));
-                        }
-                      },
+                      onPressed: () => onDeleteTag(context, tag),
                     ),
                     onTap: () {
                       context.popRoute(tag);

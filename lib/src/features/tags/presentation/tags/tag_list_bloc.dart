@@ -1,3 +1,4 @@
+import 'package:ads_pay_app/src/core/common/logger.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/features/tags/application/use_cases/delete_tag_use_case.dart';
 import 'package:ads_pay_app/src/features/tags/application/use_cases/watch_tags_use_case.dart';
@@ -19,7 +20,10 @@ class TagListBloc extends Bloc<TagListEvent, TagListState> {
     on<TagListLoadEvent>((event, emit) {
       final tagsStream = watchTagsUseCase();
       emit.onEach(tagsStream, 
-        onData: (tags) => emit(state.copyWith(tags: tags))
+        onData: (tags) {
+          glogger.i('tags arrived: ${tags.map((e) => e.name)}');
+          emit(state.copyWith(tags: tags));
+        }
       );
     });
 
