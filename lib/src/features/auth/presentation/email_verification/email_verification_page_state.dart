@@ -1,0 +1,1 @@
+enum EmailVerificationPageState { awaiting, cancelled, success }
