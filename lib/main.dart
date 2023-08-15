@@ -40,7 +40,7 @@ void main() async {
   
   runApp(EasyLocalization(
     supportedLocales: AppLocale.values.map((l) => l.l).toList(),
-    path: AppAssets.transaltions,
+    path: AppAssets.translationsFolder,
     fallbackLocale: AppLocale.en.l,
     assetLoader: const CodegenLoader(),
     child: MultiProvider(

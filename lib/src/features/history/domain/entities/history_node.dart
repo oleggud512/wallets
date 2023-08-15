@@ -11,7 +11,7 @@ class HistoryNode {
   double amount;
   WalletAction action;
   String description;
-  String tagName;
+  String tagName; // TODO: make HistoryNode.tagName nullable
 
   HistoryNode({
     this.hid = '',

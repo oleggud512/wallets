@@ -6,7 +6,6 @@ import 'package:ads_pay_app/src/features/history/domain/entities/history_node.da
 import 'package:ads_pay_app/src/features/tags/domain/entities/tag.dart';
 import 'package:ads_pay_app/src/core/presentation/edit_description_dialog.dart';
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
-import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/tags/presentation/tag/tag_widget.dart';
 import 'package:ads_pay_app/src/get_it.dart';
@@ -44,25 +43,30 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
 
   GlobalKey<PopupMenuButtonState> popupKey = GlobalKey<PopupMenuButtonState>();
 
-  bool isShowAllDescription = false;
-
   editHistoryNodeDescription() async {
     final newDescr = await EditDescriptionDialog(
       description: widget.historyNode.description,
     ).show(context);
     if (newDescr == null) return;
-    getIt.hardcoded<UpdateHistoryNodeUseCase>()(widget.walletId, widget.historyNode.hid, newDescr);
+    getIt<UpdateHistoryNodeUseCase>()(widget.walletId, widget.historyNode.hid, newDescr); // TODO: can I leave it like this?
   }
 
   onDeleteHistoryNode() async {
     bool? delete = await YesNoDialog(
-      message: context.tr(LocaleKeys.confirmDeleteHistoryNode).hardcoded
+      message: context.tr(LocaleKeys.confirmDeleteHistoryNode)
     ).show(context);
 
     if (delete != true) return;
     
-    getIt<DeleteHistoryNodeUseCase>()(walletId, historyNode.hid);
+    getIt<DeleteHistoryNodeUseCase>()(walletId, historyNode.hid); // TODO: can I leave it like this?
   }
+
+  onLongPress() {
+    popupKey.currentState!.showButtonMenu();
+  }
+
+  // TODO: toggle description
+  onTap() {}
 
   @override
   Widget build(BuildContext context) {
@@ -74,14 +78,8 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(p8),
-          onLongPress: () {
-            popupKey.currentState!.showButtonMenu();
-          },
-          onTap: () {
-            setState(() {
-              isShowAllDescription = !isShowAllDescription;
-            });
-          },
+          onLongPress: onLongPress,
+          onTap: onTap,
           child: withPopup(context, 
             child: Padding(
               padding: const EdgeInsets.all(p8),
@@ -90,7 +88,6 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
                 children: [
                   buildHistoryNodeData(context),
                   buildTag(),
-                  
                   if (historyNode.description.isNotEmpty) Padding(
                     padding: const EdgeInsets.only(top: p4),
                     child: Text(historyNode.description, 
@@ -154,7 +151,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
   }
 
   Widget buildTag() {
-    if (historyNode.tagName.isEmpty) return shrink;
+    if (historyNode.tagName.isEmpty) return shrink; // TODO: make HistoryNode.tagName nullable
     return Padding(
       padding: const EdgeInsets.only(top: p4),
       child: TagWidget(tag: tag)

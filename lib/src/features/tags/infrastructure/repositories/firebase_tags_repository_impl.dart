@@ -16,13 +16,17 @@ class FirebaseTagsRepositoryImpl implements TagsRepository {
   @override
   Future<void> addTag(Tag tag) {
     return source.userRef
-      .child(FirebaseStrings.tag(tag.name))
+      .child(FirebaseStrings.tags)
+      .child(tag.name)
       .update(tag.toJson());
   }
 
   @override
   Future<void> deleteTag(String name) {
-    return source.userRef.child(FirebaseStrings.tag(name)).remove();
+    return source.userRef
+      .child(FirebaseStrings.tags)
+      .child(name)
+      .remove();
   }
 
   @override

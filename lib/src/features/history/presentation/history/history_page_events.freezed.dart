@@ -20,18 +20,24 @@ mixin _$HistoryPageEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() load,
+    required TResult Function(List<Tag> tags) tagsReceived,
+    required TResult Function(Wallet wallet) walletReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? load,
+    TResult? Function(List<Tag> tags)? tagsReceived,
+    TResult? Function(Wallet wallet)? walletReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? load,
+    TResult Function(List<Tag> tags)? tagsReceived,
+    TResult Function(Wallet wallet)? walletReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,25 @@ mixin _$HistoryPageEvent {
   TResult map<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value) $default, {
     required TResult Function(HistoryPageLoadEvent value) load,
+    required TResult Function(HistoryPageTagsReceivedEvent value) tagsReceived,
+    required TResult Function(HistoryPageWalletReceivedEvent value)
+        walletReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HistoryPageEvent value)? $default, {
     TResult? Function(HistoryPageLoadEvent value)? load,
+    TResult? Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult? Function(HistoryPageWalletReceivedEvent value)? walletReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value)? $default, {
     TResult Function(HistoryPageLoadEvent value)? load,
+    TResult Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult Function(HistoryPageWalletReceivedEvent value)? walletReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +127,8 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() load,
+    required TResult Function(List<Tag> tags) tagsReceived,
+    required TResult Function(Wallet wallet) walletReceived,
   }) {
     return $default();
   }
@@ -123,6 +138,8 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? load,
+    TResult? Function(List<Tag> tags)? tagsReceived,
+    TResult? Function(Wallet wallet)? walletReceived,
   }) {
     return $default?.call();
   }
@@ -132,6 +149,8 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? load,
+    TResult Function(List<Tag> tags)? tagsReceived,
+    TResult Function(Wallet wallet)? walletReceived,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -145,6 +164,9 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult map<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value) $default, {
     required TResult Function(HistoryPageLoadEvent value) load,
+    required TResult Function(HistoryPageTagsReceivedEvent value) tagsReceived,
+    required TResult Function(HistoryPageWalletReceivedEvent value)
+        walletReceived,
   }) {
     return $default(this);
   }
@@ -154,6 +176,8 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HistoryPageEvent value)? $default, {
     TResult? Function(HistoryPageLoadEvent value)? load,
+    TResult? Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult? Function(HistoryPageWalletReceivedEvent value)? walletReceived,
   }) {
     return $default?.call(this);
   }
@@ -163,6 +187,8 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value)? $default, {
     TResult Function(HistoryPageLoadEvent value)? load,
+    TResult Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult Function(HistoryPageWalletReceivedEvent value)? walletReceived,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -216,6 +242,8 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() load,
+    required TResult Function(List<Tag> tags) tagsReceived,
+    required TResult Function(Wallet wallet) walletReceived,
   }) {
     return load();
   }
@@ -225,6 +253,8 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? load,
+    TResult? Function(List<Tag> tags)? tagsReceived,
+    TResult? Function(Wallet wallet)? walletReceived,
   }) {
     return load?.call();
   }
@@ -234,6 +264,8 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? load,
+    TResult Function(List<Tag> tags)? tagsReceived,
+    TResult Function(Wallet wallet)? walletReceived,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -247,6 +279,9 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult map<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value) $default, {
     required TResult Function(HistoryPageLoadEvent value) load,
+    required TResult Function(HistoryPageTagsReceivedEvent value) tagsReceived,
+    required TResult Function(HistoryPageWalletReceivedEvent value)
+        walletReceived,
   }) {
     return load(this);
   }
@@ -256,6 +291,8 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_HistoryPageEvent value)? $default, {
     TResult? Function(HistoryPageLoadEvent value)? load,
+    TResult? Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult? Function(HistoryPageWalletReceivedEvent value)? walletReceived,
   }) {
     return load?.call(this);
   }
@@ -265,6 +302,8 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_HistoryPageEvent value)? $default, {
     TResult Function(HistoryPageLoadEvent value)? load,
+    TResult Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult Function(HistoryPageWalletReceivedEvent value)? walletReceived,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -276,4 +315,312 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
 
 abstract class HistoryPageLoadEvent implements HistoryPageEvent {
   factory HistoryPageLoadEvent() = _$HistoryPageLoadEvent;
+}
+
+/// @nodoc
+abstract class _$$HistoryPageTagsReceivedEventCopyWith<$Res> {
+  factory _$$HistoryPageTagsReceivedEventCopyWith(
+          _$HistoryPageTagsReceivedEvent value,
+          $Res Function(_$HistoryPageTagsReceivedEvent) then) =
+      __$$HistoryPageTagsReceivedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Tag> tags});
+}
+
+/// @nodoc
+class __$$HistoryPageTagsReceivedEventCopyWithImpl<$Res>
+    extends _$HistoryPageEventCopyWithImpl<$Res, _$HistoryPageTagsReceivedEvent>
+    implements _$$HistoryPageTagsReceivedEventCopyWith<$Res> {
+  __$$HistoryPageTagsReceivedEventCopyWithImpl(
+      _$HistoryPageTagsReceivedEvent _value,
+      $Res Function(_$HistoryPageTagsReceivedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tags = null,
+  }) {
+    return _then(_$HistoryPageTagsReceivedEvent(
+      null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<Tag>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HistoryPageTagsReceivedEvent implements HistoryPageTagsReceivedEvent {
+  _$HistoryPageTagsReceivedEvent(final List<Tag> tags) : _tags = tags;
+
+  final List<Tag> _tags;
+  @override
+  List<Tag> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  @override
+  String toString() {
+    return 'HistoryPageEvent.tagsReceived(tags: $tags)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryPageTagsReceivedEvent &&
+            const DeepCollectionEquality().equals(other._tags, _tags));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tags));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HistoryPageTagsReceivedEventCopyWith<_$HistoryPageTagsReceivedEvent>
+      get copyWith => __$$HistoryPageTagsReceivedEventCopyWithImpl<
+          _$HistoryPageTagsReceivedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() load,
+    required TResult Function(List<Tag> tags) tagsReceived,
+    required TResult Function(Wallet wallet) walletReceived,
+  }) {
+    return tagsReceived(tags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? load,
+    TResult? Function(List<Tag> tags)? tagsReceived,
+    TResult? Function(Wallet wallet)? walletReceived,
+  }) {
+    return tagsReceived?.call(tags);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? load,
+    TResult Function(List<Tag> tags)? tagsReceived,
+    TResult Function(Wallet wallet)? walletReceived,
+    required TResult orElse(),
+  }) {
+    if (tagsReceived != null) {
+      return tagsReceived(tags);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_HistoryPageEvent value) $default, {
+    required TResult Function(HistoryPageLoadEvent value) load,
+    required TResult Function(HistoryPageTagsReceivedEvent value) tagsReceived,
+    required TResult Function(HistoryPageWalletReceivedEvent value)
+        walletReceived,
+  }) {
+    return tagsReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_HistoryPageEvent value)? $default, {
+    TResult? Function(HistoryPageLoadEvent value)? load,
+    TResult? Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult? Function(HistoryPageWalletReceivedEvent value)? walletReceived,
+  }) {
+    return tagsReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_HistoryPageEvent value)? $default, {
+    TResult Function(HistoryPageLoadEvent value)? load,
+    TResult Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult Function(HistoryPageWalletReceivedEvent value)? walletReceived,
+    required TResult orElse(),
+  }) {
+    if (tagsReceived != null) {
+      return tagsReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HistoryPageTagsReceivedEvent implements HistoryPageEvent {
+  factory HistoryPageTagsReceivedEvent(final List<Tag> tags) =
+      _$HistoryPageTagsReceivedEvent;
+
+  List<Tag> get tags;
+  @JsonKey(ignore: true)
+  _$$HistoryPageTagsReceivedEventCopyWith<_$HistoryPageTagsReceivedEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HistoryPageWalletReceivedEventCopyWith<$Res> {
+  factory _$$HistoryPageWalletReceivedEventCopyWith(
+          _$HistoryPageWalletReceivedEvent value,
+          $Res Function(_$HistoryPageWalletReceivedEvent) then) =
+      __$$HistoryPageWalletReceivedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Wallet wallet});
+}
+
+/// @nodoc
+class __$$HistoryPageWalletReceivedEventCopyWithImpl<$Res>
+    extends _$HistoryPageEventCopyWithImpl<$Res,
+        _$HistoryPageWalletReceivedEvent>
+    implements _$$HistoryPageWalletReceivedEventCopyWith<$Res> {
+  __$$HistoryPageWalletReceivedEventCopyWithImpl(
+      _$HistoryPageWalletReceivedEvent _value,
+      $Res Function(_$HistoryPageWalletReceivedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? wallet = null,
+  }) {
+    return _then(_$HistoryPageWalletReceivedEvent(
+      null == wallet
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HistoryPageWalletReceivedEvent
+    implements HistoryPageWalletReceivedEvent {
+  _$HistoryPageWalletReceivedEvent(this.wallet);
+
+  @override
+  final Wallet wallet;
+
+  @override
+  String toString() {
+    return 'HistoryPageEvent.walletReceived(wallet: $wallet)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryPageWalletReceivedEvent &&
+            (identical(other.wallet, wallet) || other.wallet == wallet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, wallet);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HistoryPageWalletReceivedEventCopyWith<_$HistoryPageWalletReceivedEvent>
+      get copyWith => __$$HistoryPageWalletReceivedEventCopyWithImpl<
+          _$HistoryPageWalletReceivedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() load,
+    required TResult Function(List<Tag> tags) tagsReceived,
+    required TResult Function(Wallet wallet) walletReceived,
+  }) {
+    return walletReceived(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? load,
+    TResult? Function(List<Tag> tags)? tagsReceived,
+    TResult? Function(Wallet wallet)? walletReceived,
+  }) {
+    return walletReceived?.call(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? load,
+    TResult Function(List<Tag> tags)? tagsReceived,
+    TResult Function(Wallet wallet)? walletReceived,
+    required TResult orElse(),
+  }) {
+    if (walletReceived != null) {
+      return walletReceived(wallet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_HistoryPageEvent value) $default, {
+    required TResult Function(HistoryPageLoadEvent value) load,
+    required TResult Function(HistoryPageTagsReceivedEvent value) tagsReceived,
+    required TResult Function(HistoryPageWalletReceivedEvent value)
+        walletReceived,
+  }) {
+    return walletReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_HistoryPageEvent value)? $default, {
+    TResult? Function(HistoryPageLoadEvent value)? load,
+    TResult? Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult? Function(HistoryPageWalletReceivedEvent value)? walletReceived,
+  }) {
+    return walletReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_HistoryPageEvent value)? $default, {
+    TResult Function(HistoryPageLoadEvent value)? load,
+    TResult Function(HistoryPageTagsReceivedEvent value)? tagsReceived,
+    TResult Function(HistoryPageWalletReceivedEvent value)? walletReceived,
+    required TResult orElse(),
+  }) {
+    if (walletReceived != null) {
+      return walletReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HistoryPageWalletReceivedEvent implements HistoryPageEvent {
+  factory HistoryPageWalletReceivedEvent(final Wallet wallet) =
+      _$HistoryPageWalletReceivedEvent;
+
+  Wallet get wallet;
+  @JsonKey(ignore: true)
+  _$$HistoryPageWalletReceivedEventCopyWith<_$HistoryPageWalletReceivedEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }

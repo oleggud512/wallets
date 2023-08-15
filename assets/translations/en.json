@@ -60,5 +60,6 @@
     "add": "ADD",
     "take": "TAKE",
     "confirmDeleteWallet": "Are you sure to delete this wallet?",
-    "addFirstWalletHelperText": "Click this button to add your first wallet!"
+    "addFirstWalletHelperText": "Click this button to add your first wallet!",
+    "reportsTooltip": "Reports"
 }

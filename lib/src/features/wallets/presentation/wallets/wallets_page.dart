@@ -37,7 +37,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
     super.initState();
   }
 
-  void onDeleteWallet(String walletId) async {
+  void onDeleteWallet(BuildContext context, String walletId) async {
     bool? delete = await YesNoDialog(
       message: context.tr(LocaleKeys.confirmDeleteWallet)
     ).show(context);
@@ -47,11 +47,11 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
     }
   }
 
-  Future<void> onOpenSettings() async {
+  Future<void> onOpenSettings(BuildContext context) async {
     await context.pushRoute(const SettingsRoute());
   }
 
-  Future<void> onOpenHistory() async {
+  Future<void> onOpenHistory(BuildContext context) async {
     if (curWallet != null) {
       context.pushRoute(HistoryRoute(walletId: curWallet!.wid));
     }
@@ -83,46 +83,46 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(context.tr(LocaleKeys.wallets)),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: onOpenSettings,
-          )
-        ]
-      ),
-      body: BlocProvider(
-        create: (_) => WalletsPageBloc(
-          getIt<DeleteWalletUseCase>(),
-          getIt<WatchWalletsUseCase>()
-        )..add(WalletsPageStartEvent()),
-        child: BlocBuilder<WalletsPageBloc, WalletsPageState>(
+    return BlocProvider(
+      create: (_) => WalletsPageBloc(
+        getIt<DeleteWalletUseCase>(),
+        getIt<WatchWalletsUseCase>()
+      )..add(WalletsPageStartEvent()),
+      child: Scaffold(
+        key: scaffoldKey,
+        appBar: AppBar(
+          title: Text(context.tr(LocaleKeys.wallets)),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () => onOpenSettings(context),
+            )
+          ]
+        ),
+        body: BlocBuilder<WalletsPageBloc, WalletsPageState>(
           builder: (context, state) {
             switch (state) {
               case WalletsPageDefaultState():
                 configureCurWallet(state.wallets);
                 return state.wallets.isEmpty 
                   ? buildPlaceholder()
-                  : buildWallets(state.wallets);
+                  : buildWallets(context, state.wallets);
               default: 
                 return const Center(child: CircularProgressIndicator());
             }
           }
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: context.tr(LocaleKeys.addWallet),
-        onPressed: onAddWallet,
-        child: const Icon(Icons.add),
+        floatingActionButton: FloatingActionButton(
+          tooltip: context.tr(LocaleKeys.addWallet),
+          onPressed: onAddWallet,
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
 
-  Widget buildWallets(List<Wallet> wallets) {
+  Widget buildWallets(BuildContext context, List<Wallet> wallets) {
     return Padding(
       padding: const EdgeInsets.only(
         left: p8,
@@ -140,9 +140,9 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
                 child: WalletWidget(
                   wallet: w,
                   isSelected: curWallet!.wid == w.wid,
-                  onDelete: () => onDeleteWallet(w.wid),
+                  onDelete: () => onDeleteWallet(context, w.wid),
                   onTap: () => setCurWallet(w),
-                  onHistoryButton: onOpenHistory,
+                  onHistoryButton: () => onOpenHistory(context),
                 ),
               ),
             )

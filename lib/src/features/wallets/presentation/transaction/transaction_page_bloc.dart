@@ -19,12 +19,11 @@ class TransactionPageBloc extends Bloc<TransactionPageEvent, TransactionPageStat
   ) : _action = action, super(TransactionPageState()) {
 
     on<TransactionPageMakeTransactionEvent>((event, emit) async {
-      if (state.tag == null) return;
       await makeTransactionUseCase(
         walletId, 
         _action, 
-        state.tag!.name,
         state.amount, 
+        state.tag?.name,
         state.description
       );
     });

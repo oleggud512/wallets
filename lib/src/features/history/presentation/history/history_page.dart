@@ -1,7 +1,10 @@
+import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
+import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/history/presentation/history/history_page_bloc.dart';
 import 'package:ads_pay_app/src/features/history/presentation/history/history_page_events.dart';
 import 'package:ads_pay_app/src/features/history/presentation/history/history_page_state.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -80,7 +83,16 @@ class HistoryPage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text(state.wallet.description.replaceAll('\n', ' '))
+              title: Text(state.wallet.description.replaceAll('\n', ' ')),
+              actions: [
+                IconButton(
+                  tooltip: context.tr(LocaleKeys.reportsTooltip),
+                  onPressed: () {
+                    context.showSnackBar('Reports page will be opened here... But not today.');
+                  }, 
+                  icon: const Icon(Icons.article_outlined)
+                )
+              ],
             ),
             body: ListView(
               padding: const EdgeInsets.all(p8),

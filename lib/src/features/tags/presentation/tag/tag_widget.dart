@@ -1,3 +1,4 @@
+import 'package:ads_pay_app/src/core/common/constants/color.dart';
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +6,11 @@ import '../../domain/entities/tag.dart';
 
 
 class TagWidget extends StatelessWidget {
+  static const _textShade = 0.7;
+  static const _borderShade = 0.9;
+  static const _lightBackgroundOpacity = 0.3;
+  static const _darkBackgroundShade = 0.3;
+
   const TagWidget({
     Key? key,
     required this.tag
@@ -14,28 +20,20 @@ class TagWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const v = 0.7;
-    const v1 = 0.9;
+    final brightness = Theme.of(context).brightness;
     return Theme(
       data: ThemeData(
         chipTheme: ChipThemeData(
-          backgroundColor: tag.color.withAlpha(50),
+          brightness: Theme.of(context).brightness,
+          backgroundColor: brightness == Brightness.light 
+            ? tag.color.withOpacity(_lightBackgroundOpacity) 
+            : tag.color * _darkBackgroundShade,
           labelStyle: TextStyle(
-            color: Color.fromARGB(
-              255, 
-              (tag.color.red * v).toInt(), 
-              (tag.color.green * v).toInt(), 
-              (tag.color.blue * v).toInt()
-            )
+            color: tag.color * _textShade
           ),
           shape: RoundedRectangleBorder(
             side: BorderSide(
-              color: Color.fromARGB(
-                255, 
-                (tag.color.red * v1).toInt(), 
-                (tag.color.green * v1).toInt(), 
-                (tag.color.blue * v1).toInt()
-              ),
+              color: tag.color * _borderShade,
               width: 0.5,
             ),
             borderRadius: BorderRadius.circular(p32)

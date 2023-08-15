@@ -10,18 +10,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/use_cases/add_tag_use_case.dart';
 
 class TagListBloc extends Bloc<TagListEvent, TagListState> {
-  WatchTagsUseCase watchTagsUseCase;
-  AddTagUseCase addTagUseCase;
-  DeleteTagUseCase deleteTagUseCase;
+  final WatchTagsUseCase watchTagsUseCase;
+  final AddTagUseCase addTagUseCase;
+  final DeleteTagUseCase deleteTagUseCase;
   final WalletAction action;
 
-  TagListBloc(this.action, this.watchTagsUseCase, this.addTagUseCase, this.deleteTagUseCase) : super(TagListState()) {
+  TagListBloc(
+    this.action, 
+    this.watchTagsUseCase, 
+    this.addTagUseCase, 
+    this.deleteTagUseCase
+  ) : super(TagListState()) {
     
-    on<TagListLoadEvent>((event, emit) {
+    on<TagListLoadEvent>((event, emit) async {
       final tagsStream = watchTagsUseCase();
-      emit.onEach(tagsStream, 
+      await emit.onEach(tagsStream, 
         onData: (tags) {
-          glogger.i('tags arrived: ${tags.map((e) => e.name)}');
           emit(state.copyWith(tags: tags));
         }
       );

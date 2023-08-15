@@ -11,13 +11,13 @@ class MakeTransactionUseCase {
   Future<void> call(
     String walletId, 
     WalletAction action, 
-    String tagName,
     double amount, 
+    String? tagName,
     [String description = '']
   ) async {
     final data = HistoryNode(
       action: action, 
-      tagName: tagName,
+      tagName: tagName ?? '', // TODO: make HistoryNode.tagName nullable
       amount: amount, 
       description: description
     );

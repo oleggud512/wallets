@@ -103,13 +103,14 @@ class _TransactionPageState extends State<TransactionPage> {
   }
 
   makeTransaction(BuildContext context) async {
-    if (amountKey.currentState!.validate()) {
-      context.read<TransactionPageBloc>()
-        .add(TransactionPageMakeTransactionEvent());
-      if (mounted) context.popRoute();
-      intAd?.show()
-        .then((v) => intAd!.dispose());
-    }
+    if (!amountKey.currentState!.validate()) return;
+
+    context.read<TransactionPageBloc>()
+      .add(TransactionPageMakeTransactionEvent());
+    
+    if (mounted) context.popRoute();
+    intAd?.show()
+      .then((v) => intAd!.dispose());
   }
   
   @override

@@ -59,5 +59,6 @@ abstract class  LocaleKeys {
   static const take = 'take';
   static const confirmDeleteWallet = 'confirmDeleteWallet';
   static const addFirstWalletHelperText = 'addFirstWalletHelperText';
+  static const reportsTooltip = 'reportsTooltip';
 
 }

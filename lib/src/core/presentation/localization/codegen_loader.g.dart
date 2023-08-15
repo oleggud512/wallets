@@ -76,7 +76,8 @@ class CodegenLoader extends AssetLoader{
   "add": "Добавить",
   "take": "Взять",
   "confirmDeleteWallet": "Вы увренны, что хотите удалить этот кошелек?",
-  "addFirstWalletHelperText": "Нажмите на эту кнопку чтобы добавить первый кошелек!"
+  "addFirstWalletHelperText": "Нажмите на эту кнопку чтобы добавить первый кошелек!",
+  "reportsTooltip": "Отчеты"
 };
 static const Map<String,dynamic> en = {
   "save": "Save",
@@ -140,7 +141,8 @@ static const Map<String,dynamic> en = {
   "add": "ADD",
   "take": "TAKE",
   "confirmDeleteWallet": "Are you sure to delete this wallet?",
-  "addFirstWalletHelperText": "Click this button to add your first wallet!"
+  "addFirstWalletHelperText": "Click this button to add your first wallet!",
+  "reportsTooltip": "Reports"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ru": ru, "en": en};
 }
