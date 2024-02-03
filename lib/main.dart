@@ -18,24 +18,32 @@ import 'src/get_it.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  // display splash screen
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // init firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
   FirebaseDatabase.instance.setPersistenceEnabled(true);
-  await MobileAds.instance.initialize();
-  
-  await configureDependencies();
 
-  // await MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
-  //   testDeviceIds: ['24AD7E1CAC35B81422A086FE47D7C83C'] // oppo cph2239
-  // ));
+  // init ads
+  await MobileAds.instance.initialize();
   await MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
-    testDeviceIds: ['0ACF006A19621246E5906F26E08A3DE9'] // emulator-5553
+    testDeviceIds: [
+      '0ACF006A19621246E5906F26E08A3DE9', // emulator-5553
+      // '24AD7E1CAC35B81422A086FE47D7C83C', // oppo cph2239
+    ],
   ));
-    
+
+  // init dependency injection
+  await configureDependencies();
+  
+  // init localization
   await EasyLocalization.ensureInitialized();
 
+  // remove splash screen when initialization done
   FlutterNativeSplash.remove();
   
   runApp(EasyLocalization(
@@ -45,7 +53,9 @@ void main() async {
     assetLoader: const CodegenLoader(),
     child: MultiProvider(
       providers: [
-        BlocProvider(create: (_) => ThemeBloc()..add(ThemeLoadEvent())),
+        BlocProvider(
+          create: (_) => ThemeBloc()..add(ThemeLoadEvent())
+        ),
         ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
       ],
       child: const MyApp() 

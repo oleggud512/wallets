@@ -1,4 +1,3 @@
-import 'package:ads_pay_app/src/core/common/extensions/build_context.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/history/domain/entities/history_node.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
@@ -36,15 +35,21 @@ const allTagColors = [
 ];
 
 @RoutePage(name: 'TagsDialogRoute')
-class TagsDialog extends StatelessWidget {
-  TagsDialog({
+class TagsDialog extends StatefulWidget {
+  const TagsDialog({
     Key? key,
     required this.action
   }) : super(key: key);
 
   final WalletAction action;
 
+  @override
+  State<TagsDialog> createState() => _TagsDialogState();
+}
+
+class _TagsDialogState extends State<TagsDialog> {
   final TextEditingController cont = TextEditingController();
+
   final GlobalKey<FormFieldState> fieldKey = GlobalKey<FormFieldState>();
 
   Future<void> onDeleteTag(BuildContext context, Tag tag) async {
@@ -54,11 +59,11 @@ class TagsDialog extends StatelessWidget {
         args: [tag.name]
       )
     ).show(context);
-    if (delete == true) {
+    if (delete == true && mounted) {
       context.read<TagListBloc>().add(TagListDeleteTagEvent(tag.name));
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -70,7 +75,7 @@ class TagsDialog extends StatelessWidget {
         height: 400,
         width: 400,
         child: BlocProvider(
-          create: (_) => TagListBloc(action, getIt(), getIt(), getIt())
+          create: (_) => TagListBloc(widget.action, getIt(), getIt(), getIt())
             ..add(TagListLoadEvent()),
           child: BlocBuilder<TagListBloc, TagListState>(
             builder: (context, state) {
@@ -123,7 +128,7 @@ class TagsDialog extends StatelessWidget {
                             tag: Tag(
                               color: e,
                               name: state.newTagName,
-                              action: action
+                              action: widget.action
                             )
                           )
                         )
@@ -134,7 +139,7 @@ class TagsDialog extends StatelessWidget {
                     )
                   ),
                   for (Tag tag in state.tags
-                      .where((tag) => tag.action == action)) ListTile(
+                      .where((tag) => tag.action == widget.action)) ListTile(
                     title: Row(
                       children: [
                         TagWidget(tag: tag),
