@@ -46,16 +46,6 @@ class Password extends FormzInput<String, PasswordError> with EquatableMixin {
   const Password.pure({String value = '', this.confirmationPassword}) : super.pure(value);
 
   final Password? confirmationPassword;
-
-  // /// create confirmationPassword manually, if needed
-  // /// because I need it to be able to assign null
-  // /// but then I will need to reassign confirmation password again and again...
-  // Password copyWith({String? value, Password? confirmationPassword}) {
-  //   return Password.dirty(
-  //     value: value ?? this.value, 
-  //     confirmationPassword: confirmationPassword
-  //   );
-  // }
   
   @override
   PasswordError? validator(String value) {

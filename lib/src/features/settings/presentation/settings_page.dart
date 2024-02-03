@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/common/constants/strings.dart';
-import '../../../core/presentation/yes_no_dialog.dart';
+import '../../../core/presentation/widgets/yes_no_dialog.dart';
 import '../../../get_it.dart';
 
 

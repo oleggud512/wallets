@@ -2,7 +2,7 @@ import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dar
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'dialog_widget.dart';
+import '../../common/dialog_widget.dart';
 
 
 class EditDescriptionDialog extends StatefulWidget with DialogWidget<String> {

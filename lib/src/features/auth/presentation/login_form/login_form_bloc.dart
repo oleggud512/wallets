@@ -8,13 +8,13 @@ import 'login_form_events.dart';
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   LoginFormBloc() : super(const LoginFormState()) {
     
-    on<LoginFormAddPasswordErrorEvent>((event, emit) {
-      emit(state.copyWith(passwordError: event.error));
-    });
+    // on<LoginFormAddPasswordErrorEvent>((event, emit) {
+    //   emit(state.copyWith(passwordError: event.error));
+    // });
 
-    on<LoginFormAddEmailErrorEvent>((event, emit) {
-      emit(state.copyWith(emailError: event.error));
-    });
+    // on<LoginFormAddEmailErrorEvent>((event, emit) {
+    //   emit(state.copyWith(emailError: event.error));
+    // });
 
 
     on<LoginFormSetConfirmPasswordEvent>((event, emit) {

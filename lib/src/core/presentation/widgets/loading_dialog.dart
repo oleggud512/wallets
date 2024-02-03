@@ -1,7 +1,7 @@
-import 'package:ads_pay_app/src/core/presentation/dialog_widget.dart';
+import 'package:ads_pay_app/src/core/common/dialog_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../common/constants/sizes.dart';
+import '../../common/constants/sizes.dart';
 
 class LoadingDialog<T> extends StatelessWidget with DialogWidget<T> {
   const LoadingDialog({

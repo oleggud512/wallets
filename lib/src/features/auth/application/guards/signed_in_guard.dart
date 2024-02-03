@@ -12,6 +12,7 @@ class SignedInGuard extends AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
+    // TODO: should I createa a separate useCase for isSignedIn?
     if (repo.isSignedIn) return resolver.next(true);
     resolver.redirect(const LoginRoute());
   }

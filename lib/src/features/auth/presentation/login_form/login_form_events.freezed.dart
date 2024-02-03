@@ -19,8 +19,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -30,8 +28,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -41,8 +37,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -53,9 +47,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -68,8 +59,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -81,8 +70,6 @@ mixin _$LoginFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -151,8 +138,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -165,8 +150,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -179,8 +162,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -197,9 +178,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -215,8 +193,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -231,8 +207,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -250,357 +224,6 @@ class _$_LoginFormEvent implements _LoginFormEvent {
 
 abstract class _LoginFormEvent implements LoginFormEvent {
   factory _LoginFormEvent() = _$_LoginFormEvent;
-}
-
-/// @nodoc
-abstract class _$$LoginFormAddPasswordErrorEventCopyWith<$Res> {
-  factory _$$LoginFormAddPasswordErrorEventCopyWith(
-          _$LoginFormAddPasswordErrorEvent value,
-          $Res Function(_$LoginFormAddPasswordErrorEvent) then) =
-      __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PasswordError error});
-}
-
-/// @nodoc
-class __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormAddPasswordErrorEvent>
-    implements _$$LoginFormAddPasswordErrorEventCopyWith<$Res> {
-  __$$LoginFormAddPasswordErrorEventCopyWithImpl(
-      _$LoginFormAddPasswordErrorEvent _value,
-      $Res Function(_$LoginFormAddPasswordErrorEvent) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$LoginFormAddPasswordErrorEvent(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as PasswordError,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoginFormAddPasswordErrorEvent
-    implements LoginFormAddPasswordErrorEvent {
-  _$LoginFormAddPasswordErrorEvent(this.error);
-
-  @override
-  final PasswordError error;
-
-  @override
-  String toString() {
-    return 'LoginFormEvent.addPasswordError(error: $error)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginFormAddPasswordErrorEvent &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginFormAddPasswordErrorEventCopyWith<_$LoginFormAddPasswordErrorEvent>
-      get copyWith => __$$LoginFormAddPasswordErrorEventCopyWithImpl<
-          _$LoginFormAddPasswordErrorEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function(bool isConfirmPassword) setConfirmPassword,
-  }) {
-    return addPasswordError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function(bool isConfirmPassword)? setConfirmPassword,
-  }) {
-    return addPasswordError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function(bool isConfirmPassword)? setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (addPasswordError != null) {
-      return addPasswordError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
-    required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
-    required TResult Function(LoginFormPasswordChangedEvent value)
-        passwordChanged,
-    required TResult Function(LoginFormConfirmPasswordChangedEvent value)
-        confirmPasswordChanged,
-    required TResult Function(LoginFormSetConfirmPasswordEvent value)
-        setConfirmPassword,
-  }) {
-    return addPasswordError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult? Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-  }) {
-    return addPasswordError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (addPasswordError != null) {
-      return addPasswordError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginFormAddPasswordErrorEvent implements LoginFormEvent {
-  factory LoginFormAddPasswordErrorEvent(final PasswordError error) =
-      _$LoginFormAddPasswordErrorEvent;
-
-  PasswordError get error;
-  @JsonKey(ignore: true)
-  _$$LoginFormAddPasswordErrorEventCopyWith<_$LoginFormAddPasswordErrorEvent>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoginFormAddEmailErrorEventCopyWith<$Res> {
-  factory _$$LoginFormAddEmailErrorEventCopyWith(
-          _$LoginFormAddEmailErrorEvent value,
-          $Res Function(_$LoginFormAddEmailErrorEvent) then) =
-      __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({EmailError error});
-}
-
-/// @nodoc
-class __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormAddEmailErrorEvent>
-    implements _$$LoginFormAddEmailErrorEventCopyWith<$Res> {
-  __$$LoginFormAddEmailErrorEventCopyWithImpl(
-      _$LoginFormAddEmailErrorEvent _value,
-      $Res Function(_$LoginFormAddEmailErrorEvent) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$LoginFormAddEmailErrorEvent(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as EmailError,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
-  _$LoginFormAddEmailErrorEvent(this.error);
-
-  @override
-  final EmailError error;
-
-  @override
-  String toString() {
-    return 'LoginFormEvent.addEmailError(error: $error)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LoginFormAddEmailErrorEvent &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LoginFormAddEmailErrorEventCopyWith<_$LoginFormAddEmailErrorEvent>
-      get copyWith => __$$LoginFormAddEmailErrorEventCopyWithImpl<
-          _$LoginFormAddEmailErrorEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
-    required TResult Function(String email) emailChanged,
-    required TResult Function(String password) passwordChanged,
-    required TResult Function(String confirmPassword) confirmPasswordChanged,
-    required TResult Function(bool isConfirmPassword) setConfirmPassword,
-  }) {
-    return addEmailError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
-    TResult? Function(String email)? emailChanged,
-    TResult? Function(String password)? passwordChanged,
-    TResult? Function(String confirmPassword)? confirmPasswordChanged,
-    TResult? Function(bool isConfirmPassword)? setConfirmPassword,
-  }) {
-    return addEmailError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
-    TResult Function(String email)? emailChanged,
-    TResult Function(String password)? passwordChanged,
-    TResult Function(String confirmPassword)? confirmPasswordChanged,
-    TResult Function(bool isConfirmPassword)? setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (addEmailError != null) {
-      return addEmailError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
-    required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
-    required TResult Function(LoginFormPasswordChangedEvent value)
-        passwordChanged,
-    required TResult Function(LoginFormConfirmPasswordChangedEvent value)
-        confirmPasswordChanged,
-    required TResult Function(LoginFormSetConfirmPasswordEvent value)
-        setConfirmPassword,
-  }) {
-    return addEmailError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult? Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-  }) {
-    return addEmailError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
-    TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
-    TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
-    TResult Function(LoginFormConfirmPasswordChangedEvent value)?
-        confirmPasswordChanged,
-    TResult Function(LoginFormSetConfirmPasswordEvent value)?
-        setConfirmPassword,
-    required TResult orElse(),
-  }) {
-    if (addEmailError != null) {
-      return addEmailError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoginFormAddEmailErrorEvent implements LoginFormEvent {
-  factory LoginFormAddEmailErrorEvent(final EmailError error) =
-      _$LoginFormAddEmailErrorEvent;
-
-  EmailError get error;
-  @JsonKey(ignore: true)
-  _$$LoginFormAddEmailErrorEventCopyWith<_$LoginFormAddEmailErrorEvent>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -671,8 +294,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -685,8 +306,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -699,8 +318,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -717,9 +334,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -735,8 +349,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -751,8 +363,6 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -847,8 +457,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -861,8 +469,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -875,8 +481,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -893,9 +497,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -911,8 +512,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -927,8 +526,6 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -1026,8 +623,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -1040,8 +635,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -1054,8 +647,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -1072,9 +663,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -1090,8 +678,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -1106,8 +692,6 @@ class _$LoginFormConfirmPasswordChangedEvent
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -1206,8 +790,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
-    required TResult Function(PasswordError error) addPasswordError,
-    required TResult Function(EmailError error) addEmailError,
     required TResult Function(String email) emailChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String confirmPassword) confirmPasswordChanged,
@@ -1220,8 +802,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
-    TResult? Function(PasswordError error)? addPasswordError,
-    TResult? Function(EmailError error)? addEmailError,
     TResult? Function(String email)? emailChanged,
     TResult? Function(String password)? passwordChanged,
     TResult? Function(String confirmPassword)? confirmPasswordChanged,
@@ -1234,8 +814,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
-    TResult Function(PasswordError error)? addPasswordError,
-    TResult Function(EmailError error)? addEmailError,
     TResult Function(String email)? emailChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String confirmPassword)? confirmPasswordChanged,
@@ -1252,9 +830,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_LoginFormEvent value) $default, {
-    required TResult Function(LoginFormAddPasswordErrorEvent value)
-        addPasswordError,
-    required TResult Function(LoginFormAddEmailErrorEvent value) addEmailError,
     required TResult Function(LoginFormEmailChangedEvent value) emailChanged,
     required TResult Function(LoginFormPasswordChangedEvent value)
         passwordChanged,
@@ -1270,8 +845,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_LoginFormEvent value)? $default, {
-    TResult? Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult? Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult? Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult? Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult? Function(LoginFormConfirmPasswordChangedEvent value)?
@@ -1286,8 +859,6 @@ class _$LoginFormSetConfirmPasswordEvent
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_LoginFormEvent value)? $default, {
-    TResult Function(LoginFormAddPasswordErrorEvent value)? addPasswordError,
-    TResult Function(LoginFormAddEmailErrorEvent value)? addEmailError,
     TResult Function(LoginFormEmailChangedEvent value)? emailChanged,
     TResult Function(LoginFormPasswordChangedEvent value)? passwordChanged,
     TResult Function(LoginFormConfirmPasswordChangedEvent value)?

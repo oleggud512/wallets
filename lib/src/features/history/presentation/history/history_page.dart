@@ -88,7 +88,7 @@ class HistoryPage extends StatelessWidget {
                 IconButton(
                   tooltip: context.tr(LocaleKeys.reportsTooltip),
                   onPressed: () {
-                    context.showSnackBar('Reports page will be opened here... But not today.');
+                    context.showSnackBar('Coming soon.');
                   }, 
                   icon: const Icon(Icons.article_outlined)
                 )

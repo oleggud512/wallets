@@ -37,7 +37,7 @@ class EmailVerificationPageBloc
 
     on<EmailVerificationPageCheckVerifiedEvent>((event, emit) async {
       await refresh();
-      emit(repo.isEmailVerified 
+      emit(repo.isEmailVerified // TODO: should I create a separate useCase for isEmailVerified? Or better create something like `class VerificationFacade { get isEmailVerified, get isSignedIn }`?
         ? EmailVerificationPageState.success 
         : EmailVerificationPageState.awaiting);
     });

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/common/constants/sizes.dart';
-import '../../../../core/presentation/password_text_field.dart';
+import '../../../../core/presentation/widgets/password_text_field.dart';
 
 
 class LoginFormWidget extends StatefulWidget {
@@ -36,7 +36,7 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
           TextFormField(
             validator: (v) {
               final state = context.read<LoginFormBloc>().state;
-              final res = state.email.displayError ?? state.emailError;
+              final res = state.email.displayError;
               return res == null ? null : context.tr(res.localeKey);
             },
             onChanged: (v) => bloc.add(LoginFormEmailChangedEvent(v)),
@@ -48,7 +48,7 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
           PasswordTextField(
             validator: (v) {
               final state = context.read<LoginFormBloc>().state;
-              var res = state.password.displayError ?? state.passwordError;
+              var res = state.password.displayError;
               return res == null ? null : context.tr(res.localeKey);
             },
             onChanged: (v) => bloc.add(LoginFormPasswordChangedEvent(v)),

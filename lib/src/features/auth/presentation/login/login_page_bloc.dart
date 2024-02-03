@@ -36,7 +36,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
         : await signUp(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value);
       
       res.fold(
-        (left) => emit(state.copyWith(isLoading: false, authException: left)), 
+        (left) => emit(state.copyWith(isLoading: false, authException: left)), // TODO: Shouldn't it throw an exception extending Localizable? Because PasswordError and EmailError are both extend it.
         (right) {
           event.onSuccess();
           emit(state.copyWith(isLoading: false));

@@ -13,6 +13,7 @@ class EmailVerifiedGuard extends AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
+    // TODO: should I create a separate useCase for isEmailVerified?
     if (repo.isEmailVerified) return resolver.next(true);
     resolver.redirect(const EmailVerificationRoute());
   }

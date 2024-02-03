@@ -1,7 +1,7 @@
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
-import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
+import 'package:ads_pay_app/src/core/presentation/widgets/yes_no_dialog.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_bloc.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_event.dart';
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_states.dart';

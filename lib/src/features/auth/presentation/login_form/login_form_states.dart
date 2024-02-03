@@ -6,14 +6,14 @@ import 'login_form_validation.dart';
 class LoginFormState extends Equatable with FormzMixin {
   final Email email;
   final Password password;
-  final EmailError? emailError;
-  final PasswordError? passwordError;
+  // final EmailError? emailError;
+  // final PasswordError? passwordError;
 
   const LoginFormState({
     this.email = const Email.pure(), 
     this.password = const Password.pure(), 
-    this.emailError, 
-    this.passwordError
+    // this.emailError, 
+    // this.passwordError
   });
 
   LoginFormState copyWith({
@@ -25,13 +25,18 @@ class LoginFormState extends Equatable with FormzMixin {
     return LoginFormState(
       email: email ?? this.email,
       password: password ?? this.password,
-      emailError: emailError ?? this.emailError,
-      passwordError: passwordError ?? this.passwordError
+      // emailError: emailError ?? this.emailError,
+      // passwordError: passwordError ?? this.passwordError
     );
   }
   
   @override
-  List<Object?> get props => [email, password, emailError, passwordError];
+  List<Object?> get props => [
+    email, 
+    password, 
+    // emailError, 
+    // passwordError
+  ];
   
   @override
   List<FormzInput> get inputs => [email, password];

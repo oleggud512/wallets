@@ -9,7 +9,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../history/domain/entities/history_node.dart';
-import '../../../../core/presentation/edit_description_dialog.dart';
+import '../../../../core/presentation/widgets/edit_description_dialog.dart';
 
 
 class WalletWidget extends StatefulWidget {
