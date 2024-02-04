@@ -1,18 +1,15 @@
+import 'package:ads_pay_app/src/core/presentation/dialog_widget.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class YesNoDialog extends StatelessWidget {
+class YesNoDialog extends StatelessWidget with DialogWidget<bool> {
   const YesNoDialog({
     super.key,
     this.message = ''
   });
 
   final String message;
-
-  Future<bool?> show(BuildContext context) {
-    return showDialog(context: context, builder: (context) => this);
-  }
 
   @override
   Widget build(BuildContext context) {

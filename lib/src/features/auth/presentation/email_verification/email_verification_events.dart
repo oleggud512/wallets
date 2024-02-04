@@ -8,8 +8,10 @@ class EmailVerificationPageEvent with _$EmailVerificationPageEvent {
 
   factory EmailVerificationPageEvent.sendEmail() = 
     EmailVerificationPageSendEmailEvent;
+
   factory EmailVerificationPageEvent.cancelVerification() = 
     EmailVerificationPageCancelVerificationEvent;
+    
   factory EmailVerificationPageEvent.checkVerified() =
     EmailVerificationPageCheckVerifiedEvent;
 }

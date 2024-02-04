@@ -2,6 +2,7 @@ import 'package:ads_pay_app/src/core/common/extensions/string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 extension FormatFirebaseAuthExceptionCode on FirebaseAuthException {
+  
   /// makes exception code more 'human readable'
   String get formattedCode {
     return code
@@ -10,7 +11,7 @@ extension FormatFirebaseAuthExceptionCode on FirebaseAuthException {
   }
 
 
-  // TODO: create custom LocaleKeys builder
+  // TODO: create custom LocaleKeys builder.
   String get localeKey {
     final c =  code.split('-')
       .map((w) => w.capitalize())

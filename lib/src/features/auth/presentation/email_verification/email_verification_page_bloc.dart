@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'email_verification_page_state.dart';
 
-class EmailVerificationPageBloc 
+class EmailVerificationPageBloc
     extends Bloc<EmailVerificationPageEvent, EmailVerificationPageState> {
   final SendVerificationMailUseCase sendMail;
   final SignOutUseCase signOut;
@@ -19,28 +19,34 @@ class EmailVerificationPageBloc
   Timer? ticker;
 
   EmailVerificationPageBloc(
-    this.sendMail, 
-    this.signOut, 
-    this.refresh, 
-    this.repo
-  ) : super(EmailVerificationPageState.awaiting) {
+      this.sendMail, this.signOut, this.refresh, this.repo)
+      : super(EmailVerificationPageState.awaiting) {
 
-    on<EmailVerificationPageSendEmailEvent>((event, emit) async { // TODO: should not be called twice... it's bad... 
-      await sendMail();
-      emit(EmailVerificationPageState.awaiting);
-    });
-
-    on<EmailVerificationPageCancelVerificationEvent>((event, emit) async {
-      await signOut();
-      emit(EmailVerificationPageState.cancelled);
-    });
-
-    on<EmailVerificationPageCheckVerifiedEvent>((event, emit) async {
-      await refresh();
-      emit(repo.isEmailVerified // TODO: should I create a separate useCase for isEmailVerified? Or better create something like `class VerificationFacade { get isEmailVerified, get isSignedIn }`?
-        ? EmailVerificationPageState.success 
-        : EmailVerificationPageState.awaiting);
-    });
+    on<EmailVerificationPageSendEmailEvent>(_sendEmail);
+    on<EmailVerificationPageCancelVerificationEvent>(_cancelVerification);
+    on<EmailVerificationPageCheckVerifiedEvent>(_checkVerified);
   }
 
+  Future<void> _sendEmail(EmailVerificationPageSendEmailEvent event,
+      Emitter<EmailVerificationPageState> emit) async {
+    await sendMail();
+    emit(EmailVerificationPageState.awaiting);
+  }
+
+  Future<void> _cancelVerification(
+      EmailVerificationPageCancelVerificationEvent event,
+      Emitter<EmailVerificationPageState> emit) async {
+    await signOut();
+    emit(EmailVerificationPageState.cancelled);
+  }
+
+  Future<void> _checkVerified(
+    EmailVerificationPageCheckVerifiedEvent event,
+    Emitter<EmailVerificationPageState> emit
+  ) async {
+    await refresh();
+    emit(repo.isEmailVerified // TODO: should I create a separate useCase for isEmailVerified? Or better create something like `class VerificationFacade { get isEmailVerified, get isSignedIn }`?
+      ? EmailVerificationPageState.success
+      : EmailVerificationPageState.awaiting);
+  }
 }
