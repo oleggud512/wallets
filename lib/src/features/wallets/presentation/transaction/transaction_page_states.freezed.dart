@@ -12,7 +12,7 @@ part of 'transaction_page_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TransactionPageState {
@@ -84,11 +84,11 @@ class _$TransactionPageStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TransactionPageStateCopyWith<$Res>
+abstract class _$$TransactionPageStateImplCopyWith<$Res>
     implements $TransactionPageStateCopyWith<$Res> {
-  factory _$$_TransactionPageStateCopyWith(_$_TransactionPageState value,
-          $Res Function(_$_TransactionPageState) then) =
-      __$$_TransactionPageStateCopyWithImpl<$Res>;
+  factory _$$TransactionPageStateImplCopyWith(_$TransactionPageStateImpl value,
+          $Res Function(_$TransactionPageStateImpl) then) =
+      __$$TransactionPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Tag? tag, double amount, String description});
@@ -98,11 +98,11 @@ abstract class _$$_TransactionPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TransactionPageStateCopyWithImpl<$Res>
-    extends _$TransactionPageStateCopyWithImpl<$Res, _$_TransactionPageState>
-    implements _$$_TransactionPageStateCopyWith<$Res> {
-  __$$_TransactionPageStateCopyWithImpl(_$_TransactionPageState _value,
-      $Res Function(_$_TransactionPageState) _then)
+class __$$TransactionPageStateImplCopyWithImpl<$Res>
+    extends _$TransactionPageStateCopyWithImpl<$Res, _$TransactionPageStateImpl>
+    implements _$$TransactionPageStateImplCopyWith<$Res> {
+  __$$TransactionPageStateImplCopyWithImpl(_$TransactionPageStateImpl _value,
+      $Res Function(_$TransactionPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_TransactionPageStateCopyWithImpl<$Res>
     Object? amount = null,
     Object? description = null,
   }) {
-    return _then(_$_TransactionPageState(
+    return _then(_$TransactionPageStateImpl(
       tag: freezed == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,9 @@ class __$$_TransactionPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TransactionPageState implements _TransactionPageState {
-  _$_TransactionPageState({this.tag, this.amount = 0, this.description = ''});
+class _$TransactionPageStateImpl implements _TransactionPageState {
+  _$TransactionPageStateImpl(
+      {this.tag, this.amount = 0, this.description = ''});
 
   @override
   final Tag? tag;
@@ -149,10 +150,10 @@ class _$_TransactionPageState implements _TransactionPageState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TransactionPageState &&
+            other is _$TransactionPageStateImpl &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.description, description) ||
@@ -165,16 +166,17 @@ class _$_TransactionPageState implements _TransactionPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TransactionPageStateCopyWith<_$_TransactionPageState> get copyWith =>
-      __$$_TransactionPageStateCopyWithImpl<_$_TransactionPageState>(
-          this, _$identity);
+  _$$TransactionPageStateImplCopyWith<_$TransactionPageStateImpl>
+      get copyWith =>
+          __$$TransactionPageStateImplCopyWithImpl<_$TransactionPageStateImpl>(
+              this, _$identity);
 }
 
 abstract class _TransactionPageState implements TransactionPageState {
   factory _TransactionPageState(
       {final Tag? tag,
       final double amount,
-      final String description}) = _$_TransactionPageState;
+      final String description}) = _$TransactionPageStateImpl;
 
   @override
   Tag? get tag;
@@ -184,6 +186,6 @@ abstract class _TransactionPageState implements TransactionPageState {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_TransactionPageStateCopyWith<_$_TransactionPageState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TransactionPageStateImplCopyWith<_$TransactionPageStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

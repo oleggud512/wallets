@@ -12,7 +12,7 @@ part of 'history_page_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HistoryPageState {
@@ -63,22 +63,22 @@ class _$HistoryPageStateCopyWithImpl<$Res, $Val extends HistoryPageState>
 }
 
 /// @nodoc
-abstract class _$$_HistoryPageStateCopyWith<$Res>
+abstract class _$$HistoryPageStateImplCopyWith<$Res>
     implements $HistoryPageStateCopyWith<$Res> {
-  factory _$$_HistoryPageStateCopyWith(
-          _$_HistoryPageState value, $Res Function(_$_HistoryPageState) then) =
-      __$$_HistoryPageStateCopyWithImpl<$Res>;
+  factory _$$HistoryPageStateImplCopyWith(_$HistoryPageStateImpl value,
+          $Res Function(_$HistoryPageStateImpl) then) =
+      __$$HistoryPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Wallet wallet, List<Tag> tags});
 }
 
 /// @nodoc
-class __$$_HistoryPageStateCopyWithImpl<$Res>
-    extends _$HistoryPageStateCopyWithImpl<$Res, _$_HistoryPageState>
-    implements _$$_HistoryPageStateCopyWith<$Res> {
-  __$$_HistoryPageStateCopyWithImpl(
-      _$_HistoryPageState _value, $Res Function(_$_HistoryPageState) _then)
+class __$$HistoryPageStateImplCopyWithImpl<$Res>
+    extends _$HistoryPageStateCopyWithImpl<$Res, _$HistoryPageStateImpl>
+    implements _$$HistoryPageStateImplCopyWith<$Res> {
+  __$$HistoryPageStateImplCopyWithImpl(_$HistoryPageStateImpl _value,
+      $Res Function(_$HistoryPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_HistoryPageStateCopyWithImpl<$Res>
     Object? wallet = null,
     Object? tags = null,
   }) {
-    return _then(_$_HistoryPageState(
+    return _then(_$HistoryPageStateImpl(
       wallet: null == wallet
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,9 @@ class __$$_HistoryPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HistoryPageState implements _HistoryPageState {
-  _$_HistoryPageState({required this.wallet, final List<Tag> tags = const []})
+class _$HistoryPageStateImpl implements _HistoryPageState {
+  _$HistoryPageStateImpl(
+      {required this.wallet, final List<Tag> tags = const []})
       : _tags = tags;
 
   @override
@@ -123,10 +124,10 @@ class _$_HistoryPageState implements _HistoryPageState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HistoryPageState &&
+            other is _$HistoryPageStateImpl &&
             (identical(other.wallet, wallet) || other.wallet == wallet) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
@@ -138,14 +139,15 @@ class _$_HistoryPageState implements _HistoryPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HistoryPageStateCopyWith<_$_HistoryPageState> get copyWith =>
-      __$$_HistoryPageStateCopyWithImpl<_$_HistoryPageState>(this, _$identity);
+  _$$HistoryPageStateImplCopyWith<_$HistoryPageStateImpl> get copyWith =>
+      __$$HistoryPageStateImplCopyWithImpl<_$HistoryPageStateImpl>(
+          this, _$identity);
 }
 
 abstract class _HistoryPageState implements HistoryPageState {
   factory _HistoryPageState(
       {required final Wallet wallet,
-      final List<Tag> tags}) = _$_HistoryPageState;
+      final List<Tag> tags}) = _$HistoryPageStateImpl;
 
   @override
   Wallet get wallet;
@@ -153,6 +155,6 @@ abstract class _HistoryPageState implements HistoryPageState {
   List<Tag> get tags;
   @override
   @JsonKey(ignore: true)
-  _$$_HistoryPageStateCopyWith<_$_HistoryPageState> get copyWith =>
+  _$$HistoryPageStateImplCopyWith<_$HistoryPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

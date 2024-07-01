@@ -12,7 +12,7 @@ part of 'email_verification_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$EmailVerificationPageEvent {
@@ -97,28 +97,28 @@ class _$EmailVerificationPageEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_EmailVerificationPageEventCopyWith<$Res> {
-  factory _$$_EmailVerificationPageEventCopyWith(
-          _$_EmailVerificationPageEvent value,
-          $Res Function(_$_EmailVerificationPageEvent) then) =
-      __$$_EmailVerificationPageEventCopyWithImpl<$Res>;
+abstract class _$$EmailVerificationPageEventImplCopyWith<$Res> {
+  factory _$$EmailVerificationPageEventImplCopyWith(
+          _$EmailVerificationPageEventImpl value,
+          $Res Function(_$EmailVerificationPageEventImpl) then) =
+      __$$EmailVerificationPageEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_EmailVerificationPageEventCopyWithImpl<$Res>
+class __$$EmailVerificationPageEventImplCopyWithImpl<$Res>
     extends _$EmailVerificationPageEventCopyWithImpl<$Res,
-        _$_EmailVerificationPageEvent>
-    implements _$$_EmailVerificationPageEventCopyWith<$Res> {
-  __$$_EmailVerificationPageEventCopyWithImpl(
-      _$_EmailVerificationPageEvent _value,
-      $Res Function(_$_EmailVerificationPageEvent) _then)
+        _$EmailVerificationPageEventImpl>
+    implements _$$EmailVerificationPageEventImplCopyWith<$Res> {
+  __$$EmailVerificationPageEventImplCopyWithImpl(
+      _$EmailVerificationPageEventImpl _value,
+      $Res Function(_$EmailVerificationPageEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_EmailVerificationPageEvent implements _EmailVerificationPageEvent {
-  _$_EmailVerificationPageEvent();
+class _$EmailVerificationPageEventImpl implements _EmailVerificationPageEvent {
+  _$EmailVerificationPageEventImpl();
 
   @override
   String toString() {
@@ -126,10 +126,10 @@ class _$_EmailVerificationPageEvent implements _EmailVerificationPageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EmailVerificationPageEvent);
+            other is _$EmailVerificationPageEventImpl);
   }
 
   @override
@@ -220,33 +220,33 @@ class _$_EmailVerificationPageEvent implements _EmailVerificationPageEvent {
 
 abstract class _EmailVerificationPageEvent
     implements EmailVerificationPageEvent {
-  factory _EmailVerificationPageEvent() = _$_EmailVerificationPageEvent;
+  factory _EmailVerificationPageEvent() = _$EmailVerificationPageEventImpl;
 }
 
 /// @nodoc
-abstract class _$$EmailVerificationPageSendEmailEventCopyWith<$Res> {
-  factory _$$EmailVerificationPageSendEmailEventCopyWith(
-          _$EmailVerificationPageSendEmailEvent value,
-          $Res Function(_$EmailVerificationPageSendEmailEvent) then) =
-      __$$EmailVerificationPageSendEmailEventCopyWithImpl<$Res>;
+abstract class _$$EmailVerificationPageSendEmailEventImplCopyWith<$Res> {
+  factory _$$EmailVerificationPageSendEmailEventImplCopyWith(
+          _$EmailVerificationPageSendEmailEventImpl value,
+          $Res Function(_$EmailVerificationPageSendEmailEventImpl) then) =
+      __$$EmailVerificationPageSendEmailEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmailVerificationPageSendEmailEventCopyWithImpl<$Res>
+class __$$EmailVerificationPageSendEmailEventImplCopyWithImpl<$Res>
     extends _$EmailVerificationPageEventCopyWithImpl<$Res,
-        _$EmailVerificationPageSendEmailEvent>
-    implements _$$EmailVerificationPageSendEmailEventCopyWith<$Res> {
-  __$$EmailVerificationPageSendEmailEventCopyWithImpl(
-      _$EmailVerificationPageSendEmailEvent _value,
-      $Res Function(_$EmailVerificationPageSendEmailEvent) _then)
+        _$EmailVerificationPageSendEmailEventImpl>
+    implements _$$EmailVerificationPageSendEmailEventImplCopyWith<$Res> {
+  __$$EmailVerificationPageSendEmailEventImplCopyWithImpl(
+      _$EmailVerificationPageSendEmailEventImpl _value,
+      $Res Function(_$EmailVerificationPageSendEmailEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmailVerificationPageSendEmailEvent
+class _$EmailVerificationPageSendEmailEventImpl
     implements EmailVerificationPageSendEmailEvent {
-  _$EmailVerificationPageSendEmailEvent();
+  _$EmailVerificationPageSendEmailEventImpl();
 
   @override
   String toString() {
@@ -254,10 +254,10 @@ class _$EmailVerificationPageSendEmailEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmailVerificationPageSendEmailEvent);
+            other is _$EmailVerificationPageSendEmailEventImpl);
   }
 
   @override
@@ -349,33 +349,36 @@ class _$EmailVerificationPageSendEmailEvent
 abstract class EmailVerificationPageSendEmailEvent
     implements EmailVerificationPageEvent {
   factory EmailVerificationPageSendEmailEvent() =
-      _$EmailVerificationPageSendEmailEvent;
+      _$EmailVerificationPageSendEmailEventImpl;
 }
 
 /// @nodoc
-abstract class _$$EmailVerificationPageCancelVerificationEventCopyWith<$Res> {
-  factory _$$EmailVerificationPageCancelVerificationEventCopyWith(
-          _$EmailVerificationPageCancelVerificationEvent value,
-          $Res Function(_$EmailVerificationPageCancelVerificationEvent) then) =
-      __$$EmailVerificationPageCancelVerificationEventCopyWithImpl<$Res>;
+abstract class _$$EmailVerificationPageCancelVerificationEventImplCopyWith<
+    $Res> {
+  factory _$$EmailVerificationPageCancelVerificationEventImplCopyWith(
+          _$EmailVerificationPageCancelVerificationEventImpl value,
+          $Res Function(_$EmailVerificationPageCancelVerificationEventImpl)
+              then) =
+      __$$EmailVerificationPageCancelVerificationEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmailVerificationPageCancelVerificationEventCopyWithImpl<$Res>
+class __$$EmailVerificationPageCancelVerificationEventImplCopyWithImpl<$Res>
     extends _$EmailVerificationPageEventCopyWithImpl<$Res,
-        _$EmailVerificationPageCancelVerificationEvent>
-    implements _$$EmailVerificationPageCancelVerificationEventCopyWith<$Res> {
-  __$$EmailVerificationPageCancelVerificationEventCopyWithImpl(
-      _$EmailVerificationPageCancelVerificationEvent _value,
-      $Res Function(_$EmailVerificationPageCancelVerificationEvent) _then)
+        _$EmailVerificationPageCancelVerificationEventImpl>
+    implements
+        _$$EmailVerificationPageCancelVerificationEventImplCopyWith<$Res> {
+  __$$EmailVerificationPageCancelVerificationEventImplCopyWithImpl(
+      _$EmailVerificationPageCancelVerificationEventImpl _value,
+      $Res Function(_$EmailVerificationPageCancelVerificationEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmailVerificationPageCancelVerificationEvent
+class _$EmailVerificationPageCancelVerificationEventImpl
     implements EmailVerificationPageCancelVerificationEvent {
-  _$EmailVerificationPageCancelVerificationEvent();
+  _$EmailVerificationPageCancelVerificationEventImpl();
 
   @override
   String toString() {
@@ -383,10 +386,10 @@ class _$EmailVerificationPageCancelVerificationEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmailVerificationPageCancelVerificationEvent);
+            other is _$EmailVerificationPageCancelVerificationEventImpl);
   }
 
   @override
@@ -478,33 +481,33 @@ class _$EmailVerificationPageCancelVerificationEvent
 abstract class EmailVerificationPageCancelVerificationEvent
     implements EmailVerificationPageEvent {
   factory EmailVerificationPageCancelVerificationEvent() =
-      _$EmailVerificationPageCancelVerificationEvent;
+      _$EmailVerificationPageCancelVerificationEventImpl;
 }
 
 /// @nodoc
-abstract class _$$EmailVerificationPageCheckVerifiedEventCopyWith<$Res> {
-  factory _$$EmailVerificationPageCheckVerifiedEventCopyWith(
-          _$EmailVerificationPageCheckVerifiedEvent value,
-          $Res Function(_$EmailVerificationPageCheckVerifiedEvent) then) =
-      __$$EmailVerificationPageCheckVerifiedEventCopyWithImpl<$Res>;
+abstract class _$$EmailVerificationPageCheckVerifiedEventImplCopyWith<$Res> {
+  factory _$$EmailVerificationPageCheckVerifiedEventImplCopyWith(
+          _$EmailVerificationPageCheckVerifiedEventImpl value,
+          $Res Function(_$EmailVerificationPageCheckVerifiedEventImpl) then) =
+      __$$EmailVerificationPageCheckVerifiedEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmailVerificationPageCheckVerifiedEventCopyWithImpl<$Res>
+class __$$EmailVerificationPageCheckVerifiedEventImplCopyWithImpl<$Res>
     extends _$EmailVerificationPageEventCopyWithImpl<$Res,
-        _$EmailVerificationPageCheckVerifiedEvent>
-    implements _$$EmailVerificationPageCheckVerifiedEventCopyWith<$Res> {
-  __$$EmailVerificationPageCheckVerifiedEventCopyWithImpl(
-      _$EmailVerificationPageCheckVerifiedEvent _value,
-      $Res Function(_$EmailVerificationPageCheckVerifiedEvent) _then)
+        _$EmailVerificationPageCheckVerifiedEventImpl>
+    implements _$$EmailVerificationPageCheckVerifiedEventImplCopyWith<$Res> {
+  __$$EmailVerificationPageCheckVerifiedEventImplCopyWithImpl(
+      _$EmailVerificationPageCheckVerifiedEventImpl _value,
+      $Res Function(_$EmailVerificationPageCheckVerifiedEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmailVerificationPageCheckVerifiedEvent
+class _$EmailVerificationPageCheckVerifiedEventImpl
     implements EmailVerificationPageCheckVerifiedEvent {
-  _$EmailVerificationPageCheckVerifiedEvent();
+  _$EmailVerificationPageCheckVerifiedEventImpl();
 
   @override
   String toString() {
@@ -512,10 +515,10 @@ class _$EmailVerificationPageCheckVerifiedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmailVerificationPageCheckVerifiedEvent);
+            other is _$EmailVerificationPageCheckVerifiedEventImpl);
   }
 
   @override
@@ -607,5 +610,5 @@ class _$EmailVerificationPageCheckVerifiedEvent
 abstract class EmailVerificationPageCheckVerifiedEvent
     implements EmailVerificationPageEvent {
   factory EmailVerificationPageCheckVerifiedEvent() =
-      _$EmailVerificationPageCheckVerifiedEvent;
+      _$EmailVerificationPageCheckVerifiedEventImpl;
 }

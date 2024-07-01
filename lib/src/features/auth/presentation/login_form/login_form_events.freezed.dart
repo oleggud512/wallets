@@ -12,7 +12,7 @@ part of 'login_form_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginFormEvent {
@@ -113,25 +113,25 @@ class _$LoginFormEventCopyWithImpl<$Res, $Val extends LoginFormEvent>
 }
 
 /// @nodoc
-abstract class _$$_LoginFormEventCopyWith<$Res> {
-  factory _$$_LoginFormEventCopyWith(
-          _$_LoginFormEvent value, $Res Function(_$_LoginFormEvent) then) =
-      __$$_LoginFormEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormEventImplCopyWith<$Res> {
+  factory _$$LoginFormEventImplCopyWith(_$LoginFormEventImpl value,
+          $Res Function(_$LoginFormEventImpl) then) =
+      __$$LoginFormEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoginFormEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$_LoginFormEvent>
-    implements _$$_LoginFormEventCopyWith<$Res> {
-  __$$_LoginFormEventCopyWithImpl(
-      _$_LoginFormEvent _value, $Res Function(_$_LoginFormEvent) _then)
+class __$$LoginFormEventImplCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormEventImpl>
+    implements _$$LoginFormEventImplCopyWith<$Res> {
+  __$$LoginFormEventImplCopyWithImpl(
+      _$LoginFormEventImpl _value, $Res Function(_$LoginFormEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoginFormEvent implements _LoginFormEvent {
-  _$_LoginFormEvent();
+class _$LoginFormEventImpl implements _LoginFormEvent {
+  _$LoginFormEventImpl();
 
   @override
   String toString() {
@@ -139,9 +139,9 @@ class _$_LoginFormEvent implements _LoginFormEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoginFormEvent);
+        (other.runtimeType == runtimeType && other is _$LoginFormEventImpl);
   }
 
   @override
@@ -249,26 +249,27 @@ class _$_LoginFormEvent implements _LoginFormEvent {
 }
 
 abstract class _LoginFormEvent implements LoginFormEvent {
-  factory _LoginFormEvent() = _$_LoginFormEvent;
+  factory _LoginFormEvent() = _$LoginFormEventImpl;
 }
 
 /// @nodoc
-abstract class _$$LoginFormAddPasswordErrorEventCopyWith<$Res> {
-  factory _$$LoginFormAddPasswordErrorEventCopyWith(
-          _$LoginFormAddPasswordErrorEvent value,
-          $Res Function(_$LoginFormAddPasswordErrorEvent) then) =
-      __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormAddPasswordErrorEventImplCopyWith<$Res> {
+  factory _$$LoginFormAddPasswordErrorEventImplCopyWith(
+          _$LoginFormAddPasswordErrorEventImpl value,
+          $Res Function(_$LoginFormAddPasswordErrorEventImpl) then) =
+      __$$LoginFormAddPasswordErrorEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({PasswordError error});
 }
 
 /// @nodoc
-class __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormAddPasswordErrorEvent>
-    implements _$$LoginFormAddPasswordErrorEventCopyWith<$Res> {
-  __$$LoginFormAddPasswordErrorEventCopyWithImpl(
-      _$LoginFormAddPasswordErrorEvent _value,
-      $Res Function(_$LoginFormAddPasswordErrorEvent) _then)
+class __$$LoginFormAddPasswordErrorEventImplCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res,
+        _$LoginFormAddPasswordErrorEventImpl>
+    implements _$$LoginFormAddPasswordErrorEventImplCopyWith<$Res> {
+  __$$LoginFormAddPasswordErrorEventImplCopyWithImpl(
+      _$LoginFormAddPasswordErrorEventImpl _value,
+      $Res Function(_$LoginFormAddPasswordErrorEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -276,7 +277,7 @@ class __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$LoginFormAddPasswordErrorEvent(
+    return _then(_$LoginFormAddPasswordErrorEventImpl(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -287,9 +288,9 @@ class __$$LoginFormAddPasswordErrorEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormAddPasswordErrorEvent
+class _$LoginFormAddPasswordErrorEventImpl
     implements LoginFormAddPasswordErrorEvent {
-  _$LoginFormAddPasswordErrorEvent(this.error);
+  _$LoginFormAddPasswordErrorEventImpl(this.error);
 
   @override
   final PasswordError error;
@@ -300,10 +301,10 @@ class _$LoginFormAddPasswordErrorEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormAddPasswordErrorEvent &&
+            other is _$LoginFormAddPasswordErrorEventImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -313,9 +314,10 @@ class _$LoginFormAddPasswordErrorEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormAddPasswordErrorEventCopyWith<_$LoginFormAddPasswordErrorEvent>
-      get copyWith => __$$LoginFormAddPasswordErrorEventCopyWithImpl<
-          _$LoginFormAddPasswordErrorEvent>(this, _$identity);
+  _$$LoginFormAddPasswordErrorEventImplCopyWith<
+          _$LoginFormAddPasswordErrorEventImpl>
+      get copyWith => __$$LoginFormAddPasswordErrorEventImplCopyWithImpl<
+          _$LoginFormAddPasswordErrorEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -420,31 +422,33 @@ class _$LoginFormAddPasswordErrorEvent
 
 abstract class LoginFormAddPasswordErrorEvent implements LoginFormEvent {
   factory LoginFormAddPasswordErrorEvent(final PasswordError error) =
-      _$LoginFormAddPasswordErrorEvent;
+      _$LoginFormAddPasswordErrorEventImpl;
 
   PasswordError get error;
   @JsonKey(ignore: true)
-  _$$LoginFormAddPasswordErrorEventCopyWith<_$LoginFormAddPasswordErrorEvent>
+  _$$LoginFormAddPasswordErrorEventImplCopyWith<
+          _$LoginFormAddPasswordErrorEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginFormAddEmailErrorEventCopyWith<$Res> {
-  factory _$$LoginFormAddEmailErrorEventCopyWith(
-          _$LoginFormAddEmailErrorEvent value,
-          $Res Function(_$LoginFormAddEmailErrorEvent) then) =
-      __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormAddEmailErrorEventImplCopyWith<$Res> {
+  factory _$$LoginFormAddEmailErrorEventImplCopyWith(
+          _$LoginFormAddEmailErrorEventImpl value,
+          $Res Function(_$LoginFormAddEmailErrorEventImpl) then) =
+      __$$LoginFormAddEmailErrorEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmailError error});
 }
 
 /// @nodoc
-class __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormAddEmailErrorEvent>
-    implements _$$LoginFormAddEmailErrorEventCopyWith<$Res> {
-  __$$LoginFormAddEmailErrorEventCopyWithImpl(
-      _$LoginFormAddEmailErrorEvent _value,
-      $Res Function(_$LoginFormAddEmailErrorEvent) _then)
+class __$$LoginFormAddEmailErrorEventImplCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res,
+        _$LoginFormAddEmailErrorEventImpl>
+    implements _$$LoginFormAddEmailErrorEventImplCopyWith<$Res> {
+  __$$LoginFormAddEmailErrorEventImplCopyWithImpl(
+      _$LoginFormAddEmailErrorEventImpl _value,
+      $Res Function(_$LoginFormAddEmailErrorEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -452,7 +456,7 @@ class __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$LoginFormAddEmailErrorEvent(
+    return _then(_$LoginFormAddEmailErrorEventImpl(
       null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -463,8 +467,8 @@ class __$$LoginFormAddEmailErrorEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
-  _$LoginFormAddEmailErrorEvent(this.error);
+class _$LoginFormAddEmailErrorEventImpl implements LoginFormAddEmailErrorEvent {
+  _$LoginFormAddEmailErrorEventImpl(this.error);
 
   @override
   final EmailError error;
@@ -475,10 +479,10 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormAddEmailErrorEvent &&
+            other is _$LoginFormAddEmailErrorEventImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -488,9 +492,9 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormAddEmailErrorEventCopyWith<_$LoginFormAddEmailErrorEvent>
-      get copyWith => __$$LoginFormAddEmailErrorEventCopyWithImpl<
-          _$LoginFormAddEmailErrorEvent>(this, _$identity);
+  _$$LoginFormAddEmailErrorEventImplCopyWith<_$LoginFormAddEmailErrorEventImpl>
+      get copyWith => __$$LoginFormAddEmailErrorEventImplCopyWithImpl<
+          _$LoginFormAddEmailErrorEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -595,31 +599,31 @@ class _$LoginFormAddEmailErrorEvent implements LoginFormAddEmailErrorEvent {
 
 abstract class LoginFormAddEmailErrorEvent implements LoginFormEvent {
   factory LoginFormAddEmailErrorEvent(final EmailError error) =
-      _$LoginFormAddEmailErrorEvent;
+      _$LoginFormAddEmailErrorEventImpl;
 
   EmailError get error;
   @JsonKey(ignore: true)
-  _$$LoginFormAddEmailErrorEventCopyWith<_$LoginFormAddEmailErrorEvent>
+  _$$LoginFormAddEmailErrorEventImplCopyWith<_$LoginFormAddEmailErrorEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginFormEmailChangedEventCopyWith<$Res> {
-  factory _$$LoginFormEmailChangedEventCopyWith(
-          _$LoginFormEmailChangedEvent value,
-          $Res Function(_$LoginFormEmailChangedEvent) then) =
-      __$$LoginFormEmailChangedEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormEmailChangedEventImplCopyWith<$Res> {
+  factory _$$LoginFormEmailChangedEventImplCopyWith(
+          _$LoginFormEmailChangedEventImpl value,
+          $Res Function(_$LoginFormEmailChangedEventImpl) then) =
+      __$$LoginFormEmailChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String email});
 }
 
 /// @nodoc
-class __$$LoginFormEmailChangedEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormEmailChangedEvent>
-    implements _$$LoginFormEmailChangedEventCopyWith<$Res> {
-  __$$LoginFormEmailChangedEventCopyWithImpl(
-      _$LoginFormEmailChangedEvent _value,
-      $Res Function(_$LoginFormEmailChangedEvent) _then)
+class __$$LoginFormEmailChangedEventImplCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormEmailChangedEventImpl>
+    implements _$$LoginFormEmailChangedEventImplCopyWith<$Res> {
+  __$$LoginFormEmailChangedEventImplCopyWithImpl(
+      _$LoginFormEmailChangedEventImpl _value,
+      $Res Function(_$LoginFormEmailChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -627,7 +631,7 @@ class __$$LoginFormEmailChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
   }) {
-    return _then(_$LoginFormEmailChangedEvent(
+    return _then(_$LoginFormEmailChangedEventImpl(
       null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -638,8 +642,8 @@ class __$$LoginFormEmailChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
-  _$LoginFormEmailChangedEvent(this.email);
+class _$LoginFormEmailChangedEventImpl implements LoginFormEmailChangedEvent {
+  _$LoginFormEmailChangedEventImpl(this.email);
 
   @override
   final String email;
@@ -650,10 +654,10 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormEmailChangedEvent &&
+            other is _$LoginFormEmailChangedEventImpl &&
             (identical(other.email, email) || other.email == email));
   }
 
@@ -663,9 +667,9 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormEmailChangedEventCopyWith<_$LoginFormEmailChangedEvent>
-      get copyWith => __$$LoginFormEmailChangedEventCopyWithImpl<
-          _$LoginFormEmailChangedEvent>(this, _$identity);
+  _$$LoginFormEmailChangedEventImplCopyWith<_$LoginFormEmailChangedEventImpl>
+      get copyWith => __$$LoginFormEmailChangedEventImplCopyWithImpl<
+          _$LoginFormEmailChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -770,31 +774,32 @@ class _$LoginFormEmailChangedEvent implements LoginFormEmailChangedEvent {
 
 abstract class LoginFormEmailChangedEvent implements LoginFormEvent {
   factory LoginFormEmailChangedEvent(final String email) =
-      _$LoginFormEmailChangedEvent;
+      _$LoginFormEmailChangedEventImpl;
 
   String get email;
   @JsonKey(ignore: true)
-  _$$LoginFormEmailChangedEventCopyWith<_$LoginFormEmailChangedEvent>
+  _$$LoginFormEmailChangedEventImplCopyWith<_$LoginFormEmailChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginFormPasswordChangedEventCopyWith<$Res> {
-  factory _$$LoginFormPasswordChangedEventCopyWith(
-          _$LoginFormPasswordChangedEvent value,
-          $Res Function(_$LoginFormPasswordChangedEvent) then) =
-      __$$LoginFormPasswordChangedEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormPasswordChangedEventImplCopyWith<$Res> {
+  factory _$$LoginFormPasswordChangedEventImplCopyWith(
+          _$LoginFormPasswordChangedEventImpl value,
+          $Res Function(_$LoginFormPasswordChangedEventImpl) then) =
+      __$$LoginFormPasswordChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String password});
 }
 
 /// @nodoc
-class __$$LoginFormPasswordChangedEventCopyWithImpl<$Res>
-    extends _$LoginFormEventCopyWithImpl<$Res, _$LoginFormPasswordChangedEvent>
-    implements _$$LoginFormPasswordChangedEventCopyWith<$Res> {
-  __$$LoginFormPasswordChangedEventCopyWithImpl(
-      _$LoginFormPasswordChangedEvent _value,
-      $Res Function(_$LoginFormPasswordChangedEvent) _then)
+class __$$LoginFormPasswordChangedEventImplCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res,
+        _$LoginFormPasswordChangedEventImpl>
+    implements _$$LoginFormPasswordChangedEventImplCopyWith<$Res> {
+  __$$LoginFormPasswordChangedEventImplCopyWithImpl(
+      _$LoginFormPasswordChangedEventImpl _value,
+      $Res Function(_$LoginFormPasswordChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -802,7 +807,7 @@ class __$$LoginFormPasswordChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? password = null,
   }) {
-    return _then(_$LoginFormPasswordChangedEvent(
+    return _then(_$LoginFormPasswordChangedEventImpl(
       null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -813,8 +818,9 @@ class __$$LoginFormPasswordChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
-  _$LoginFormPasswordChangedEvent(this.password);
+class _$LoginFormPasswordChangedEventImpl
+    implements LoginFormPasswordChangedEvent {
+  _$LoginFormPasswordChangedEventImpl(this.password);
 
   @override
   final String password;
@@ -825,10 +831,10 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormPasswordChangedEvent &&
+            other is _$LoginFormPasswordChangedEventImpl &&
             (identical(other.password, password) ||
                 other.password == password));
   }
@@ -839,9 +845,10 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormPasswordChangedEventCopyWith<_$LoginFormPasswordChangedEvent>
-      get copyWith => __$$LoginFormPasswordChangedEventCopyWithImpl<
-          _$LoginFormPasswordChangedEvent>(this, _$identity);
+  _$$LoginFormPasswordChangedEventImplCopyWith<
+          _$LoginFormPasswordChangedEventImpl>
+      get copyWith => __$$LoginFormPasswordChangedEventImplCopyWithImpl<
+          _$LoginFormPasswordChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -946,32 +953,33 @@ class _$LoginFormPasswordChangedEvent implements LoginFormPasswordChangedEvent {
 
 abstract class LoginFormPasswordChangedEvent implements LoginFormEvent {
   factory LoginFormPasswordChangedEvent(final String password) =
-      _$LoginFormPasswordChangedEvent;
+      _$LoginFormPasswordChangedEventImpl;
 
   String get password;
   @JsonKey(ignore: true)
-  _$$LoginFormPasswordChangedEventCopyWith<_$LoginFormPasswordChangedEvent>
+  _$$LoginFormPasswordChangedEventImplCopyWith<
+          _$LoginFormPasswordChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginFormConfirmPasswordChangedEventCopyWith<$Res> {
-  factory _$$LoginFormConfirmPasswordChangedEventCopyWith(
-          _$LoginFormConfirmPasswordChangedEvent value,
-          $Res Function(_$LoginFormConfirmPasswordChangedEvent) then) =
-      __$$LoginFormConfirmPasswordChangedEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormConfirmPasswordChangedEventImplCopyWith<$Res> {
+  factory _$$LoginFormConfirmPasswordChangedEventImplCopyWith(
+          _$LoginFormConfirmPasswordChangedEventImpl value,
+          $Res Function(_$LoginFormConfirmPasswordChangedEventImpl) then) =
+      __$$LoginFormConfirmPasswordChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String confirmPassword});
 }
 
 /// @nodoc
-class __$$LoginFormConfirmPasswordChangedEventCopyWithImpl<$Res>
+class __$$LoginFormConfirmPasswordChangedEventImplCopyWithImpl<$Res>
     extends _$LoginFormEventCopyWithImpl<$Res,
-        _$LoginFormConfirmPasswordChangedEvent>
-    implements _$$LoginFormConfirmPasswordChangedEventCopyWith<$Res> {
-  __$$LoginFormConfirmPasswordChangedEventCopyWithImpl(
-      _$LoginFormConfirmPasswordChangedEvent _value,
-      $Res Function(_$LoginFormConfirmPasswordChangedEvent) _then)
+        _$LoginFormConfirmPasswordChangedEventImpl>
+    implements _$$LoginFormConfirmPasswordChangedEventImplCopyWith<$Res> {
+  __$$LoginFormConfirmPasswordChangedEventImplCopyWithImpl(
+      _$LoginFormConfirmPasswordChangedEventImpl _value,
+      $Res Function(_$LoginFormConfirmPasswordChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -979,7 +987,7 @@ class __$$LoginFormConfirmPasswordChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? confirmPassword = null,
   }) {
-    return _then(_$LoginFormConfirmPasswordChangedEvent(
+    return _then(_$LoginFormConfirmPasswordChangedEventImpl(
       null == confirmPassword
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
@@ -990,9 +998,9 @@ class __$$LoginFormConfirmPasswordChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormConfirmPasswordChangedEvent
+class _$LoginFormConfirmPasswordChangedEventImpl
     implements LoginFormConfirmPasswordChangedEvent {
-  _$LoginFormConfirmPasswordChangedEvent(this.confirmPassword);
+  _$LoginFormConfirmPasswordChangedEventImpl(this.confirmPassword);
 
   @override
   final String confirmPassword;
@@ -1003,10 +1011,10 @@ class _$LoginFormConfirmPasswordChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormConfirmPasswordChangedEvent &&
+            other is _$LoginFormConfirmPasswordChangedEventImpl &&
             (identical(other.confirmPassword, confirmPassword) ||
                 other.confirmPassword == confirmPassword));
   }
@@ -1017,10 +1025,10 @@ class _$LoginFormConfirmPasswordChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormConfirmPasswordChangedEventCopyWith<
-          _$LoginFormConfirmPasswordChangedEvent>
-      get copyWith => __$$LoginFormConfirmPasswordChangedEventCopyWithImpl<
-          _$LoginFormConfirmPasswordChangedEvent>(this, _$identity);
+  _$$LoginFormConfirmPasswordChangedEventImplCopyWith<
+          _$LoginFormConfirmPasswordChangedEventImpl>
+      get copyWith => __$$LoginFormConfirmPasswordChangedEventImplCopyWithImpl<
+          _$LoginFormConfirmPasswordChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1125,33 +1133,33 @@ class _$LoginFormConfirmPasswordChangedEvent
 
 abstract class LoginFormConfirmPasswordChangedEvent implements LoginFormEvent {
   factory LoginFormConfirmPasswordChangedEvent(final String confirmPassword) =
-      _$LoginFormConfirmPasswordChangedEvent;
+      _$LoginFormConfirmPasswordChangedEventImpl;
 
   String get confirmPassword;
   @JsonKey(ignore: true)
-  _$$LoginFormConfirmPasswordChangedEventCopyWith<
-          _$LoginFormConfirmPasswordChangedEvent>
+  _$$LoginFormConfirmPasswordChangedEventImplCopyWith<
+          _$LoginFormConfirmPasswordChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginFormSetConfirmPasswordEventCopyWith<$Res> {
-  factory _$$LoginFormSetConfirmPasswordEventCopyWith(
-          _$LoginFormSetConfirmPasswordEvent value,
-          $Res Function(_$LoginFormSetConfirmPasswordEvent) then) =
-      __$$LoginFormSetConfirmPasswordEventCopyWithImpl<$Res>;
+abstract class _$$LoginFormSetConfirmPasswordEventImplCopyWith<$Res> {
+  factory _$$LoginFormSetConfirmPasswordEventImplCopyWith(
+          _$LoginFormSetConfirmPasswordEventImpl value,
+          $Res Function(_$LoginFormSetConfirmPasswordEventImpl) then) =
+      __$$LoginFormSetConfirmPasswordEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool isConfirmPassword});
 }
 
 /// @nodoc
-class __$$LoginFormSetConfirmPasswordEventCopyWithImpl<$Res>
+class __$$LoginFormSetConfirmPasswordEventImplCopyWithImpl<$Res>
     extends _$LoginFormEventCopyWithImpl<$Res,
-        _$LoginFormSetConfirmPasswordEvent>
-    implements _$$LoginFormSetConfirmPasswordEventCopyWith<$Res> {
-  __$$LoginFormSetConfirmPasswordEventCopyWithImpl(
-      _$LoginFormSetConfirmPasswordEvent _value,
-      $Res Function(_$LoginFormSetConfirmPasswordEvent) _then)
+        _$LoginFormSetConfirmPasswordEventImpl>
+    implements _$$LoginFormSetConfirmPasswordEventImplCopyWith<$Res> {
+  __$$LoginFormSetConfirmPasswordEventImplCopyWithImpl(
+      _$LoginFormSetConfirmPasswordEventImpl _value,
+      $Res Function(_$LoginFormSetConfirmPasswordEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1159,7 +1167,7 @@ class __$$LoginFormSetConfirmPasswordEventCopyWithImpl<$Res>
   $Res call({
     Object? isConfirmPassword = null,
   }) {
-    return _then(_$LoginFormSetConfirmPasswordEvent(
+    return _then(_$LoginFormSetConfirmPasswordEventImpl(
       null == isConfirmPassword
           ? _value.isConfirmPassword
           : isConfirmPassword // ignore: cast_nullable_to_non_nullable
@@ -1170,9 +1178,9 @@ class __$$LoginFormSetConfirmPasswordEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginFormSetConfirmPasswordEvent
+class _$LoginFormSetConfirmPasswordEventImpl
     implements LoginFormSetConfirmPasswordEvent {
-  _$LoginFormSetConfirmPasswordEvent(this.isConfirmPassword);
+  _$LoginFormSetConfirmPasswordEventImpl(this.isConfirmPassword);
 
   @override
   final bool isConfirmPassword;
@@ -1183,10 +1191,10 @@ class _$LoginFormSetConfirmPasswordEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginFormSetConfirmPasswordEvent &&
+            other is _$LoginFormSetConfirmPasswordEventImpl &&
             (identical(other.isConfirmPassword, isConfirmPassword) ||
                 other.isConfirmPassword == isConfirmPassword));
   }
@@ -1197,10 +1205,10 @@ class _$LoginFormSetConfirmPasswordEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginFormSetConfirmPasswordEventCopyWith<
-          _$LoginFormSetConfirmPasswordEvent>
-      get copyWith => __$$LoginFormSetConfirmPasswordEventCopyWithImpl<
-          _$LoginFormSetConfirmPasswordEvent>(this, _$identity);
+  _$$LoginFormSetConfirmPasswordEventImplCopyWith<
+          _$LoginFormSetConfirmPasswordEventImpl>
+      get copyWith => __$$LoginFormSetConfirmPasswordEventImplCopyWithImpl<
+          _$LoginFormSetConfirmPasswordEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1305,11 +1313,11 @@ class _$LoginFormSetConfirmPasswordEvent
 
 abstract class LoginFormSetConfirmPasswordEvent implements LoginFormEvent {
   factory LoginFormSetConfirmPasswordEvent(final bool isConfirmPassword) =
-      _$LoginFormSetConfirmPasswordEvent;
+      _$LoginFormSetConfirmPasswordEventImpl;
 
   bool get isConfirmPassword;
   @JsonKey(ignore: true)
-  _$$LoginFormSetConfirmPasswordEventCopyWith<
-          _$LoginFormSetConfirmPasswordEvent>
+  _$$LoginFormSetConfirmPasswordEventImplCopyWith<
+          _$LoginFormSetConfirmPasswordEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

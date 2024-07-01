@@ -12,7 +12,7 @@ part of 'add_wallet_page_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AddWalletPageState {
@@ -69,22 +69,22 @@ class _$AddWalletPageStateCopyWithImpl<$Res, $Val extends AddWalletPageState>
 }
 
 /// @nodoc
-abstract class _$$_AddWalletPageStateCopyWith<$Res>
+abstract class _$$AddWalletPageStateImplCopyWith<$Res>
     implements $AddWalletPageStateCopyWith<$Res> {
-  factory _$$_AddWalletPageStateCopyWith(_$_AddWalletPageState value,
-          $Res Function(_$_AddWalletPageState) then) =
-      __$$_AddWalletPageStateCopyWithImpl<$Res>;
+  factory _$$AddWalletPageStateImplCopyWith(_$AddWalletPageStateImpl value,
+          $Res Function(_$AddWalletPageStateImpl) then) =
+      __$$AddWalletPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String description, String currency, double amount});
 }
 
 /// @nodoc
-class __$$_AddWalletPageStateCopyWithImpl<$Res>
-    extends _$AddWalletPageStateCopyWithImpl<$Res, _$_AddWalletPageState>
-    implements _$$_AddWalletPageStateCopyWith<$Res> {
-  __$$_AddWalletPageStateCopyWithImpl(
-      _$_AddWalletPageState _value, $Res Function(_$_AddWalletPageState) _then)
+class __$$AddWalletPageStateImplCopyWithImpl<$Res>
+    extends _$AddWalletPageStateCopyWithImpl<$Res, _$AddWalletPageStateImpl>
+    implements _$$AddWalletPageStateImplCopyWith<$Res> {
+  __$$AddWalletPageStateImplCopyWithImpl(_$AddWalletPageStateImpl _value,
+      $Res Function(_$AddWalletPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_AddWalletPageStateCopyWithImpl<$Res>
     Object? currency = null,
     Object? amount = null,
   }) {
-    return _then(_$_AddWalletPageState(
+    return _then(_$AddWalletPageStateImpl(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_AddWalletPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddWalletPageState implements _AddWalletPageState {
-  _$_AddWalletPageState(
+class _$AddWalletPageStateImpl implements _AddWalletPageState {
+  _$AddWalletPageStateImpl(
       {this.description = '', this.currency = '', this.amount = 0});
 
   @override
@@ -133,10 +133,10 @@ class _$_AddWalletPageState implements _AddWalletPageState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddWalletPageState &&
+            other is _$AddWalletPageStateImpl &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.currency, currency) ||
@@ -150,8 +150,8 @@ class _$_AddWalletPageState implements _AddWalletPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddWalletPageStateCopyWith<_$_AddWalletPageState> get copyWith =>
-      __$$_AddWalletPageStateCopyWithImpl<_$_AddWalletPageState>(
+  _$$AddWalletPageStateImplCopyWith<_$AddWalletPageStateImpl> get copyWith =>
+      __$$AddWalletPageStateImplCopyWithImpl<_$AddWalletPageStateImpl>(
           this, _$identity);
 }
 
@@ -159,7 +159,7 @@ abstract class _AddWalletPageState implements AddWalletPageState {
   factory _AddWalletPageState(
       {final String description,
       final String currency,
-      final double amount}) = _$_AddWalletPageState;
+      final double amount}) = _$AddWalletPageStateImpl;
 
   @override
   String get description;
@@ -169,6 +169,6 @@ abstract class _AddWalletPageState implements AddWalletPageState {
   double get amount;
   @override
   @JsonKey(ignore: true)
-  _$$_AddWalletPageStateCopyWith<_$_AddWalletPageState> get copyWith =>
+  _$$AddWalletPageStateImplCopyWith<_$AddWalletPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

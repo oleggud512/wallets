@@ -12,7 +12,7 @@ part of 'history_page_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HistoryPageEvent {
@@ -75,25 +75,25 @@ class _$HistoryPageEventCopyWithImpl<$Res, $Val extends HistoryPageEvent>
 }
 
 /// @nodoc
-abstract class _$$_HistoryPageEventCopyWith<$Res> {
-  factory _$$_HistoryPageEventCopyWith(
-          _$_HistoryPageEvent value, $Res Function(_$_HistoryPageEvent) then) =
-      __$$_HistoryPageEventCopyWithImpl<$Res>;
+abstract class _$$HistoryPageEventImplCopyWith<$Res> {
+  factory _$$HistoryPageEventImplCopyWith(_$HistoryPageEventImpl value,
+          $Res Function(_$HistoryPageEventImpl) then) =
+      __$$HistoryPageEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_HistoryPageEventCopyWithImpl<$Res>
-    extends _$HistoryPageEventCopyWithImpl<$Res, _$_HistoryPageEvent>
-    implements _$$_HistoryPageEventCopyWith<$Res> {
-  __$$_HistoryPageEventCopyWithImpl(
-      _$_HistoryPageEvent _value, $Res Function(_$_HistoryPageEvent) _then)
+class __$$HistoryPageEventImplCopyWithImpl<$Res>
+    extends _$HistoryPageEventCopyWithImpl<$Res, _$HistoryPageEventImpl>
+    implements _$$HistoryPageEventImplCopyWith<$Res> {
+  __$$HistoryPageEventImplCopyWithImpl(_$HistoryPageEventImpl _value,
+      $Res Function(_$HistoryPageEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_HistoryPageEvent implements _HistoryPageEvent {
-  _$_HistoryPageEvent();
+class _$HistoryPageEventImpl implements _HistoryPageEvent {
+  _$HistoryPageEventImpl();
 
   @override
   String toString() {
@@ -101,9 +101,9 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HistoryPageEvent);
+        (other.runtimeType == runtimeType && other is _$HistoryPageEventImpl);
   }
 
   @override
@@ -173,29 +173,29 @@ class _$_HistoryPageEvent implements _HistoryPageEvent {
 }
 
 abstract class _HistoryPageEvent implements HistoryPageEvent {
-  factory _HistoryPageEvent() = _$_HistoryPageEvent;
+  factory _HistoryPageEvent() = _$HistoryPageEventImpl;
 }
 
 /// @nodoc
-abstract class _$$HistoryPageLoadEventCopyWith<$Res> {
-  factory _$$HistoryPageLoadEventCopyWith(_$HistoryPageLoadEvent value,
-          $Res Function(_$HistoryPageLoadEvent) then) =
-      __$$HistoryPageLoadEventCopyWithImpl<$Res>;
+abstract class _$$HistoryPageLoadEventImplCopyWith<$Res> {
+  factory _$$HistoryPageLoadEventImplCopyWith(_$HistoryPageLoadEventImpl value,
+          $Res Function(_$HistoryPageLoadEventImpl) then) =
+      __$$HistoryPageLoadEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HistoryPageLoadEventCopyWithImpl<$Res>
-    extends _$HistoryPageEventCopyWithImpl<$Res, _$HistoryPageLoadEvent>
-    implements _$$HistoryPageLoadEventCopyWith<$Res> {
-  __$$HistoryPageLoadEventCopyWithImpl(_$HistoryPageLoadEvent _value,
-      $Res Function(_$HistoryPageLoadEvent) _then)
+class __$$HistoryPageLoadEventImplCopyWithImpl<$Res>
+    extends _$HistoryPageEventCopyWithImpl<$Res, _$HistoryPageLoadEventImpl>
+    implements _$$HistoryPageLoadEventImplCopyWith<$Res> {
+  __$$HistoryPageLoadEventImplCopyWithImpl(_$HistoryPageLoadEventImpl _value,
+      $Res Function(_$HistoryPageLoadEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
-  _$HistoryPageLoadEvent();
+class _$HistoryPageLoadEventImpl implements HistoryPageLoadEvent {
+  _$HistoryPageLoadEventImpl();
 
   @override
   String toString() {
@@ -203,9 +203,10 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HistoryPageLoadEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryPageLoadEventImpl);
   }
 
   @override
@@ -275,5 +276,5 @@ class _$HistoryPageLoadEvent implements HistoryPageLoadEvent {
 }
 
 abstract class HistoryPageLoadEvent implements HistoryPageEvent {
-  factory HistoryPageLoadEvent() = _$HistoryPageLoadEvent;
+  factory HistoryPageLoadEvent() = _$HistoryPageLoadEventImpl;
 }

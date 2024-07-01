@@ -15,10 +15,10 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    SettingsRoute.name: (routeData) {
+    AddWalletRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SettingsPage(),
+        child: const AddWalletPage(),
       );
     },
     DeleteAccountRoute.name: (routeData) {
@@ -33,10 +33,26 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EmailVerificationPage(),
       );
     },
+    HistoryRoute.name: (routeData) {
+      final args = routeData.argsAs<HistoryRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: HistoryPage(
+          key: args.key,
+          walletId: args.walletId,
+        ),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LoginPage(),
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingsPage(),
       );
     },
     TagsDialogRoute.name: (routeData) {
@@ -66,35 +82,19 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const WalletsPage(),
       );
     },
-    AddWalletRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AddWalletPage(),
-      );
-    },
-    HistoryRoute.name: (routeData) {
-      final args = routeData.argsAs<HistoryRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: HistoryPage(
-          key: args.key,
-          walletId: args.walletId,
-        ),
-      );
-    },
   };
 }
 
 /// generated route for
-/// [SettingsPage]
-class SettingsRoute extends PageRouteInfo<void> {
-  const SettingsRoute({List<PageRouteInfo>? children})
+/// [AddWalletPage]
+class AddWalletRoute extends PageRouteInfo<void> {
+  const AddWalletRoute({List<PageRouteInfo>? children})
       : super(
-          SettingsRoute.name,
+          AddWalletRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SettingsRoute';
+  static const String name = 'AddWalletRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -128,6 +128,44 @@ class EmailVerificationRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [HistoryPage]
+class HistoryRoute extends PageRouteInfo<HistoryRouteArgs> {
+  HistoryRoute({
+    Key? key,
+    required String walletId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          HistoryRoute.name,
+          args: HistoryRouteArgs(
+            key: key,
+            walletId: walletId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'HistoryRoute';
+
+  static const PageInfo<HistoryRouteArgs> page =
+      PageInfo<HistoryRouteArgs>(name);
+}
+
+class HistoryRouteArgs {
+  const HistoryRouteArgs({
+    this.key,
+    required this.walletId,
+  });
+
+  final Key? key;
+
+  final String walletId;
+
+  @override
+  String toString() {
+    return 'HistoryRouteArgs{key: $key, walletId: $walletId}';
+  }
+}
+
+/// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -137,6 +175,20 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SettingsPage]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -234,56 +286,4 @@ class WalletsRoute extends PageRouteInfo<void> {
   static const String name = 'WalletsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [AddWalletPage]
-class AddWalletRoute extends PageRouteInfo<void> {
-  const AddWalletRoute({List<PageRouteInfo>? children})
-      : super(
-          AddWalletRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'AddWalletRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [HistoryPage]
-class HistoryRoute extends PageRouteInfo<HistoryRouteArgs> {
-  HistoryRoute({
-    Key? key,
-    required String walletId,
-    List<PageRouteInfo>? children,
-  }) : super(
-          HistoryRoute.name,
-          args: HistoryRouteArgs(
-            key: key,
-            walletId: walletId,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'HistoryRoute';
-
-  static const PageInfo<HistoryRouteArgs> page =
-      PageInfo<HistoryRouteArgs>(name);
-}
-
-class HistoryRouteArgs {
-  const HistoryRouteArgs({
-    this.key,
-    required this.walletId,
-  });
-
-  final Key? key;
-
-  final String walletId;
-
-  @override
-  String toString() {
-    return 'HistoryRouteArgs{key: $key, walletId: $walletId}';
-  }
 }
