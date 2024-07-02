@@ -68,12 +68,13 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
+      color: Theme.of(context).colorScheme.primaryContainer,
       child: ConstrainedBox(
         constraints: const BoxConstraints(
           minHeight: 48,
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(p8),
+          borderRadius: BorderRadius.circular(p16),
           onLongPress: () {
             popupKey.currentState!.showButtonMenu();
           },
@@ -84,7 +85,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
           },
           child: withPopup(context, 
             child: Padding(
-              padding: const EdgeInsets.all(p8),
+              padding: const EdgeInsets.all(p16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -154,6 +155,7 @@ class _HistoryNodeWidgetState extends State<HistoryNodeWidget> {
   }
 
   Widget buildTag() {
+    // TODO: display tag color
     if (historyNode.tagName.isEmpty) return shrink;
     return Padding(
       padding: const EdgeInsets.only(top: p4),
