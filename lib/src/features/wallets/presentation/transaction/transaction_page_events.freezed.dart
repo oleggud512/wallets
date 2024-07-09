@@ -12,7 +12,7 @@ part of 'transaction_page_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TransactionPageEvent {
@@ -101,25 +101,25 @@ class _$TransactionPageEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_TransactionPageEventCopyWith<$Res> {
-  factory _$$_TransactionPageEventCopyWith(_$_TransactionPageEvent value,
-          $Res Function(_$_TransactionPageEvent) then) =
-      __$$_TransactionPageEventCopyWithImpl<$Res>;
+abstract class _$$TransactionPageEventImplCopyWith<$Res> {
+  factory _$$TransactionPageEventImplCopyWith(_$TransactionPageEventImpl value,
+          $Res Function(_$TransactionPageEventImpl) then) =
+      __$$TransactionPageEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TransactionPageEventCopyWithImpl<$Res>
-    extends _$TransactionPageEventCopyWithImpl<$Res, _$_TransactionPageEvent>
-    implements _$$_TransactionPageEventCopyWith<$Res> {
-  __$$_TransactionPageEventCopyWithImpl(_$_TransactionPageEvent _value,
-      $Res Function(_$_TransactionPageEvent) _then)
+class __$$TransactionPageEventImplCopyWithImpl<$Res>
+    extends _$TransactionPageEventCopyWithImpl<$Res, _$TransactionPageEventImpl>
+    implements _$$TransactionPageEventImplCopyWith<$Res> {
+  __$$TransactionPageEventImplCopyWithImpl(_$TransactionPageEventImpl _value,
+      $Res Function(_$TransactionPageEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_TransactionPageEvent implements _TransactionPageEvent {
-  _$_TransactionPageEvent();
+class _$TransactionPageEventImpl implements _TransactionPageEvent {
+  _$TransactionPageEventImpl();
 
   @override
   String toString() {
@@ -127,9 +127,10 @@ class _$_TransactionPageEvent implements _TransactionPageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TransactionPageEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$TransactionPageEventImpl);
   }
 
   @override
@@ -224,33 +225,33 @@ class _$_TransactionPageEvent implements _TransactionPageEvent {
 }
 
 abstract class _TransactionPageEvent implements TransactionPageEvent {
-  factory _TransactionPageEvent() = _$_TransactionPageEvent;
+  factory _TransactionPageEvent() = _$TransactionPageEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TransactionPageMakeTransactionEventCopyWith<$Res> {
-  factory _$$TransactionPageMakeTransactionEventCopyWith(
-          _$TransactionPageMakeTransactionEvent value,
-          $Res Function(_$TransactionPageMakeTransactionEvent) then) =
-      __$$TransactionPageMakeTransactionEventCopyWithImpl<$Res>;
+abstract class _$$TransactionPageMakeTransactionEventImplCopyWith<$Res> {
+  factory _$$TransactionPageMakeTransactionEventImplCopyWith(
+          _$TransactionPageMakeTransactionEventImpl value,
+          $Res Function(_$TransactionPageMakeTransactionEventImpl) then) =
+      __$$TransactionPageMakeTransactionEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TransactionPageMakeTransactionEventCopyWithImpl<$Res>
+class __$$TransactionPageMakeTransactionEventImplCopyWithImpl<$Res>
     extends _$TransactionPageEventCopyWithImpl<$Res,
-        _$TransactionPageMakeTransactionEvent>
-    implements _$$TransactionPageMakeTransactionEventCopyWith<$Res> {
-  __$$TransactionPageMakeTransactionEventCopyWithImpl(
-      _$TransactionPageMakeTransactionEvent _value,
-      $Res Function(_$TransactionPageMakeTransactionEvent) _then)
+        _$TransactionPageMakeTransactionEventImpl>
+    implements _$$TransactionPageMakeTransactionEventImplCopyWith<$Res> {
+  __$$TransactionPageMakeTransactionEventImplCopyWithImpl(
+      _$TransactionPageMakeTransactionEventImpl _value,
+      $Res Function(_$TransactionPageMakeTransactionEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TransactionPageMakeTransactionEvent
+class _$TransactionPageMakeTransactionEventImpl
     implements TransactionPageMakeTransactionEvent {
-  _$TransactionPageMakeTransactionEvent();
+  _$TransactionPageMakeTransactionEventImpl();
 
   @override
   String toString() {
@@ -258,10 +259,10 @@ class _$TransactionPageMakeTransactionEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionPageMakeTransactionEvent);
+            other is _$TransactionPageMakeTransactionEventImpl);
   }
 
   @override
@@ -358,15 +359,15 @@ class _$TransactionPageMakeTransactionEvent
 abstract class TransactionPageMakeTransactionEvent
     implements TransactionPageEvent {
   factory TransactionPageMakeTransactionEvent() =
-      _$TransactionPageMakeTransactionEvent;
+      _$TransactionPageMakeTransactionEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TransactionPageTagChangedEventCopyWith<$Res> {
-  factory _$$TransactionPageTagChangedEventCopyWith(
-          _$TransactionPageTagChangedEvent value,
-          $Res Function(_$TransactionPageTagChangedEvent) then) =
-      __$$TransactionPageTagChangedEventCopyWithImpl<$Res>;
+abstract class _$$TransactionPageTagChangedEventImplCopyWith<$Res> {
+  factory _$$TransactionPageTagChangedEventImplCopyWith(
+          _$TransactionPageTagChangedEventImpl value,
+          $Res Function(_$TransactionPageTagChangedEventImpl) then) =
+      __$$TransactionPageTagChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Tag tag});
 
@@ -374,13 +375,13 @@ abstract class _$$TransactionPageTagChangedEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TransactionPageTagChangedEventCopyWithImpl<$Res>
+class __$$TransactionPageTagChangedEventImplCopyWithImpl<$Res>
     extends _$TransactionPageEventCopyWithImpl<$Res,
-        _$TransactionPageTagChangedEvent>
-    implements _$$TransactionPageTagChangedEventCopyWith<$Res> {
-  __$$TransactionPageTagChangedEventCopyWithImpl(
-      _$TransactionPageTagChangedEvent _value,
-      $Res Function(_$TransactionPageTagChangedEvent) _then)
+        _$TransactionPageTagChangedEventImpl>
+    implements _$$TransactionPageTagChangedEventImplCopyWith<$Res> {
+  __$$TransactionPageTagChangedEventImplCopyWithImpl(
+      _$TransactionPageTagChangedEventImpl _value,
+      $Res Function(_$TransactionPageTagChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -388,7 +389,7 @@ class __$$TransactionPageTagChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? tag = null,
   }) {
-    return _then(_$TransactionPageTagChangedEvent(
+    return _then(_$TransactionPageTagChangedEventImpl(
       null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -407,9 +408,9 @@ class __$$TransactionPageTagChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TransactionPageTagChangedEvent
+class _$TransactionPageTagChangedEventImpl
     implements TransactionPageTagChangedEvent {
-  _$TransactionPageTagChangedEvent(this.tag);
+  _$TransactionPageTagChangedEventImpl(this.tag);
 
   @override
   final Tag tag;
@@ -420,10 +421,10 @@ class _$TransactionPageTagChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionPageTagChangedEvent &&
+            other is _$TransactionPageTagChangedEventImpl &&
             (identical(other.tag, tag) || other.tag == tag));
   }
 
@@ -433,9 +434,10 @@ class _$TransactionPageTagChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionPageTagChangedEventCopyWith<_$TransactionPageTagChangedEvent>
-      get copyWith => __$$TransactionPageTagChangedEventCopyWithImpl<
-          _$TransactionPageTagChangedEvent>(this, _$identity);
+  _$$TransactionPageTagChangedEventImplCopyWith<
+          _$TransactionPageTagChangedEventImpl>
+      get copyWith => __$$TransactionPageTagChangedEventImplCopyWithImpl<
+          _$TransactionPageTagChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -527,32 +529,33 @@ class _$TransactionPageTagChangedEvent
 
 abstract class TransactionPageTagChangedEvent implements TransactionPageEvent {
   factory TransactionPageTagChangedEvent(final Tag tag) =
-      _$TransactionPageTagChangedEvent;
+      _$TransactionPageTagChangedEventImpl;
 
   Tag get tag;
   @JsonKey(ignore: true)
-  _$$TransactionPageTagChangedEventCopyWith<_$TransactionPageTagChangedEvent>
+  _$$TransactionPageTagChangedEventImplCopyWith<
+          _$TransactionPageTagChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TransactionPageAmountChangedEventCopyWith<$Res> {
-  factory _$$TransactionPageAmountChangedEventCopyWith(
-          _$TransactionPageAmountChangedEvent value,
-          $Res Function(_$TransactionPageAmountChangedEvent) then) =
-      __$$TransactionPageAmountChangedEventCopyWithImpl<$Res>;
+abstract class _$$TransactionPageAmountChangedEventImplCopyWith<$Res> {
+  factory _$$TransactionPageAmountChangedEventImplCopyWith(
+          _$TransactionPageAmountChangedEventImpl value,
+          $Res Function(_$TransactionPageAmountChangedEventImpl) then) =
+      __$$TransactionPageAmountChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double amount});
 }
 
 /// @nodoc
-class __$$TransactionPageAmountChangedEventCopyWithImpl<$Res>
+class __$$TransactionPageAmountChangedEventImplCopyWithImpl<$Res>
     extends _$TransactionPageEventCopyWithImpl<$Res,
-        _$TransactionPageAmountChangedEvent>
-    implements _$$TransactionPageAmountChangedEventCopyWith<$Res> {
-  __$$TransactionPageAmountChangedEventCopyWithImpl(
-      _$TransactionPageAmountChangedEvent _value,
-      $Res Function(_$TransactionPageAmountChangedEvent) _then)
+        _$TransactionPageAmountChangedEventImpl>
+    implements _$$TransactionPageAmountChangedEventImplCopyWith<$Res> {
+  __$$TransactionPageAmountChangedEventImplCopyWithImpl(
+      _$TransactionPageAmountChangedEventImpl _value,
+      $Res Function(_$TransactionPageAmountChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -560,7 +563,7 @@ class __$$TransactionPageAmountChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? amount = null,
   }) {
-    return _then(_$TransactionPageAmountChangedEvent(
+    return _then(_$TransactionPageAmountChangedEventImpl(
       null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -571,9 +574,9 @@ class __$$TransactionPageAmountChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TransactionPageAmountChangedEvent
+class _$TransactionPageAmountChangedEventImpl
     implements TransactionPageAmountChangedEvent {
-  _$TransactionPageAmountChangedEvent(this.amount);
+  _$TransactionPageAmountChangedEventImpl(this.amount);
 
   @override
   final double amount;
@@ -584,10 +587,10 @@ class _$TransactionPageAmountChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionPageAmountChangedEvent &&
+            other is _$TransactionPageAmountChangedEventImpl &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
@@ -597,10 +600,10 @@ class _$TransactionPageAmountChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionPageAmountChangedEventCopyWith<
-          _$TransactionPageAmountChangedEvent>
-      get copyWith => __$$TransactionPageAmountChangedEventCopyWithImpl<
-          _$TransactionPageAmountChangedEvent>(this, _$identity);
+  _$$TransactionPageAmountChangedEventImplCopyWith<
+          _$TransactionPageAmountChangedEventImpl>
+      get copyWith => __$$TransactionPageAmountChangedEventImplCopyWithImpl<
+          _$TransactionPageAmountChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -693,33 +696,33 @@ class _$TransactionPageAmountChangedEvent
 abstract class TransactionPageAmountChangedEvent
     implements TransactionPageEvent {
   factory TransactionPageAmountChangedEvent(final double amount) =
-      _$TransactionPageAmountChangedEvent;
+      _$TransactionPageAmountChangedEventImpl;
 
   double get amount;
   @JsonKey(ignore: true)
-  _$$TransactionPageAmountChangedEventCopyWith<
-          _$TransactionPageAmountChangedEvent>
+  _$$TransactionPageAmountChangedEventImplCopyWith<
+          _$TransactionPageAmountChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TransactionPageDescriptionChangedEventCopyWith<$Res> {
-  factory _$$TransactionPageDescriptionChangedEventCopyWith(
-          _$TransactionPageDescriptionChangedEvent value,
-          $Res Function(_$TransactionPageDescriptionChangedEvent) then) =
-      __$$TransactionPageDescriptionChangedEventCopyWithImpl<$Res>;
+abstract class _$$TransactionPageDescriptionChangedEventImplCopyWith<$Res> {
+  factory _$$TransactionPageDescriptionChangedEventImplCopyWith(
+          _$TransactionPageDescriptionChangedEventImpl value,
+          $Res Function(_$TransactionPageDescriptionChangedEventImpl) then) =
+      __$$TransactionPageDescriptionChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String description});
 }
 
 /// @nodoc
-class __$$TransactionPageDescriptionChangedEventCopyWithImpl<$Res>
+class __$$TransactionPageDescriptionChangedEventImplCopyWithImpl<$Res>
     extends _$TransactionPageEventCopyWithImpl<$Res,
-        _$TransactionPageDescriptionChangedEvent>
-    implements _$$TransactionPageDescriptionChangedEventCopyWith<$Res> {
-  __$$TransactionPageDescriptionChangedEventCopyWithImpl(
-      _$TransactionPageDescriptionChangedEvent _value,
-      $Res Function(_$TransactionPageDescriptionChangedEvent) _then)
+        _$TransactionPageDescriptionChangedEventImpl>
+    implements _$$TransactionPageDescriptionChangedEventImplCopyWith<$Res> {
+  __$$TransactionPageDescriptionChangedEventImplCopyWithImpl(
+      _$TransactionPageDescriptionChangedEventImpl _value,
+      $Res Function(_$TransactionPageDescriptionChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -727,7 +730,7 @@ class __$$TransactionPageDescriptionChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? description = null,
   }) {
-    return _then(_$TransactionPageDescriptionChangedEvent(
+    return _then(_$TransactionPageDescriptionChangedEventImpl(
       null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -738,9 +741,9 @@ class __$$TransactionPageDescriptionChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TransactionPageDescriptionChangedEvent
+class _$TransactionPageDescriptionChangedEventImpl
     implements TransactionPageDescriptionChangedEvent {
-  _$TransactionPageDescriptionChangedEvent(this.description);
+  _$TransactionPageDescriptionChangedEventImpl(this.description);
 
   @override
   final String description;
@@ -751,10 +754,10 @@ class _$TransactionPageDescriptionChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TransactionPageDescriptionChangedEvent &&
+            other is _$TransactionPageDescriptionChangedEventImpl &&
             (identical(other.description, description) ||
                 other.description == description));
   }
@@ -765,10 +768,11 @@ class _$TransactionPageDescriptionChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TransactionPageDescriptionChangedEventCopyWith<
-          _$TransactionPageDescriptionChangedEvent>
-      get copyWith => __$$TransactionPageDescriptionChangedEventCopyWithImpl<
-          _$TransactionPageDescriptionChangedEvent>(this, _$identity);
+  _$$TransactionPageDescriptionChangedEventImplCopyWith<
+          _$TransactionPageDescriptionChangedEventImpl>
+      get copyWith =>
+          __$$TransactionPageDescriptionChangedEventImplCopyWithImpl<
+              _$TransactionPageDescriptionChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -861,11 +865,11 @@ class _$TransactionPageDescriptionChangedEvent
 abstract class TransactionPageDescriptionChangedEvent
     implements TransactionPageEvent {
   factory TransactionPageDescriptionChangedEvent(final String description) =
-      _$TransactionPageDescriptionChangedEvent;
+      _$TransactionPageDescriptionChangedEventImpl;
 
   String get description;
   @JsonKey(ignore: true)
-  _$$TransactionPageDescriptionChangedEventCopyWith<
-          _$TransactionPageDescriptionChangedEvent>
+  _$$TransactionPageDescriptionChangedEventImplCopyWith<
+          _$TransactionPageDescriptionChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'tag_list_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TagListEvent {
@@ -99,25 +99,25 @@ class _$TagListEventCopyWithImpl<$Res, $Val extends TagListEvent>
 }
 
 /// @nodoc
-abstract class _$$_TagListEventCopyWith<$Res> {
-  factory _$$_TagListEventCopyWith(
-          _$_TagListEvent value, $Res Function(_$_TagListEvent) then) =
-      __$$_TagListEventCopyWithImpl<$Res>;
+abstract class _$$TagListEventImplCopyWith<$Res> {
+  factory _$$TagListEventImplCopyWith(
+          _$TagListEventImpl value, $Res Function(_$TagListEventImpl) then) =
+      __$$TagListEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TagListEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$_TagListEvent>
-    implements _$$_TagListEventCopyWith<$Res> {
-  __$$_TagListEventCopyWithImpl(
-      _$_TagListEvent _value, $Res Function(_$_TagListEvent) _then)
+class __$$TagListEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListEventImpl>
+    implements _$$TagListEventImplCopyWith<$Res> {
+  __$$TagListEventImplCopyWithImpl(
+      _$TagListEventImpl _value, $Res Function(_$TagListEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_TagListEvent implements _TagListEvent {
-  _$_TagListEvent();
+class _$TagListEventImpl implements _TagListEvent {
+  _$TagListEventImpl();
 
   @override
   String toString() {
@@ -125,9 +125,9 @@ class _$_TagListEvent implements _TagListEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TagListEvent);
+        (other.runtimeType == runtimeType && other is _$TagListEventImpl);
   }
 
   @override
@@ -221,29 +221,29 @@ class _$_TagListEvent implements _TagListEvent {
 }
 
 abstract class _TagListEvent implements TagListEvent {
-  factory _TagListEvent() = _$_TagListEvent;
+  factory _TagListEvent() = _$TagListEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TagListLoadEventCopyWith<$Res> {
-  factory _$$TagListLoadEventCopyWith(
-          _$TagListLoadEvent value, $Res Function(_$TagListLoadEvent) then) =
-      __$$TagListLoadEventCopyWithImpl<$Res>;
+abstract class _$$TagListLoadEventImplCopyWith<$Res> {
+  factory _$$TagListLoadEventImplCopyWith(_$TagListLoadEventImpl value,
+          $Res Function(_$TagListLoadEventImpl) then) =
+      __$$TagListLoadEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TagListLoadEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$TagListLoadEvent>
-    implements _$$TagListLoadEventCopyWith<$Res> {
-  __$$TagListLoadEventCopyWithImpl(
-      _$TagListLoadEvent _value, $Res Function(_$TagListLoadEvent) _then)
+class __$$TagListLoadEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListLoadEventImpl>
+    implements _$$TagListLoadEventImplCopyWith<$Res> {
+  __$$TagListLoadEventImplCopyWithImpl(_$TagListLoadEventImpl _value,
+      $Res Function(_$TagListLoadEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TagListLoadEvent implements TagListLoadEvent {
-  _$TagListLoadEvent();
+class _$TagListLoadEventImpl implements TagListLoadEvent {
+  _$TagListLoadEventImpl();
 
   @override
   String toString() {
@@ -251,9 +251,9 @@ class _$TagListLoadEvent implements TagListLoadEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TagListLoadEvent);
+        (other.runtimeType == runtimeType && other is _$TagListLoadEventImpl);
   }
 
   @override
@@ -347,24 +347,26 @@ class _$TagListLoadEvent implements TagListLoadEvent {
 }
 
 abstract class TagListLoadEvent implements TagListEvent {
-  factory TagListLoadEvent() = _$TagListLoadEvent;
+  factory TagListLoadEvent() = _$TagListLoadEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TagListNameChangedEventCopyWith<$Res> {
-  factory _$$TagListNameChangedEventCopyWith(_$TagListNameChangedEvent value,
-          $Res Function(_$TagListNameChangedEvent) then) =
-      __$$TagListNameChangedEventCopyWithImpl<$Res>;
+abstract class _$$TagListNameChangedEventImplCopyWith<$Res> {
+  factory _$$TagListNameChangedEventImplCopyWith(
+          _$TagListNameChangedEventImpl value,
+          $Res Function(_$TagListNameChangedEventImpl) then) =
+      __$$TagListNameChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$TagListNameChangedEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$TagListNameChangedEvent>
-    implements _$$TagListNameChangedEventCopyWith<$Res> {
-  __$$TagListNameChangedEventCopyWithImpl(_$TagListNameChangedEvent _value,
-      $Res Function(_$TagListNameChangedEvent) _then)
+class __$$TagListNameChangedEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListNameChangedEventImpl>
+    implements _$$TagListNameChangedEventImplCopyWith<$Res> {
+  __$$TagListNameChangedEventImplCopyWithImpl(
+      _$TagListNameChangedEventImpl _value,
+      $Res Function(_$TagListNameChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -372,7 +374,7 @@ class __$$TagListNameChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$TagListNameChangedEvent(
+    return _then(_$TagListNameChangedEventImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -383,8 +385,8 @@ class __$$TagListNameChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TagListNameChangedEvent implements TagListNameChangedEvent {
-  _$TagListNameChangedEvent(this.name);
+class _$TagListNameChangedEventImpl implements TagListNameChangedEvent {
+  _$TagListNameChangedEventImpl(this.name);
 
   @override
   final String name;
@@ -395,10 +397,10 @@ class _$TagListNameChangedEvent implements TagListNameChangedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TagListNameChangedEvent &&
+            other is _$TagListNameChangedEventImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -408,9 +410,9 @@ class _$TagListNameChangedEvent implements TagListNameChangedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TagListNameChangedEventCopyWith<_$TagListNameChangedEvent> get copyWith =>
-      __$$TagListNameChangedEventCopyWithImpl<_$TagListNameChangedEvent>(
-          this, _$identity);
+  _$$TagListNameChangedEventImplCopyWith<_$TagListNameChangedEventImpl>
+      get copyWith => __$$TagListNameChangedEventImplCopyWithImpl<
+          _$TagListNameChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -501,29 +503,31 @@ class _$TagListNameChangedEvent implements TagListNameChangedEvent {
 
 abstract class TagListNameChangedEvent implements TagListEvent {
   factory TagListNameChangedEvent(final String name) =
-      _$TagListNameChangedEvent;
+      _$TagListNameChangedEventImpl;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$TagListNameChangedEventCopyWith<_$TagListNameChangedEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TagListNameChangedEventImplCopyWith<_$TagListNameChangedEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TagListColorChangedEventCopyWith<$Res> {
-  factory _$$TagListColorChangedEventCopyWith(_$TagListColorChangedEvent value,
-          $Res Function(_$TagListColorChangedEvent) then) =
-      __$$TagListColorChangedEventCopyWithImpl<$Res>;
+abstract class _$$TagListColorChangedEventImplCopyWith<$Res> {
+  factory _$$TagListColorChangedEventImplCopyWith(
+          _$TagListColorChangedEventImpl value,
+          $Res Function(_$TagListColorChangedEventImpl) then) =
+      __$$TagListColorChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Color color});
 }
 
 /// @nodoc
-class __$$TagListColorChangedEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$TagListColorChangedEvent>
-    implements _$$TagListColorChangedEventCopyWith<$Res> {
-  __$$TagListColorChangedEventCopyWithImpl(_$TagListColorChangedEvent _value,
-      $Res Function(_$TagListColorChangedEvent) _then)
+class __$$TagListColorChangedEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListColorChangedEventImpl>
+    implements _$$TagListColorChangedEventImplCopyWith<$Res> {
+  __$$TagListColorChangedEventImplCopyWithImpl(
+      _$TagListColorChangedEventImpl _value,
+      $Res Function(_$TagListColorChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -531,7 +535,7 @@ class __$$TagListColorChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? color = null,
   }) {
-    return _then(_$TagListColorChangedEvent(
+    return _then(_$TagListColorChangedEventImpl(
       null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -542,8 +546,8 @@ class __$$TagListColorChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TagListColorChangedEvent implements TagListColorChangedEvent {
-  _$TagListColorChangedEvent(this.color);
+class _$TagListColorChangedEventImpl implements TagListColorChangedEvent {
+  _$TagListColorChangedEventImpl(this.color);
 
   @override
   final Color color;
@@ -554,10 +558,10 @@ class _$TagListColorChangedEvent implements TagListColorChangedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TagListColorChangedEvent &&
+            other is _$TagListColorChangedEventImpl &&
             (identical(other.color, color) || other.color == color));
   }
 
@@ -567,10 +571,9 @@ class _$TagListColorChangedEvent implements TagListColorChangedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TagListColorChangedEventCopyWith<_$TagListColorChangedEvent>
-      get copyWith =>
-          __$$TagListColorChangedEventCopyWithImpl<_$TagListColorChangedEvent>(
-              this, _$identity);
+  _$$TagListColorChangedEventImplCopyWith<_$TagListColorChangedEventImpl>
+      get copyWith => __$$TagListColorChangedEventImplCopyWithImpl<
+          _$TagListColorChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -661,29 +664,29 @@ class _$TagListColorChangedEvent implements TagListColorChangedEvent {
 
 abstract class TagListColorChangedEvent implements TagListEvent {
   factory TagListColorChangedEvent(final Color color) =
-      _$TagListColorChangedEvent;
+      _$TagListColorChangedEventImpl;
 
   Color get color;
   @JsonKey(ignore: true)
-  _$$TagListColorChangedEventCopyWith<_$TagListColorChangedEvent>
+  _$$TagListColorChangedEventImplCopyWith<_$TagListColorChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TagListAddTagEventCopyWith<$Res> {
-  factory _$$TagListAddTagEventCopyWith(_$TagListAddTagEvent value,
-          $Res Function(_$TagListAddTagEvent) then) =
-      __$$TagListAddTagEventCopyWithImpl<$Res>;
+abstract class _$$TagListAddTagEventImplCopyWith<$Res> {
+  factory _$$TagListAddTagEventImplCopyWith(_$TagListAddTagEventImpl value,
+          $Res Function(_$TagListAddTagEventImpl) then) =
+      __$$TagListAddTagEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({VoidCallback? onAdded});
 }
 
 /// @nodoc
-class __$$TagListAddTagEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$TagListAddTagEvent>
-    implements _$$TagListAddTagEventCopyWith<$Res> {
-  __$$TagListAddTagEventCopyWithImpl(
-      _$TagListAddTagEvent _value, $Res Function(_$TagListAddTagEvent) _then)
+class __$$TagListAddTagEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListAddTagEventImpl>
+    implements _$$TagListAddTagEventImplCopyWith<$Res> {
+  __$$TagListAddTagEventImplCopyWithImpl(_$TagListAddTagEventImpl _value,
+      $Res Function(_$TagListAddTagEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -691,7 +694,7 @@ class __$$TagListAddTagEventCopyWithImpl<$Res>
   $Res call({
     Object? onAdded = freezed,
   }) {
-    return _then(_$TagListAddTagEvent(
+    return _then(_$TagListAddTagEventImpl(
       freezed == onAdded
           ? _value.onAdded
           : onAdded // ignore: cast_nullable_to_non_nullable
@@ -702,8 +705,8 @@ class __$$TagListAddTagEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TagListAddTagEvent implements TagListAddTagEvent {
-  _$TagListAddTagEvent([this.onAdded]);
+class _$TagListAddTagEventImpl implements TagListAddTagEvent {
+  _$TagListAddTagEventImpl([this.onAdded]);
 
   @override
   final VoidCallback? onAdded;
@@ -714,10 +717,10 @@ class _$TagListAddTagEvent implements TagListAddTagEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TagListAddTagEvent &&
+            other is _$TagListAddTagEventImpl &&
             (identical(other.onAdded, onAdded) || other.onAdded == onAdded));
   }
 
@@ -727,8 +730,8 @@ class _$TagListAddTagEvent implements TagListAddTagEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TagListAddTagEventCopyWith<_$TagListAddTagEvent> get copyWith =>
-      __$$TagListAddTagEventCopyWithImpl<_$TagListAddTagEvent>(
+  _$$TagListAddTagEventImplCopyWith<_$TagListAddTagEventImpl> get copyWith =>
+      __$$TagListAddTagEventImplCopyWithImpl<_$TagListAddTagEventImpl>(
           this, _$identity);
 
   @override
@@ -820,29 +823,30 @@ class _$TagListAddTagEvent implements TagListAddTagEvent {
 
 abstract class TagListAddTagEvent implements TagListEvent {
   factory TagListAddTagEvent([final VoidCallback? onAdded]) =
-      _$TagListAddTagEvent;
+      _$TagListAddTagEventImpl;
 
   VoidCallback? get onAdded;
   @JsonKey(ignore: true)
-  _$$TagListAddTagEventCopyWith<_$TagListAddTagEvent> get copyWith =>
+  _$$TagListAddTagEventImplCopyWith<_$TagListAddTagEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TagListDeleteTagEventCopyWith<$Res> {
-  factory _$$TagListDeleteTagEventCopyWith(_$TagListDeleteTagEvent value,
-          $Res Function(_$TagListDeleteTagEvent) then) =
-      __$$TagListDeleteTagEventCopyWithImpl<$Res>;
+abstract class _$$TagListDeleteTagEventImplCopyWith<$Res> {
+  factory _$$TagListDeleteTagEventImplCopyWith(
+          _$TagListDeleteTagEventImpl value,
+          $Res Function(_$TagListDeleteTagEventImpl) then) =
+      __$$TagListDeleteTagEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$TagListDeleteTagEventCopyWithImpl<$Res>
-    extends _$TagListEventCopyWithImpl<$Res, _$TagListDeleteTagEvent>
-    implements _$$TagListDeleteTagEventCopyWith<$Res> {
-  __$$TagListDeleteTagEventCopyWithImpl(_$TagListDeleteTagEvent _value,
-      $Res Function(_$TagListDeleteTagEvent) _then)
+class __$$TagListDeleteTagEventImplCopyWithImpl<$Res>
+    extends _$TagListEventCopyWithImpl<$Res, _$TagListDeleteTagEventImpl>
+    implements _$$TagListDeleteTagEventImplCopyWith<$Res> {
+  __$$TagListDeleteTagEventImplCopyWithImpl(_$TagListDeleteTagEventImpl _value,
+      $Res Function(_$TagListDeleteTagEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -850,7 +854,7 @@ class __$$TagListDeleteTagEventCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$TagListDeleteTagEvent(
+    return _then(_$TagListDeleteTagEventImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -861,8 +865,8 @@ class __$$TagListDeleteTagEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TagListDeleteTagEvent implements TagListDeleteTagEvent {
-  _$TagListDeleteTagEvent(this.name);
+class _$TagListDeleteTagEventImpl implements TagListDeleteTagEvent {
+  _$TagListDeleteTagEventImpl(this.name);
 
   @override
   final String name;
@@ -873,10 +877,10 @@ class _$TagListDeleteTagEvent implements TagListDeleteTagEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TagListDeleteTagEvent &&
+            other is _$TagListDeleteTagEventImpl &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -886,9 +890,9 @@ class _$TagListDeleteTagEvent implements TagListDeleteTagEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TagListDeleteTagEventCopyWith<_$TagListDeleteTagEvent> get copyWith =>
-      __$$TagListDeleteTagEventCopyWithImpl<_$TagListDeleteTagEvent>(
-          this, _$identity);
+  _$$TagListDeleteTagEventImplCopyWith<_$TagListDeleteTagEventImpl>
+      get copyWith => __$$TagListDeleteTagEventImplCopyWithImpl<
+          _$TagListDeleteTagEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -978,10 +982,11 @@ class _$TagListDeleteTagEvent implements TagListDeleteTagEvent {
 }
 
 abstract class TagListDeleteTagEvent implements TagListEvent {
-  factory TagListDeleteTagEvent(final String name) = _$TagListDeleteTagEvent;
+  factory TagListDeleteTagEvent(final String name) =
+      _$TagListDeleteTagEventImpl;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$TagListDeleteTagEventCopyWith<_$TagListDeleteTagEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$TagListDeleteTagEventImplCopyWith<_$TagListDeleteTagEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

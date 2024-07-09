@@ -12,7 +12,7 @@ part of 'login_page_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginPageState {
@@ -73,11 +73,11 @@ class _$LoginPageStateCopyWithImpl<$Res, $Val extends LoginPageState>
 }
 
 /// @nodoc
-abstract class _$$_LoginPageStateCopyWith<$Res>
+abstract class _$$LoginPageStateImplCopyWith<$Res>
     implements $LoginPageStateCopyWith<$Res> {
-  factory _$$_LoginPageStateCopyWith(
-          _$_LoginPageState value, $Res Function(_$_LoginPageState) then) =
-      __$$_LoginPageStateCopyWithImpl<$Res>;
+  factory _$$LoginPageStateImplCopyWith(_$LoginPageStateImpl value,
+          $Res Function(_$LoginPageStateImpl) then) =
+      __$$LoginPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -87,11 +87,11 @@ abstract class _$$_LoginPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoginPageStateCopyWithImpl<$Res>
-    extends _$LoginPageStateCopyWithImpl<$Res, _$_LoginPageState>
-    implements _$$_LoginPageStateCopyWith<$Res> {
-  __$$_LoginPageStateCopyWithImpl(
-      _$_LoginPageState _value, $Res Function(_$_LoginPageState) _then)
+class __$$LoginPageStateImplCopyWithImpl<$Res>
+    extends _$LoginPageStateCopyWithImpl<$Res, _$LoginPageStateImpl>
+    implements _$$LoginPageStateImplCopyWith<$Res> {
+  __$$LoginPageStateImplCopyWithImpl(
+      _$LoginPageStateImpl _value, $Res Function(_$LoginPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_LoginPageStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? authException = freezed,
   }) {
-    return _then(_$_LoginPageState(
+    return _then(_$LoginPageStateImpl(
       pageMode: null == pageMode
           ? _value.pageMode
           : pageMode // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$_LoginPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoginPageState implements _LoginPageState {
-  _$_LoginPageState(
+class _$LoginPageStateImpl implements _LoginPageState {
+  _$LoginPageStateImpl(
       {this.pageMode = LoginPageMode.signIn,
       this.isLoading = false,
       this.authException});
@@ -138,10 +138,10 @@ class _$_LoginPageState implements _LoginPageState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoginPageState &&
+            other is _$LoginPageStateImpl &&
             (identical(other.pageMode, pageMode) ||
                 other.pageMode == pageMode) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
@@ -156,15 +156,16 @@ class _$_LoginPageState implements _LoginPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoginPageStateCopyWith<_$_LoginPageState> get copyWith =>
-      __$$_LoginPageStateCopyWithImpl<_$_LoginPageState>(this, _$identity);
+  _$$LoginPageStateImplCopyWith<_$LoginPageStateImpl> get copyWith =>
+      __$$LoginPageStateImplCopyWithImpl<_$LoginPageStateImpl>(
+          this, _$identity);
 }
 
 abstract class _LoginPageState implements LoginPageState {
   factory _LoginPageState(
       {final LoginPageMode pageMode,
       final dynamic isLoading,
-      final FirebaseAuthException? authException}) = _$_LoginPageState;
+      final FirebaseAuthException? authException}) = _$LoginPageStateImpl;
 
   @override
   LoginPageMode get pageMode;
@@ -174,6 +175,6 @@ abstract class _LoginPageState implements LoginPageState {
   FirebaseAuthException? get authException;
   @override
   @JsonKey(ignore: true)
-  _$$_LoginPageStateCopyWith<_$_LoginPageState> get copyWith =>
+  _$$LoginPageStateImplCopyWith<_$LoginPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

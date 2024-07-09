@@ -12,7 +12,7 @@ part of 'tag_list_states.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TagListState {
@@ -69,22 +69,22 @@ class _$TagListStateCopyWithImpl<$Res, $Val extends TagListState>
 }
 
 /// @nodoc
-abstract class _$$_TagListStateCopyWith<$Res>
+abstract class _$$TagListStateImplCopyWith<$Res>
     implements $TagListStateCopyWith<$Res> {
-  factory _$$_TagListStateCopyWith(
-          _$_TagListState value, $Res Function(_$_TagListState) then) =
-      __$$_TagListStateCopyWithImpl<$Res>;
+  factory _$$TagListStateImplCopyWith(
+          _$TagListStateImpl value, $Res Function(_$TagListStateImpl) then) =
+      __$$TagListStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Tag> tags, String newTagName, Color newTagColor});
 }
 
 /// @nodoc
-class __$$_TagListStateCopyWithImpl<$Res>
-    extends _$TagListStateCopyWithImpl<$Res, _$_TagListState>
-    implements _$$_TagListStateCopyWith<$Res> {
-  __$$_TagListStateCopyWithImpl(
-      _$_TagListState _value, $Res Function(_$_TagListState) _then)
+class __$$TagListStateImplCopyWithImpl<$Res>
+    extends _$TagListStateCopyWithImpl<$Res, _$TagListStateImpl>
+    implements _$$TagListStateImplCopyWith<$Res> {
+  __$$TagListStateImplCopyWithImpl(
+      _$TagListStateImpl _value, $Res Function(_$TagListStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_TagListStateCopyWithImpl<$Res>
     Object? newTagName = null,
     Object? newTagColor = null,
   }) {
-    return _then(_$_TagListState(
+    return _then(_$TagListStateImpl(
       tags: null == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_TagListStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TagListState implements _TagListState {
-  _$_TagListState(
+class _$TagListStateImpl implements _TagListState {
+  _$TagListStateImpl(
       {final List<Tag> tags = const [],
       this.newTagName = '',
       this.newTagColor = Colors.grey})
@@ -142,10 +142,10 @@ class _$_TagListState implements _TagListState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TagListState &&
+            other is _$TagListStateImpl &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.newTagName, newTagName) ||
                 other.newTagName == newTagName) &&
@@ -160,15 +160,15 @@ class _$_TagListState implements _TagListState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TagListStateCopyWith<_$_TagListState> get copyWith =>
-      __$$_TagListStateCopyWithImpl<_$_TagListState>(this, _$identity);
+  _$$TagListStateImplCopyWith<_$TagListStateImpl> get copyWith =>
+      __$$TagListStateImplCopyWithImpl<_$TagListStateImpl>(this, _$identity);
 }
 
 abstract class _TagListState implements TagListState {
   factory _TagListState(
       {final List<Tag> tags,
       final String newTagName,
-      final Color newTagColor}) = _$_TagListState;
+      final Color newTagColor}) = _$TagListStateImpl;
 
   @override
   List<Tag> get tags;
@@ -178,6 +178,6 @@ abstract class _TagListState implements TagListState {
   Color get newTagColor;
   @override
   @JsonKey(ignore: true)
-  _$$_TagListStateCopyWith<_$_TagListState> get copyWith =>
+  _$$TagListStateImplCopyWith<_$TagListStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

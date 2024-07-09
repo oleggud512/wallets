@@ -12,7 +12,7 @@ part of 'login_page_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginPageEvent {
@@ -89,25 +89,25 @@ class _$LoginPageEventCopyWithImpl<$Res, $Val extends LoginPageEvent>
 }
 
 /// @nodoc
-abstract class _$$_LoginPageEventCopyWith<$Res> {
-  factory _$$_LoginPageEventCopyWith(
-          _$_LoginPageEvent value, $Res Function(_$_LoginPageEvent) then) =
-      __$$_LoginPageEventCopyWithImpl<$Res>;
+abstract class _$$LoginPageEventImplCopyWith<$Res> {
+  factory _$$LoginPageEventImplCopyWith(_$LoginPageEventImpl value,
+          $Res Function(_$LoginPageEventImpl) then) =
+      __$$LoginPageEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoginPageEventCopyWithImpl<$Res>
-    extends _$LoginPageEventCopyWithImpl<$Res, _$_LoginPageEvent>
-    implements _$$_LoginPageEventCopyWith<$Res> {
-  __$$_LoginPageEventCopyWithImpl(
-      _$_LoginPageEvent _value, $Res Function(_$_LoginPageEvent) _then)
+class __$$LoginPageEventImplCopyWithImpl<$Res>
+    extends _$LoginPageEventCopyWithImpl<$Res, _$LoginPageEventImpl>
+    implements _$$LoginPageEventImplCopyWith<$Res> {
+  __$$LoginPageEventImplCopyWithImpl(
+      _$LoginPageEventImpl _value, $Res Function(_$LoginPageEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_LoginPageEvent implements _LoginPageEvent {
-  _$_LoginPageEvent();
+class _$LoginPageEventImpl implements _LoginPageEvent {
+  _$LoginPageEventImpl();
 
   @override
   String toString() {
@@ -115,9 +115,9 @@ class _$_LoginPageEvent implements _LoginPageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_LoginPageEvent);
+        (other.runtimeType == runtimeType && other is _$LoginPageEventImpl);
   }
 
   @override
@@ -201,24 +201,24 @@ class _$_LoginPageEvent implements _LoginPageEvent {
 }
 
 abstract class _LoginPageEvent implements LoginPageEvent {
-  factory _LoginPageEvent() = _$_LoginPageEvent;
+  factory _LoginPageEvent() = _$LoginPageEventImpl;
 }
 
 /// @nodoc
-abstract class _$$LoginPageSubmitEventCopyWith<$Res> {
-  factory _$$LoginPageSubmitEventCopyWith(_$LoginPageSubmitEvent value,
-          $Res Function(_$LoginPageSubmitEvent) then) =
-      __$$LoginPageSubmitEventCopyWithImpl<$Res>;
+abstract class _$$LoginPageSubmitEventImplCopyWith<$Res> {
+  factory _$$LoginPageSubmitEventImplCopyWith(_$LoginPageSubmitEventImpl value,
+          $Res Function(_$LoginPageSubmitEventImpl) then) =
+      __$$LoginPageSubmitEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({VoidCallback onSuccess});
 }
 
 /// @nodoc
-class __$$LoginPageSubmitEventCopyWithImpl<$Res>
-    extends _$LoginPageEventCopyWithImpl<$Res, _$LoginPageSubmitEvent>
-    implements _$$LoginPageSubmitEventCopyWith<$Res> {
-  __$$LoginPageSubmitEventCopyWithImpl(_$LoginPageSubmitEvent _value,
-      $Res Function(_$LoginPageSubmitEvent) _then)
+class __$$LoginPageSubmitEventImplCopyWithImpl<$Res>
+    extends _$LoginPageEventCopyWithImpl<$Res, _$LoginPageSubmitEventImpl>
+    implements _$$LoginPageSubmitEventImplCopyWith<$Res> {
+  __$$LoginPageSubmitEventImplCopyWithImpl(_$LoginPageSubmitEventImpl _value,
+      $Res Function(_$LoginPageSubmitEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -226,7 +226,7 @@ class __$$LoginPageSubmitEventCopyWithImpl<$Res>
   $Res call({
     Object? onSuccess = null,
   }) {
-    return _then(_$LoginPageSubmitEvent(
+    return _then(_$LoginPageSubmitEventImpl(
       null == onSuccess
           ? _value.onSuccess
           : onSuccess // ignore: cast_nullable_to_non_nullable
@@ -237,8 +237,8 @@ class __$$LoginPageSubmitEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
-  _$LoginPageSubmitEvent(this.onSuccess);
+class _$LoginPageSubmitEventImpl implements LoginPageSubmitEvent {
+  _$LoginPageSubmitEventImpl(this.onSuccess);
 
   @override
   final VoidCallback onSuccess;
@@ -249,10 +249,10 @@ class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginPageSubmitEvent &&
+            other is _$LoginPageSubmitEventImpl &&
             (identical(other.onSuccess, onSuccess) ||
                 other.onSuccess == onSuccess));
   }
@@ -263,9 +263,10 @@ class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginPageSubmitEventCopyWith<_$LoginPageSubmitEvent> get copyWith =>
-      __$$LoginPageSubmitEventCopyWithImpl<_$LoginPageSubmitEvent>(
-          this, _$identity);
+  _$$LoginPageSubmitEventImplCopyWith<_$LoginPageSubmitEventImpl>
+      get copyWith =>
+          __$$LoginPageSubmitEventImplCopyWithImpl<_$LoginPageSubmitEventImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -346,36 +347,38 @@ class _$LoginPageSubmitEvent implements LoginPageSubmitEvent {
 
 abstract class LoginPageSubmitEvent implements LoginPageEvent {
   factory LoginPageSubmitEvent(final VoidCallback onSuccess) =
-      _$LoginPageSubmitEvent;
+      _$LoginPageSubmitEventImpl;
 
   VoidCallback get onSuccess;
   @JsonKey(ignore: true)
-  _$$LoginPageSubmitEventCopyWith<_$LoginPageSubmitEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LoginPageSubmitEventImplCopyWith<_$LoginPageSubmitEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginPageTogglePageModeEventCopyWith<$Res> {
-  factory _$$LoginPageTogglePageModeEventCopyWith(
-          _$LoginPageTogglePageModeEvent value,
-          $Res Function(_$LoginPageTogglePageModeEvent) then) =
-      __$$LoginPageTogglePageModeEventCopyWithImpl<$Res>;
+abstract class _$$LoginPageTogglePageModeEventImplCopyWith<$Res> {
+  factory _$$LoginPageTogglePageModeEventImplCopyWith(
+          _$LoginPageTogglePageModeEventImpl value,
+          $Res Function(_$LoginPageTogglePageModeEventImpl) then) =
+      __$$LoginPageTogglePageModeEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoginPageTogglePageModeEventCopyWithImpl<$Res>
-    extends _$LoginPageEventCopyWithImpl<$Res, _$LoginPageTogglePageModeEvent>
-    implements _$$LoginPageTogglePageModeEventCopyWith<$Res> {
-  __$$LoginPageTogglePageModeEventCopyWithImpl(
-      _$LoginPageTogglePageModeEvent _value,
-      $Res Function(_$LoginPageTogglePageModeEvent) _then)
+class __$$LoginPageTogglePageModeEventImplCopyWithImpl<$Res>
+    extends _$LoginPageEventCopyWithImpl<$Res,
+        _$LoginPageTogglePageModeEventImpl>
+    implements _$$LoginPageTogglePageModeEventImplCopyWith<$Res> {
+  __$$LoginPageTogglePageModeEventImplCopyWithImpl(
+      _$LoginPageTogglePageModeEventImpl _value,
+      $Res Function(_$LoginPageTogglePageModeEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
-  _$LoginPageTogglePageModeEvent();
+class _$LoginPageTogglePageModeEventImpl
+    implements LoginPageTogglePageModeEvent {
+  _$LoginPageTogglePageModeEventImpl();
 
   @override
   String toString() {
@@ -383,10 +386,10 @@ class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginPageTogglePageModeEvent);
+            other is _$LoginPageTogglePageModeEventImpl);
   }
 
   @override
@@ -470,32 +473,33 @@ class _$LoginPageTogglePageModeEvent implements LoginPageTogglePageModeEvent {
 }
 
 abstract class LoginPageTogglePageModeEvent implements LoginPageEvent {
-  factory LoginPageTogglePageModeEvent() = _$LoginPageTogglePageModeEvent;
+  factory LoginPageTogglePageModeEvent() = _$LoginPageTogglePageModeEventImpl;
 }
 
 /// @nodoc
-abstract class _$$LoginPageExceptionHandledEventCopyWith<$Res> {
-  factory _$$LoginPageExceptionHandledEventCopyWith(
-          _$LoginPageExceptionHandledEvent value,
-          $Res Function(_$LoginPageExceptionHandledEvent) then) =
-      __$$LoginPageExceptionHandledEventCopyWithImpl<$Res>;
+abstract class _$$LoginPageExceptionHandledEventImplCopyWith<$Res> {
+  factory _$$LoginPageExceptionHandledEventImplCopyWith(
+          _$LoginPageExceptionHandledEventImpl value,
+          $Res Function(_$LoginPageExceptionHandledEventImpl) then) =
+      __$$LoginPageExceptionHandledEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoginPageExceptionHandledEventCopyWithImpl<$Res>
-    extends _$LoginPageEventCopyWithImpl<$Res, _$LoginPageExceptionHandledEvent>
-    implements _$$LoginPageExceptionHandledEventCopyWith<$Res> {
-  __$$LoginPageExceptionHandledEventCopyWithImpl(
-      _$LoginPageExceptionHandledEvent _value,
-      $Res Function(_$LoginPageExceptionHandledEvent) _then)
+class __$$LoginPageExceptionHandledEventImplCopyWithImpl<$Res>
+    extends _$LoginPageEventCopyWithImpl<$Res,
+        _$LoginPageExceptionHandledEventImpl>
+    implements _$$LoginPageExceptionHandledEventImplCopyWith<$Res> {
+  __$$LoginPageExceptionHandledEventImplCopyWithImpl(
+      _$LoginPageExceptionHandledEventImpl _value,
+      $Res Function(_$LoginPageExceptionHandledEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoginPageExceptionHandledEvent
+class _$LoginPageExceptionHandledEventImpl
     implements LoginPageExceptionHandledEvent {
-  _$LoginPageExceptionHandledEvent();
+  _$LoginPageExceptionHandledEventImpl();
 
   @override
   String toString() {
@@ -503,10 +507,10 @@ class _$LoginPageExceptionHandledEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginPageExceptionHandledEvent);
+            other is _$LoginPageExceptionHandledEventImpl);
   }
 
   @override
@@ -590,5 +594,6 @@ class _$LoginPageExceptionHandledEvent
 }
 
 abstract class LoginPageExceptionHandledEvent implements LoginPageEvent {
-  factory LoginPageExceptionHandledEvent() = _$LoginPageExceptionHandledEvent;
+  factory LoginPageExceptionHandledEvent() =
+      _$LoginPageExceptionHandledEventImpl;
 }

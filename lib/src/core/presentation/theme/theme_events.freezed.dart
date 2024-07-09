@@ -12,7 +12,7 @@ part of 'theme_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ThemeEvent {
@@ -81,25 +81,25 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
 }
 
 /// @nodoc
-abstract class _$$_ThemeEventCopyWith<$Res> {
-  factory _$$_ThemeEventCopyWith(
-          _$_ThemeEvent value, $Res Function(_$_ThemeEvent) then) =
-      __$$_ThemeEventCopyWithImpl<$Res>;
+abstract class _$$ThemeEventImplCopyWith<$Res> {
+  factory _$$ThemeEventImplCopyWith(
+          _$ThemeEventImpl value, $Res Function(_$ThemeEventImpl) then) =
+      __$$ThemeEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ThemeEventCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$_ThemeEvent>
-    implements _$$_ThemeEventCopyWith<$Res> {
-  __$$_ThemeEventCopyWithImpl(
-      _$_ThemeEvent _value, $Res Function(_$_ThemeEvent) _then)
+class __$$ThemeEventImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeEventImpl>
+    implements _$$ThemeEventImplCopyWith<$Res> {
+  __$$ThemeEventImplCopyWithImpl(
+      _$ThemeEventImpl _value, $Res Function(_$ThemeEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ThemeEvent implements _ThemeEvent {
-  _$_ThemeEvent();
+class _$ThemeEventImpl implements _ThemeEvent {
+  _$ThemeEventImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$_ThemeEvent implements _ThemeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ThemeEvent);
+        (other.runtimeType == runtimeType && other is _$ThemeEventImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$_ThemeEvent implements _ThemeEvent {
 }
 
 abstract class _ThemeEvent implements ThemeEvent {
-  factory _ThemeEvent() = _$_ThemeEvent;
+  factory _ThemeEvent() = _$ThemeEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ThemeLoadEventCopyWith<$Res> {
-  factory _$$ThemeLoadEventCopyWith(
-          _$ThemeLoadEvent value, $Res Function(_$ThemeLoadEvent) then) =
-      __$$ThemeLoadEventCopyWithImpl<$Res>;
+abstract class _$$ThemeLoadEventImplCopyWith<$Res> {
+  factory _$$ThemeLoadEventImplCopyWith(_$ThemeLoadEventImpl value,
+          $Res Function(_$ThemeLoadEventImpl) then) =
+      __$$ThemeLoadEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ThemeLoadEventCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeLoadEvent>
-    implements _$$ThemeLoadEventCopyWith<$Res> {
-  __$$ThemeLoadEventCopyWithImpl(
-      _$ThemeLoadEvent _value, $Res Function(_$ThemeLoadEvent) _then)
+class __$$ThemeLoadEventImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeLoadEventImpl>
+    implements _$$ThemeLoadEventImplCopyWith<$Res> {
+  __$$ThemeLoadEventImplCopyWithImpl(
+      _$ThemeLoadEventImpl _value, $Res Function(_$ThemeLoadEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ThemeLoadEvent implements ThemeLoadEvent {
-  _$ThemeLoadEvent();
+class _$ThemeLoadEventImpl implements ThemeLoadEvent {
+  _$ThemeLoadEventImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$ThemeLoadEvent implements ThemeLoadEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ThemeLoadEvent);
+        (other.runtimeType == runtimeType && other is _$ThemeLoadEventImpl);
   }
 
   @override
@@ -293,24 +293,25 @@ class _$ThemeLoadEvent implements ThemeLoadEvent {
 }
 
 abstract class ThemeLoadEvent implements ThemeEvent {
-  factory ThemeLoadEvent() = _$ThemeLoadEvent;
+  factory ThemeLoadEvent() = _$ThemeLoadEventImpl;
 }
 
 /// @nodoc
-abstract class _$$ThemeChangeThemeEventCopyWith<$Res> {
-  factory _$$ThemeChangeThemeEventCopyWith(_$ThemeChangeThemeEvent value,
-          $Res Function(_$ThemeChangeThemeEvent) then) =
-      __$$ThemeChangeThemeEventCopyWithImpl<$Res>;
+abstract class _$$ThemeChangeThemeEventImplCopyWith<$Res> {
+  factory _$$ThemeChangeThemeEventImplCopyWith(
+          _$ThemeChangeThemeEventImpl value,
+          $Res Function(_$ThemeChangeThemeEventImpl) then) =
+      __$$ThemeChangeThemeEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThemeMode newTheme});
 }
 
 /// @nodoc
-class __$$ThemeChangeThemeEventCopyWithImpl<$Res>
-    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeChangeThemeEvent>
-    implements _$$ThemeChangeThemeEventCopyWith<$Res> {
-  __$$ThemeChangeThemeEventCopyWithImpl(_$ThemeChangeThemeEvent _value,
-      $Res Function(_$ThemeChangeThemeEvent) _then)
+class __$$ThemeChangeThemeEventImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$ThemeChangeThemeEventImpl>
+    implements _$$ThemeChangeThemeEventImplCopyWith<$Res> {
+  __$$ThemeChangeThemeEventImplCopyWithImpl(_$ThemeChangeThemeEventImpl _value,
+      $Res Function(_$ThemeChangeThemeEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +319,7 @@ class __$$ThemeChangeThemeEventCopyWithImpl<$Res>
   $Res call({
     Object? newTheme = null,
   }) {
-    return _then(_$ThemeChangeThemeEvent(
+    return _then(_$ThemeChangeThemeEventImpl(
       null == newTheme
           ? _value.newTheme
           : newTheme // ignore: cast_nullable_to_non_nullable
@@ -329,8 +330,8 @@ class __$$ThemeChangeThemeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ThemeChangeThemeEvent implements ThemeChangeThemeEvent {
-  _$ThemeChangeThemeEvent(this.newTheme);
+class _$ThemeChangeThemeEventImpl implements ThemeChangeThemeEvent {
+  _$ThemeChangeThemeEventImpl(this.newTheme);
 
   @override
   final ThemeMode newTheme;
@@ -341,10 +342,10 @@ class _$ThemeChangeThemeEvent implements ThemeChangeThemeEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThemeChangeThemeEvent &&
+            other is _$ThemeChangeThemeEventImpl &&
             (identical(other.newTheme, newTheme) ||
                 other.newTheme == newTheme));
   }
@@ -355,9 +356,9 @@ class _$ThemeChangeThemeEvent implements ThemeChangeThemeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ThemeChangeThemeEventCopyWith<_$ThemeChangeThemeEvent> get copyWith =>
-      __$$ThemeChangeThemeEventCopyWithImpl<_$ThemeChangeThemeEvent>(
-          this, _$identity);
+  _$$ThemeChangeThemeEventImplCopyWith<_$ThemeChangeThemeEventImpl>
+      get copyWith => __$$ThemeChangeThemeEventImplCopyWithImpl<
+          _$ThemeChangeThemeEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -430,10 +431,10 @@ class _$ThemeChangeThemeEvent implements ThemeChangeThemeEvent {
 
 abstract class ThemeChangeThemeEvent implements ThemeEvent {
   factory ThemeChangeThemeEvent(final ThemeMode newTheme) =
-      _$ThemeChangeThemeEvent;
+      _$ThemeChangeThemeEventImpl;
 
   ThemeMode get newTheme;
   @JsonKey(ignore: true)
-  _$$ThemeChangeThemeEventCopyWith<_$ThemeChangeThemeEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ThemeChangeThemeEventImplCopyWith<_$ThemeChangeThemeEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

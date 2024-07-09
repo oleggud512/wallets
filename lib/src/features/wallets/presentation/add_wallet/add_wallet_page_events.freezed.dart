@@ -12,7 +12,7 @@ part of 'add_wallet_page_events.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AddWalletPageEvent {
@@ -98,25 +98,25 @@ class _$AddWalletPageEventCopyWithImpl<$Res, $Val extends AddWalletPageEvent>
 }
 
 /// @nodoc
-abstract class _$$_AddWalletPageEventCopyWith<$Res> {
-  factory _$$_AddWalletPageEventCopyWith(_$_AddWalletPageEvent value,
-          $Res Function(_$_AddWalletPageEvent) then) =
-      __$$_AddWalletPageEventCopyWithImpl<$Res>;
+abstract class _$$AddWalletPageEventImplCopyWith<$Res> {
+  factory _$$AddWalletPageEventImplCopyWith(_$AddWalletPageEventImpl value,
+          $Res Function(_$AddWalletPageEventImpl) then) =
+      __$$AddWalletPageEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AddWalletPageEventCopyWithImpl<$Res>
-    extends _$AddWalletPageEventCopyWithImpl<$Res, _$_AddWalletPageEvent>
-    implements _$$_AddWalletPageEventCopyWith<$Res> {
-  __$$_AddWalletPageEventCopyWithImpl(
-      _$_AddWalletPageEvent _value, $Res Function(_$_AddWalletPageEvent) _then)
+class __$$AddWalletPageEventImplCopyWithImpl<$Res>
+    extends _$AddWalletPageEventCopyWithImpl<$Res, _$AddWalletPageEventImpl>
+    implements _$$AddWalletPageEventImplCopyWith<$Res> {
+  __$$AddWalletPageEventImplCopyWithImpl(_$AddWalletPageEventImpl _value,
+      $Res Function(_$AddWalletPageEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AddWalletPageEvent implements _AddWalletPageEvent {
-  _$_AddWalletPageEvent();
+class _$AddWalletPageEventImpl implements _AddWalletPageEvent {
+  _$AddWalletPageEventImpl();
 
   @override
   String toString() {
@@ -124,9 +124,9 @@ class _$_AddWalletPageEvent implements _AddWalletPageEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AddWalletPageEvent);
+        (other.runtimeType == runtimeType && other is _$AddWalletPageEventImpl);
   }
 
   @override
@@ -219,27 +219,27 @@ class _$_AddWalletPageEvent implements _AddWalletPageEvent {
 }
 
 abstract class _AddWalletPageEvent implements AddWalletPageEvent {
-  factory _AddWalletPageEvent() = _$_AddWalletPageEvent;
+  factory _AddWalletPageEvent() = _$AddWalletPageEventImpl;
 }
 
 /// @nodoc
-abstract class _$$AddWalletPageDescriptionChangedEventCopyWith<$Res> {
-  factory _$$AddWalletPageDescriptionChangedEventCopyWith(
-          _$AddWalletPageDescriptionChangedEvent value,
-          $Res Function(_$AddWalletPageDescriptionChangedEvent) then) =
-      __$$AddWalletPageDescriptionChangedEventCopyWithImpl<$Res>;
+abstract class _$$AddWalletPageDescriptionChangedEventImplCopyWith<$Res> {
+  factory _$$AddWalletPageDescriptionChangedEventImplCopyWith(
+          _$AddWalletPageDescriptionChangedEventImpl value,
+          $Res Function(_$AddWalletPageDescriptionChangedEventImpl) then) =
+      __$$AddWalletPageDescriptionChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String description});
 }
 
 /// @nodoc
-class __$$AddWalletPageDescriptionChangedEventCopyWithImpl<$Res>
+class __$$AddWalletPageDescriptionChangedEventImplCopyWithImpl<$Res>
     extends _$AddWalletPageEventCopyWithImpl<$Res,
-        _$AddWalletPageDescriptionChangedEvent>
-    implements _$$AddWalletPageDescriptionChangedEventCopyWith<$Res> {
-  __$$AddWalletPageDescriptionChangedEventCopyWithImpl(
-      _$AddWalletPageDescriptionChangedEvent _value,
-      $Res Function(_$AddWalletPageDescriptionChangedEvent) _then)
+        _$AddWalletPageDescriptionChangedEventImpl>
+    implements _$$AddWalletPageDescriptionChangedEventImplCopyWith<$Res> {
+  __$$AddWalletPageDescriptionChangedEventImplCopyWithImpl(
+      _$AddWalletPageDescriptionChangedEventImpl _value,
+      $Res Function(_$AddWalletPageDescriptionChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -247,7 +247,7 @@ class __$$AddWalletPageDescriptionChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? description = null,
   }) {
-    return _then(_$AddWalletPageDescriptionChangedEvent(
+    return _then(_$AddWalletPageDescriptionChangedEventImpl(
       null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -258,9 +258,9 @@ class __$$AddWalletPageDescriptionChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddWalletPageDescriptionChangedEvent
+class _$AddWalletPageDescriptionChangedEventImpl
     implements AddWalletPageDescriptionChangedEvent {
-  _$AddWalletPageDescriptionChangedEvent(this.description);
+  _$AddWalletPageDescriptionChangedEventImpl(this.description);
 
   @override
   final String description;
@@ -271,10 +271,10 @@ class _$AddWalletPageDescriptionChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddWalletPageDescriptionChangedEvent &&
+            other is _$AddWalletPageDescriptionChangedEventImpl &&
             (identical(other.description, description) ||
                 other.description == description));
   }
@@ -285,10 +285,10 @@ class _$AddWalletPageDescriptionChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddWalletPageDescriptionChangedEventCopyWith<
-          _$AddWalletPageDescriptionChangedEvent>
-      get copyWith => __$$AddWalletPageDescriptionChangedEventCopyWithImpl<
-          _$AddWalletPageDescriptionChangedEvent>(this, _$identity);
+  _$$AddWalletPageDescriptionChangedEventImplCopyWith<
+          _$AddWalletPageDescriptionChangedEventImpl>
+      get copyWith => __$$AddWalletPageDescriptionChangedEventImplCopyWithImpl<
+          _$AddWalletPageDescriptionChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -379,33 +379,33 @@ class _$AddWalletPageDescriptionChangedEvent
 abstract class AddWalletPageDescriptionChangedEvent
     implements AddWalletPageEvent {
   factory AddWalletPageDescriptionChangedEvent(final String description) =
-      _$AddWalletPageDescriptionChangedEvent;
+      _$AddWalletPageDescriptionChangedEventImpl;
 
   String get description;
   @JsonKey(ignore: true)
-  _$$AddWalletPageDescriptionChangedEventCopyWith<
-          _$AddWalletPageDescriptionChangedEvent>
+  _$$AddWalletPageDescriptionChangedEventImplCopyWith<
+          _$AddWalletPageDescriptionChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddWalletPageAmountChangedEventCopyWith<$Res> {
-  factory _$$AddWalletPageAmountChangedEventCopyWith(
-          _$AddWalletPageAmountChangedEvent value,
-          $Res Function(_$AddWalletPageAmountChangedEvent) then) =
-      __$$AddWalletPageAmountChangedEventCopyWithImpl<$Res>;
+abstract class _$$AddWalletPageAmountChangedEventImplCopyWith<$Res> {
+  factory _$$AddWalletPageAmountChangedEventImplCopyWith(
+          _$AddWalletPageAmountChangedEventImpl value,
+          $Res Function(_$AddWalletPageAmountChangedEventImpl) then) =
+      __$$AddWalletPageAmountChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({double amount});
 }
 
 /// @nodoc
-class __$$AddWalletPageAmountChangedEventCopyWithImpl<$Res>
+class __$$AddWalletPageAmountChangedEventImplCopyWithImpl<$Res>
     extends _$AddWalletPageEventCopyWithImpl<$Res,
-        _$AddWalletPageAmountChangedEvent>
-    implements _$$AddWalletPageAmountChangedEventCopyWith<$Res> {
-  __$$AddWalletPageAmountChangedEventCopyWithImpl(
-      _$AddWalletPageAmountChangedEvent _value,
-      $Res Function(_$AddWalletPageAmountChangedEvent) _then)
+        _$AddWalletPageAmountChangedEventImpl>
+    implements _$$AddWalletPageAmountChangedEventImplCopyWith<$Res> {
+  __$$AddWalletPageAmountChangedEventImplCopyWithImpl(
+      _$AddWalletPageAmountChangedEventImpl _value,
+      $Res Function(_$AddWalletPageAmountChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -413,7 +413,7 @@ class __$$AddWalletPageAmountChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? amount = null,
   }) {
-    return _then(_$AddWalletPageAmountChangedEvent(
+    return _then(_$AddWalletPageAmountChangedEventImpl(
       null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -424,9 +424,9 @@ class __$$AddWalletPageAmountChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddWalletPageAmountChangedEvent
+class _$AddWalletPageAmountChangedEventImpl
     implements AddWalletPageAmountChangedEvent {
-  _$AddWalletPageAmountChangedEvent(this.amount);
+  _$AddWalletPageAmountChangedEventImpl(this.amount);
 
   @override
   final double amount;
@@ -437,10 +437,10 @@ class _$AddWalletPageAmountChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddWalletPageAmountChangedEvent &&
+            other is _$AddWalletPageAmountChangedEventImpl &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
@@ -450,9 +450,10 @@ class _$AddWalletPageAmountChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddWalletPageAmountChangedEventCopyWith<_$AddWalletPageAmountChangedEvent>
-      get copyWith => __$$AddWalletPageAmountChangedEventCopyWithImpl<
-          _$AddWalletPageAmountChangedEvent>(this, _$identity);
+  _$$AddWalletPageAmountChangedEventImplCopyWith<
+          _$AddWalletPageAmountChangedEventImpl>
+      get copyWith => __$$AddWalletPageAmountChangedEventImplCopyWithImpl<
+          _$AddWalletPageAmountChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -542,32 +543,33 @@ class _$AddWalletPageAmountChangedEvent
 
 abstract class AddWalletPageAmountChangedEvent implements AddWalletPageEvent {
   factory AddWalletPageAmountChangedEvent(final double amount) =
-      _$AddWalletPageAmountChangedEvent;
+      _$AddWalletPageAmountChangedEventImpl;
 
   double get amount;
   @JsonKey(ignore: true)
-  _$$AddWalletPageAmountChangedEventCopyWith<_$AddWalletPageAmountChangedEvent>
+  _$$AddWalletPageAmountChangedEventImplCopyWith<
+          _$AddWalletPageAmountChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddWalletPageCurrencyChangedEventCopyWith<$Res> {
-  factory _$$AddWalletPageCurrencyChangedEventCopyWith(
-          _$AddWalletPageCurrencyChangedEvent value,
-          $Res Function(_$AddWalletPageCurrencyChangedEvent) then) =
-      __$$AddWalletPageCurrencyChangedEventCopyWithImpl<$Res>;
+abstract class _$$AddWalletPageCurrencyChangedEventImplCopyWith<$Res> {
+  factory _$$AddWalletPageCurrencyChangedEventImplCopyWith(
+          _$AddWalletPageCurrencyChangedEventImpl value,
+          $Res Function(_$AddWalletPageCurrencyChangedEventImpl) then) =
+      __$$AddWalletPageCurrencyChangedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String currency});
 }
 
 /// @nodoc
-class __$$AddWalletPageCurrencyChangedEventCopyWithImpl<$Res>
+class __$$AddWalletPageCurrencyChangedEventImplCopyWithImpl<$Res>
     extends _$AddWalletPageEventCopyWithImpl<$Res,
-        _$AddWalletPageCurrencyChangedEvent>
-    implements _$$AddWalletPageCurrencyChangedEventCopyWith<$Res> {
-  __$$AddWalletPageCurrencyChangedEventCopyWithImpl(
-      _$AddWalletPageCurrencyChangedEvent _value,
-      $Res Function(_$AddWalletPageCurrencyChangedEvent) _then)
+        _$AddWalletPageCurrencyChangedEventImpl>
+    implements _$$AddWalletPageCurrencyChangedEventImplCopyWith<$Res> {
+  __$$AddWalletPageCurrencyChangedEventImplCopyWithImpl(
+      _$AddWalletPageCurrencyChangedEventImpl _value,
+      $Res Function(_$AddWalletPageCurrencyChangedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -575,7 +577,7 @@ class __$$AddWalletPageCurrencyChangedEventCopyWithImpl<$Res>
   $Res call({
     Object? currency = null,
   }) {
-    return _then(_$AddWalletPageCurrencyChangedEvent(
+    return _then(_$AddWalletPageCurrencyChangedEventImpl(
       null == currency
           ? _value.currency
           : currency // ignore: cast_nullable_to_non_nullable
@@ -586,9 +588,9 @@ class __$$AddWalletPageCurrencyChangedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddWalletPageCurrencyChangedEvent
+class _$AddWalletPageCurrencyChangedEventImpl
     implements AddWalletPageCurrencyChangedEvent {
-  _$AddWalletPageCurrencyChangedEvent(this.currency);
+  _$AddWalletPageCurrencyChangedEventImpl(this.currency);
 
   @override
   final String currency;
@@ -599,10 +601,10 @@ class _$AddWalletPageCurrencyChangedEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddWalletPageCurrencyChangedEvent &&
+            other is _$AddWalletPageCurrencyChangedEventImpl &&
             (identical(other.currency, currency) ||
                 other.currency == currency));
   }
@@ -613,10 +615,10 @@ class _$AddWalletPageCurrencyChangedEvent
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddWalletPageCurrencyChangedEventCopyWith<
-          _$AddWalletPageCurrencyChangedEvent>
-      get copyWith => __$$AddWalletPageCurrencyChangedEventCopyWithImpl<
-          _$AddWalletPageCurrencyChangedEvent>(this, _$identity);
+  _$$AddWalletPageCurrencyChangedEventImplCopyWith<
+          _$AddWalletPageCurrencyChangedEventImpl>
+      get copyWith => __$$AddWalletPageCurrencyChangedEventImplCopyWithImpl<
+          _$AddWalletPageCurrencyChangedEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -706,33 +708,33 @@ class _$AddWalletPageCurrencyChangedEvent
 
 abstract class AddWalletPageCurrencyChangedEvent implements AddWalletPageEvent {
   factory AddWalletPageCurrencyChangedEvent(final String currency) =
-      _$AddWalletPageCurrencyChangedEvent;
+      _$AddWalletPageCurrencyChangedEventImpl;
 
   String get currency;
   @JsonKey(ignore: true)
-  _$$AddWalletPageCurrencyChangedEventCopyWith<
-          _$AddWalletPageCurrencyChangedEvent>
+  _$$AddWalletPageCurrencyChangedEventImplCopyWith<
+          _$AddWalletPageCurrencyChangedEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddWalletPageAddWalletEventCopyWith<$Res> {
-  factory _$$AddWalletPageAddWalletEventCopyWith(
-          _$AddWalletPageAddWalletEvent value,
-          $Res Function(_$AddWalletPageAddWalletEvent) then) =
-      __$$AddWalletPageAddWalletEventCopyWithImpl<$Res>;
+abstract class _$$AddWalletPageAddWalletEventImplCopyWith<$Res> {
+  factory _$$AddWalletPageAddWalletEventImplCopyWith(
+          _$AddWalletPageAddWalletEventImpl value,
+          $Res Function(_$AddWalletPageAddWalletEventImpl) then) =
+      __$$AddWalletPageAddWalletEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({VoidCallback onComplete});
 }
 
 /// @nodoc
-class __$$AddWalletPageAddWalletEventCopyWithImpl<$Res>
+class __$$AddWalletPageAddWalletEventImplCopyWithImpl<$Res>
     extends _$AddWalletPageEventCopyWithImpl<$Res,
-        _$AddWalletPageAddWalletEvent>
-    implements _$$AddWalletPageAddWalletEventCopyWith<$Res> {
-  __$$AddWalletPageAddWalletEventCopyWithImpl(
-      _$AddWalletPageAddWalletEvent _value,
-      $Res Function(_$AddWalletPageAddWalletEvent) _then)
+        _$AddWalletPageAddWalletEventImpl>
+    implements _$$AddWalletPageAddWalletEventImplCopyWith<$Res> {
+  __$$AddWalletPageAddWalletEventImplCopyWithImpl(
+      _$AddWalletPageAddWalletEventImpl _value,
+      $Res Function(_$AddWalletPageAddWalletEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -740,7 +742,7 @@ class __$$AddWalletPageAddWalletEventCopyWithImpl<$Res>
   $Res call({
     Object? onComplete = null,
   }) {
-    return _then(_$AddWalletPageAddWalletEvent(
+    return _then(_$AddWalletPageAddWalletEventImpl(
       null == onComplete
           ? _value.onComplete
           : onComplete // ignore: cast_nullable_to_non_nullable
@@ -751,8 +753,8 @@ class __$$AddWalletPageAddWalletEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddWalletPageAddWalletEvent implements AddWalletPageAddWalletEvent {
-  _$AddWalletPageAddWalletEvent(this.onComplete);
+class _$AddWalletPageAddWalletEventImpl implements AddWalletPageAddWalletEvent {
+  _$AddWalletPageAddWalletEventImpl(this.onComplete);
 
   @override
   final VoidCallback onComplete;
@@ -763,10 +765,10 @@ class _$AddWalletPageAddWalletEvent implements AddWalletPageAddWalletEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddWalletPageAddWalletEvent &&
+            other is _$AddWalletPageAddWalletEventImpl &&
             (identical(other.onComplete, onComplete) ||
                 other.onComplete == onComplete));
   }
@@ -777,9 +779,9 @@ class _$AddWalletPageAddWalletEvent implements AddWalletPageAddWalletEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddWalletPageAddWalletEventCopyWith<_$AddWalletPageAddWalletEvent>
-      get copyWith => __$$AddWalletPageAddWalletEventCopyWithImpl<
-          _$AddWalletPageAddWalletEvent>(this, _$identity);
+  _$$AddWalletPageAddWalletEventImplCopyWith<_$AddWalletPageAddWalletEventImpl>
+      get copyWith => __$$AddWalletPageAddWalletEventImplCopyWithImpl<
+          _$AddWalletPageAddWalletEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -869,10 +871,10 @@ class _$AddWalletPageAddWalletEvent implements AddWalletPageAddWalletEvent {
 
 abstract class AddWalletPageAddWalletEvent implements AddWalletPageEvent {
   factory AddWalletPageAddWalletEvent(final VoidCallback onComplete) =
-      _$AddWalletPageAddWalletEvent;
+      _$AddWalletPageAddWalletEventImpl;
 
   VoidCallback get onComplete;
   @JsonKey(ignore: true)
-  _$$AddWalletPageAddWalletEventCopyWith<_$AddWalletPageAddWalletEvent>
+  _$$AddWalletPageAddWalletEventImplCopyWith<_$AddWalletPageAddWalletEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
