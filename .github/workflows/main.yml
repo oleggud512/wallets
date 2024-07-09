@@ -24,6 +24,6 @@ jobs:
               with: 
                 artifacts: build/app/outputs/apk/debug/*
                 tag: v0.0.1
-                token: ${{ secrets.REPO_SECRET_TOKEN }}
+                token: ${{ secrets.REPO_SECRET_TOKEN }} 
 
 
