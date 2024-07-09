@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-// ignore_for_file: prefer_single_quotes
+// ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters
 
 import 'dart:ui';
 
@@ -65,8 +65,8 @@ class CodegenLoader extends AssetLoader{
   "noEmail": "нет эл. почты...",
   "signIn": "Войти",
   "register": "Зарегистрироваться",
-  "switchToSignInMessage": "Всё ещё нет аккаунта? ",
-  "switchToRegisterMessage": "Уже есть аккаунт? ",
+  "switchToSignInMessage": "Уже есть аккаунт? ",
+  "switchToRegisterMessage": "Всё ещё нет аккаунта? ",
   "promptCategory": "Введите назване категории",
   "categoryAlreadyExistsMessage": "Категория \"{}\" уже существует",
   "newCategoryInputHint": "Пишите здесь, чтобы создать новую категорию",
@@ -129,8 +129,8 @@ static const Map<String,dynamic> en = {
   "noEmail": "no email...",
   "signIn": "Sign in",
   "register": "Register",
-  "switchToSignInMessage": "Don't have an account yet? ",
-  "switchToRegisterMessage": "Have an account? ",
+  "switchToSignInMessage": "Have an account? ",
+  "switchToRegisterMessage": "Don't have an account yet? ",
   "promptCategory": "Enter a category name",
   "categoryAlreadyExistsMessage": "Category \"{}\" already exists",
   "newCategoryInputHint": "Type to create a new category",

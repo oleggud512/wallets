@@ -96,6 +96,7 @@ class _WalletWidgetState extends State<WalletWidget> {
       },
       child: Card(
         margin: EdgeInsets.zero,
+        color: Theme.of(context).colorScheme.primaryContainer,
         child: InkWell(
           borderRadius: BorderRadius.circular(p8),
           onTap: () {
