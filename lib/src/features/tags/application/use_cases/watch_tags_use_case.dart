@@ -3,7 +3,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/tag.dart';
 
-
 @Injectable()
 class WatchTagsUseCase {
   final TagsRepository repo;

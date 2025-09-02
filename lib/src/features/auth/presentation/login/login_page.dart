@@ -19,7 +19,6 @@ import '../../../../core/presentation/localization/locale_keys.g.dart';
 import 'login_page_bloc.dart';
 import 'login_page_states.dart';
 
-
 @RoutePage()
 class LoginPage extends StatefulWidget {
   const LoginPage({
@@ -39,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   final loginFormWidgetKey = GlobalKey<LoginFormWidgetState>();
 
   AuthRepository authRepo = getIt<AuthRepository>();
-  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -52,41 +51,44 @@ class _LoginPageState extends State<LoginPage> {
           child: MultiBlocProvider(
             providers: [
               BlocProvider(create: (_) => LoginFormBloc()),
-              BlocProvider(create: (context) => LoginPageBloc(
-                context.read<LoginFormBloc>(), 
-                getIt(), 
-                getIt()
-              )),
+              BlocProvider(
+                  create: (context) => LoginPageBloc(
+                      context.read<LoginFormBloc>(), getIt(), getIt())),
             ],
             child: BlocConsumer<LoginPageBloc, LoginPageState>(
-              listener: (context, state) {
-                if (state.authException == null) return;
-                context.showSnackBar(context.tr('${LocaleKeys.firebaseExceptions}.${state.authException!.localeKey}'));
-                context.read<LoginPageBloc>().add(LoginPageExceptionHandledEvent());
-              },
-              builder: (context, state) {
-                final bloc = context.watch<LoginPageBloc>();
-                return Scaffold(
-                  resizeToAvoidBottomInset: true,
-                  body: Stack(
-                    children: [
-                      if (state.isLoading) const LinearProgressIndicator(),
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          maxWidth: p400,
-                        ),
-                        child: ListView(
+                listener: (context, state) {
+              if (state.authException == null) return;
+              context.showSnackBar(context.tr(
+                  '${LocaleKeys.firebaseExceptions}.${state.authException!.localeKey}'));
+              context
+                  .read<LoginPageBloc>()
+                  .add(LoginPageExceptionHandledEvent());
+            }, builder: (context, state) {
+              final bloc = context.watch<LoginPageBloc>();
+              return Scaffold(
+                resizeToAvoidBottomInset: true,
+                body: Stack(
+                  children: [
+                    if (state.isLoading) const LinearProgressIndicator(),
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: p400,
+                      ),
+                      child: ListView(
                           padding: const EdgeInsets.all(p16),
                           children: [
                             h32gap,
-                            Text(context.tr(LocaleKeys.wallets), 
-                              style: context.textTheme!.displaySmall, 
+                            Text(
+                              context.tr(LocaleKeys.wallets),
+                              style: context.textTheme!.displaySmall,
                               textAlign: TextAlign.center,
                             ),
                             h32gap,
                             Padding(
-                              padding: const EdgeInsets.only(left: 10), // TODO: make wallet1.svg symmetric
-                              child: SvgPicture.asset(AppAssets.wallets1,
+                              padding: const EdgeInsets.only(
+                                  left: 10), // TODO: make wallet1.svg symmetric
+                              child: SvgPicture.asset(
+                                AppAssets.wallets1,
                                 height: p72,
                                 width: p72,
                               ),
@@ -96,63 +98,62 @@ class _LoginPageState extends State<LoginPage> {
                             h16gap,
                             // Sign In / Register button
                             FilledButton(
-                              onPressed: () {
-                                bloc.add(LoginPageSubmitEvent(() {
-                                  AutoRouter.of(context).replaceAll([const WalletsRoute()]);
-                                }));
-                              },
-                              style: FilledButton.styleFrom(
-                                fixedSize: const Size.fromHeight(56),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(p8)
-                                )
-                              ),
-                              child: Text(
-                                state.isSignIn
-                                  ? context.tr(LocaleKeys.signIn)
-                                  : context.tr(LocaleKeys.register),
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24
-                                )
-                              )
-                            ),
+                                onPressed: () {
+                                  bloc.add(LoginPageSubmitEvent(() {
+                                    AutoRouter.of(context)
+                                        .replaceAll([const WalletsRoute()]);
+                                  }));
+                                },
+                                style: FilledButton.styleFrom(
+                                    fixedSize: const Size.fromHeight(56),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(p8))),
+                                child: Text(
+                                    state.isSignIn
+                                        ? context.tr(LocaleKeys.signIn)
+                                        : context.tr(LocaleKeys.register),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 24))),
                             Padding(
                               padding: const EdgeInsets.all(p16),
                               child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  text: state.isSignIn 
-                                    ? context.tr(LocaleKeys.switchToRegisterMessage) 
-                                    : context.tr(LocaleKeys.switchToSignInMessage),
-                                  style: TextStyle(
-                                    color: Theme.of(context).colorScheme.onSurface
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: state.isSignIn 
-                                        ? context.tr(LocaleKeys.register) 
-                                        : context.tr(LocaleKeys.signIn),
-                                      recognizer: TapGestureRecognizer()..onTap = () {
-                                        bloc.add(LoginPageTogglePageModeEvent());
-                                      },
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                      text: state.isSignIn
+                                          ? context.tr(LocaleKeys
+                                              .switchToRegisterMessage)
+                                          : context.tr(
+                                              LocaleKeys.switchToSignInMessage),
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).colorScheme.primary
-                                      )
-                                    )
-                                  ]
-                                )
-                              ),
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface),
+                                      children: [
+                                        TextSpan(
+                                            text: state.isSignIn
+                                                ? context
+                                                    .tr(LocaleKeys.register)
+                                                : context.tr(LocaleKeys.signIn),
+                                            recognizer: TapGestureRecognizer()
+                                              ..onTap = () {
+                                                bloc.add(
+                                                    LoginPageTogglePageModeEvent());
+                                              },
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary))
+                                      ])),
                             )
-                          ]
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }
-            ),
+                          ]),
+                    ),
+                  ],
+                ),
+              );
+            }),
           ),
         ),
       ),

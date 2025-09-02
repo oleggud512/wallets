@@ -5,16 +5,13 @@ extension FormatFirebaseAuthExceptionCode on FirebaseAuthException {
   /// makes exception code more 'human readable'
   String get formattedCode {
     return code
-      .replaceAll('-', ' ')
-      .replaceFirst(code[0], code[0].toUpperCase());
+        .replaceAll('-', ' ')
+        .replaceFirst(code[0], code[0].toUpperCase());
   }
-
 
   // TODO: create custom LocaleKeys builder
   String get localeKey {
-    final c =  code.split('-')
-      .map((w) => w.capitalize())
-      .join('');
+    final c = code.split('-').map((w) => w.capitalize()).join('');
     return c.replaceRange(0, 1, c[0].toLowerCase());
   }
 }

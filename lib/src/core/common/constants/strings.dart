@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PrefsStrings {
   static const String themeMode = 'theme-mode';
   static const String currentLocale = 'current-locale';
-} 
+}
 
 class FirebaseStrings {
   static const String amount = 'amount';

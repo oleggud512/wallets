@@ -1,4 +1,3 @@
-
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/core/presentation/yes_no_dialog.dart';
@@ -26,8 +25,8 @@ class WalletsPage extends StatefulWidget {
   State<WalletsPage> createState() => _WalletsPageState();
 }
 
-class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin {
-
+class _WalletsPageState extends State<WalletsPage>
+    with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   Wallet? curWallet;
   bool isBottomSheetOpened = false;
@@ -38,12 +37,14 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
   }
 
   void onDeleteWallet(String walletId) async {
-    bool? delete = await YesNoDialog(
-      message: context.tr(LocaleKeys.confirmDeleteWallet)
-    ).show(context);
+    bool? delete =
+        await YesNoDialog(message: context.tr(LocaleKeys.confirmDeleteWallet))
+            .show(context);
 
     if (delete == true && mounted) {
-      context.read<WalletsPageBloc>().add(WalletsPageDeleteWalletEvent(walletId));
+      context
+          .read<WalletsPageBloc>()
+          .add(WalletsPageDeleteWalletEvent(walletId));
     }
   }
 
@@ -74,9 +75,7 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
       try {
         curWallet = wallets.firstWhere((w) => w.wid == curWallet!.wid);
       } catch (e) {
-        curWallet = wallets.isNotEmpty 
-          ? wallets[0] 
-          : null;
+        curWallet = wallets.isNotEmpty ? wallets[0] : null;
       }
     }
   }
@@ -86,33 +85,30 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-        title: Text(context.tr(LocaleKeys.wallets)),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: onOpenSettings,
-          )
-        ]
-      ),
+          title: Text(context.tr(LocaleKeys.wallets)),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: onOpenSettings,
+            )
+          ]),
       body: BlocProvider(
         create: (_) => WalletsPageBloc(
-          getIt<DeleteWalletUseCase>(),
-          getIt<WatchWalletsUseCase>()
-        )..add(WalletsPageStartEvent()),
+            getIt<DeleteWalletUseCase>(), getIt<WatchWalletsUseCase>())
+          ..add(WalletsPageStartEvent()),
         child: BlocBuilder<WalletsPageBloc, WalletsPageState>(
-          builder: (context, state) {
-            switch (state) {
-              case WalletsPageDefaultState():
-                configureCurWallet(state.wallets);
-                return state.wallets.isEmpty 
+            builder: (context, state) {
+          switch (state) {
+            case WalletsPageDefaultState():
+              configureCurWallet(state.wallets);
+              return state.wallets.isEmpty
                   ? buildPlaceholder()
                   : buildWallets(state.wallets);
-              default: 
-                return const Center(child: CircularProgressIndicator());
-            }
+            default:
+              return const Center(child: CircularProgressIndicator());
           }
-        ),
+        }),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: context.tr(LocaleKeys.addWallet),
@@ -129,24 +125,25 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
       ),
       child: SingleChildScrollView(
         child: ResponsiveGridRow(
-          children: wallets.map(
-            (w) => ResponsiveGridCol(
-              xs: 6, sm: 4, md: 4, lg: 2, xl: 2,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: p8,
-                  right: p8
-                ),
-                child: WalletWidget(
-                  wallet: w,
-                  isSelected: curWallet!.wid == w.wid,
-                  onDelete: () => onDeleteWallet(w.wid),
-                  onTap: () => setCurWallet(w),
-                  onHistoryButton: onOpenHistory,
-                ),
-              ),
-            )
-          ).toList(),
+          children: wallets
+              .map((w) => ResponsiveGridCol(
+                    xs: 6,
+                    sm: 4,
+                    md: 4,
+                    lg: 2,
+                    xl: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: p8, right: p8),
+                      child: WalletWidget(
+                        wallet: w,
+                        isSelected: curWallet!.wid == w.wid,
+                        onDelete: () => onDeleteWallet(w.wid),
+                        onTap: () => setCurWallet(w),
+                        onHistoryButton: onOpenHistory,
+                      ),
+                    ),
+                  ))
+              .toList(),
         ),
       ),
     );
@@ -159,20 +156,18 @@ class _WalletsPageState extends State<WalletsPage> with TickerProviderStateMixin
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: p16),
-          child: Text(context.tr(LocaleKeys.addFirstWalletHelperText), 
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(
-              color: Colors.grey.shade600
-            )
-          ),
+          child: Text(context.tr(LocaleKeys.addFirstWalletHelperText),
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall
+                  ?.copyWith(color: Colors.grey.shade600)),
         ),
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Icon(Icons.south_east_rounded, 
-              size: p64, 
-              color: Colors.grey.shade600
-            ),
+            Icon(Icons.south_east_rounded,
+                size: p64, color: Colors.grey.shade600),
             const SizedBox(width: p72)
           ],
         ),

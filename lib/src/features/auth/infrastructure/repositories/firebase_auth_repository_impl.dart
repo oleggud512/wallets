@@ -13,7 +13,7 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<FirebaseAuthException, void>> signInWithEmailAndPassword(
-        String email, String password) async {
+      String email, String password) async {
     try {
       await auth.signInWithEmailAndPassword(email: email, password: password);
       return const Right(null);
@@ -24,14 +24,10 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Either<FirebaseAuthException, void>> registerWithEmailAndPassword(
-    String email, 
-    String password
-  ) async {
+      String email, String password) async {
     try {
       await auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password
-      );
+          email: email, password: password);
       return const Right(null);
     } on FirebaseAuthException catch (e) {
       return Left(e);
@@ -53,21 +49,20 @@ class FirebaseAuthRepositoryImpl implements AuthRepository {
   Future<void> sendVerificationEmail() async {
     await auth.currentUser!.sendEmailVerification();
   }
-  
+
   @override
   bool get isEmailVerified => auth.currentUser?.emailVerified ?? false;
-  
+
   @override
   bool get isSignedIn => auth.currentUser != null;
 
   @override
-  AppUser? get currentUser => auth.currentUser != null 
-    ? AppUser(uid: auth.currentUser!.uid, email: auth.currentUser!.email!) 
-    : null;
-    
+  AppUser? get currentUser => auth.currentUser != null
+      ? AppUser(uid: auth.currentUser!.uid, email: auth.currentUser!.email!)
+      : null;
+
   @override
   Future<void> refreshUser() async {
     await auth.currentUser?.reload();
   }
-
 }

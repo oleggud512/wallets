@@ -11,9 +11,8 @@ class HistoryPageBloc extends Bloc<HistoryPageEvent, HistoryPageState> {
   final WatchTagsUseCase watchTags;
   final String walletId;
 
-  
-  HistoryPageBloc(this.walletId, this.watchWallet, this.watchTags) : super(HistoryPageState(wallet: Wallet())) {
-
+  HistoryPageBloc(this.walletId, this.watchWallet, this.watchTags)
+      : super(HistoryPageState(wallet: Wallet())) {
     on<HistoryPageLoadEvent>((event, emit) async {
       final walletStream = watchWallet(walletId);
       final tagsStream = watchTags();
@@ -26,5 +25,4 @@ class HistoryPageBloc extends Bloc<HistoryPageEvent, HistoryPageState> {
       });
     });
   }
-  
 }

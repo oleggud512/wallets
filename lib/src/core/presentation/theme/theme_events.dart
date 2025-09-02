@@ -8,5 +8,5 @@ class ThemeEvent with _$ThemeEvent {
   factory ThemeEvent() = _ThemeEvent;
 
   factory ThemeEvent.load() = ThemeLoadEvent;
-  factory ThemeEvent.changeTheme(ThemeMode newTheme) = ThemeChangeThemeEvent; 
+  factory ThemeEvent.changeTheme(ThemeMode newTheme) = ThemeChangeThemeEvent;
 }

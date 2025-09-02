@@ -15,16 +15,15 @@ class TagListBloc extends Bloc<TagListEvent, TagListState> {
   DeleteTagUseCase deleteTagUseCase;
   final WalletAction action;
 
-  TagListBloc(this.action, this.watchTagsUseCase, this.addTagUseCase, this.deleteTagUseCase) : super(TagListState()) {
-    
+  TagListBloc(this.action, this.watchTagsUseCase, this.addTagUseCase,
+      this.deleteTagUseCase)
+      : super(TagListState()) {
     on<TagListLoadEvent>((event, emit) {
       final tagsStream = watchTagsUseCase();
-      emit.onEach(tagsStream, 
-        onData: (tags) {
-          glogger.i('tags arrived: ${tags.map((e) => e.name)}');
-          emit(state.copyWith(tags: tags));
-        }
-      );
+      emit.onEach(tagsStream, onData: (tags) {
+        glogger.i('tags arrived: ${tags.map((e) => e.name)}');
+        emit(state.copyWith(tags: tags));
+      });
     });
 
     on<TagListNameChangedEvent>((event, emit) {
@@ -37,10 +36,7 @@ class TagListBloc extends Bloc<TagListEvent, TagListState> {
 
     on<TagListAddTagEvent>((event, emit) async {
       await addTagUseCase(
-        action: action, 
-        color: state.newTagColor, 
-        name: state.newTagName
-      );
+          action: action, color: state.newTagColor, name: state.newTagName);
       event.onAdded?.call();
       emit(state.copyWith(newTagColor: Colors.grey, newTagName: ''));
     });

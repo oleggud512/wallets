@@ -10,38 +10,36 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
   final LoginFormBloc _loginFormBloc;
   final SignInWithEmailAndPasswordUseCase signIn;
   final SignUpWithEmailAndPasswordUseCase signUp;
-  
-  LoginPageBloc(
-    LoginFormBloc loginFormBloc, 
-    this.signIn, 
-    this.signUp
-  ) : _loginFormBloc = loginFormBloc, super(LoginPageState()) {
 
+  LoginPageBloc(LoginFormBloc loginFormBloc, this.signIn, this.signUp)
+      : _loginFormBloc = loginFormBloc,
+        super(LoginPageState()) {
     on<LoginPageTogglePageModeEvent>((event, emit) {
-      emit(state.copyWith(pageMode: state.pageMode == LoginPageMode.signIn 
-        ? LoginPageMode.singUp 
-        : LoginPageMode.signIn
-      ));
+      emit(state.copyWith(
+          pageMode: state.pageMode == LoginPageMode.signIn
+              ? LoginPageMode.singUp
+              : LoginPageMode.signIn));
 
       _loginFormBloc.add(LoginFormSetConfirmPasswordEvent(state.isSignUp));
     });
 
     on<LoginPageSubmitEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-      
+
       if (!_loginFormBloc.state.isValid) return;
-      
+
       final res = state.isSignIn
-        ? await signIn(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value)
-        : await signUp(_loginFormBloc.state.email.value, _loginFormBloc.state.password.value);
-      
+          ? await signIn(_loginFormBloc.state.email.value,
+              _loginFormBloc.state.password.value)
+          : await signUp(_loginFormBloc.state.email.value,
+              _loginFormBloc.state.password.value);
+
       res.fold(
-        (left) => emit(state.copyWith(isLoading: false, authException: left)), 
-        (right) {
-          event.onSuccess();
-          emit(state.copyWith(isLoading: false));
-        }
-      );
+          (left) => emit(state.copyWith(isLoading: false, authException: left)),
+          (right) {
+        event.onSuccess();
+        emit(state.copyWith(isLoading: false));
+      });
     });
 
     on<LoginPageExceptionHandledEvent>((event, emit) {

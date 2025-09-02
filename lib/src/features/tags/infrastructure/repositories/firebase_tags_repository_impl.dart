@@ -16,8 +16,8 @@ class FirebaseTagsRepositoryImpl implements TagsRepository {
   @override
   Future<void> addTag(Tag tag) {
     return source.userRef
-      .child(FirebaseStrings.tag(tag.name))
-      .update(tag.toJson());
+        .child(FirebaseStrings.tag(tag.name))
+        .update(tag.toJson());
   }
 
   @override
@@ -28,23 +28,19 @@ class FirebaseTagsRepositoryImpl implements TagsRepository {
   @override
   Stream<List<Tag>> watchTags() {
     return source.userRef.child(FirebaseStrings.tags).onValue.map(
-      (event) => event.snapshot.children.map(Tag.fromDataSnapshot).toList()
-    );
+        (event) => event.snapshot.children.map(Tag.fromDataSnapshot).toList());
   }
 
   @override
   Future<Either<AppException, Tag>> fetchTag(String name) async {
     try {
-      final tagSnapshot = await source.userRef
-        .child(FirebaseStrings.tags)
-        .child(name)
-        .get();
-      
+      final tagSnapshot =
+          await source.userRef.child(FirebaseStrings.tags).child(name).get();
+
       final tag = Tag.fromDataSnapshot(tagSnapshot);
       return Right(tag);
     } catch (e) {
       return Left(AppException(error: e));
     }
   }
-  
 }

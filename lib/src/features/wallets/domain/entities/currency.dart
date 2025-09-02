@@ -3,11 +3,7 @@ class Currency {
   String symbol;
   String code;
 
-  Currency({
-    required this.name,
-    required this.symbol,
-    required this.code
-  });
+  Currency({required this.name, required this.symbol, required this.code});
 
   @override
   String toString() {
@@ -16,9 +12,6 @@ class Currency {
 
   factory Currency.fromJson(Map<String, dynamic> json) {
     return Currency(
-      name: json['name'],
-      code: json['code'],
-      symbol: json['symbol']
-    );
+        name: json['name'], code: json['code'], symbol: json['symbol']);
   }
 }

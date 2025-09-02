@@ -49,5 +49,7 @@
 		<string>ca-app-pub-6399403413008664~9434908170</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
-	</dict>
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+</dict>
 </plist>

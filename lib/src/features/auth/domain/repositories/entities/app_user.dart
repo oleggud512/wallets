@@ -4,6 +4,6 @@ class AppUser {
 
   AppUser({
     required this.uid,
-    required this.email, 
+    required this.email,
   });
 }

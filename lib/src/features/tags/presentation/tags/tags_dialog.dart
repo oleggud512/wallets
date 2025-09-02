@@ -36,10 +36,7 @@ const allTagColors = [
 
 @RoutePage(name: 'TagsDialogRoute')
 class TagsDialog extends StatefulWidget {
-  const TagsDialog({
-    Key? key,
-    required this.action
-  }) : super(key: key);
+  const TagsDialog({Key? key, required this.action}) : super(key: key);
 
   final WalletAction action;
 
@@ -54,11 +51,9 @@ class _TagsDialogState extends State<TagsDialog> {
 
   Future<void> onDeleteTag(BuildContext context, Tag tag) async {
     bool? delete = await YesNoDialog(
-      message: context.tr(
-        LocaleKeys.confirmDeleteCategory, 
-        args: [tag.name]
-      )
-    ).show(context);
+            message:
+                context.tr(LocaleKeys.confirmDeleteCategory, args: [tag.name]))
+        .show(context);
     if (delete == true && mounted) {
       context.read<TagListBloc>().add(TagListDeleteTagEvent(tag.name));
     }
@@ -67,21 +62,19 @@ class _TagsDialogState extends State<TagsDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(p8)
-      ),
-      child: SizedBox(
-        height: 400,
-        width: 400,
-        child: BlocProvider(
-          create: (_) => TagListBloc(widget.action, getIt(), getIt(), getIt())
-            ..add(TagListLoadEvent()),
-          child: BlocBuilder<TagListBloc, TagListState>(
-            builder: (context, state) {
-              final bloc = context.read<TagListBloc>();
-              return ListView(
-                children: [
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(p8)),
+        child: SizedBox(
+            height: 400,
+            width: 400,
+            child: BlocProvider(
+              create: (_) =>
+                  TagListBloc(widget.action, getIt(), getIt(), getIt())
+                    ..add(TagListLoadEvent()),
+              child: BlocBuilder<TagListBloc, TagListState>(
+                  builder: (context, state) {
+                final bloc = context.read<TagListBloc>();
+                return ListView(children: [
                   h16gap,
                   ListTile(
                     title: TextFormField(
@@ -94,72 +87,63 @@ class _TagsDialogState extends State<TagsDialog> {
                       validator: (val) {
                         if (val!.isEmpty) {
                           return context.tr(LocaleKeys.promptCategory);
-                        } else if (state.tags.map((e) => e.name).contains(val)) {
+                        } else if (state.tags
+                            .map((e) => e.name)
+                            .contains(val)) {
                           return context.tr(
-                            LocaleKeys.categoryAlreadyExistsMessage, 
-                            args: [val]
-                          );
+                              LocaleKeys.categoryAlreadyExistsMessage,
+                              args: [val]);
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: context.tr(LocaleKeys.newCategoryInputHint)
-                      ),
+                          hintText:
+                              context.tr(LocaleKeys.newCategoryInputHint)),
                     ),
                   ),
-                  if (state.newTagName.isNotEmpty) ListTile(
-                    trailing: IconButton(
-                      icon: const Icon(Icons.check),
-                      onPressed: () {
-                        if (fieldKey.currentState!.validate()) {
-                          bloc.add(TagListAddTagEvent(() {
-                            cont.clear();
-                          }));
-                        }
-                      }
-                    ),
-                    title: DropdownButton<Color>(
-                      value: state.newTagColor,
-                      isExpanded: true,
-                      items: allTagColors.map(
-                        (e) => DropdownMenuItem<Color>(
-                          value: e,
-                          child: TagWidget(
-                            tag: Tag(
-                              color: e,
-                              name: state.newTagName,
-                              action: widget.action
-                            )
-                          )
-                        )
-                      ).toSet().toList(),
-                      onChanged: (v) {
-                        bloc.add(TagListColorChangedEvent(v!));
-                      },
-                    )
-                  ),
-                  for (Tag tag in state.tags
-                      .where((tag) => tag.action == widget.action)) ListTile(
-                    title: Row(
-                      children: [
-                        TagWidget(tag: tag),
-                        const Spacer()
-                      ],
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () => onDeleteTag(context, tag),
-                    ),
-                    onTap: () {
-                      context.popRoute(tag);
-                    }
-                  )
-                ]
-              );
-            }
-          ),
-        )
-      )
-    );
+                  if (state.newTagName.isNotEmpty)
+                    ListTile(
+                        trailing: IconButton(
+                            icon: const Icon(Icons.check),
+                            onPressed: () {
+                              if (fieldKey.currentState!.validate()) {
+                                bloc.add(TagListAddTagEvent(() {
+                                  cont.clear();
+                                }));
+                              }
+                            }),
+                        title: DropdownButton<Color>(
+                          value: state.newTagColor,
+                          isExpanded: true,
+                          items: allTagColors
+                              .map((e) => DropdownMenuItem<Color>(
+                                  value: e,
+                                  child: TagWidget(
+                                      tag: Tag(
+                                          color: e,
+                                          name: state.newTagName,
+                                          action: widget.action))))
+                              .toSet()
+                              .toList(),
+                          onChanged: (v) {
+                            bloc.add(TagListColorChangedEvent(v!));
+                          },
+                        )),
+                  for (Tag tag
+                      in state.tags.where((tag) => tag.action == widget.action))
+                    ListTile(
+                        title: Row(
+                          children: [TagWidget(tag: tag), const Spacer()],
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () => onDeleteTag(context, tag),
+                        ),
+                        onTap: () {
+                          context.popRoute(tag);
+                        })
+                ]);
+              }),
+            )));
   }
 }

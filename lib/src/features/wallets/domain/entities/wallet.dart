@@ -2,7 +2,6 @@ import 'package:firebase_database/firebase_database.dart';
 
 import '../../../history/domain/entities/history_node.dart';
 
-
 Map<String, dynamic> historyNodeListToJson(List<HistoryNode> history) {
   Map<String, dynamic> historyJson = {};
   for (HistoryNode node in history) {
@@ -10,7 +9,6 @@ Map<String, dynamic> historyNodeListToJson(List<HistoryNode> history) {
   }
   return historyJson;
 }
-
 
 class Wallet {
   String wid;
@@ -29,30 +27,33 @@ class Wallet {
     List<HistoryNode>? history,
     DateTime? creationDate,
     DateTime? lastUpdated,
-  }) : history = history ?? [],
-    creationDate = creationDate ?? DateTime.now(),
-    lastUpdated = lastUpdated ?? DateTime.now();
-  
+  })  : history = history ?? [],
+        creationDate = creationDate ?? DateTime.now(),
+        lastUpdated = lastUpdated ?? DateTime.now();
+
   factory Wallet.fromDataSnapshot(DataSnapshot snapshot) {
     var resWal = Wallet(
-      wid: snapshot.key!,
-      creationDate: DateTime.fromMillisecondsSinceEpoch(
-          snapshot.child('creation-date').value as int),
-      lastUpdated: DateTime.fromMillisecondsSinceEpoch(
-          snapshot.child('last-updated').value as int),
-      amount: double.parse(snapshot.child('amount').value.toString()),
-      currency: snapshot.child('currency').value as String,
-      description: snapshot.child('description').value as String,
-      history: snapshot.hasChild('history') 
-        ? () {
-          List<HistoryNode> hns = snapshot.child('history').children.map(
-            (hs) => HistoryNode.fromDataSnapshot(hs)
-          ).toList().reversed.toList();
-          hns.sort((a, b) => b.date.compareTo(a.date));
-          return hns;
-        }()
-        : []
-    );
+        wid: snapshot.key!,
+        creationDate: DateTime.fromMillisecondsSinceEpoch(
+            snapshot.child('creation-date').value as int),
+        lastUpdated: DateTime.fromMillisecondsSinceEpoch(
+            snapshot.child('last-updated').value as int),
+        amount: double.parse(snapshot.child('amount').value.toString()),
+        currency: snapshot.child('currency').value as String,
+        description: snapshot.child('description').value as String,
+        history: snapshot.hasChild('history')
+            ? () {
+                List<HistoryNode> hns = snapshot
+                    .child('history')
+                    .children
+                    .map((hs) => HistoryNode.fromDataSnapshot(hs))
+                    .toList()
+                    .reversed
+                    .toList();
+                hns.sort((a, b) => b.date.compareTo(a.date));
+                return hns;
+              }()
+            : []);
     return resWal;
   }
 
@@ -76,5 +77,4 @@ class Wallet {
       'history': historyNodeListToJson(history)
     };
   }
-
 }

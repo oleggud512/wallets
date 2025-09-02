@@ -11,9 +11,7 @@ import 'package:flutter/material.dart';
 import '../../../history/domain/entities/history_node.dart';
 import '../../../../core/presentation/edit_description_dialog.dart';
 
-
 class WalletWidget extends StatefulWidget {
-
   const WalletWidget({
     Key? key,
     required this.wallet,
@@ -58,17 +56,13 @@ class _WalletWidgetState extends State<WalletWidget> {
   }
 
   void onAddFunds() async {
-    await context.pushRoute(TransactionRoute(
-      action: WalletAction.add, 
-      wallet: widget.wallet
-    ));
+    await context.pushRoute(
+        TransactionRoute(action: WalletAction.add, wallet: widget.wallet));
   }
 
   void onTakeFunds() async {
-    await context.pushRoute(TransactionRoute(
-      action: WalletAction.take, 
-      wallet: widget.wallet
-    ));
+    await context.pushRoute(
+        TransactionRoute(action: WalletAction.take, wallet: widget.wallet));
   }
 
   @override
@@ -112,49 +106,49 @@ class _WalletWidgetState extends State<WalletWidget> {
               alignment: Alignment.topCenter,
               duration: const Duration(milliseconds: 300),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('${wallet.amount} ${wallet.currency}',
-                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          // color: Theme.of(context).colorScheme.onPrimary
-                        )
-                      ),
-                      if (widget.isSelected && wallet.history.isNotEmpty) InkWell(
-                        onTap: widget.onHistoryButton, 
-                        borderRadius: BorderRadius.circular(10),
-                        child: const Icon(Icons.history)
-                      )
-                    ],
-                  ),
-                  if (wallet.description.isNotEmpty) Text(
-                    wallet.description,
-                    overflow: widget.isSelected
-                      ? TextOverflow.clip
-                      : TextOverflow.ellipsis,
-                  ),
-                  if (widget.isSelected) ...[
-                    h16gap,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        buildWalletActionButton(context, 
-                          onPressed: onAddFunds, 
-                          text: context.tr(LocaleKeys.add)
-                        ),
-                        w16gap,
-                        buildWalletActionButton(context, 
-                          onPressed: onTakeFunds, 
-                          text: context.tr(LocaleKeys.take)
-                        ),
+                        Text('${wallet.amount} ${wallet.currency}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  // color: Theme.of(context).colorScheme.onPrimary
+                                )),
+                        if (widget.isSelected && wallet.history.isNotEmpty)
+                          InkWell(
+                              onTap: widget.onHistoryButton,
+                              borderRadius: BorderRadius.circular(10),
+                              child: const Icon(Icons.history))
                       ],
-                    )
-                  ]
-                ]
-              ),
+                    ),
+                    if (wallet.description.isNotEmpty)
+                      Text(
+                        wallet.description,
+                        overflow: widget.isSelected
+                            ? TextOverflow.clip
+                            : TextOverflow.ellipsis,
+                      ),
+                    if (widget.isSelected) ...[
+                      h16gap,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildWalletActionButton(context,
+                              onPressed: onAddFunds,
+                              text: context.tr(LocaleKeys.add)),
+                          w16gap,
+                          buildWalletActionButton(context,
+                              onPressed: onTakeFunds,
+                              text: context.tr(LocaleKeys.take)),
+                        ],
+                      )
+                    ]
+                  ]),
             ),
           ),
         ),
@@ -162,10 +156,8 @@ class _WalletWidgetState extends State<WalletWidget> {
     );
   }
 
-  Widget buildWalletActionButton(BuildContext context, {
-      required onPressed, 
-      required text
-  }) {
+  Widget buildWalletActionButton(BuildContext context,
+      {required onPressed, required text}) {
     var t = Theme.of(context);
     return Expanded(
       child: ConstrainedBox(
@@ -174,19 +166,17 @@ class _WalletWidgetState extends State<WalletWidget> {
           maxHeight: 20,
         ),
         child: Material(
-          elevation: 2,
-          borderRadius: BorderRadius.circular(p8),
-          color: t.colorScheme.primary,
-          child: InkWell(
+            elevation: 2,
             borderRadius: BorderRadius.circular(p8),
-            onTap: onPressed,
-            child: Center(
-              child: Text(text,
-                style: TextStyle(color: t.buttonTheme.colorScheme?.onPrimary)
-              ),
-            )
-          )
-        ),
+            color: t.colorScheme.primary,
+            child: InkWell(
+                borderRadius: BorderRadius.circular(p8),
+                onTap: onPressed,
+                child: Center(
+                  child: Text(text,
+                      style: TextStyle(
+                          color: t.buttonTheme.colorScheme?.onPrimary)),
+                ))),
       ),
     );
   }

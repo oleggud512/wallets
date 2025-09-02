@@ -1,4 +1,3 @@
-
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_bloc.dart';
 import 'package:ads_pay_app/src/features/auth/presentation/login_form/login_form_events.dart';
@@ -9,12 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/common/constants/sizes.dart';
 import '../../../../core/presentation/password_text_field.dart';
 
-
 class LoginFormWidget extends StatefulWidget {
-  const LoginFormWidget({
-    super.key,
-    this.confirmPassword = false
-  });
+  const LoginFormWidget({super.key, this.confirmPassword = false});
 
   final bool confirmPassword;
 
@@ -40,29 +35,28 @@ class LoginFormWidgetState extends State<LoginFormWidget> {
               return res == null ? null : context.tr(res.localeKey);
             },
             onChanged: (v) => bloc.add(LoginFormEmailChangedEvent(v)),
-            decoration: InputDecoration(
-              helperText: context.tr(LocaleKeys.email)
-            ),
+            decoration:
+                InputDecoration(helperText: context.tr(LocaleKeys.email)),
           ),
           h16gap,
           PasswordTextField(
-            validator: (v) {
-              final state = context.read<LoginFormBloc>().state;
-              var res = state.password.displayError ?? state.passwordError;
-              return res == null ? null : context.tr(res.localeKey);
-            },
-            onChanged: (v) => bloc.add(LoginFormPasswordChangedEvent(v)),
-            helperText: context.tr(LocaleKeys.password)
-          ),
+              validator: (v) {
+                final state = context.read<LoginFormBloc>().state;
+                var res = state.password.displayError ?? state.passwordError;
+                return res == null ? null : context.tr(res.localeKey);
+              },
+              onChanged: (v) => bloc.add(LoginFormPasswordChangedEvent(v)),
+              helperText: context.tr(LocaleKeys.password)),
           if (widget.confirmPassword) ...[
-            h16gap, 
+            h16gap,
             PasswordTextField(
               validator: (v) {
                 final state = context.read<LoginFormBloc>().state;
                 final res = state.password.confirmationPassword?.displayError;
                 return res == null ? null : context.tr(res.localeKey);
               },
-              onChanged: (v) => bloc.add(LoginFormConfirmPasswordChangedEvent(v)),
+              onChanged: (v) =>
+                  bloc.add(LoginFormConfirmPasswordChangedEvent(v)),
               helperText: context.tr(LocaleKeys.confirmPassword),
             )
           ]

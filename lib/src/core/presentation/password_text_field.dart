@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({
-    super.key,
-    this.validator,
-    this.onChanged,
-    this.controller,
-    this.helperText = 'Password',
-    this.onFieldSubmitted
-  });
+  const PasswordTextField(
+      {super.key,
+      this.validator,
+      this.onChanged,
+      this.controller,
+      this.helperText = 'Password',
+      this.onFieldSubmitted});
 
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
@@ -21,7 +20,6 @@ class PasswordTextField extends StatefulWidget {
 }
 
 class _PasswordTextFieldState extends State<PasswordTextField> {
-
   bool isPasswordShown = false;
   changePasswordShown(bool shown) => setState(() => isPasswordShown = shown);
 
@@ -34,14 +32,13 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       onFieldSubmitted: widget.onFieldSubmitted,
       obscureText: !isPasswordShown,
       decoration: InputDecoration(
-        helperText: widget.helperText,
-        suffixIcon: IconButton(
-          onPressed: () {
-            changePasswordShown(!isPasswordShown);
-          },
-          icon: Icon(isPasswordShown ? Icons.visibility_off : Icons.visibility)
-        )
-      ),
+          helperText: widget.helperText,
+          suffixIcon: IconButton(
+              onPressed: () {
+                changePasswordShown(!isPasswordShown);
+              },
+              icon: Icon(
+                  isPasswordShown ? Icons.visibility_off : Icons.visibility))),
     );
   }
 }

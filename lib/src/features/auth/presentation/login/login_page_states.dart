@@ -7,11 +7,10 @@ enum LoginPageMode { signIn, singUp }
 
 @freezed
 class LoginPageState with _$LoginPageState {
-  factory LoginPageState({
-    @Default(LoginPageMode.signIn) LoginPageMode pageMode,
-    @Default(false) isLoading,
-    FirebaseAuthException? authException
-  }) = _LoginPageState;
+  factory LoginPageState(
+      {@Default(LoginPageMode.signIn) LoginPageMode pageMode,
+      @Default(false) isLoading,
+      FirebaseAuthException? authException}) = _LoginPageState;
 }
 
 extension LoginPageStateGetters on LoginPageState {

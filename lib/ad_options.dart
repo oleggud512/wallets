@@ -1,7 +1,6 @@
 import 'dart:io';
 
 class AdDefaultOptions {
-
   static String get bannerAdUnitId {
     if (Platform.isAndroid) {
       print('AdDefaultOptions: bannerAdUnitId isAndroid');

@@ -7,13 +7,11 @@ import '../../common/constants/strings.dart';
 @Singleton()
 class FirebaseUserDataSource {
   FirebaseUserDataSource(this.getCurrentUser);
-  
+
   final GetCurrentUserUseCase getCurrentUser;
   final FirebaseDatabase db = FirebaseDatabase.instance;
 
   String get uid => getCurrentUser()?.uid ?? '';
 
-  DatabaseReference get userRef => db
-    .ref(FirebaseStrings.accounts)
-    .child(uid);
+  DatabaseReference get userRef => db.ref(FirebaseStrings.accounts).child(uid);
 }

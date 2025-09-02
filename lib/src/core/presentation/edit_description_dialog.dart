@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'dialog_widget.dart';
 
-
 class EditDescriptionDialog extends StatefulWidget with DialogWidget<String> {
   const EditDescriptionDialog({
     super.key,
@@ -29,40 +28,36 @@ class _EditDescriptionDialogState extends State<EditDescriptionDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      contentPadding: const EdgeInsets.all(20),
-      content: ConstrainedBox(
-        constraints: const BoxConstraints(
-          minWidth: 280
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 200,
-              child: TextFormField(
-                autofocus: true,
-                controller: descrCont,
-                textAlignVertical: TextAlignVertical.top,
-                maxLength: 255,
-                expands: true,
-                maxLines: null,
-                minLines: null,
-                decoration: InputDecoration(
-                  labelText: context.tr(LocaleKeys.description),
-                  alignLabelWithHint: true,
+        contentPadding: const EdgeInsets.all(20),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 280),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 200,
+                  child: TextFormField(
+                    autofocus: true,
+                    controller: descrCont,
+                    textAlignVertical: TextAlignVertical.top,
+                    maxLength: 255,
+                    expands: true,
+                    maxLines: null,
+                    minLines: null,
+                    decoration: InputDecoration(
+                      labelText: context.tr(LocaleKeys.description),
+                      alignLabelWithHint: true,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            FilledButton(
-              child: Text(context.tr(LocaleKeys.save)),
-              onPressed: () {
-                Navigator.pop(context, descrCont.text);
-              },
-            )
-          ]
-        ),
-      )
-    );
+                FilledButton(
+                  child: Text(context.tr(LocaleKeys.save)),
+                  onPressed: () {
+                    Navigator.pop(context, descrCont.text);
+                  },
+                )
+              ]),
+        ));
   }
 }

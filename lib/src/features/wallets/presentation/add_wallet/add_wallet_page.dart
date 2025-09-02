@@ -1,4 +1,3 @@
-
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
 import 'package:ads_pay_app/src/core/presentation/localization/locale_keys.g.dart';
 import 'package:ads_pay_app/src/features/wallets/infrastructure/data_sources/currency_provider.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../get_it.dart';
 import '../../domain/entities/currency.dart';
 
-
 @RoutePage()
 class AddWalletPage extends StatefulWidget {
   const AddWalletPage({Key? key}) : super(key: key);
@@ -24,15 +22,15 @@ class AddWalletPage extends StatefulWidget {
 
 class _AddWalletPageState extends State<AddWalletPage> {
   final formKey = GlobalKey<FormState>();
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => AddWalletPageBloc(getIt()),
       child: BlocBuilder<AddWalletPageBloc, AddWalletPageState>(
-        builder: (context, state) {
-          final bloc = context.read<AddWalletPageBloc>();
-          return Scaffold(
+          builder: (context, state) {
+        final bloc = context.read<AddWalletPageBloc>();
+        return Scaffold(
             appBar: AppBar(
               title: Text(context.tr(LocaleKeys.addWallet)),
             ),
@@ -42,76 +40,72 @@ class _AddWalletPageState extends State<AddWalletPage> {
                 child: Form(
                   key: formKey,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      h16gap,
-                      // CURRENCY
-                      DropdownButtonFormField<Currency>(
-                        onChanged: (cur) {
-                          bloc.add(AddWalletPageCurrencyChangedEvent(cur?.symbol ?? ''));
-                        },
-                        validator: (cur) {
-                          return state.currency.isEmpty
-                            ? context.tr(LocaleKeys.chooseCurrency)
-                            : null;
-                        },
-                        items: getIt<CurrencyProvider>().currencies.map(
-                          (c) => DropdownMenuItem(
-                            value: c,
-                            child: Text(c.toString())
-                          )
-                        ).toList(),
-                        hint: Text(context.tr(LocaleKeys.currency)),
-                        isExpanded: true,
-                      ),
-                      h16gap,
-                      // AMOUNT
-                      TextFormField(
-                        keyboardType: TextInputType.number,
-                        onChanged: (v) {
-                          bloc.add(AddWalletPageAmountChangedEvent(double.parse(v.replaceAll(',', '.'))));
-                        },
-                        decoration: InputDecoration(
-                          labelText: context.tr(LocaleKeys.amount)
-                        ),
-                      ),
-                      h16gap,
-                      SizedBox(
-                        height: 200,
-                        child: TextFormField(
-                          textAlignVertical: TextAlignVertical.top,
-                          maxLength: 255,
-                          expands: true,
-                          maxLines: null,
-                          minLines: null,
-                          decoration: InputDecoration(
-                            labelText: context.tr(LocaleKeys.description),
-                            alignLabelWithHint: true,
-                          ),
-                          onChanged: (v) {
-                            bloc.add(AddWalletPageDescriptionChangedEvent(v));
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        h16gap,
+                        // CURRENCY
+                        DropdownButtonFormField<Currency>(
+                          onChanged: (cur) {
+                            bloc.add(AddWalletPageCurrencyChangedEvent(
+                                cur?.symbol ?? ''));
                           },
+                          validator: (cur) {
+                            return state.currency.isEmpty
+                                ? context.tr(LocaleKeys.chooseCurrency)
+                                : null;
+                          },
+                          items: getIt<CurrencyProvider>()
+                              .currencies
+                              .map((c) => DropdownMenuItem(
+                                  value: c, child: Text(c.toString())))
+                              .toList(),
+                          hint: Text(context.tr(LocaleKeys.currency)),
+                          isExpanded: true,
                         ),
-                      ),
-                      h16gap,
-                      FilledButton(
-                        child: Text(context.tr(LocaleKeys.addWallet)),
-                        onPressed: () async {
-                          if (!formKey.currentState!.validate()) return;
-    
-                          bloc.add(AddWalletPageAddWalletEvent(() {
-                            if (mounted) context.popRoute(); 
-                          }));
-                        }
-                      )
-                    ]
-                  ),
+                        h16gap,
+                        // AMOUNT
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          onChanged: (v) {
+                            bloc.add(AddWalletPageAmountChangedEvent(
+                                double.parse(v.replaceAll(',', '.'))));
+                          },
+                          decoration: InputDecoration(
+                              labelText: context.tr(LocaleKeys.amount)),
+                        ),
+                        h16gap,
+                        SizedBox(
+                          height: 200,
+                          child: TextFormField(
+                            textAlignVertical: TextAlignVertical.top,
+                            maxLength: 255,
+                            expands: true,
+                            maxLines: null,
+                            minLines: null,
+                            decoration: InputDecoration(
+                              labelText: context.tr(LocaleKeys.description),
+                              alignLabelWithHint: true,
+                            ),
+                            onChanged: (v) {
+                              bloc.add(AddWalletPageDescriptionChangedEvent(v));
+                            },
+                          ),
+                        ),
+                        h16gap,
+                        FilledButton(
+                            child: Text(context.tr(LocaleKeys.addWallet)),
+                            onPressed: () async {
+                              if (!formKey.currentState!.validate()) return;
+
+                              bloc.add(AddWalletPageAddWalletEvent(() {
+                                if (mounted) context.popRoute();
+                              }));
+                            })
+                      ]),
                 ),
               ),
-            )
-          );
-        }
-      ),
+            ));
+      }),
     );
   }
 }

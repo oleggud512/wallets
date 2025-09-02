@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '608480446369',
     projectId: 'wallets-53896',
     storageBucket: 'wallets-53896.appspot.com',
-    iosClientId: '608480446369-3mshrn4325m6hufod14lfr98rrmi9a9i.apps.googleusercontent.com',
+    iosClientId:
+        '608480446369-3mshrn4325m6hufod14lfr98rrmi9a9i.apps.googleusercontent.com',
     iosBundleId: 'com.example.adsPayApp',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '608480446369',
     projectId: 'wallets-53896',
     storageBucket: 'wallets-53896.appspot.com',
-    iosClientId: '608480446369-3mshrn4325m6hufod14lfr98rrmi9a9i.apps.googleusercontent.com',
+    iosClientId:
+        '608480446369-3mshrn4325m6hufod14lfr98rrmi9a9i.apps.googleusercontent.com',
     iosBundleId: 'com.example.adsPayApp',
   );
 }

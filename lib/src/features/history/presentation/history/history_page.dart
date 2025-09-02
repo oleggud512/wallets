@@ -64,40 +64,32 @@ import '../history_node/history_node_widget.dart';
 */
 @RoutePage()
 class HistoryPage extends StatelessWidget {
-  const HistoryPage({
-    Key? key,
-    required this.walletId
-  }) : super(key: key);
+  const HistoryPage({Key? key, required this.walletId}) : super(key: key);
 
   final String walletId;
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => HistoryPageBloc(walletId, getIt(), getIt())
         ..add(HistoryPageLoadEvent()),
       child: BlocBuilder<HistoryPageBloc, HistoryPageState>(
-        builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(state.wallet.description.replaceAll('\n', ' '))
-            ),
-            body: ListView(
+          builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+              title: Text(state.wallet.description.replaceAll('\n', ' '))),
+          body: ListView(
               padding: const EdgeInsets.all(p8),
-              children: state.wallet.history.map(
-                (hn) => Padding(
-                  padding: const EdgeInsets.only(top: p8), 
-                  child: HistoryNodeWidget(
-                    historyNode: hn, 
-                    allTags: state.tags,
-                    walletId: walletId
-                  )
-                )
-              ).toList()
-            ),
-          );
-        }
-      ),
+              children: state.wallet.history
+                  .map((hn) => Padding(
+                      padding: const EdgeInsets.only(top: p8),
+                      child: HistoryNodeWidget(
+                          historyNode: hn,
+                          allTags: state.tags,
+                          walletId: walletId)))
+                  .toList()),
+        );
+      }),
     );
   }
 }

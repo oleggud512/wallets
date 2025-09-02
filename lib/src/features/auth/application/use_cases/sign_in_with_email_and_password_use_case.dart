@@ -10,7 +10,8 @@ class SignInWithEmailAndPasswordUseCase {
 
   SignInWithEmailAndPasswordUseCase(this.repo);
 
-  Future<Either<FirebaseAuthException, void>> call(String email, String password) async {
+  Future<Either<FirebaseAuthException, void>> call(
+      String email, String password) async {
     final res = await repo.signInWithEmailAndPassword(email, password);
     return res;
   }

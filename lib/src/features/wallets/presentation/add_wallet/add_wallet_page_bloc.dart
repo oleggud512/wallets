@@ -8,7 +8,6 @@ class AddWalletPageBloc extends Bloc<AddWalletPageEvent, AddWalletPageState> {
   final AddWalletUseCase addWalletUseCase;
 
   AddWalletPageBloc(this.addWalletUseCase) : super(AddWalletPageState()) {
-
     on<AddWalletPageDescriptionChangedEvent>((event, emit) {
       emit(state.copyWith(description: event.description));
     });
@@ -23,10 +22,9 @@ class AddWalletPageBloc extends Bloc<AddWalletPageEvent, AddWalletPageState> {
 
     on<AddWalletPageAddWalletEvent>((event, emit) async {
       await addWalletUseCase.call(
-        amount: state.amount,
-        description: state.description, 
-        currency: state.currency
-      );
+          amount: state.amount,
+          description: state.description,
+          currency: state.currency);
       event.onComplete();
     });
   }

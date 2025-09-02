@@ -17,18 +17,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final router = context.read<AppRouter>();
     final themeBloc = context.watch<ThemeBloc>();
-    
+
     return MaterialApp.router(
       routerConfig: router.config(),
-      
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-
       themeMode: themeBloc.state,
       theme: themeBloc.lightTheme,
       darkTheme: themeBloc.darkTheme,
-      
       debugShowCheckedModeBanner: false,
     );
   }

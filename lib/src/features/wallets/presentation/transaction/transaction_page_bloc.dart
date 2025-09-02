@@ -5,28 +5,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../history/domain/entities/history_node.dart';
 
-class TransactionPageBloc extends Bloc<TransactionPageEvent, TransactionPageState> {
-
+class TransactionPageBloc
+    extends Bloc<TransactionPageEvent, TransactionPageState> {
   final WalletAction _action;
   final String walletId;
 
   final MakeTransactionUseCase makeTransactionUseCase;
 
   TransactionPageBloc(
-    this.makeTransactionUseCase, 
-    this.walletId, 
-    WalletAction action
-  ) : _action = action, super(TransactionPageState()) {
-
+      this.makeTransactionUseCase, this.walletId, WalletAction action)
+      : _action = action,
+        super(TransactionPageState()) {
     on<TransactionPageMakeTransactionEvent>((event, emit) async {
       if (state.tag == null) return;
       await makeTransactionUseCase(
-        walletId, 
-        _action, 
-        state.tag!.name,
-        state.amount, 
-        state.description
-      );
+          walletId, _action, state.tag!.name, state.amount, state.description);
     });
 
     on<TransactionPageTagChangedEvent>((event, emit) {

@@ -8,7 +8,7 @@ abstract interface class Localizable {
   String get localeKey;
 }
 
-enum EmailError implements Localizable { 
+enum EmailError implements Localizable {
   invalid(LocaleKeys.emailErrors_invalid),
   notFound(LocaleKeys.emailErrors_notFound);
 
@@ -30,20 +30,22 @@ enum PasswordError implements Localizable {
 class Email extends FormzInput<String, EmailError> with EquatableMixin {
   const Email.dirty({String value = ''}) : super.dirty(value);
   const Email.pure({String value = ''}) : super.pure(value);
-  
+
   @override
   EmailError? validator(String value) {
     if (emailRegex.hasMatch(value)) return null;
     return EmailError.invalid;
   }
-  
+
   @override
   List<Object?> get props => [value];
 }
 
 class Password extends FormzInput<String, PasswordError> with EquatableMixin {
-  const Password.dirty({String value = '', this.confirmationPassword}) : super.dirty(value);
-  const Password.pure({String value = '', this.confirmationPassword}) : super.pure(value);
+  const Password.dirty({String value = '', this.confirmationPassword})
+      : super.dirty(value);
+  const Password.pure({String value = '', this.confirmationPassword})
+      : super.pure(value);
 
   final Password? confirmationPassword;
 
@@ -52,19 +54,19 @@ class Password extends FormzInput<String, PasswordError> with EquatableMixin {
   // /// but then I will need to reassign confirmation password again and again...
   // Password copyWith({String? value, Password? confirmationPassword}) {
   //   return Password.dirty(
-  //     value: value ?? this.value, 
+  //     value: value ?? this.value,
   //     confirmationPassword: confirmationPassword
   //   );
   // }
-  
+
   @override
   PasswordError? validator(String value) {
     if (!passwordRegex.hasMatch(value)) return PasswordError.invalid;
-    if (confirmationPassword != null && confirmationPassword!.value != value) return PasswordError.dontMatch;
+    if (confirmationPassword != null && confirmationPassword!.value != value)
+      return PasswordError.dontMatch;
     return null;
   }
-  
+
   @override
   List<Object?> get props => [value, confirmationPassword];
 }
-

@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'email_verification_page_state.dart';
 
-class EmailVerificationPageBloc 
+class EmailVerificationPageBloc
     extends Bloc<EmailVerificationPageEvent, EmailVerificationPageState> {
   final SendVerificationMailUseCase sendMail;
   final SignOutUseCase signOut;
@@ -19,13 +19,10 @@ class EmailVerificationPageBloc
   Timer? ticker;
 
   EmailVerificationPageBloc(
-    this.sendMail, 
-    this.signOut, 
-    this.refresh, 
-    this.repo
-  ) : super(EmailVerificationPageState.awaiting) {
-
-    on<EmailVerificationPageSendEmailEvent>((event, emit) async { // TODO: should not be called twice... it's bad... 
+      this.sendMail, this.signOut, this.refresh, this.repo)
+      : super(EmailVerificationPageState.awaiting) {
+    on<EmailVerificationPageSendEmailEvent>((event, emit) async {
+      // TODO: should not be called twice... it's bad...
       await sendMail();
       emit(EmailVerificationPageState.awaiting);
     });
@@ -37,10 +34,9 @@ class EmailVerificationPageBloc
 
     on<EmailVerificationPageCheckVerifiedEvent>((event, emit) async {
       await refresh();
-      emit(repo.isEmailVerified 
-        ? EmailVerificationPageState.success 
-        : EmailVerificationPageState.awaiting);
+      emit(repo.isEmailVerified
+          ? EmailVerificationPageState.success
+          : EmailVerificationPageState.awaiting);
     });
   }
-
 }

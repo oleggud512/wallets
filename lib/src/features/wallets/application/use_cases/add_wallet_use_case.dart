@@ -9,15 +9,12 @@ class AddWalletUseCase {
 
   AddWalletUseCase(this.repo);
 
-  Future<void> call({ 
+  Future<void> call({
     String description = '',
     String currency = '',
-    double amount = 0, 
+    double amount = 0,
   }) async {
-    await repo.addWallet(Wallet(
-      amount: amount, 
-      currency: currency, 
-      description: description
-    ));
+    await repo.addWallet(
+        Wallet(amount: amount, currency: currency, description: description));
   }
 }

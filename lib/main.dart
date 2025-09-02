@@ -23,9 +23,7 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // init firebase
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseDatabase.instance.setPersistenceEnabled(true);
 
   // init ads
@@ -39,26 +37,21 @@ void main() async {
 
   // init dependency injection
   await configureDependencies();
-  
+
   // init localization
   await EasyLocalization.ensureInitialized();
 
   // remove splash screen when initialization done
   FlutterNativeSplash.remove();
-  
+
   runApp(EasyLocalization(
     supportedLocales: AppLocale.values.map((l) => l.l).toList(),
     path: AppAssets.transaltions,
     fallbackLocale: AppLocale.en.l,
     assetLoader: const CodegenLoader(),
-    child: MultiProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => ThemeBloc()..add(ThemeLoadEvent())
-        ),
-        ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
-      ],
-      child: const MyApp() 
-    ),
+    child: MultiProvider(providers: [
+      BlocProvider(create: (_) => ThemeBloc()..add(ThemeLoadEvent())),
+      ChangeNotifierProvider(create: (_) => getIt<AppRouter>()),
+    ], child: const MyApp()),
   ));
 }

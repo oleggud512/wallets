@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:ads_pay_app/src/core/common/constants/sizes.dart';
@@ -16,7 +15,6 @@ import '../../../../core/presentation/localization/locale_keys.g.dart';
 import '../../../../router.dart';
 import 'email_verification_page_state.dart';
 
-
 @RoutePage()
 class EmailVerificationPage extends StatefulWidget {
   const EmailVerificationPage({Key? key}) : super(key: key);
@@ -30,12 +28,14 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
 
   @override
   void initState() {
-    Timer.periodic(const Duration(seconds: 3), (timer) { 
+    Timer.periodic(const Duration(seconds: 3), (timer) {
       bloc?.add(EmailVerificationPageCheckVerifiedEvent());
     });
     super.initState();
   }
-  void onResend() async { // TODO: or better `onResend(BuildContext context)`, as I did before?
+
+  void onResend() async {
+    // TODO: or better `onResend(BuildContext context)`, as I did before?
     bloc!.add(EmailVerificationPageSendEmailEvent());
   }
 
@@ -46,53 +46,53 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => EmailVerificationPageBloc(getIt(), getIt(), getIt(), getIt())
-        ..add(EmailVerificationPageSendEmailEvent()),
-      child: BlocConsumer<EmailVerificationPageBloc, EmailVerificationPageState>(
-        listener: (context, state) {
-          switch (state) {
-            case EmailVerificationPageState.success: 
-              context.autoRotuer.replaceAll([const WalletsRoute()]);
-              break;
-            case EmailVerificationPageState.cancelled:
-              context.autoRotuer.replaceAll([const LoginRoute()]);
-              break;
-            default: break;
-          }
-        },
-        builder: (context, state) {
-          bloc ??= context.read<EmailVerificationPageBloc>();
-          return Scaffold(
+      create: (_) =>
+          EmailVerificationPageBloc(getIt(), getIt(), getIt(), getIt())
+            ..add(EmailVerificationPageSendEmailEvent()),
+      child:
+          BlocConsumer<EmailVerificationPageBloc, EmailVerificationPageState>(
+              listener: (context, state) {
+        switch (state) {
+          case EmailVerificationPageState.success:
+            context.autoRotuer.replaceAll([const WalletsRoute()]);
+            break;
+          case EmailVerificationPageState.cancelled:
+            context.autoRotuer.replaceAll([const LoginRoute()]);
+            break;
+          default:
+            break;
+        }
+      }, builder: (context, state) {
+        bloc ??= context.read<EmailVerificationPageBloc>();
+        return Scaffold(
             appBar: AppBar(
-              title: Text(getIt<AuthRepository>().currentUser?.email ?? 
-                context.tr(LocaleKeys.noEmail)),
+              title: Text(getIt<AuthRepository>().currentUser?.email ??
+                  context.tr(LocaleKeys.noEmail)),
               centerTitle: true,
             ),
             body: Padding(
               padding: const EdgeInsets.all(p16),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(context.tr(LocaleKeys.verificationMailMessage),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  FilledButton.icon(
-                    icon: const Icon(Icons.email),
-                    label: Text(context.tr(LocaleKeys.resendEmail)),
-                    onPressed: onResend,
-                  ),
-                  TextButton(
-                    onPressed: onCancel,
-                    child: Text(context.tr(LocaleKeys.cancel)),
-                  ),
-                ]
-              ),
-            )
-          );
-        }
-      ),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      context.tr(LocaleKeys.verificationMailMessage),
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    FilledButton.icon(
+                      icon: const Icon(Icons.email),
+                      label: Text(context.tr(LocaleKeys.resendEmail)),
+                      onPressed: onResend,
+                    ),
+                    TextButton(
+                      onPressed: onCancel,
+                      child: Text(context.tr(LocaleKeys.cancel)),
+                    ),
+                  ]),
+            ));
+      }),
     );
   }
 }

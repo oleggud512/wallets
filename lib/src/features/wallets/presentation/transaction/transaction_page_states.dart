@@ -6,9 +6,8 @@ part 'transaction_page_states.freezed.dart';
 
 @freezed
 class TransactionPageState with _$TransactionPageState {
-  factory TransactionPageState({
-    Tag? tag,
-    @Default(0) double amount,
-    @Default('') String description
-  }) = _TransactionPageState;
+  factory TransactionPageState(
+      {Tag? tag,
+      @Default(0) double amount,
+      @Default('') String description}) = _TransactionPageState;
 }

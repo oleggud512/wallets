@@ -25,20 +25,23 @@ class FirebaseWalletsRepositoryImpl implements WalletsRepository {
 
   @override
   Future<void> updateWalletDescription(String wid, String newDescription) {
-    return source.userRef.child(FirebaseStrings.walletDescription(wid))
-      .set(newDescription);
+    return source.userRef
+        .child(FirebaseStrings.walletDescription(wid))
+        .set(newDescription);
   }
 
   @override
   Stream<List<Wallet>> watchWallets() {
     return source.userRef.child(FirebaseStrings.wallets).onValue.map(
-      (ev) => ev.snapshot.children.map(Wallet.fromDataSnapshot).toList()
-    );
+        (ev) => ev.snapshot.children.map(Wallet.fromDataSnapshot).toList());
   }
 
   @override
   Stream<Wallet> watchWallet(String id) {
-    return source.userRef.child(FirebaseStrings.wallets).child(id).onValue
-      .map((event) => Wallet.fromDataSnapshot(event.snapshot));
+    return source.userRef
+        .child(FirebaseStrings.wallets)
+        .child(id)
+        .onValue
+        .map((event) => Wallet.fromDataSnapshot(event.snapshot));
   }
 }

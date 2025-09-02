@@ -19,7 +19,6 @@ import 'features/wallets/presentation/wallets/wallets_page.dart';
 
 part 'router.gr.dart';
 
-
 @Singleton()
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
@@ -29,45 +28,36 @@ class AppRouter extends _$AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(
-      page: WalletsRoute.page, 
-      path: '/', 
-      initial: true, 
-      guards: [SignedInGuard(authRepo), EmailVerifiedGuard(authRepo)]
-    ),
-    AutoRoute(
-      page: EmailVerificationRoute.page,
-      path: '/login/email-verification',
-      guards: [SignedInGuard(authRepo)]
-    ),
-    AutoRoute(
-      page: HistoryRoute.page,
-      path: '/history'
-    ),
-    AutoRoute(
-      page: LoginRoute.page,
-      path: '/login',
-    ),
-    AutoRoute(
-      page: SettingsRoute.page,
-      path: '/settings',
-    ),
-    AutoRoute(
-      page: DeleteAccountRoute.page,
-      path: '/settings/delete-account',
-    ),
-    AutoRoute(
-      page: AddWalletRoute.page,
-      path: '/add-wallet',
-    ),
-    AutoRoute(
-      page: TransactionRoute.page,
-      path: '/transaction',
-    ),
-    AutoRoute(
-      page: TagsDialogRoute.page,
-      path: '/transaction/tags'
-    )
-  ];
-
+        AutoRoute(
+            page: WalletsRoute.page,
+            path: '/',
+            initial: true,
+            guards: [SignedInGuard(authRepo), EmailVerifiedGuard(authRepo)]),
+        AutoRoute(
+            page: EmailVerificationRoute.page,
+            path: '/login/email-verification',
+            guards: [SignedInGuard(authRepo)]),
+        AutoRoute(page: HistoryRoute.page, path: '/history'),
+        AutoRoute(
+          page: LoginRoute.page,
+          path: '/login',
+        ),
+        AutoRoute(
+          page: SettingsRoute.page,
+          path: '/settings',
+        ),
+        AutoRoute(
+          page: DeleteAccountRoute.page,
+          path: '/settings/delete-account',
+        ),
+        AutoRoute(
+          page: AddWalletRoute.page,
+          path: '/add-wallet',
+        ),
+        AutoRoute(
+          page: TransactionRoute.page,
+          path: '/transaction',
+        ),
+        AutoRoute(page: TagsDialogRoute.page, path: '/transaction/tags')
+      ];
 }

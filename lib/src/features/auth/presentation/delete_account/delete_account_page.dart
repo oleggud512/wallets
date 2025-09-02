@@ -18,37 +18,30 @@ class DeleteAccountPage extends StatelessWidget {
     final bloc = context.read<LoginFormBloc>();
     if (!bloc.state.isValid) return;
     final res = await getIt<DeleteAccountUseCase>()(
-      bloc.state.email.value, 
-      bloc.state.password.value
-    );
-    res.map((right) => AutoRouter.of(context).replaceAll([const WalletsRoute()]));
+        bloc.state.email.value, bloc.state.password.value);
+    res.map(
+        (right) => AutoRouter.of(context).replaceAll([const WalletsRoute()]));
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => LoginFormBloc(),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
+      child: Builder(builder: (context) {
+        return Scaffold(
             appBar: AppBar(title: Text(context.tr(LocaleKeys.deleteAccount))),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                children: [
-                  Text(context.tr(LocaleKeys.deleteAccountMessage)),
-                  h8gap,
-                  const LoginFormWidget(),
-                  FilledButton(
-                    onPressed: () => onDeleteAccountButton(context), 
-                    child: Text(context.tr(LocaleKeys.deleteAccount))
-                  )
-                ]
-              ),
-            )
-          );
-        }
-      ),
+              child: ListView(children: [
+                Text(context.tr(LocaleKeys.deleteAccountMessage)),
+                h8gap,
+                const LoginFormWidget(),
+                FilledButton(
+                    onPressed: () => onDeleteAccountButton(context),
+                    child: Text(context.tr(LocaleKeys.deleteAccount)))
+              ]),
+            ));
+      }),
     );
   }
 }

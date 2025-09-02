@@ -4,21 +4,19 @@ import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_pa
 import 'package:ads_pay_app/src/features/wallets/presentation/wallets/wallets_page_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class WalletsPageBloc extends Bloc<WalletsPageEvent, WalletsPageState> {
   DeleteWalletUseCase delteteWalletUseCase;
   WatchWalletsUseCase watchWalletsUseCase;
-  
-  WalletsPageBloc(this.delteteWalletUseCase, this.watchWalletsUseCase) : super(WalletsPageDefaultState(const [])) {
+
+  WalletsPageBloc(this.delteteWalletUseCase, this.watchWalletsUseCase)
+      : super(WalletsPageDefaultState(const [])) {
     on<WalletsPageStartEvent>((event, emit) async {
       final walletsStream = watchWalletsUseCase();
-      await emit.onEach(walletsStream, 
-        onData: (wallets) {
-          emit(WalletsPageDefaultState(wallets));
-        }
-      );
+      await emit.onEach(walletsStream, onData: (wallets) {
+        emit(WalletsPageDefaultState(wallets));
+      });
     });
-    
+
     on<WalletsPageDeleteWalletEvent>((event, emit) async {
       await delteteWalletUseCase(event.walletId);
     });

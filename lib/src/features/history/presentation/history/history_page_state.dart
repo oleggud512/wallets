@@ -7,8 +7,7 @@ part 'history_page_state.freezed.dart';
 
 @freezed
 class HistoryPageState with _$HistoryPageState {
-  factory HistoryPageState({
-    required Wallet wallet,
-    @Default([]) List<Tag> tags
-  }) = _HistoryPageState;
+  factory HistoryPageState(
+      {required Wallet wallet,
+      @Default([]) List<Tag> tags}) = _HistoryPageState;
 }

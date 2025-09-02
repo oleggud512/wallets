@@ -7,5 +7,4 @@ class HistoryPageEvent with _$HistoryPageEvent {
   factory HistoryPageEvent() = _HistoryPageEvent;
 
   factory HistoryPageEvent.load() = HistoryPageLoadEvent;
-
 }

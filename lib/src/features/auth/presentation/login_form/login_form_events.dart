@@ -7,10 +7,16 @@ part 'login_form_events.freezed.dart';
 class LoginFormEvent with _$LoginFormEvent {
   factory LoginFormEvent() = _LoginFormEvent;
 
-  factory LoginFormEvent.addPasswordError(PasswordError error) = LoginFormAddPasswordErrorEvent;
-  factory LoginFormEvent.addEmailError(EmailError error) = LoginFormAddEmailErrorEvent;
-  factory LoginFormEvent.emailChanged(String email) = LoginFormEmailChangedEvent;
-  factory LoginFormEvent.passwordChanged(String password) = LoginFormPasswordChangedEvent;
-  factory LoginFormEvent.confirmPasswordChanged(String confirmPassword) = LoginFormConfirmPasswordChangedEvent;
-  factory LoginFormEvent.setConfirmPassword(bool isConfirmPassword) = LoginFormSetConfirmPasswordEvent;
+  factory LoginFormEvent.addPasswordError(PasswordError error) =
+      LoginFormAddPasswordErrorEvent;
+  factory LoginFormEvent.addEmailError(EmailError error) =
+      LoginFormAddEmailErrorEvent;
+  factory LoginFormEvent.emailChanged(String email) =
+      LoginFormEmailChangedEvent;
+  factory LoginFormEvent.passwordChanged(String password) =
+      LoginFormPasswordChangedEvent;
+  factory LoginFormEvent.confirmPasswordChanged(String confirmPassword) =
+      LoginFormConfirmPasswordChangedEvent;
+  factory LoginFormEvent.setConfirmPassword(bool isConfirmPassword) =
+      LoginFormSetConfirmPasswordEvent;
 }

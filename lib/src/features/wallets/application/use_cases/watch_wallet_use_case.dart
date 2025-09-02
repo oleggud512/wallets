@@ -3,13 +3,12 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/entities/wallet.dart';
 
-
 @Injectable()
 class WatchWalletUseCase {
   final WalletsRepository repo;
 
   WatchWalletUseCase(this.repo);
-  
+
   Stream<Wallet> call(String id) {
     return repo.watchWallet(id);
   }

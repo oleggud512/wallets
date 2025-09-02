@@ -53,20 +53,18 @@ String colorToJson(Color color) {
 class Tag with _$Tag {
   factory Tag({
     required WalletAction action,
-    @Default('') 
-    String name,
-    @Default(Colors.grey) 
+    @Default('') String name,
+    @Default(Colors.grey)
     @JsonKey(toJson: colorToJson) // ignore: invalid_annotation_target
     Color color,
   }) = _Tag;
 
   factory Tag.fromDataSnapshot(DataSnapshot snapshot) {
     return Tag(
-      name: snapshot.key!,
-      action: snapshot.child('action').value as String == 'take' 
-        ? WalletAction.take 
-        : WalletAction.add,
-      color: Color(int.parse(snapshot.child('color').value.toString()))
-    );
+        name: snapshot.key!,
+        action: snapshot.child('action').value as String == 'take'
+            ? WalletAction.take
+            : WalletAction.add,
+        color: Color(int.parse(snapshot.child('color').value.toString())));
   }
 }

@@ -9,12 +9,11 @@ class LoginFormState extends Equatable with FormzMixin {
   final EmailError? emailError;
   final PasswordError? passwordError;
 
-  const LoginFormState({
-    this.email = const Email.pure(), 
-    this.password = const Password.pure(), 
-    this.emailError, 
-    this.passwordError
-  });
+  const LoginFormState(
+      {this.email = const Email.pure(),
+      this.password = const Password.pure(),
+      this.emailError,
+      this.passwordError});
 
   LoginFormState copyWith({
     Email? email,
@@ -23,21 +22,20 @@ class LoginFormState extends Equatable with FormzMixin {
     PasswordError? passwordError,
   }) {
     return LoginFormState(
-      email: email ?? this.email,
-      password: password ?? this.password,
-      emailError: emailError ?? this.emailError,
-      passwordError: passwordError ?? this.passwordError
-    );
+        email: email ?? this.email,
+        password: password ?? this.password,
+        emailError: emailError ?? this.emailError,
+        passwordError: passwordError ?? this.passwordError);
   }
-  
+
   @override
   List<Object?> get props => [email, password, emailError, passwordError];
-  
+
   @override
   List<FormzInput> get inputs => [email, password];
 }
 
 // extension PasswordMatch on LoginFormState {
-//   PasswordError? get passwordMatchError => 
+//   PasswordError? get passwordMatchError =>
 //     password.value == confirmPassword.value ? null : PasswordError.dontMatch;
 // }

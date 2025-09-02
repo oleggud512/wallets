@@ -5,8 +5,8 @@ class AppException implements Exception {
   AppException({this.error, this.message});
 }
 
-class DatabaseException extends AppException { }
+class DatabaseException extends AppException {}
 
-class NotEnoughMoneyException extends DatabaseException { }
+class NotEnoughMoneyException extends DatabaseException {}
 
-class AdLoadingFailed extends AppException { }
+class AdLoadingFailed extends AppException {}

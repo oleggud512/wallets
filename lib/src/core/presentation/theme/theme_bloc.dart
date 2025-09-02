@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'color_schemes.g.dart';
 
-
 class ThemeBloc extends Bloc<ThemeEvent, ThemeMode> {
   late final ThemeData lightTheme;
   late final ThemeData darkTheme;
@@ -33,22 +32,16 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeMode> {
 
   void initTheme() {
     var inputShape = InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(p8)
-      )
-    );
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(p8)));
 
     lightTheme = ThemeData(
-      useMaterial3: true, 
-      colorScheme: lightColorScheme,
-      inputDecorationTheme: inputShape
-    );
+        useMaterial3: true,
+        colorScheme: lightColorScheme,
+        inputDecorationTheme: inputShape);
 
     darkTheme = ThemeData(
-      useMaterial3: true, 
-      colorScheme: darkColorScheme,
-      inputDecorationTheme: inputShape
-    );
+        useMaterial3: true,
+        colorScheme: darkColorScheme,
+        inputDecorationTheme: inputShape);
   }
-
 }

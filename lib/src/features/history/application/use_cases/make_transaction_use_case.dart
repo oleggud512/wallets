@@ -9,18 +9,13 @@ class MakeTransactionUseCase {
   MakeTransactionUseCase(this.repo);
 
   Future<void> call(
-    String walletId, 
-    WalletAction action, 
-    String tagName,
-    double amount, 
-    [String description = '']
-  ) async {
+      String walletId, WalletAction action, String tagName, double amount,
+      [String description = '']) async {
     final data = HistoryNode(
-      action: action, 
-      tagName: tagName,
-      amount: amount, 
-      description: description
-    );
+        action: action,
+        tagName: tagName,
+        amount: amount,
+        description: description);
     await repo.makeTransaction(walletId, data);
   }
 }

@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class  LocaleKeys {
+abstract class LocaleKeys {
   static const save = 'save';
   static const description = 'description';
   static const english = 'english';
@@ -27,9 +27,12 @@ abstract class  LocaleKeys {
   static const verificationMailMessage = 'verificationMailMessage';
   static const resendEmail = 'resendEmail';
   static const cancel = 'cancel';
-  static const firebaseExceptions_tooManyRequests = 'firebaseExceptions.tooManyRequests';
-  static const firebaseExceptions_networkRequestFailed = 'firebaseExceptions.networkRequestFailed';
-  static const firebaseExceptions_wrongPassword = 'firebaseExceptions.wrongPassword';
+  static const firebaseExceptions_tooManyRequests =
+      'firebaseExceptions.tooManyRequests';
+  static const firebaseExceptions_networkRequestFailed =
+      'firebaseExceptions.networkRequestFailed';
+  static const firebaseExceptions_wrongPassword =
+      'firebaseExceptions.wrongPassword';
   static const firebaseExceptions = 'firebaseExceptions';
   static const confirmDeleteHistoryNode = 'confirmDeleteHistoryNode';
   static const confirmSignOut = 'confirmSignOut';
@@ -59,5 +62,4 @@ abstract class  LocaleKeys {
   static const take = 'take';
   static const confirmDeleteWallet = 'confirmDeleteWallet';
   static const addFirstWalletHelperText = 'addFirstWalletHelperText';
-
 }

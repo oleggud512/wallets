@@ -4,7 +4,7 @@ import '../../../../router.dart';
 import '../../domain/repositories/auth_repository.dart';
 
 /// Checks if the user is signed in.
-/// Redirects to the login page if he isn't. 
+/// Redirects to the login page if he isn't.
 class SignedInGuard extends AutoRouteGuard {
   final AuthRepository repo;
 
