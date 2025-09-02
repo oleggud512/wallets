@@ -6,7 +6,7 @@ part 'login_page_states.freezed.dart';
 enum LoginPageMode { signIn, singUp }
 
 @freezed
-class LoginPageState with _$LoginPageState {
+sealed class LoginPageState with _$LoginPageState {
   factory LoginPageState(
       {@Default(LoginPageMode.signIn) LoginPageMode pageMode,
       @Default(false) isLoading,

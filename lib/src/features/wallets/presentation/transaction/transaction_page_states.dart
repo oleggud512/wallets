@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'transaction_page_states.freezed.dart';
 
 @freezed
-class TransactionPageState with _$TransactionPageState {
+sealed class TransactionPageState with _$TransactionPageState {
   factory TransactionPageState(
       {Tag? tag,
       @Default(0) double amount,

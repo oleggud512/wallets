@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'email_verification_events.freezed.dart';
 
 @freezed
-class EmailVerificationPageEvent with _$EmailVerificationPageEvent {
+sealed class EmailVerificationPageEvent with _$EmailVerificationPageEvent {
   factory EmailVerificationPageEvent() = _EmailVerificationPageEvent;
 
   factory EmailVerificationPageEvent.sendEmail() =

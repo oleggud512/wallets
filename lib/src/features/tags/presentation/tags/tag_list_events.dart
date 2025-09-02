@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'tag_list_events.freezed.dart';
 
 @freezed
-class TagListEvent with _$TagListEvent {
+sealed class TagListEvent with _$TagListEvent {
   factory TagListEvent() = _TagListEvent;
 
   factory TagListEvent.load() = TagListLoadEvent;

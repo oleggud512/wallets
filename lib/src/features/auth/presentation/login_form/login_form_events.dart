@@ -4,7 +4,7 @@ import 'login_form_validation.dart';
 part 'login_form_events.freezed.dart';
 
 @freezed
-class LoginFormEvent with _$LoginFormEvent {
+sealed class LoginFormEvent with _$LoginFormEvent {
   factory LoginFormEvent() = _LoginFormEvent;
 
   factory LoginFormEvent.addPasswordError(PasswordError error) =

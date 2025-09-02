@@ -74,72 +74,96 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 extension GetItInjectableX on _i174.GetIt {
-// initializes the registration of main-scope dependencies inside of GetIt
+  // initializes the registration of main-scope dependencies inside of GetIt
   Future<_i174.GetIt> initialize({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
-    final gh = _i526.GetItHelper(
-      this,
-      environment,
-      environmentFilter,
-    );
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
     await gh.singletonAsync<_i1021.CurrencyProvider>(
       () => _i406.RootBundleCurrencyProviderImpl.init(),
       preResolve: true,
     );
     gh.singleton<_i595.AuthRepository>(
-        () => _i991.FirebaseAuthRepositoryImpl());
+      () => _i991.FirebaseAuthRepositoryImpl(),
+    );
     gh.factory<_i159.SignOutUseCase>(
-        () => _i159.SignOutUseCase(gh<_i595.AuthRepository>()));
+      () => _i159.SignOutUseCase(gh<_i595.AuthRepository>()),
+    );
     gh.factory<_i523.GetCurrentUserUseCase>(
-        () => _i523.GetCurrentUserUseCase(gh<_i595.AuthRepository>()));
-    gh.factory<_i908.SignInWithEmailAndPasswordUseCase>(() =>
-        _i908.SignInWithEmailAndPasswordUseCase(gh<_i595.AuthRepository>()));
+      () => _i523.GetCurrentUserUseCase(gh<_i595.AuthRepository>()),
+    );
+    gh.factory<_i908.SignInWithEmailAndPasswordUseCase>(
+      () => _i908.SignInWithEmailAndPasswordUseCase(gh<_i595.AuthRepository>()),
+    );
     gh.factory<_i437.SendVerificationMailUseCase>(
-        () => _i437.SendVerificationMailUseCase(gh<_i595.AuthRepository>()));
+      () => _i437.SendVerificationMailUseCase(gh<_i595.AuthRepository>()),
+    );
     gh.factory<_i566.RefreshUserUseCase>(
-        () => _i566.RefreshUserUseCase(gh<_i595.AuthRepository>()));
+      () => _i566.RefreshUserUseCase(gh<_i595.AuthRepository>()),
+    );
     gh.factory<_i233.DeleteAccountUseCase>(
-        () => _i233.DeleteAccountUseCase(gh<_i595.AuthRepository>()));
-    gh.factory<_i642.SignUpWithEmailAndPasswordUseCase>(() =>
-        _i642.SignUpWithEmailAndPasswordUseCase(gh<_i595.AuthRepository>()));
+      () => _i233.DeleteAccountUseCase(gh<_i595.AuthRepository>()),
+    );
+    gh.factory<_i642.SignUpWithEmailAndPasswordUseCase>(
+      () => _i642.SignUpWithEmailAndPasswordUseCase(gh<_i595.AuthRepository>()),
+    );
     gh.singleton<_i569.FirebaseUserDataSource>(
-        () => _i569.FirebaseUserDataSource(gh<_i523.GetCurrentUserUseCase>()));
-    gh.singleton<_i824.TagsRepository>(() =>
-        _i643.FirebaseTagsRepositoryImpl(gh<_i569.FirebaseUserDataSource>()));
+      () => _i569.FirebaseUserDataSource(gh<_i523.GetCurrentUserUseCase>()),
+    );
+    gh.singleton<_i824.TagsRepository>(
+      () =>
+          _i643.FirebaseTagsRepositoryImpl(gh<_i569.FirebaseUserDataSource>()),
+    );
     gh.singleton<_i589.AppRouter>(
-        () => _i589.AppRouter(gh<_i595.AuthRepository>()));
+      () => _i589.AppRouter(gh<_i595.AuthRepository>()),
+    );
     gh.factory<_i965.DeleteTagUseCase>(
-        () => _i965.DeleteTagUseCase(gh<_i824.TagsRepository>()));
+      () => _i965.DeleteTagUseCase(gh<_i824.TagsRepository>()),
+    );
     gh.factory<_i570.AddTagUseCase>(
-        () => _i570.AddTagUseCase(gh<_i824.TagsRepository>()));
+      () => _i570.AddTagUseCase(gh<_i824.TagsRepository>()),
+    );
     gh.factory<_i401.FetchTagUseCase>(
-        () => _i401.FetchTagUseCase(gh<_i824.TagsRepository>()));
+      () => _i401.FetchTagUseCase(gh<_i824.TagsRepository>()),
+    );
     gh.factory<_i1037.WatchTagsUseCase>(
-        () => _i1037.WatchTagsUseCase(gh<_i824.TagsRepository>()));
-    gh.singleton<_i165.WalletsRepository>(() =>
-        _i178.FirebaseWalletsRepositoryImpl(
-            gh<_i569.FirebaseUserDataSource>()));
-    gh.singleton<_i665.HistoryRepository>(() =>
-        _i468.FirebaseHistoryRepositoryImpl(
-            gh<_i569.FirebaseUserDataSource>()));
+      () => _i1037.WatchTagsUseCase(gh<_i824.TagsRepository>()),
+    );
+    gh.singleton<_i165.WalletsRepository>(
+      () => _i178.FirebaseWalletsRepositoryImpl(
+        gh<_i569.FirebaseUserDataSource>(),
+      ),
+    );
+    gh.singleton<_i665.HistoryRepository>(
+      () => _i468.FirebaseHistoryRepositoryImpl(
+        gh<_i569.FirebaseUserDataSource>(),
+      ),
+    );
     gh.factory<_i121.DeleteWalletUseCase>(
-        () => _i121.DeleteWalletUseCase(gh<_i165.WalletsRepository>()));
+      () => _i121.DeleteWalletUseCase(gh<_i165.WalletsRepository>()),
+    );
     gh.factory<_i177.WatchWalletUseCase>(
-        () => _i177.WatchWalletUseCase(gh<_i165.WalletsRepository>()));
-    gh.factory<_i740.UpdateWalletDescriptionUseCase>(() =>
-        _i740.UpdateWalletDescriptionUseCase(gh<_i165.WalletsRepository>()));
+      () => _i177.WatchWalletUseCase(gh<_i165.WalletsRepository>()),
+    );
+    gh.factory<_i740.UpdateWalletDescriptionUseCase>(
+      () => _i740.UpdateWalletDescriptionUseCase(gh<_i165.WalletsRepository>()),
+    );
     gh.factory<_i494.AddWalletUseCase>(
-        () => _i494.AddWalletUseCase(gh<_i165.WalletsRepository>()));
+      () => _i494.AddWalletUseCase(gh<_i165.WalletsRepository>()),
+    );
     gh.factory<_i666.WatchWalletsUseCase>(
-        () => _i666.WatchWalletsUseCase(gh<_i165.WalletsRepository>()));
+      () => _i666.WatchWalletsUseCase(gh<_i165.WalletsRepository>()),
+    );
     gh.factory<_i233.MakeTransactionUseCase>(
-        () => _i233.MakeTransactionUseCase(gh<_i665.HistoryRepository>()));
+      () => _i233.MakeTransactionUseCase(gh<_i665.HistoryRepository>()),
+    );
     gh.factory<_i800.DeleteHistoryNodeUseCase>(
-        () => _i800.DeleteHistoryNodeUseCase(gh<_i665.HistoryRepository>()));
+      () => _i800.DeleteHistoryNodeUseCase(gh<_i665.HistoryRepository>()),
+    );
     gh.factory<_i671.UpdateHistoryNodeUseCase>(
-        () => _i671.UpdateHistoryNodeUseCase(gh<_i665.HistoryRepository>()));
+      () => _i671.UpdateHistoryNodeUseCase(gh<_i665.HistoryRepository>()),
+    );
     return this;
   }
 }

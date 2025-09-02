@@ -6,8 +6,9 @@ import '../../../tags/domain/entities/tag.dart';
 part 'history_page_state.freezed.dart';
 
 @freezed
-class HistoryPageState with _$HistoryPageState {
-  factory HistoryPageState(
-      {required Wallet wallet,
-      @Default([]) List<Tag> tags}) = _HistoryPageState;
+sealed class HistoryPageState with _$HistoryPageState {
+  factory HistoryPageState({
+    required Wallet wallet,
+    @Default([]) List<Tag> tags,
+  }) = _HistoryPageState;
 }

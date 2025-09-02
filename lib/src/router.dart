@@ -21,7 +21,7 @@ part 'router.gr.dart';
 
 @Singleton()
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   final AuthRepository authRepo;
 
   AppRouter(this.authRepo);
@@ -29,14 +29,16 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-            page: WalletsRoute.page,
-            path: '/',
-            initial: true,
-            guards: [SignedInGuard(authRepo), EmailVerifiedGuard(authRepo)]),
+          page: WalletsRoute.page,
+          path: '/',
+          initial: true,
+          guards: [SignedInGuard(authRepo), EmailVerifiedGuard(authRepo)],
+        ),
         AutoRoute(
-            page: EmailVerificationRoute.page,
-            path: '/login/email-verification',
-            guards: [SignedInGuard(authRepo)]),
+          page: EmailVerificationRoute.page,
+          path: '/login/email-verification',
+          guards: [SignedInGuard(authRepo)],
+        ),
         AutoRoute(page: HistoryRoute.page, path: '/history'),
         AutoRoute(
           page: LoginRoute.page,
@@ -58,6 +60,9 @@ class AppRouter extends _$AppRouter {
           page: TransactionRoute.page,
           path: '/transaction',
         ),
-        AutoRoute(page: TagsDialogRoute.page, path: '/transaction/tags')
+        AutoRoute(
+          page: TagsDialogRoute.page,
+          path: '/transaction/tags',
+        )
       ];
 }

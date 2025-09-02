@@ -14,7 +14,7 @@ part of 'router.dart';
 /// [AddWalletPage]
 class AddWalletRoute extends PageRouteInfo<void> {
   const AddWalletRoute({List<PageRouteInfo>? children})
-      : super(AddWalletRoute.name, initialChildren: children);
+    : super(AddWalletRoute.name, initialChildren: children);
 
   static const String name = 'AddWalletRoute';
 
@@ -30,7 +30,7 @@ class AddWalletRoute extends PageRouteInfo<void> {
 /// [DeleteAccountPage]
 class DeleteAccountRoute extends PageRouteInfo<void> {
   const DeleteAccountRoute({List<PageRouteInfo>? children})
-      : super(DeleteAccountRoute.name, initialChildren: children);
+    : super(DeleteAccountRoute.name, initialChildren: children);
 
   static const String name = 'DeleteAccountRoute';
 
@@ -46,7 +46,7 @@ class DeleteAccountRoute extends PageRouteInfo<void> {
 /// [EmailVerificationPage]
 class EmailVerificationRoute extends PageRouteInfo<void> {
   const EmailVerificationRoute({List<PageRouteInfo>? children})
-      : super(EmailVerificationRoute.name, initialChildren: children);
+    : super(EmailVerificationRoute.name, initialChildren: children);
 
   static const String name = 'EmailVerificationRoute';
 
@@ -66,10 +66,10 @@ class HistoryRoute extends PageRouteInfo<HistoryRouteArgs> {
     required String walletId,
     List<PageRouteInfo>? children,
   }) : super(
-          HistoryRoute.name,
-          args: HistoryRouteArgs(key: key, walletId: walletId),
-          initialChildren: children,
-        );
+         HistoryRoute.name,
+         args: HistoryRouteArgs(key: key, walletId: walletId),
+         initialChildren: children,
+       );
 
   static const String name = 'HistoryRoute';
 
@@ -109,7 +109,7 @@ class HistoryRouteArgs {
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
-      : super(LoginRoute.name, initialChildren: children);
+    : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
@@ -125,7 +125,7 @@ class LoginRoute extends PageRouteInfo<void> {
 /// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})
-      : super(SettingsRoute.name, initialChildren: children);
+    : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
@@ -145,10 +145,10 @@ class TagsDialogRoute extends PageRouteInfo<TagsDialogRouteArgs> {
     required WalletAction action,
     List<PageRouteInfo>? children,
   }) : super(
-          TagsDialogRoute.name,
-          args: TagsDialogRouteArgs(key: key, action: action),
-          initialChildren: children,
-        );
+         TagsDialogRoute.name,
+         args: TagsDialogRouteArgs(key: key, action: action),
+         initialChildren: children,
+       );
 
   static const String name = 'TagsDialogRoute';
 
@@ -193,10 +193,10 @@ class TransactionRoute extends PageRouteInfo<TransactionRouteArgs> {
     required Wallet wallet,
     List<PageRouteInfo>? children,
   }) : super(
-          TransactionRoute.name,
-          args: TransactionRouteArgs(key: key, action: action, wallet: wallet),
-          initialChildren: children,
-        );
+         TransactionRoute.name,
+         args: TransactionRouteArgs(key: key, action: action, wallet: wallet),
+         initialChildren: children,
+       );
 
   static const String name = 'TransactionRoute';
 
@@ -246,7 +246,7 @@ class TransactionRouteArgs {
 /// [WalletsPage]
 class WalletsRoute extends PageRouteInfo<void> {
   const WalletsRoute({List<PageRouteInfo>? children})
-      : super(WalletsRoute.name, initialChildren: children);
+    : super(WalletsRoute.name, initialChildren: children);
 
   static const String name = 'WalletsRoute';
 

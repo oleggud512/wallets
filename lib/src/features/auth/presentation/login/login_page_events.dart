@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'login_page_events.freezed.dart';
 
 @freezed
-class LoginPageEvent with _$LoginPageEvent {
+sealed class LoginPageEvent with _$LoginPageEvent {
   factory LoginPageEvent() = _LoginPageEvent;
 
   factory LoginPageEvent.submit(VoidCallback onSuccess) = LoginPageSubmitEvent;

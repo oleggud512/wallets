@@ -50,7 +50,7 @@ String colorToJson(Color color) {
 }
 
 @Freezed(toJson: true, fromJson: false)
-class Tag with _$Tag {
+sealed class Tag with _$Tag {
   factory Tag({
     required WalletAction action,
     @Default('') String name,
