@@ -1,4 +1,4 @@
-package com.miterwort.wallets
+package com.sandgars.ads_pay_app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -98,7 +98,7 @@ class _AddWalletPageState extends State<AddWalletPage> {
                               if (!formKey.currentState!.validate()) return;
 
                               bloc.add(AddWalletPageAddWalletEvent(() {
-                                if (mounted) context.popRoute();
+                                if (mounted) context.pop();
                               }));
                             })
                       ]),

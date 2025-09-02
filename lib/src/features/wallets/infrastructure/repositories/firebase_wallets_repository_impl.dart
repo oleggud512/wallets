@@ -15,7 +15,9 @@ class FirebaseWalletsRepositoryImpl implements WalletsRepository {
   Future<void> addWallet(Wallet wallet) async {
     var walletRef = source.userRef.child(FirebaseStrings.wallets).push();
     wallet.wid = walletRef.key!;
+    print('update....');
     await walletRef.update(wallet.toJson());
+    print('updated....');
   }
 
   @override

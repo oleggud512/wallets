@@ -21,10 +21,10 @@ import '../../../tags/presentation/tag/tag_widget.dart';
 @RoutePage()
 class TransactionPage extends StatefulWidget {
   const TransactionPage({
-    Key? key,
+    super.key,
     required this.action,
     required this.wallet,
-  }) : super(key: key);
+  });
 
   final WalletAction action;
   final Wallet wallet;
@@ -48,27 +48,28 @@ class _TransactionPageState extends State<TransactionPage> {
     loadBanAd();
   }
 
-  loadIntAd() {
-    InterstitialAd.load(
-        adUnitId: AdDefaultOptions.interstitialAdUnitId,
-        request: const AdRequest(),
-        adLoadCallback: InterstitialAdLoadCallback(
-          onAdLoaded: (ad) {
-            ad.fullScreenContentCallback =
-                FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
-              glogger.i('int onAdDismissedFullScreenContent');
-            });
-            intAd = ad;
-            glogger.i('int onAdLoaded');
-            // print('req\nreq\n\nreq\nreq\n');
-          },
-          onAdFailedToLoad: (err) {
-            glogger.i('int onAdFailedToLoad');
-          },
-        ));
+  Future<void> loadIntAd() async {
+    await InterstitialAd.load(
+      adUnitId: AdDefaultOptions.interstitialAdUnitId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          ad.fullScreenContentCallback =
+              FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
+            glogger.i('int onAdDismissedFullScreenContent');
+          });
+          intAd = ad;
+          glogger.i('int onAdLoaded');
+          // print('req\nreq\n\nreq\nreq\n');
+        },
+        onAdFailedToLoad: (err) {
+          glogger.i('int onAdFailedToLoad');
+        },
+      ),
+    );
   }
 
-  loadBanAd() {
+  Future<void> loadBanAd() async {
     banAd = BannerAd(
       adUnitId: AdDefaultOptions.bannerAdUnitId,
       request: const AdRequest(),
@@ -84,28 +85,29 @@ class _TransactionPageState extends State<TransactionPage> {
         },
       ),
     );
-    banAd.load();
+    await banAd.load();
   }
 
-  pickTag(BuildContext context) async {
+  Future<void> pickTag(BuildContext context) async {
     Tag? tag = await showDialog(
       context: context,
       builder: (_) => TagsDialog(action: widget.action),
     );
 
-    if (!mounted || tag == null) return;
+    if (!context.mounted || tag == null) return;
     context
         .read<TransactionPageBloc>()
         .add(TransactionPageTagChangedEvent(tag));
   }
 
-  makeTransaction(BuildContext context) async {
+  Future<void> makeTransaction(BuildContext context) async {
     if (amountKey.currentState!.validate()) {
       context
           .read<TransactionPageBloc>()
           .add(TransactionPageMakeTransactionEvent());
-      if (mounted) context.popRoute();
-      intAd?.show().then((v) => intAd!.dispose());
+      if (mounted) context.pop();
+      await intAd?.show();
+      intAd!.dispose();
     }
   }
 
@@ -114,9 +116,9 @@ class _TransactionPageState extends State<TransactionPage> {
     return BlocProvider(
       create: (_) => TransactionPageBloc(getIt(), wallet.wid, widget.action),
       child: BlocBuilder<TransactionPageBloc, TransactionPageState>(
-          builder: (context, state) {
-        final bloc = context.read<TransactionPageBloc>();
-        return Scaffold(
+        builder: (context, state) {
+          final bloc = context.read<TransactionPageBloc>();
+          return Scaffold(
             resizeToAvoidBottomInset: true,
             appBar: AppBar(
               title: Text(widget.action.name.toUpperCase()),
@@ -126,67 +128,69 @@ class _TransactionPageState extends State<TransactionPage> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: SingleChildScrollView(
                 child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (banAd.responseInfo != null)
-                        SizedBox(
-                          height: 50,
-                          child: AdWidget(ad: banAd),
-                        ),
-                      h8gap,
-                      buildTagPicker(context, state.tag),
-                      h8gap,
-                      TextFormField(
-                        key: amountKey,
-                        keyboardType: TextInputType.number,
-                        onChanged: (v) {
-                          bloc.add(TransactionPageAmountChangedEvent(
-                              double.parse(v.replaceAll(',', '.'))));
-                        },
-                        validator: (v) {
-                          double val = double.parse(v!.isEmpty ? '0' : v);
-                          if (val < 0) {
-                            return context
-                                .tr(LocaleKeys.greaterThenZeroWarning);
-                          } else if (widget.action == WalletAction.take &&
-                              val > wallet.amount) {
-                            return context.tr(LocaleKeys.notEnoughMoneyWarning,
-                                args: [
-                                  wallet.amount.toString(),
-                                  wallet.currency
-                                ]);
-                          }
-                          return null;
-                        },
-                        decoration: InputDecoration(
-                            labelText: context.tr(LocaleKeys.amount)),
-                      ),
-                      h8gap,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (banAd.responseInfo != null)
                       SizedBox(
-                        height: 200,
-                        child: TextFormField(
-                          textAlignVertical: TextAlignVertical.top,
-                          maxLength: 255,
-                          expands: true,
-                          maxLines: null,
-                          minLines: null,
-                          decoration: InputDecoration(
-                            labelText: context.tr(LocaleKeys.description),
-                            alignLabelWithHint: true,
-                          ),
-                          onChanged: (v) {
-                            bloc.add(TransactionPageDescriptionChangedEvent(v));
-                          },
+                        height: 50,
+                        child: AdWidget(ad: banAd),
+                      ),
+                    h8gap,
+                    buildTagPicker(context, state.tag),
+                    h8gap,
+                    TextFormField(
+                      key: amountKey,
+                      keyboardType: TextInputType.number,
+                      onChanged: (v) {
+                        bloc.add(TransactionPageAmountChangedEvent(
+                            double.parse(v.replaceAll(',', '.'))));
+                      },
+                      validator: (v) {
+                        double val = double.parse(v!.isEmpty ? '0' : v);
+                        if (val < 0) {
+                          return context.tr(LocaleKeys.greaterThenZeroWarning);
+                        } else if (widget.action == WalletAction.take &&
+                            val > wallet.amount) {
+                          return context.tr(LocaleKeys.notEnoughMoneyWarning,
+                              args: [
+                                wallet.amount.toString(),
+                                wallet.currency
+                              ]);
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: context.tr(LocaleKeys.amount)),
+                    ),
+                    h8gap,
+                    SizedBox(
+                      height: 200,
+                      child: TextFormField(
+                        textAlignVertical: TextAlignVertical.top,
+                        maxLength: 255,
+                        expands: true,
+                        maxLines: null,
+                        minLines: null,
+                        decoration: InputDecoration(
+                          labelText: context.tr(LocaleKeys.description),
+                          alignLabelWithHint: true,
                         ),
+                        onChanged: (v) {
+                          bloc.add(TransactionPageDescriptionChangedEvent(v));
+                        },
                       ),
-                      FilledButton(
-                        onPressed: () => makeTransaction(context),
-                        child: Text(context.tr(widget.action.name)),
-                      ),
-                    ]),
+                    ),
+                    FilledButton(
+                      onPressed: () => makeTransaction(context),
+                      child: Text(context.tr(widget.action.name)),
+                    ),
+                  ],
+                ),
               ),
-            ));
-      }),
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -195,17 +199,20 @@ class _TransactionPageState extends State<TransactionPage> {
       borderRadius: BorderRadius.circular(p8),
       onTap: () => pickTag(context),
       child: Container(
-          height: p56,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey.shade600),
-              borderRadius: BorderRadius.circular(p8)),
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          alignment: Alignment.centerLeft,
-          child: TagWidget(
-              tag: tag ??
-                  Tag(
-                      action: widget.action,
-                      name: context.tr(LocaleKeys.chooseCategory)))),
+        height: p56,
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey.shade600),
+            borderRadius: BorderRadius.circular(p8)),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        alignment: Alignment.centerLeft,
+        child: TagWidget(
+          tag: tag ??
+              Tag(
+                action: widget.action,
+                name: context.tr(LocaleKeys.chooseCategory),
+              ),
+        ),
+      ),
     );
   }
 

@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -9,122 +10,52 @@
 
 part of 'router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AddWalletRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AddWalletPage(),
-      );
-    },
-    DeleteAccountRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DeleteAccountPage(),
-      );
-    },
-    EmailVerificationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const EmailVerificationPage(),
-      );
-    },
-    HistoryRoute.name: (routeData) {
-      final args = routeData.argsAs<HistoryRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: HistoryPage(
-          key: args.key,
-          walletId: args.walletId,
-        ),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LoginPage(),
-      );
-    },
-    SettingsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SettingsPage(),
-      );
-    },
-    TagsDialogRoute.name: (routeData) {
-      final args = routeData.argsAs<TagsDialogRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: TagsDialog(
-          key: args.key,
-          action: args.action,
-        ),
-      );
-    },
-    TransactionRoute.name: (routeData) {
-      final args = routeData.argsAs<TransactionRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: TransactionPage(
-          key: args.key,
-          action: args.action,
-          wallet: args.wallet,
-        ),
-      );
-    },
-    WalletsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const WalletsPage(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [AddWalletPage]
 class AddWalletRoute extends PageRouteInfo<void> {
   const AddWalletRoute({List<PageRouteInfo>? children})
-      : super(
-          AddWalletRoute.name,
-          initialChildren: children,
-        );
+      : super(AddWalletRoute.name, initialChildren: children);
 
   static const String name = 'AddWalletRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AddWalletPage();
+    },
+  );
 }
 
 /// generated route for
 /// [DeleteAccountPage]
 class DeleteAccountRoute extends PageRouteInfo<void> {
   const DeleteAccountRoute({List<PageRouteInfo>? children})
-      : super(
-          DeleteAccountRoute.name,
-          initialChildren: children,
-        );
+      : super(DeleteAccountRoute.name, initialChildren: children);
 
   static const String name = 'DeleteAccountRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DeleteAccountPage();
+    },
+  );
 }
 
 /// generated route for
 /// [EmailVerificationPage]
 class EmailVerificationRoute extends PageRouteInfo<void> {
   const EmailVerificationRoute({List<PageRouteInfo>? children})
-      : super(
-          EmailVerificationRoute.name,
-          initialChildren: children,
-        );
+      : super(EmailVerificationRoute.name, initialChildren: children);
 
   static const String name = 'EmailVerificationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const EmailVerificationPage();
+    },
+  );
 }
 
 /// generated route for
@@ -136,24 +67,23 @@ class HistoryRoute extends PageRouteInfo<HistoryRouteArgs> {
     List<PageRouteInfo>? children,
   }) : super(
           HistoryRoute.name,
-          args: HistoryRouteArgs(
-            key: key,
-            walletId: walletId,
-          ),
+          args: HistoryRouteArgs(key: key, walletId: walletId),
           initialChildren: children,
         );
 
   static const String name = 'HistoryRoute';
 
-  static const PageInfo<HistoryRouteArgs> page =
-      PageInfo<HistoryRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<HistoryRouteArgs>();
+      return HistoryPage(key: args.key, walletId: args.walletId);
+    },
+  );
 }
 
 class HistoryRouteArgs {
-  const HistoryRouteArgs({
-    this.key,
-    required this.walletId,
-  });
+  const HistoryRouteArgs({this.key, required this.walletId});
 
   final Key? key;
 
@@ -163,34 +93,48 @@ class HistoryRouteArgs {
   String toString() {
     return 'HistoryRouteArgs{key: $key, walletId: $walletId}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! HistoryRouteArgs) return false;
+    return key == other.key && walletId == other.walletId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ walletId.hashCode;
 }
 
 /// generated route for
 /// [LoginPage]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
-      : super(
-          LoginRoute.name,
-          initialChildren: children,
-        );
+      : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LoginPage();
+    },
+  );
 }
 
 /// generated route for
 /// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})
-      : super(
-          SettingsRoute.name,
-          initialChildren: children,
-        );
+      : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SettingsPage();
+    },
+  );
 }
 
 /// generated route for
@@ -202,24 +146,23 @@ class TagsDialogRoute extends PageRouteInfo<TagsDialogRouteArgs> {
     List<PageRouteInfo>? children,
   }) : super(
           TagsDialogRoute.name,
-          args: TagsDialogRouteArgs(
-            key: key,
-            action: action,
-          ),
+          args: TagsDialogRouteArgs(key: key, action: action),
           initialChildren: children,
         );
 
   static const String name = 'TagsDialogRoute';
 
-  static const PageInfo<TagsDialogRouteArgs> page =
-      PageInfo<TagsDialogRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<TagsDialogRouteArgs>();
+      return TagsDialog(key: args.key, action: args.action);
+    },
+  );
 }
 
 class TagsDialogRouteArgs {
-  const TagsDialogRouteArgs({
-    this.key,
-    required this.action,
-  });
+  const TagsDialogRouteArgs({this.key, required this.action});
 
   final Key? key;
 
@@ -229,6 +172,16 @@ class TagsDialogRouteArgs {
   String toString() {
     return 'TagsDialogRouteArgs{key: $key, action: $action}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! TagsDialogRouteArgs) return false;
+    return key == other.key && action == other.action;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ action.hashCode;
 }
 
 /// generated route for
@@ -241,18 +194,23 @@ class TransactionRoute extends PageRouteInfo<TransactionRouteArgs> {
     List<PageRouteInfo>? children,
   }) : super(
           TransactionRoute.name,
-          args: TransactionRouteArgs(
-            key: key,
-            action: action,
-            wallet: wallet,
-          ),
+          args: TransactionRouteArgs(key: key, action: action, wallet: wallet),
           initialChildren: children,
         );
 
   static const String name = 'TransactionRoute';
 
-  static const PageInfo<TransactionRouteArgs> page =
-      PageInfo<TransactionRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<TransactionRouteArgs>();
+      return TransactionPage(
+        key: args.key,
+        action: args.action,
+        wallet: args.wallet,
+      );
+    },
+  );
 }
 
 class TransactionRouteArgs {
@@ -272,18 +230,30 @@ class TransactionRouteArgs {
   String toString() {
     return 'TransactionRouteArgs{key: $key, action: $action, wallet: $wallet}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! TransactionRouteArgs) return false;
+    return key == other.key && action == other.action && wallet == other.wallet;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ action.hashCode ^ wallet.hashCode;
 }
 
 /// generated route for
 /// [WalletsPage]
 class WalletsRoute extends PageRouteInfo<void> {
   const WalletsRoute({List<PageRouteInfo>? children})
-      : super(
-          WalletsRoute.name,
-          initialChildren: children,
-        );
+      : super(WalletsRoute.name, initialChildren: children);
 
   static const String name = 'WalletsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const WalletsPage();
+    },
+  );
 }

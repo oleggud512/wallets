@@ -62,19 +62,19 @@ class _TagsDialogState extends State<TagsDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(p8)),
-        child: SizedBox(
-            height: 400,
-            width: 400,
-            child: BlocProvider(
-              create: (_) =>
-                  TagListBloc(widget.action, getIt(), getIt(), getIt())
-                    ..add(TagListLoadEvent()),
-              child: BlocBuilder<TagListBloc, TagListState>(
-                  builder: (context, state) {
-                final bloc = context.read<TagListBloc>();
-                return ListView(children: [
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(p8)),
+      child: SizedBox(
+        height: 400,
+        width: 400,
+        child: BlocProvider(
+          create: (_) => TagListBloc(widget.action, getIt(), getIt(), getIt())
+            ..add(TagListLoadEvent()),
+          child: BlocBuilder<TagListBloc, TagListState>(
+            builder: (context, state) {
+              final bloc = context.read<TagListBloc>();
+              return ListView(
+                children: [
                   h16gap,
                   ListTile(
                     title: TextFormField(
@@ -132,18 +132,23 @@ class _TagsDialogState extends State<TagsDialog> {
                   for (Tag tag
                       in state.tags.where((tag) => tag.action == widget.action))
                     ListTile(
-                        title: Row(
-                          children: [TagWidget(tag: tag), const Spacer()],
-                        ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () => onDeleteTag(context, tag),
-                        ),
-                        onTap: () {
-                          context.popRoute(tag);
-                        })
-                ]);
-              }),
-            )));
+                      title: Row(
+                        children: [TagWidget(tag: tag), const Spacer()],
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () => onDeleteTag(context, tag),
+                      ),
+                      onTap: () {
+                        context.pop(tag);
+                      },
+                    )
+                ],
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }
